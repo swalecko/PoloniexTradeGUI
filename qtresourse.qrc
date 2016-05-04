@@ -1,0 +1,5 @@
+<RCC>
+    <qresource prefix="/">
+        <file>XMRicon.png</file>
+    </qresource>
+</RCC>
