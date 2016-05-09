@@ -6,6 +6,7 @@ from PyQt5.QtWidgets import QGridLayout, QLabel, QLineEdit
 from PyQt5.QtWidgets import QTextEdit, QWidget, QDialog, QApplication, QMainWindow, QTableWidgetItem
 from PyQt5.QtCore import QThread
 import thread
+import thread2
 import key
 import ui_ResourceFile
 
@@ -19,7 +20,14 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow):
         _translate = QtCore.QCoreApplication.translate
         self.lnSellPrice.setText(_translate("MainWindow", str(0.0))) 
         self.lnSellAmount.setText(_translate("MainWindow", str(0.0)))
-        self.lnSellTotal.setText(_translate("MainWindow", str(0.0))) 
+        self.lnSellTotal.setText(_translate("MainWindow", str(0.0)))
+        self.lnBuyPrice.setText(_translate("MainWindow", str(0.0))) 
+        self.lnBuyAmount.setText(_translate("MainWindow", str(0.0)))
+        self.lnBuyTotal.setText(_translate("MainWindow", str(0.0))) 
+
+        self.lnPublicKey.setPlaceholderText("Place here your Public Key from Poloniex..")
+        self.lnSecretKey.setPlaceholderText("Place here your Secret Key from Poloniex..")
+
 
 
 
@@ -59,9 +67,16 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow):
     def setLcdMoneroinclIO(self, moneroinclio):
         _translate = QtCore.QCoreApplication.translate
         self.lcdMoneroinclO.display(_translate("MainWindow", moneroinclio))
+    def setLcdEthereuminclIO(self, ethereuminclio):
+        _translate = QtCore.QCoreApplication.translate
+        self.lcdEthereuminclO.display(_translate("MainWindow", ethereuminclio))
     def setSellBTCTotal(self, sellbtctotal):
         _translate = QtCore.QCoreApplication.translate
         self.lnSellTotal.setText(_translate("MainWindow", str(sellbtctotal)))
+    def setBuyXMRAmount(self, buyxmramount):
+        _translate = QtCore.QCoreApplication.translate
+        self.lnBuyAmount.setText(_translate("MainWindow", str(buyxmramount)))
+
 
 
 
@@ -77,6 +92,10 @@ def main():
     myThread.start()
     myThread.clickBuy()
     myThread.clickSell()
+    myThread.clickSaveConfiguration()
+    myThread.cancelOrder()
+    myThread2 = thread2.Thread2(form)
+    myThread2.start()
     sys.exit(app.exec_())
 
 

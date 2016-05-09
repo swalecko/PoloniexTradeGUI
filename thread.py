@@ -28,17 +28,16 @@ class Thread(QThread):
         
 
         poloInstance = polowrapper.poloniex(self.PUBLIC_KEY, self.SECRET_KEY)
-        retBalances = poloInstance.returnBalances()
-        retTicker = poloInstance.returnTicker()
+        
         
         while True:
+
+            retBalances = poloInstance.returnBalances()
+            retTicker = poloInstance.returnTicker()
 
 
             self.ui.setCurrency("XMR_BTC")
             self.ui.setPrice(retTicker['BTC_XMR']['last'])
-            self.price = retTicker['BTC_XMR']['last']
-            #self.ui.setUSDPrice(xmrusd.getUSDPrice())
-            #print (xmrusd.getUSDPrice())
             self.ui.setHigh(retTicker['BTC_XMR']['high24hr'])
             self.ui.setLow(retTicker['BTC_XMR']['low24hr'])
             self.ui.setChange(str(round(float(retTicker['BTC_XMR']['percentChange'])*100,2)) + " %")
@@ -49,43 +48,65 @@ class Thread(QThread):
             self.ui.setLcdMonero(xmr)
             self.ui.setLcdBitcoin(btc)
             self.ui.setLcdEthereum(eth)
-            print (xmr)
-            print (btc)
+            print ("Balance: " + str(xmr))
+            print ("Balance: " + str(btc))
+            print ("Balance: " +  str(eth))
          
             retHistoryXMR = poloInstance.returnTradeHistory("BTC_XMR")
+            retHistoryETH = poloInstance.returnTradeHistory("BTC_ETH")
             countHistoryXMR = len(retHistoryXMR)
-            retOpenOrders = poloInstance.returnOpenOrders("BTC_XMR")
-            countOpenOrders = len(retOpenOrders)
-            print ("HistoryXMR" + str(countHistoryXMR))
+            countHistoryETH = len(retHistoryETH)
+            retOpenOrdersXMR = poloInstance.returnOpenOrders("BTC_XMR")
+            retOpenOrdersETH = poloInstance.returnOpenOrders("BTC_ETH")
+            print (retOpenOrdersXMR)
+            print (retOpenOrdersETH)
+            countOpenOrdersXMR = len(retOpenOrdersXMR)
+            countOpenOrdersETH = len(retOpenOrdersETH)
 
-            count = 0
-            for i in range(countOpenOrders):
-                OOAmount = float(retOpenOrders[i]["amount"])
-                count = OOAmount + OOAmount 
-                print (count)
-            XMRCompleteAmount = count + float(xmr)
+            print ("HistoryXMR " + str(countHistoryXMR))
+            print ("HistoryETH " + str(countHistoryETH))
+
+            countXMR = 0
+            OOAmountXMR = 0
+
+            for i in range(countOpenOrdersXMR):
+                OOAmountXMR = float(retOpenOrdersXMR[i]["amount"])
+                countXMR =+ OOAmountXMR 
+            XMRCompleteAmount = countXMR + float(xmr)
             self.ui.setLcdMoneroinclIO(str(XMRCompleteAmount))
             
-
+            countETH = 0
+            OOAmountETH = 0
+            for i in range(countOpenOrdersETH):
+            	OOAmountETH = float(retOpenOrdersETH[i]["amount"])
+            	print ("OOAmountETH: " + str(OOAmountETH))
+            	countETH =+ OOAmountETH
+            	print ("countETH: " + str(countETH))
+            ETHCompleteAmount = format(countETH + float(eth), '.8f')
+            print (ETHCompleteAmount)
+            self.ui.setLcdEthereuminclIO(str(ETHCompleteAmount))
                         
-            print (countOpenOrders)
+            
+
+
+            print ("Open Orders: " + str(countOpenOrdersXMR))
             self.ui.OpenOrdersWidget.clearContents()
             self.ui.HistoryWidget.clearContents()
            
-            for i in range(countOpenOrders):
+            for i in range(countOpenOrdersXMR):
         
-                self.ui.OpenOrdersWidget.setItem(i,0, QTableWidgetItem(retOpenOrders[i]["orderNumber"]))
-                self.ui.OpenOrdersWidget.setItem(i,1, QTableWidgetItem(retOpenOrders[i]["type"]))
-                self.ui.OpenOrdersWidget.setItem(i,2, QTableWidgetItem(retOpenOrders[i]["rate"]))
-                self.ui.OpenOrdersWidget.setItem(i,3, QTableWidgetItem(retOpenOrders[i]["startingAmount"]))
-                self.ui.OpenOrdersWidget.setItem(i,4, QTableWidgetItem(retOpenOrders[i]["amount"]))
-                if retOpenOrders[i]["type"] == "sell":
+                self.ui.OpenOrdersWidget.setItem(i,0, QTableWidgetItem(retOpenOrdersXMR[i]["orderNumber"]))
+                self.ui.OpenOrdersWidget.setItem(i,1, QTableWidgetItem(retOpenOrdersXMR[i]["type"]))
+                self.ui.OpenOrdersWidget.setItem(i,2, QTableWidgetItem(retOpenOrdersXMR[i]["rate"]))
+                self.ui.OpenOrdersWidget.setItem(i,3, QTableWidgetItem(retOpenOrdersXMR[i]["startingAmount"]))
+                self.ui.OpenOrdersWidget.setItem(i,4, QTableWidgetItem(retOpenOrdersXMR[i]["amount"]))
+                if retOpenOrdersXMR[i]["type"] == "sell":
                     self.ui.OpenOrdersWidget.item(i, 1).setBackground(QtGui.QColor(176,10,49))
                     self.ui.OpenOrdersWidget.item(i, 1).setForeground(QtGui.QColor(255,255,255))
                 else:
                     self.ui.OpenOrdersWidget.item(i, 1).setBackground(QtGui.QColor(10,189,82))
 
-            
+            print ("Count History XMR: " + str(countHistoryXMR))
             if countHistoryXMR != 0:
 
                 for i in range(countHistoryXMR):
@@ -102,48 +123,66 @@ class Thread(QThread):
                     else:
                         self.ui.HistoryWidget.item(i, 1).setBackground(QtGui.QColor(10,189,82))
             
-            else:
-                continue
 
+            #read Input for trading for using in def calcSellBTCTotal and calcBuyXMRAmount
             self.SellreadBTCprice = self.ui.lnSellPrice.text()
             self.SellreadBTCprice = float(self.SellreadBTCprice)
             self.SellreadXMRAmount = self.ui.lnSellAmount.text()
             self.SellreadXMRAmount = float(self.SellreadXMRAmount)
-
-            # if self.SellreadBTCprice or self.SellreadXMRAmount == "":
-            #     print ("Sell price or amount empty")
-            #     continue
-            # else:
             self.calcSellBTCTotal(self.SellreadBTCprice, self.SellreadXMRAmount)
+
+            self.BuyreadBTCprice = self.ui.lnBuyPrice.text()
+            self.BuyreadBTCprice = float(self.BuyreadBTCprice)
+            
+            self.BuyreadBTCTotal = self.ui.lnBuyTotal.text()
+            
+            try:
+                self.BuyreadBTCTotal = float(self.BuyreadBTCTotal)
+            except ValueError:
+                continue
+            self.calcBuyXMRAmount(self.BuyreadBTCprice, self.BuyreadBTCTotal)
 
 
 
             self.sleep (1)
 
+    def cancelOrder(self):
+      
+        
+        self.ui.OpenOrdersWidget.cellDoubleClicked.connect(self.double_clicked)
+    def double_clicked(self, row , column):
+        test = self.ui.OpenOrdersWidget.currentItem().text()
+        print ("cell double clicked" + test)
+
     def calcSellBTCTotal(self, sellreadbtcprice, sellreadxmramount):
         self.sellreadbtcprice = sellreadbtcprice
         self.sellreadxmramount = sellreadxmramount
 
-        resultSellBTCTotal = self.sellreadbtcprice*self.sellreadxmramount
-        self.ui.setSellBTCTotal(resultSellBTCTotal)
-        return (resultSellBTCTotal)
+        print (self.sellreadbtcprice)
+        print (self.sellreadxmramount)
+        self.resultSellBTCTotal = self.sellreadbtcprice*self.sellreadxmramount
+        self.ui.setSellBTCTotal(self.resultSellBTCTotal)
 
+
+    def calcBuyXMRAmount(self, buyreadbtcprice, buyreadbtctotal):
+        self.buyreadbtcprice = buyreadbtcprice
+        self.buyreadbtctotal = buyreadbtctotal
+
+        try:
+            self.resultBuyXMRAmount = self.buyreadbtctotal/self.buyreadbtcprice
+        except ZeroDivisionError:
+            self.resultBuyXMRAmount = 0.0
+            
+        self.ui.setBuyXMRAmount(self.resultBuyXMRAmount)
 
     
-
-
-
-
-
 
     def clickBuy(self):
         self.ui.buyButton.clicked.connect(self.clickedBuy)
     def clickedBuy(self):
-        poloInstance = polowrapper.poloniex(self.PUBLIC_KEY, self.SECRET_KEY)
-
-        
+        poloInstance = polowrapper.poloniex(self.PUBLIC_KEY, self.SECRET_KEY)       
         try:
-            exeBuy = poloInstance.buy("BTC_XMR",self.SellreadBTCprice,self.buyTotalAmount)
+            exeBuy = poloInstance.buy("BTC_XMR",self.BuyreadBTCprice,self.resultBuyXMRAmount)
             print ("Buy Order executed")
         except:
             print ("Buy Order not executed")
@@ -154,11 +193,21 @@ class Thread(QThread):
         self.ui.sellButton.clicked.connect(self.clickedSell)
     def clickedSell(self):
         poloInstance = polowrapper.poloniex(self.PUBLIC_KEY, self.SECRET_KEY)
- 
-    
-
         try:
             exeSell = poloInstance.sell("BTC_XMR",self.SellreadBTCprice, self.SellreadXMRAmount)
             print ("Sell Order executed")
         except:
             print ("Sell Order not executed")      
+
+    def clickSaveConfiguration(self):
+        self.ui.saveButton.clicked.connect(self.clickedSaveConfiguration)
+    def clickedSaveConfiguration(self):
+        inputPublicKey = self.ui.lnPublicKey.text()
+        inputSecretKey = self.ui.lnSecretKey.text()
+
+        with open("key.py", "w") as keyfile:
+            keyfile.write("PUBLIC_KEY = '" + inputPublicKey + "' \nSECRET_KEY = '" + inputSecretKey + "'")
+
+    
+        print (inputPublicKey)
+        print (inputSecretKey)
