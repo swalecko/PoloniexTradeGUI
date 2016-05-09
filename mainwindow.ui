@@ -702,6 +702,10 @@
        </property>
       </item>
      </widget>
+     <zorder>OpenOrdersWidget</zorder>
+     <zorder>mdiArea</zorder>
+     <zorder>quickWidget_2</zorder>
+     <zorder>quickWidget</zorder>
     </widget>
     <widget class="QWidget" name="History">
      <attribute name="title">
@@ -1965,7 +1969,7 @@
      </item>
     </layout>
    </widget>
-   <widget class="QLabel" name="label">
+   <widget class="QLabel" name="lblCancelOrderInfo">
     <property name="geometry">
      <rect>
       <x>44</x>
@@ -1995,7 +1999,7 @@
    <zorder>tabWidget</zorder>
    <zorder>lblMyBalances</zorder>
    <zorder>lblEthereuminclO</zorder>
-   <zorder>label</zorder>
+   <zorder>lblCancelOrderInfo</zorder>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

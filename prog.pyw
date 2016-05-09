@@ -25,8 +25,8 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow):
         self.lnBuyAmount.setText(_translate("MainWindow", str(0.0)))
         self.lnBuyTotal.setText(_translate("MainWindow", str(0.0))) 
 
-        self.lnPublicKey.setPlaceholderText("Place here your Public Key from Poloniex..")
-        self.lnSecretKey.setPlaceholderText("Place here your Secret Key from Poloniex..")
+        self.lnPublicKey.setPlaceholderText("Insert your Poloniex Public key..")
+        self.lnSecretKey.setPlaceholderText("Insert your Poloniex Secret key..")
 
 
 
@@ -36,7 +36,7 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow):
         icon.addPixmap(QtGui.QPixmap(":/XMRicon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         menu.setWindowIcon(icon)
         _translate = QtCore.QCoreApplication.translate
-        menu.setWindowTitle(_translate("MainWindow", "Poloniex Trader by Sebastian King Walecko"))
+        menu.setWindowTitle(_translate("MainWindow", "Poloniex Trader"))
     def setLcdMonero(self,lcdmonero):
         _translate = QtCore.QCoreApplication.translate
         self.lcdMonero.display(_translate("MainWindow", lcdmonero))
@@ -52,9 +52,10 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow):
     def setCurrency(self, currency):
         _translate = QtCore.QCoreApplication.translate
         self.lnCurrency.setText(_translate("MainWindow", str(currency)))         
-    def setPrice(self, price):
+    def setPrice(self, price, color):
         _translate = QtCore.QCoreApplication.translate
         self.lnPriceBTC.setText(_translate("MainWindow", str(price)))
+        self.lnPriceBTC.setStyleSheet("border: 3px solid " + color + ";")
     def setHigh(self, high):
         _translate = QtCore.QCoreApplication.translate
         self.lnHigh.setText(_translate("MainWindow", str(high)))
