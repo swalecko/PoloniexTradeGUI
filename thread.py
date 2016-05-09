@@ -147,12 +147,13 @@ class Thread(QThread):
             self.sleep (1)
 
     def cancelOrder(self):
-      
-        
         self.ui.OpenOrdersWidget.cellDoubleClicked.connect(self.double_clicked)
-    def double_clicked(self, row , column):
-        test = self.ui.OpenOrdersWidget.currentItem().text()
-        print ("cell double clicked" + test)
+    def double_clicked(self):
+        poloInstance = polowrapper.poloniex(self.PUBLIC_KEY, self.SECRET_KEY)
+        orderNumberXMR = self.ui.OpenOrdersWidget.currentItem().text()
+        poloInstance.cancel("BTC_XMR", orderNumberXMR)
+
+        print ("cell double clicked" + orderNumberXMR)
 
     def calcSellBTCTotal(self, sellreadbtcprice, sellreadxmramount):
         self.sellreadbtcprice = sellreadbtcprice
