@@ -32,6 +32,7 @@ How to use:
     Example: 
     Installation: pip install pyinstaller
     Command Example: pyinstaller -w -n PoloTrader -i XMRicon.ico -F prog.pyw
+asdf
     lkasdjf
     More information for pyinstaller: http://www.pyinstaller.org/
 
