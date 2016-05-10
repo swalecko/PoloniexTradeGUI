@@ -31,9 +31,7 @@ How to use:
   - Use for example pyinstaller to create a package or a "one-file" for execution
     Example: 
     Installation: pip install pyinstaller
-    Command Example: pyinstaller -w -n PoloTrader -i XMRicon.ico -F prog.pyw
-asdf
-    lkasdjf
+    Command Example: pyinstaller -w -n PoloTrader -i XMRicon.ico -F prog.pyw  
     More information for pyinstaller: http://www.pyinstaller.org/
 
 
