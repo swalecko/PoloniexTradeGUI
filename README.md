@@ -31,7 +31,7 @@ Pre-Information:
   - Written in Python 3
 
 How to use:
-  - Execute the prog.pyw file
+  - Execute the prog.pyw file  
   Alternative:
   - Use for example pyinstaller to create a package or a "one-file" for execution
     Example: 
