@@ -32,8 +32,8 @@ How to use:
       second line: "SECRET_KEY ="     
       After that its possible to save the keys via the GUI.
   - Execute the prog.pyw file 
-  - Insert your Poloniex API keys which you generated in Poloniex and save them
-  - Happy trading :-)
+  - Insert your Poloniex API keys which you generated in Poloniex and save them  
+  - Happy trading :-)  
   Alternative:
   - Use for example pyinstaller to create a package or a "one-file" for execution
     Example: 
