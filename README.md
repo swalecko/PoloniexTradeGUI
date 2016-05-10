@@ -32,10 +32,12 @@ How to use:
     Example: 
     Installation: pip install pyinstaller
     Command Example: pyinstaller -w -n PoloTrader -i XMRicon.ico -F prog.pyw
-    -w create a one-file for execution (required) \n 
-    -n Final app name (optional) \n
-    -i Desktop Icon (optional) \n 
-    -F the main skript file (required) \n
+
+    -w create a one-file for execution (required) 
+    
+    -n Final app name (optional) 
+    -i Desktop Icon (optional)  
+    -F the main skript file (required) 
 
 
 
