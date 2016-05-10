@@ -20,8 +20,8 @@ It`s a Trading app for XMR and also ETH soon at the Poloniex exchange via the Po
   - There's more to come..
   
 **Pre-Information:**
-  - Based on QT 5.5.1
-  - Using QT Creator for the design
+  - Based on Qt 5.5.1
+  - Using Qt Creator for the design
   - Using Pyqt for the python code
   - Written in Python 3
   
