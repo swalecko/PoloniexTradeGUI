@@ -4,7 +4,7 @@ Donations: soon
 
 It`s a Trading app for XMR and also ETH soon at the Poloniex exchange via the Poloniex API.
 
-Current Features:
+**Current Features:**
   - Price informations XMRBTC, XMRUSD, ETHBTC
   - Balances for XMR, EMX included open orders, ETH, ETH included open orders, Bitcon
   - 24h High, 24h Low and 24h Change for XMR
@@ -15,17 +15,17 @@ Current Features:
     - Note: "A" Auto Button for setting current BTC price and Total BTC in the certain field
   - Configuration: Set and save the Poloniex Public and Secret Key
 
-Future Features:
+**Future Features:**
   - Adding ETH for trading and showing informations like open orders and history
   - There's more to come..
   
-Pre-Information:
+**Pre-Information:**
   - Based on QT 5.5.1
   - Using QT Creator for the design
   - Using Pyqt for the python code
   - Written in Python 3
 
-How to use:
+**How to use:**
   -   Create a "key.py" file in the same folder    
       Content of the key.py file should be:   
       first line: "PUBLIC_KEY ="   
@@ -42,7 +42,7 @@ How to use:
     More information for pyinstaller: http://www.pyinstaller.org/
 
 
-Screenshot:
+**Screenshot:**
 
 ![Screenshot](https://raw.github.com/swalecko/PoloTradeGui/master/Dashboard_screenshot.JPG?raw=true "Open Orders Tab")
 
