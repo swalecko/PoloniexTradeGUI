@@ -41,10 +41,9 @@ Trading app for XMR and also ETH soon at the Poloniex exchange via the Poloniex 
     **Important**: You need to restart the app to activate the keys
   - Happy trading :-)  
   Alternative:
-  - Use for example pyinstaller to create a package or a "one-file" for execution
-    Example: 
-    Installation: pip install pyinstaller
-    Command Example: pyinstaller -w -n PoloTrader -i XMRicon.ico -F prog.pyw  
+  - Use for example pyinstaller to create a package or a "one-file" for execution  
+    Installation: pip install pyinstaller  
+    Command Example: pyinstaller -w -n PoloTrader -i XMRicon.ico -F prog.pyw   
     More information for pyinstaller: http://www.pyinstaller.org/
 
 
