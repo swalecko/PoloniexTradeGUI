@@ -24,6 +24,10 @@ It`s a Trading app for XMR and also ETH soon at the Poloniex exchange via the Po
   - Using QT Creator for the design
   - Using Pyqt for the python code
   - Written in Python 3
+  
+**Requirements**
+  - Python 3
+  - PyQT5
 
 **How to use:**
   -   Create a "key.py" file in the same folder    
