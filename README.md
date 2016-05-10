@@ -25,7 +25,7 @@ It`s a Trading app for XMR and also ETH soon at the Poloniex exchange via the Po
   - Using Pyqt for the python code
   - Written in Python 3
   
-**Requirements**
+**Requirements:**
   - Python3   
     - Additional modules:  
       - json  
