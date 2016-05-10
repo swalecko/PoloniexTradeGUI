@@ -42,7 +42,7 @@ How to use:
 
 Screenshot:
 
-![Screenshot](https://raw.github.com/swalecko/PoloTradeGui/Dashboard_screenshot.JPG?raw=true "Open Orders Tab")
+![Screenshot](https://raw.github.com/swalecko/PoloTradeGui/master/Dashboard_screenshot.JPG?raw=true "Open Orders Tab")
 
 
 
