@@ -2,7 +2,7 @@ import requests
 import json
 from PyQt5.QtCore import QThread
 
-class Thread2(QThread):
+class Thread(QThread):
 
     def __init__(self, ui_instance):
         self.ui = ui_instance

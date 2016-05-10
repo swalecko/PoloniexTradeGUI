@@ -6,7 +6,7 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import QGridLayout, QLabel, QLineEdit
 from PyQt5.QtWidgets import QTextEdit, QWidget, QDialog, QApplication, QMainWindow, QTableWidgetItem
 from PyQt5.QtCore import QThread
-import xmrusd
+
 
 
 class Thread(QThread):
@@ -86,7 +86,12 @@ class Thread(QThread):
             ETHCompleteAmount = format(countETH + float(retBalances['ETH']), '.8f')
 
             self.ui.setLcdEthereuminclIO(str(ETHCompleteAmount))
+            
 
+            if countOpenOrdersXMR > self.ui.OpenOrdersWidget.rowCount():
+               self.ui.OpenOrdersWidget.setRowCount(countHistoryXMR)
+               print ("After setting rows Open Orders: " + str(self.ui.OpenOrdersWidget.rowCount()))
+               self.sleep(1)
  
             if countOpenOrdersXMR != 0:
                 self.ui.OpenOrdersWidget.clearContents()
@@ -103,6 +108,14 @@ class Thread(QThread):
                         self.ui.OpenOrdersWidget.item(i, 1).setForeground(QtGui.QColor(255,255,255))
                     else:
                         self.ui.OpenOrdersWidget.item(i, 1).setBackground(QtGui.QColor(10,189,82))
+
+            print ("countHistoryXMR: " + str(countHistoryXMR))
+            print ("rowcount: " + str(self.ui.HistoryWidget.rowCount()))
+
+            if countHistoryXMR > self.ui.HistoryWidget.rowCount():
+               self.ui.HistoryWidget.setRowCount(countHistoryXMR)
+               print ("After setting rows History: " + str(self.ui.HistoryWidget.rowCount()))
+               self.sleep(1)
 
 
             if countHistoryXMR != 0:

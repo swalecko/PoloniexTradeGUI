@@ -5,8 +5,8 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import QGridLayout, QLabel, QLineEdit
 from PyQt5.QtWidgets import QTextEdit, QWidget, QDialog, QApplication, QMainWindow, QTableWidgetItem
 from PyQt5.QtCore import QThread
-import thread
-import thread2
+import main_thread
+import thread_getusd
 import key
 import ui_ResourceFile
 
@@ -96,7 +96,7 @@ def main():
     form = MyGui()
     form.show()
     form.setMenu(form)
-    myThread = thread.Thread(form, key.PUBLIC_KEY, key.SECRET_KEY)
+    myThread = main_thread.Thread(form, key.PUBLIC_KEY, key.SECRET_KEY)
     myThread.start()
     myThread.clickBuy()
     myThread.clickSell()
@@ -104,8 +104,8 @@ def main():
     myThread.clickSellGetBTCPrice()
     myThread.clickBuyGetBTCTotal()
     myThread.cancelOrder()
-    myThread2 = thread2.Thread2(form)
-    myThread2.start()
+    myThread_getusd = thread_getusd.Thread(form)
+    myThread_getusd.start()
     sys.exit(app.exec_())
 
 

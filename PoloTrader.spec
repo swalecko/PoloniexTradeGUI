@@ -3,7 +3,7 @@
 block_cipher = None
 
 
-a = Analysis(['prog.pyw'],
+a = Analysis(['PoloTrader.pyw'],
              pathex=['C:\\Users\\swalecko\\Documents\\PoloTradeGui'],
              binaries=None,
              datas=None,

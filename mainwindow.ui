@@ -34,9 +34,9 @@
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>224</red>
-        <green>228</green>
-        <blue>235</blue>
+        <red>237</red>
+        <green>241</green>
+        <blue>247</blue>
        </color>
       </brush>
      </colorrole>
@@ -63,9 +63,9 @@
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>224</red>
-        <green>228</green>
-        <blue>235</blue>
+        <red>237</red>
+        <green>241</green>
+        <blue>247</blue>
        </color>
       </brush>
      </colorrole>
@@ -83,18 +83,18 @@
      <colorrole role="Base">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>224</red>
-        <green>228</green>
-        <blue>235</blue>
+        <red>237</red>
+        <green>241</green>
+        <blue>247</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>224</red>
-        <green>228</green>
-        <blue>235</blue>
+        <red>237</red>
+        <green>241</green>
+        <blue>247</blue>
        </color>
       </brush>
      </colorrole>
@@ -380,7 +380,7 @@
      <enum>QTabWidget::Triangular</enum>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <property name="movable">
      <bool>true</bool>
@@ -475,6 +475,9 @@
       <property name="frameShape">
        <enum>QFrame::StyledPanel</enum>
       </property>
+      <property name="frameShadow">
+       <enum>QFrame::Sunken</enum>
+      </property>
       <property name="lineWidth">
        <number>1</number>
       </property>
@@ -498,6 +501,9 @@
       </property>
       <attribute name="horizontalHeaderDefaultSectionSize">
        <number>151</number>
+      </attribute>
+      <attribute name="verticalHeaderVisible">
+       <bool>false</bool>
       </attribute>
       <row>
        <property name="text">
@@ -750,6 +756,12 @@
       </property>
       <attribute name="horizontalHeaderDefaultSectionSize">
        <number>151</number>
+      </attribute>
+      <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+       <bool>true</bool>
+      </attribute>
+      <attribute name="verticalHeaderVisible">
+       <bool>false</bool>
       </attribute>
       <row>
        <property name="text">
