@@ -20,4 +20,19 @@ Future Features:
   - Adding ETH for trading and showing informations like open orders and history
   - There's more to come..
   
-  
+Pre-Information:
+  - Using QT Creator for the design
+  - Using Pyqt for the python code
+  - Written in Python 3
+
+How to use:
+  - Execute the prog.pyw file
+  Alternative:
+  - Use for example pyinstaller to create a package or a "one-file" for execution
+    Example: 
+    Installation: pip install pyinstaller
+    Command Example: pyinstaller -w -n PoloTrader -i XMRicon.ico -F prog.pyw
+    -w create a one-file for execution (required)
+    -n Final app name (optional)
+    -i Desktop Icon (optional)
+    -F the main skript file (required)
