@@ -16,6 +16,7 @@ class Thread2(QThread):
 
     def run(self):
 
+        price = 0	
         while True:
 
             urlTicker = "https://www.cryptonator.com/api/ticker/xmr-usd"

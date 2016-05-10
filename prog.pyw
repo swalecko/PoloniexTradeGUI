@@ -29,14 +29,15 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow):
         self.lnSecretKey.setPlaceholderText("Insert your Poloniex Secret key..")
 
 
-
-
+    def setTaskWindowTitle(self, gui, price):
+        self.gui = gui
+        _translate = QtCore.QCoreApplication.translate
+        self.gui.setWindowTitle(_translate("MainWindow", str(price)))
     def setMenu(self, menu):
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap(":/XMRicon.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         menu.setWindowIcon(icon)
         _translate = QtCore.QCoreApplication.translate
-        menu.setWindowTitle(_translate("MainWindow", "Poloniex Trader"))
     def setLcdMonero(self,lcdmonero):
         _translate = QtCore.QCoreApplication.translate
         self.lcdMonero.display(_translate("MainWindow", lcdmonero))

@@ -34,9 +34,9 @@
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>238</red>
-        <green>238</green>
-        <blue>238</blue>
+        <red>224</red>
+        <green>228</green>
+        <blue>235</blue>
        </color>
       </brush>
      </colorrole>
@@ -63,9 +63,9 @@
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>238</red>
-        <green>238</green>
-        <blue>238</blue>
+        <red>224</red>
+        <green>228</green>
+        <blue>235</blue>
        </color>
       </brush>
      </colorrole>
@@ -83,18 +83,18 @@
      <colorrole role="Base">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>238</red>
-        <green>238</green>
-        <blue>238</blue>
+        <red>224</red>
+        <green>228</green>
+        <blue>235</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>238</red>
-        <green>238</green>
-        <blue>238</blue>
+        <red>224</red>
+        <green>228</green>
+        <blue>235</blue>
        </color>
       </brush>
      </colorrole>

@@ -35,19 +35,17 @@ class Thread(QThread):
             retBalances = poloInstance.returnBalances()
             retTicker = poloInstance.returnTicker()
 
-
+            self.ui.setTaskWindowTitle(self.ui, retTicker['BTC_XMR']['last'])
             
             currentPriceXMR = retTicker['BTC_XMR']['last']
             lastPriceXMR = self.ui.lnPriceBTC.text()
+            self.ui.setWindowTitle(retTicker['BTC_XMR']['last'])
             self.ui.setXMRPrice(retTicker['BTC_XMR']['last'])
             self.ui.setETHPrice(retTicker['BTC_ETH']['last'])
             self.ui.setHigh(retTicker['BTC_XMR']['high24hr'])
             self.ui.setLow(retTicker['BTC_XMR']['low24hr'])
             self.ui.setChange(str(round(float(retTicker['BTC_XMR']['percentChange'])*100,2)) + " %")
-            
-            # xmr = retBalances['XMR']
-            # btc = retBalances['BTC']
-            # eth = retBalances['ETH']
+
             self.ui.setLcdMonero(retBalances['XMR'])
             self.ui.setLcdBitcoin(retBalances['BTC'])
             self.ui.setLcdEthereum(retBalances['ETH'])
