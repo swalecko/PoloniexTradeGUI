@@ -21,6 +21,7 @@ Future Features:
   - There's more to come..
   
 Pre-Information:
+  - Based on QT 5.5.1
   - Using QT Creator for the design
   - Using Pyqt for the python code
   - Written in Python 3
