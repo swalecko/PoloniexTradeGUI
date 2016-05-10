@@ -36,3 +36,7 @@ How to use:
     -n Final app name (optional)
     -i Desktop Icon (optional)
     -F the main skript file (required)
+
+
+
+
