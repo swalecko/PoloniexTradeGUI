@@ -35,7 +35,7 @@ It`s a Trading app for XMR and also ETH soon at the Poloniex exchange via the Po
       first line: "PUBLIC_KEY ="   
       second line: "SECRET_KEY ="     
       After that its possible to save the keys via the GUI.  
-      **Important**: You need to restart the app to activate the the keys
+      **Important**: You need to restart the app to activate the keys
   - Execute the prog.pyw file 
   - Insert your Poloniex API keys which you generated in Poloniex and save them  
   - Happy trading :-)  
