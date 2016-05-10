@@ -36,6 +36,10 @@ How to use:
     More information for pyinstaller: http://www.pyinstaller.org/
 
 
+Screenshot:
+
+![Alt text](C:\Users\swalecko\Documents\PoloTradeGui\Dashboard_screenshot.JPG?raw=true "Open Orders Tab")
+
 
 
 
