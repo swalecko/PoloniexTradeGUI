@@ -26,18 +26,19 @@ It`s a Trading app for XMR and also ETH soon at the Poloniex exchange via the Po
   - Written in Python 3
   
 **Requirements**
-  - Python 3
+  - Python3   
+    - Additional modules:  
+      - json  
+      - requests  
   - PyQt5
 
 **How to use:**
-  -   Create a "key.py" file in the same folder    
-      Content of the key.py file should be:   
-      first line: "PUBLIC_KEY ="   
-      second line: "SECRET_KEY ="     
-      After that its possible to save the keys via the GUI.  
-      **Important**: You need to restart the app to activate the keys
-  - Execute the prog.pyw file 
-  - Insert your Poloniex API keys which you generated in Poloniex and save them  
+  - Execute the PoloTrader.pyw file 
+  - When you execute the app for the first time, you need to add your PUBLIC and SECRET API Keys and save them.  
+    A file "key.py" will be created with the following content:     
+    first line: "PUBLIC_KEY = '<key>'"   
+    second line: "SECRET_KEY = '<key>'"     
+    **Important**: You need to restart the app to activate the keys
   - Happy trading :-)  
   Alternative:
   - Use for example pyinstaller to create a package or a "one-file" for execution
