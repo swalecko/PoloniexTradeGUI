@@ -14,7 +14,9 @@ Current Features:
   - Trading: Buy and Sell XMR
     - Note: "A" Auto Button for setting current BTC price and Total BTC in the certain field
   - Configuration: Set and save the Poloniex Public and Secret Key
-    - Note: You need to create a "key.py" file in the same folder where the keys will be saved
+    - Note: You need to create a "key.py" file in the same folder where the keys will be saved:
+      Content of the key.py file should be: first line: "PUBLIC_KEY =" second line: "SECRET_KEY =".
+      After that its possible to save the keys via the GUI.
     
 Future Features:
   - Adding ETH for trading and showing informations like open orders and history
