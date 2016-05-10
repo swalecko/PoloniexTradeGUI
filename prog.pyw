@@ -48,14 +48,13 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow):
         self.lcdEthereum.display(_translate("MainWindow", lcdethereum)) 
     def setUSDPrice(self, usd):
         _translate = QtCore.QCoreApplication.translate
-        self.lnPriceUSD.setText(_translate("MainWindow", str(usd)))  
-    def setCurrency(self, currency):
-        _translate = QtCore.QCoreApplication.translate
-        self.lnCurrency.setText(_translate("MainWindow", str(currency)))         
-    def setPrice(self, price, color):
+        self.lnPriceUSD.setText(_translate("MainWindow", str(usd)))    
+    def setXMRPrice(self, price):
         _translate = QtCore.QCoreApplication.translate
         self.lnPriceBTC.setText(_translate("MainWindow", str(price)))
-        self.lnPriceBTC.setStyleSheet("border: 3px solid " + color + ";")
+    def setETHPrice(self, price):
+        _translate = QtCore.QCoreApplication.translate
+        self.lnPriceETH.setText(_translate("MainWindow", str(price)))
     def setHigh(self, high):
         _translate = QtCore.QCoreApplication.translate
         self.lnHigh.setText(_translate("MainWindow", str(high)))
@@ -74,9 +73,16 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow):
     def setSellBTCTotal(self, sellbtctotal):
         _translate = QtCore.QCoreApplication.translate
         self.lnSellTotal.setText(_translate("MainWindow", str(sellbtctotal)))
+    def setSellBTCPrice(self, sellbtcprice):
+        _translate = QtCore.QCoreApplication.translate
+        self.lnSellPrice.setText(_translate("MainWindow", str(sellbtcprice)))   
     def setBuyXMRAmount(self, buyxmramount):
         _translate = QtCore.QCoreApplication.translate
         self.lnBuyAmount.setText(_translate("MainWindow", str(buyxmramount)))
+    def setBuyBTCTotal(self, buybtctotal):
+        _translate = QtCore.QCoreApplication.translate
+        self.lnBuyTotal.setText(_translate("MainWindow", str(buybtctotal)))
+
 
 
 
@@ -94,6 +100,8 @@ def main():
     myThread.clickBuy()
     myThread.clickSell()
     myThread.clickSaveConfiguration()
+    myThread.clickSellGetBTCPrice()
+    myThread.clickBuyGetBTCTotal()
     myThread.cancelOrder()
     myThread2 = thread2.Thread2(form)
     myThread2.start()

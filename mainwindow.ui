@@ -380,7 +380,7 @@
      <enum>QTabWidget::Triangular</enum>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <property name="movable">
      <bool>true</bool>
@@ -702,10 +702,6 @@
        </property>
       </item>
      </widget>
-     <zorder>OpenOrdersWidget</zorder>
-     <zorder>mdiArea</zorder>
-     <zorder>quickWidget_2</zorder>
-     <zorder>quickWidget</zorder>
     </widget>
     <widget class="QWidget" name="History">
      <attribute name="title">
@@ -755,6 +751,111 @@
       <attribute name="horizontalHeaderDefaultSectionSize">
        <number>151</number>
       </attribute>
+      <row>
+       <property name="text">
+        <string/>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string/>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string/>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string/>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string/>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string/>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string/>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string/>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string/>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string/>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string/>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string/>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string/>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string/>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string/>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string/>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string/>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string/>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string/>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string/>
+       </property>
+      </row>
+      <row>
+       <property name="text">
+        <string/>
+       </property>
+      </row>
       <row>
        <property name="text">
         <string/>
@@ -1028,7 +1129,11 @@
       </property>
       <layout class="QVBoxLayout" name="verticalLayout_6">
        <item>
-        <widget class="QLineEdit" name="lnBuyPrice"/>
+        <widget class="QLineEdit" name="lnBuyPrice">
+         <property name="clearButtonEnabled">
+          <bool>false</bool>
+         </property>
+        </widget>
        </item>
        <item>
         <widget class="QLineEdit" name="lnBuyAmount"/>
@@ -1037,6 +1142,35 @@
         <widget class="QLineEdit" name="lnBuyTotal"/>
        </item>
       </layout>
+     </widget>
+     <widget class="QPushButton" name="btnBuyGetBTCTotal">
+      <property name="geometry">
+       <rect>
+        <x>300</x>
+        <y>105</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>A</string>
+      </property>
+     </widget>
+     <widget class="QPushButton" name="btnSellGetBTCPrice">
+      <property name="geometry">
+       <rect>
+        <x>650</x>
+        <y>45</y>
+        <width>21</width>
+        <height>21</height>
+       </rect>
+      </property>
+      <property name="text">
+       <string>A</string>
+      </property>
+      <property name="flat">
+       <bool>false</bool>
+      </property>
      </widget>
     </widget>
     <widget class="QWidget" name="Configuration">
@@ -1145,7 +1279,7 @@
     <property name="geometry">
      <rect>
       <x>21</x>
-      <y>22</y>
+      <y>20</y>
       <width>85</width>
       <height>171</height>
      </rect>
@@ -1157,18 +1291,6 @@
     </property>
     <layout class="QVBoxLayout" name="verticalLayout">
      <item>
-      <widget class="QLabel" name="lblCurrency">
-       <property name="font">
-        <font>
-         <family>Century Gothic</family>
-        </font>
-       </property>
-       <property name="text">
-        <string>Currency:</string>
-       </property>
-      </widget>
-     </item>
-     <item>
       <widget class="QLabel" name="lblPriceBTC">
        <property name="font">
         <font>
@@ -1176,19 +1298,7 @@
         </font>
        </property>
        <property name="text">
-        <string>Price (BTC):</string>
-       </property>
-      </widget>
-     </item>
-     <item>
-      <widget class="QLabel" name="lblPriceUSD">
-       <property name="font">
-        <font>
-         <family>Century Gothic</family>
-        </font>
-       </property>
-       <property name="text">
-        <string>Price (USD):</string>
+        <string>Price (XMR):</string>
        </property>
       </widget>
      </item>
@@ -1228,6 +1338,30 @@
        </property>
       </widget>
      </item>
+     <item>
+      <widget class="QLabel" name="lblPriceUSD">
+       <property name="font">
+        <font>
+         <family>Century Gothic</family>
+        </font>
+       </property>
+       <property name="text">
+        <string>Price (USD):</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLabel" name="lblChange_2">
+       <property name="font">
+        <font>
+         <family>Century Gothic</family>
+        </font>
+       </property>
+       <property name="text">
+        <string>Price (ETH):</string>
+       </property>
+      </widget>
+     </item>
     </layout>
    </widget>
    <widget class="QWidget" name="layoutWidget">
@@ -1241,13 +1375,7 @@
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_2">
      <item>
-      <widget class="QLineEdit" name="lnCurrency"/>
-     </item>
-     <item>
       <widget class="QLineEdit" name="lnPriceBTC"/>
-     </item>
-     <item>
-      <widget class="QLineEdit" name="lnPriceUSD"/>
      </item>
      <item>
       <widget class="QLineEdit" name="lnHigh"/>
@@ -1257,6 +1385,12 @@
      </item>
      <item>
       <widget class="QLineEdit" name="lnChange"/>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="lnPriceUSD"/>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="lnPriceETH"/>
      </item>
     </layout>
    </widget>
