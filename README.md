@@ -6,14 +6,14 @@ Trading app for XMR and also ETH soon at the Poloniex exchange via the Poloniex 
 
 **Current Features:**
   - Price informations XMRBTC, XMRUSD, ETHBTC
-  - Balances for XMR, EMX included open orders, ETH, ETH included open orders, Bitcon
+  - Balances for XMR, EMX included open orders, ETH, ETH included open orders, Bitcoin
   - 24h High, 24h Low and 24h Change for XMR
   - Open Orders for XMR
     - Note: to cancel an open order double click the cell with the order number
   - History of executed orders
   - Trading: Buy and Sell XMR
-    - Note: "A" Auto Button for setting current BTC price and Total BTC in the certain field
-  - Configuration: Set and save the Poloniex Public and Secret Key
+    - Note: "A" Auto Button for setting current BTC price in the sell section and Total BTC in the sell section  
+  - Configuration: Poloniex Public and Secret Key
 
 **Future Features:**
   - Adding ETH for trading and showing informations like open orders and history
@@ -23,7 +23,7 @@ Trading app for XMR and also ETH soon at the Poloniex exchange via the Poloniex 
   - Based on Qt 5.5.1
   - Using Qt Creator for the design
   - Using Pyqt for the python code
-  - Written in Python 3
+  - Written in Python3
   
 **Requirements:**
   - Python3   
@@ -43,7 +43,7 @@ Trading app for XMR and also ETH soon at the Poloniex exchange via the Poloniex 
   Alternative:
   - Use for example pyinstaller to create a package or a "one-file" for execution  
     Installation: pip install pyinstaller  
-    Command Example: pyinstaller -w -n PoloTrader -i XMRicon.ico -F prog.pyw   
+    Command Example: pyinstaller -w -n PoloTrader -i XMRicon.ico -F PoloTrader.pyw   
     More information for pyinstaller: http://www.pyinstaller.org/
 
 
