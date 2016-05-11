@@ -89,7 +89,7 @@ class Thread(QThread):
             
 
             if countOpenOrdersXMR > self.ui.OpenOrdersWidget.rowCount():
-               self.ui.OpenOrdersWidget.setRowCount(countHistoryXMR)
+               self.ui.OpenOrdersWidget.setRowCount(countOpenOrdersXMR)
                print ("After setting rows Open Orders: " + str(self.ui.OpenOrdersWidget.rowCount()))
                self.sleep(1)
  

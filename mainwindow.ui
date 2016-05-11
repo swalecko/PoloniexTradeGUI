@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>864</width>
-    <height>626</height>
+    <width>911</width>
+    <height>700</height>
    </rect>
   </property>
   <property name="palette">
@@ -180,9 +180,9 @@
    <widget class="QTabWidget" name="tabWidget">
     <property name="geometry">
      <rect>
-      <x>20</x>
-      <y>220</y>
-      <width>811</width>
+      <x>50</x>
+      <y>270</y>
+      <width>791</width>
       <height>381</height>
      </rect>
     </property>
@@ -374,13 +374,13 @@
      <enum>Qt::TabFocus</enum>
     </property>
     <property name="tabPosition">
-     <enum>QTabWidget::West</enum>
+     <enum>QTabWidget::North</enum>
     </property>
     <property name="tabShape">
      <enum>QTabWidget::Triangular</enum>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <property name="movable">
      <bool>true</bool>
@@ -407,782 +407,835 @@
      <attribute name="title">
       <string>Open Orders</string>
      </attribute>
-     <widget class="QTableWidget" name="OpenOrdersWidget">
+     <widget class="QTabWidget" name="tabOO">
       <property name="geometry">
        <rect>
         <x>-1</x>
-        <y>-1</y>
+        <y>-2</y>
         <width>791</width>
-        <height>401</height>
+        <height>361</height>
        </rect>
       </property>
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
+      <property name="currentIndex">
+       <number>0</number>
       </property>
-      <property name="palette">
-       <palette>
-        <active>
-         <colorrole role="Light">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>150</red>
-            <green>101</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </active>
-        <inactive>
-         <colorrole role="Light">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>150</red>
-            <green>101</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </inactive>
-        <disabled>
-         <colorrole role="Light">
-          <brush brushstyle="SolidPattern">
-           <color alpha="255">
-            <red>150</red>
-            <green>101</green>
-            <blue>255</blue>
-           </color>
-          </brush>
-         </colorrole>
-        </disabled>
-       </palette>
-      </property>
-      <property name="font">
-       <font>
-        <family>Century Gothic</family>
-        <weight>50</weight>
-        <bold>false</bold>
-       </font>
-      </property>
-      <property name="layoutDirection">
-       <enum>Qt::LeftToRight</enum>
-      </property>
-      <property name="autoFillBackground">
-       <bool>false</bool>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="frameShadow">
-       <enum>QFrame::Sunken</enum>
-      </property>
-      <property name="lineWidth">
-       <number>1</number>
-      </property>
-      <property name="editTriggers">
-       <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::EditKeyPressed</set>
-      </property>
-      <property name="alternatingRowColors">
-       <bool>false</bool>
-      </property>
-      <property name="textElideMode">
-       <enum>Qt::ElideLeft</enum>
-      </property>
-      <property name="showGrid">
-       <bool>true</bool>
-      </property>
-      <property name="gridStyle">
-       <enum>Qt::DashLine</enum>
-      </property>
-      <property name="cornerButtonEnabled">
-       <bool>true</bool>
-      </property>
-      <attribute name="horizontalHeaderDefaultSectionSize">
-       <number>151</number>
-      </attribute>
-      <attribute name="verticalHeaderVisible">
-       <bool>false</bool>
-      </attribute>
-      <row>
-       <property name="text">
-        <string/>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string/>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string/>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string/>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string/>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string/>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string/>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string/>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string/>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string/>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string/>
-       </property>
-      </row>
-      <column>
-       <property name="text">
-        <string>Order Number</string>
-       </property>
-       <property name="font">
-        <font>
-         <family>Century Gothic</family>
-        </font>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Type</string>
-       </property>
-       <property name="font">
-        <font>
-         <family>Century Gothic</family>
-        </font>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Price (BTC)</string>
-       </property>
-       <property name="font">
-        <font>
-         <family>Century Gothic</family>
-        </font>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>SAmount (XMR)</string>
-       </property>
-       <property name="font">
-        <font>
-         <family>Century Gothic</family>
-        </font>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Amount (XMR)</string>
-       </property>
-       <property name="font">
-        <font>
-         <family>Century Gothic</family>
-        </font>
-       </property>
-      </column>
-      <item row="0" column="0">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="textAlignment">
-        <set>AlignCenter</set>
-       </property>
-       <property name="background">
-        <brush brushstyle="NoBrush">
-         <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
-         </color>
-        </brush>
-       </property>
-      </item>
-      <item row="0" column="1">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="textAlignment">
-        <set>AlignCenter</set>
-       </property>
-      </item>
-      <item row="0" column="2">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="textAlignment">
-        <set>AlignCenter</set>
-       </property>
-      </item>
-      <item row="0" column="3">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="textAlignment">
-        <set>AlignCenter</set>
-       </property>
-      </item>
-      <item row="0" column="4">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="textAlignment">
-        <set>AlignCenter</set>
-       </property>
-      </item>
-      <item row="1" column="0">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="textAlignment">
-        <set>AlignCenter</set>
-       </property>
-      </item>
-      <item row="1" column="1">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="textAlignment">
-        <set>AlignCenter</set>
-       </property>
-      </item>
-      <item row="1" column="2">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="textAlignment">
-        <set>AlignCenter</set>
-       </property>
-      </item>
-      <item row="1" column="3">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="textAlignment">
-        <set>AlignCenter</set>
-       </property>
-      </item>
-      <item row="1" column="4">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="textAlignment">
-        <set>AlignCenter</set>
-       </property>
-      </item>
-      <item row="4" column="2">
-       <property name="text">
-        <string/>
-       </property>
-       <property name="textAlignment">
-        <set>AlignCenter</set>
-       </property>
-      </item>
+      <widget class="QWidget" name="tabXMR">
+       <attribute name="title">
+        <string>XMR</string>
+       </attribute>
+       <widget class="QTableWidget" name="OpenOrdersWidget">
+        <property name="geometry">
+         <rect>
+          <x>-1</x>
+          <y>-1</y>
+          <width>788</width>
+          <height>333</height>
+         </rect>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="palette">
+         <palette>
+          <active>
+           <colorrole role="Light">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>150</red>
+              <green>101</green>
+              <blue>255</blue>
+             </color>
+            </brush>
+           </colorrole>
+          </active>
+          <inactive>
+           <colorrole role="Light">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>150</red>
+              <green>101</green>
+              <blue>255</blue>
+             </color>
+            </brush>
+           </colorrole>
+          </inactive>
+          <disabled>
+           <colorrole role="Light">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>150</red>
+              <green>101</green>
+              <blue>255</blue>
+             </color>
+            </brush>
+           </colorrole>
+          </disabled>
+         </palette>
+        </property>
+        <property name="font">
+         <font>
+          <family>Century Gothic</family>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Sunken</enum>
+        </property>
+        <property name="lineWidth">
+         <number>1</number>
+        </property>
+        <property name="editTriggers">
+         <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::EditKeyPressed</set>
+        </property>
+        <property name="alternatingRowColors">
+         <bool>false</bool>
+        </property>
+        <property name="textElideMode">
+         <enum>Qt::ElideLeft</enum>
+        </property>
+        <property name="showGrid">
+         <bool>true</bool>
+        </property>
+        <property name="gridStyle">
+         <enum>Qt::DashLine</enum>
+        </property>
+        <property name="cornerButtonEnabled">
+         <bool>true</bool>
+        </property>
+        <property name="rowCount">
+         <number>0</number>
+        </property>
+        <attribute name="horizontalHeaderDefaultSectionSize">
+         <number>151</number>
+        </attribute>
+        <attribute name="horizontalHeaderStretchLastSection">
+         <bool>true</bool>
+        </attribute>
+        <attribute name="verticalHeaderVisible">
+         <bool>false</bool>
+        </attribute>
+        <attribute name="verticalHeaderStretchLastSection">
+         <bool>false</bool>
+        </attribute>
+        <column>
+         <property name="text">
+          <string>Order Number</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>Century Gothic</family>
+          </font>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Type</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>Century Gothic</family>
+          </font>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Price (BTC)</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>Century Gothic</family>
+          </font>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>SAmount (XMR)</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>Century Gothic</family>
+          </font>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Amount (XMR)</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>Century Gothic</family>
+          </font>
+         </property>
+        </column>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tabETH">
+       <attribute name="title">
+        <string>ETH</string>
+       </attribute>
+       <widget class="QTableWidget" name="OpenOrdersWidgetETH">
+        <property name="geometry">
+         <rect>
+          <x>-1</x>
+          <y>-1</y>
+          <width>787</width>
+          <height>333</height>
+         </rect>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="palette">
+         <palette>
+          <active>
+           <colorrole role="Light">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>150</red>
+              <green>101</green>
+              <blue>255</blue>
+             </color>
+            </brush>
+           </colorrole>
+          </active>
+          <inactive>
+           <colorrole role="Light">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>150</red>
+              <green>101</green>
+              <blue>255</blue>
+             </color>
+            </brush>
+           </colorrole>
+          </inactive>
+          <disabled>
+           <colorrole role="Light">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>150</red>
+              <green>101</green>
+              <blue>255</blue>
+             </color>
+            </brush>
+           </colorrole>
+          </disabled>
+         </palette>
+        </property>
+        <property name="font">
+         <font>
+          <family>Century Gothic</family>
+          <weight>50</weight>
+          <bold>false</bold>
+         </font>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="frameShadow">
+         <enum>QFrame::Sunken</enum>
+        </property>
+        <property name="lineWidth">
+         <number>1</number>
+        </property>
+        <property name="editTriggers">
+         <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::EditKeyPressed</set>
+        </property>
+        <property name="alternatingRowColors">
+         <bool>false</bool>
+        </property>
+        <property name="textElideMode">
+         <enum>Qt::ElideLeft</enum>
+        </property>
+        <property name="showGrid">
+         <bool>true</bool>
+        </property>
+        <property name="gridStyle">
+         <enum>Qt::DashLine</enum>
+        </property>
+        <property name="cornerButtonEnabled">
+         <bool>true</bool>
+        </property>
+        <property name="rowCount">
+         <number>0</number>
+        </property>
+        <attribute name="horizontalHeaderDefaultSectionSize">
+         <number>151</number>
+        </attribute>
+        <attribute name="horizontalHeaderStretchLastSection">
+         <bool>true</bool>
+        </attribute>
+        <attribute name="verticalHeaderVisible">
+         <bool>false</bool>
+        </attribute>
+        <column>
+         <property name="text">
+          <string>Order Number</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>Century Gothic</family>
+          </font>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Type</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>Century Gothic</family>
+          </font>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Price (BTC)</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>Century Gothic</family>
+          </font>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>SAmount (ETH)</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>Century Gothic</family>
+          </font>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Amount (ETH)</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>Century Gothic</family>
+          </font>
+         </property>
+        </column>
+       </widget>
+      </widget>
      </widget>
     </widget>
     <widget class="QWidget" name="History">
      <attribute name="title">
       <string>History</string>
      </attribute>
-     <widget class="QTableWidget" name="HistoryWidget">
+     <widget class="QTabWidget" name="tabWidget_2">
       <property name="geometry">
        <rect>
         <x>-1</x>
-        <y>-1</y>
-        <width>791</width>
-        <height>401</height>
+        <y>-2</y>
+        <width>789</width>
+        <height>361</height>
        </rect>
       </property>
-      <property name="sizePolicy">
-       <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
-        <horstretch>0</horstretch>
-        <verstretch>0</verstretch>
-       </sizepolicy>
+      <property name="currentIndex">
+       <number>0</number>
       </property>
-      <property name="font">
-       <font>
-        <family>Century Gothic</family>
-       </font>
-      </property>
-      <property name="layoutDirection">
-       <enum>Qt::LeftToRight</enum>
-      </property>
-      <property name="autoFillBackground">
-       <bool>false</bool>
-      </property>
-      <property name="frameShape">
-       <enum>QFrame::StyledPanel</enum>
-      </property>
-      <property name="lineWidth">
-       <number>1</number>
-      </property>
-      <property name="showGrid">
-       <bool>true</bool>
-      </property>
-      <property name="gridStyle">
-       <enum>Qt::DashLine</enum>
-      </property>
-      <property name="cornerButtonEnabled">
-       <bool>true</bool>
-      </property>
-      <attribute name="horizontalHeaderDefaultSectionSize">
-       <number>151</number>
-      </attribute>
-      <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
-       <bool>true</bool>
-      </attribute>
-      <attribute name="verticalHeaderVisible">
-       <bool>false</bool>
-      </attribute>
-      <row>
-       <property name="text">
-        <string/>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string/>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string/>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string/>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string/>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string/>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string/>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string/>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string/>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string/>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string/>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string/>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string/>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string/>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string/>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string/>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string/>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string/>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string/>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string/>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string/>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string/>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string/>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string/>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string/>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string/>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string/>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string/>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string/>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string/>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string/>
-       </property>
-      </row>
-      <row>
-       <property name="text">
-        <string/>
-       </property>
-      </row>
-      <column>
-       <property name="text">
-        <string>Currency</string>
-       </property>
-       <property name="font">
-        <font>
-         <family>Century Gothic</family>
-        </font>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Type</string>
-       </property>
-       <property name="font">
-        <font>
-         <family>Century Gothic</family>
-        </font>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Price</string>
-       </property>
-       <property name="font">
-        <font>
-         <family>Century Gothic</family>
-        </font>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Amount</string>
-       </property>
-       <property name="font">
-        <font>
-         <family>Century Gothic</family>
-        </font>
-       </property>
-      </column>
-      <column>
-       <property name="text">
-        <string>Date</string>
-       </property>
-       <property name="font">
-        <font>
-         <family>Century Gothic</family>
-        </font>
-       </property>
-      </column>
+      <widget class="QWidget" name="tabXMR">
+       <attribute name="title">
+        <string>XMR</string>
+       </attribute>
+       <widget class="QTableWidget" name="HistoryWidget">
+        <property name="geometry">
+         <rect>
+          <x>-1</x>
+          <y>-1</y>
+          <width>786</width>
+          <height>333</height>
+         </rect>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <family>Century Gothic</family>
+         </font>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="lineWidth">
+         <number>1</number>
+        </property>
+        <property name="showGrid">
+         <bool>true</bool>
+        </property>
+        <property name="gridStyle">
+         <enum>Qt::DashLine</enum>
+        </property>
+        <property name="cornerButtonEnabled">
+         <bool>true</bool>
+        </property>
+        <property name="rowCount">
+         <number>0</number>
+        </property>
+        <attribute name="horizontalHeaderDefaultSectionSize">
+         <number>151</number>
+        </attribute>
+        <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+         <bool>true</bool>
+        </attribute>
+        <attribute name="horizontalHeaderStretchLastSection">
+         <bool>true</bool>
+        </attribute>
+        <attribute name="verticalHeaderVisible">
+         <bool>false</bool>
+        </attribute>
+        <column>
+         <property name="text">
+          <string>Currency</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>Century Gothic</family>
+          </font>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Type</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>Century Gothic</family>
+          </font>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Price</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>Century Gothic</family>
+          </font>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Amount</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>Century Gothic</family>
+          </font>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Date</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>Century Gothic</family>
+          </font>
+         </property>
+        </column>
+       </widget>
+      </widget>
+      <widget class="QWidget" name="tabETH">
+       <attribute name="title">
+        <string>ETH</string>
+       </attribute>
+       <widget class="QTableWidget" name="HistoryWidgetETH">
+        <property name="geometry">
+         <rect>
+          <x>-1</x>
+          <y>-1</y>
+          <width>786</width>
+          <height>333</height>
+         </rect>
+        </property>
+        <property name="sizePolicy">
+         <sizepolicy hsizetype="Expanding" vsizetype="Expanding">
+          <horstretch>0</horstretch>
+          <verstretch>0</verstretch>
+         </sizepolicy>
+        </property>
+        <property name="font">
+         <font>
+          <family>Century Gothic</family>
+         </font>
+        </property>
+        <property name="layoutDirection">
+         <enum>Qt::LeftToRight</enum>
+        </property>
+        <property name="autoFillBackground">
+         <bool>false</bool>
+        </property>
+        <property name="frameShape">
+         <enum>QFrame::StyledPanel</enum>
+        </property>
+        <property name="lineWidth">
+         <number>1</number>
+        </property>
+        <property name="showGrid">
+         <bool>true</bool>
+        </property>
+        <property name="gridStyle">
+         <enum>Qt::DashLine</enum>
+        </property>
+        <property name="cornerButtonEnabled">
+         <bool>true</bool>
+        </property>
+        <property name="rowCount">
+         <number>0</number>
+        </property>
+        <attribute name="horizontalHeaderDefaultSectionSize">
+         <number>151</number>
+        </attribute>
+        <attribute name="horizontalHeaderShowSortIndicator" stdset="0">
+         <bool>true</bool>
+        </attribute>
+        <attribute name="horizontalHeaderStretchLastSection">
+         <bool>true</bool>
+        </attribute>
+        <attribute name="verticalHeaderVisible">
+         <bool>false</bool>
+        </attribute>
+        <column>
+         <property name="text">
+          <string>Currency</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>Century Gothic</family>
+          </font>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Type</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>Century Gothic</family>
+          </font>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Price</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>Century Gothic</family>
+          </font>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Amount</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>Century Gothic</family>
+          </font>
+         </property>
+        </column>
+        <column>
+         <property name="text">
+          <string>Date</string>
+         </property>
+         <property name="font">
+          <font>
+           <family>Century Gothic</family>
+          </font>
+         </property>
+        </column>
+       </widget>
+      </widget>
      </widget>
     </widget>
     <widget class="QWidget" name="Trading">
      <attribute name="title">
       <string>Trading</string>
      </attribute>
-     <widget class="QWidget" name="layoutWidget">
+     <widget class="QTabWidget" name="tabWidget_3">
       <property name="geometry">
        <rect>
-        <x>500</x>
-        <y>42</y>
-        <width>139</width>
-        <height>85</height>
+        <x>-1</x>
+        <y>-2</y>
+        <width>791</width>
+        <height>361</height>
        </rect>
       </property>
-      <layout class="QVBoxLayout" name="verticalLayout_7">
-       <item>
-        <widget class="QLineEdit" name="lnSellPrice"/>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="lnSellAmount"/>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="lnSellTotal"/>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QPushButton" name="buyButton">
-      <property name="geometry">
-       <rect>
-        <x>198</x>
-        <y>140</y>
-        <width>93</width>
-        <height>28</height>
-       </rect>
+      <property name="currentIndex">
+       <number>0</number>
       </property>
-      <property name="text">
-       <string>Buy</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="sellButton">
-      <property name="geometry">
-       <rect>
-        <x>548</x>
-        <y>140</y>
-        <width>93</width>
-        <height>28</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>Sell</string>
-      </property>
-     </widget>
-     <widget class="QWidget" name="layoutWidget">
-      <property name="geometry">
-       <rect>
-        <x>40</x>
-        <y>20</y>
-        <width>101</width>
-        <height>101</height>
-       </rect>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout_3">
-       <item>
-        <widget class="QLabel" name="lblBuy">
-         <property name="font">
-          <font>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="frameShape">
-          <enum>QFrame::NoFrame</enum>
-         </property>
-         <property name="text">
-          <string>Buy</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="lblBuyPrice">
-         <property name="frameShape">
-          <enum>QFrame::NoFrame</enum>
-         </property>
-         <property name="text">
-          <string>Price (BTC):</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="lblBuyAmount">
-         <property name="frameShape">
-          <enum>QFrame::NoFrame</enum>
-         </property>
-         <property name="text">
-          <string>Amount (XMR):</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="lblBuyTotal">
-         <property name="frameShape">
-          <enum>QFrame::NoFrame</enum>
-         </property>
-         <property name="text">
-          <string>Total (BTC)</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="layoutWidget">
-      <property name="geometry">
-       <rect>
-        <x>390</x>
-        <y>20</y>
-        <width>101</width>
-        <height>101</height>
-       </rect>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout_5">
-       <item>
-        <widget class="QLabel" name="lblSell">
-         <property name="font">
-          <font>
-           <weight>75</weight>
-           <bold>true</bold>
-          </font>
-         </property>
-         <property name="text">
-          <string>Sell</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="lblSellPrice">
-         <property name="text">
-          <string>Price (BTC):</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="lblSellAmount">
-         <property name="text">
-          <string>Amount (XMR):</string>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLabel" name="lblSellTotal">
-         <property name="text">
-          <string>Total (BTC):</string>
-         </property>
-        </widget>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QWidget" name="layoutWidget">
-      <property name="geometry">
-       <rect>
-        <x>150</x>
-        <y>42</y>
-        <width>139</width>
-        <height>85</height>
-       </rect>
-      </property>
-      <layout class="QVBoxLayout" name="verticalLayout_6">
-       <item>
-        <widget class="QLineEdit" name="lnBuyPrice">
-         <property name="clearButtonEnabled">
-          <bool>false</bool>
-         </property>
-        </widget>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="lnBuyAmount"/>
-       </item>
-       <item>
-        <widget class="QLineEdit" name="lnBuyTotal"/>
-       </item>
-      </layout>
-     </widget>
-     <widget class="QPushButton" name="btnBuyGetBTCTotal">
-      <property name="geometry">
-       <rect>
-        <x>300</x>
-        <y>105</y>
-        <width>21</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>A</string>
-      </property>
-     </widget>
-     <widget class="QPushButton" name="btnSellGetBTCPrice">
-      <property name="geometry">
-       <rect>
-        <x>650</x>
-        <y>45</y>
-        <width>21</width>
-        <height>21</height>
-       </rect>
-      </property>
-      <property name="text">
-       <string>A</string>
-      </property>
-      <property name="flat">
-       <bool>false</bool>
-      </property>
+      <widget class="QWidget" name="tabXMR">
+       <attribute name="title">
+        <string>XMR</string>
+       </attribute>
+       <widget class="QPushButton" name="sellButton">
+        <property name="geometry">
+         <rect>
+          <x>540</x>
+          <y>150</y>
+          <width>93</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Sell</string>
+        </property>
+       </widget>
+       <widget class="QWidget" name="layoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>32</x>
+          <y>30</y>
+          <width>101</width>
+          <height>101</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_3">
+         <item>
+          <widget class="QLabel" name="lblBuy">
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::NoFrame</enum>
+           </property>
+           <property name="text">
+            <string>Buy</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="lblBuyPrice">
+           <property name="frameShape">
+            <enum>QFrame::NoFrame</enum>
+           </property>
+           <property name="text">
+            <string>Price (BTC):</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="lblBuyAmount">
+           <property name="frameShape">
+            <enum>QFrame::NoFrame</enum>
+           </property>
+           <property name="text">
+            <string>Amount (XMR):</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="lblBuyTotal">
+           <property name="frameShape">
+            <enum>QFrame::NoFrame</enum>
+           </property>
+           <property name="text">
+            <string>Total (BTC)</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="layoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>142</x>
+          <y>52</y>
+          <width>139</width>
+          <height>85</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_6">
+         <item>
+          <widget class="QLineEdit" name="lnBuyPrice">
+           <property name="clearButtonEnabled">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lnBuyAmount"/>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lnBuyTotal"/>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="layoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>382</x>
+          <y>30</y>
+          <width>101</width>
+          <height>101</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_5">
+         <item>
+          <widget class="QLabel" name="lblSell">
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Sell</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="lblSellPrice">
+           <property name="text">
+            <string>Price (BTC):</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="lblSellAmount">
+           <property name="text">
+            <string>Amount (XMR):</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="lblSellTotal">
+           <property name="text">
+            <string>Total (BTC):</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="layoutWidget">
+        <property name="geometry">
+         <rect>
+          <x>492</x>
+          <y>52</y>
+          <width>139</width>
+          <height>85</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_7">
+         <item>
+          <widget class="QLineEdit" name="lnSellPrice"/>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lnSellAmount"/>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lnSellTotal"/>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QPushButton" name="btnSellGetBTCPrice">
+        <property name="geometry">
+         <rect>
+          <x>642</x>
+          <y>55</y>
+          <width>21</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>A</string>
+        </property>
+        <property name="flat">
+         <bool>false</bool>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btnBuyGetBTCTotal">
+        <property name="geometry">
+         <rect>
+          <x>292</x>
+          <y>115</y>
+          <width>21</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>A</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="buyButton">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>150</y>
+          <width>93</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Buy</string>
+        </property>
+       </widget>
+       <zorder>btnSellGetBTCPrice</zorder>
+       <zorder>layoutWidget</zorder>
+       <zorder>layoutWidget</zorder>
+       <zorder>layoutWidget</zorder>
+       <zorder>sellButton</zorder>
+       <zorder>btnBuyGetBTCTotal</zorder>
+       <zorder>buyButton</zorder>
+       <zorder>lnSellPrice</zorder>
+       <zorder>lnSellAmount</zorder>
+       <zorder>lnSellTotal</zorder>
+       <zorder>layoutWidget</zorder>
+       <zorder>sellButton</zorder>
+       <zorder>layoutWidget</zorder>
+       <zorder>layoutWidget</zorder>
+       <zorder>layoutWidget</zorder>
+       <zorder>layoutWidget</zorder>
+       <zorder>btnSellGetBTCPrice</zorder>
+       <zorder>btnBuyGetBTCTotal</zorder>
+       <zorder>buyButton</zorder>
+      </widget>
+      <widget class="QWidget" name="tabETH">
+       <attribute name="title">
+        <string>ETH</string>
+       </attribute>
+      </widget>
      </widget>
     </widget>
     <widget class="QWidget" name="Configuration">
@@ -2118,8 +2171,8 @@
    <widget class="QLabel" name="lblCancelOrderInfo">
     <property name="geometry">
      <rect>
-      <x>44</x>
-      <y>200</y>
+      <x>50</x>
+      <y>240</y>
       <width>501</width>
       <height>16</height>
      </rect>
