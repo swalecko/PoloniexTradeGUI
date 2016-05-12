@@ -2,6 +2,9 @@
 <ui version="4.0">
  <class>MainWindow</class>
  <widget class="QMainWindow" name="MainWindow">
+  <property name="windowModality">
+   <enum>Qt::NonModal</enum>
+  </property>
   <property name="geometry">
    <rect>
     <x>0</x>
@@ -103,6 +106,12 @@
   </property>
   <property name="windowTitle">
    <string>MainWindow</string>
+  </property>
+  <property name="toolButtonStyle">
+   <enum>Qt::ToolButtonIconOnly</enum>
+  </property>
+  <property name="dockNestingEnabled">
+   <bool>false</bool>
   </property>
   <widget class="QWidget" name="centralWidget">
    <widget class="QLabel" name="lblMonero">
@@ -1211,30 +1220,216 @@
          <string>Buy</string>
         </property>
        </widget>
-       <zorder>btnSellGetBTCPrice</zorder>
-       <zorder>layoutWidget</zorder>
-       <zorder>layoutWidget</zorder>
-       <zorder>layoutWidget</zorder>
-       <zorder>sellButton</zorder>
-       <zorder>btnBuyGetBTCTotal</zorder>
-       <zorder>buyButton</zorder>
-       <zorder>lnSellPrice</zorder>
-       <zorder>lnSellAmount</zorder>
-       <zorder>lnSellTotal</zorder>
-       <zorder>layoutWidget</zorder>
-       <zorder>sellButton</zorder>
-       <zorder>layoutWidget</zorder>
-       <zorder>layoutWidget</zorder>
-       <zorder>layoutWidget</zorder>
-       <zorder>layoutWidget</zorder>
-       <zorder>btnSellGetBTCPrice</zorder>
-       <zorder>btnBuyGetBTCTotal</zorder>
-       <zorder>buyButton</zorder>
       </widget>
       <widget class="QWidget" name="tabETH">
        <attribute name="title">
         <string>ETH</string>
        </attribute>
+       <widget class="QWidget" name="layoutWidget_2">
+        <property name="geometry">
+         <rect>
+          <x>32</x>
+          <y>30</y>
+          <width>101</width>
+          <height>101</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_10">
+         <item>
+          <widget class="QLabel" name="lblBuy_2">
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="frameShape">
+            <enum>QFrame::NoFrame</enum>
+           </property>
+           <property name="text">
+            <string>Buy</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="lblBuyPrice_2">
+           <property name="frameShape">
+            <enum>QFrame::NoFrame</enum>
+           </property>
+           <property name="text">
+            <string>Price (BTC):</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="lblBuyAmount_2">
+           <property name="frameShape">
+            <enum>QFrame::NoFrame</enum>
+           </property>
+           <property name="text">
+            <string>Amount (ETH):</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="lblBuyTotal_2">
+           <property name="frameShape">
+            <enum>QFrame::NoFrame</enum>
+           </property>
+           <property name="text">
+            <string>Total (BTC)</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="layoutWidget_3">
+        <property name="geometry">
+         <rect>
+          <x>142</x>
+          <y>52</y>
+          <width>139</width>
+          <height>85</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_11">
+         <item>
+          <widget class="QLineEdit" name="lnETHBuyPrice">
+           <property name="clearButtonEnabled">
+            <bool>false</bool>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lnETHBuyAmount"/>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lnETHBuyTotal"/>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="layoutWidget_4">
+        <property name="geometry">
+         <rect>
+          <x>382</x>
+          <y>30</y>
+          <width>101</width>
+          <height>101</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_12">
+         <item>
+          <widget class="QLabel" name="lblSell_2">
+           <property name="font">
+            <font>
+             <weight>75</weight>
+             <bold>true</bold>
+            </font>
+           </property>
+           <property name="text">
+            <string>Sell</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="lblSellPrice_2">
+           <property name="text">
+            <string>Price (BTC):</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="lblSellAmount_2">
+           <property name="text">
+            <string>Amount (ETH):</string>
+           </property>
+          </widget>
+         </item>
+         <item>
+          <widget class="QLabel" name="lblSellTotal_2">
+           <property name="text">
+            <string>Total (BTC):</string>
+           </property>
+          </widget>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QWidget" name="layoutWidget_5">
+        <property name="geometry">
+         <rect>
+          <x>492</x>
+          <y>52</y>
+          <width>139</width>
+          <height>85</height>
+         </rect>
+        </property>
+        <layout class="QVBoxLayout" name="verticalLayout_13">
+         <item>
+          <widget class="QLineEdit" name="lnETHSellPrice"/>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lnETHSellAmount"/>
+         </item>
+         <item>
+          <widget class="QLineEdit" name="lnETHSellTotal"/>
+         </item>
+        </layout>
+       </widget>
+       <widget class="QPushButton" name="btnETHSellGetBTCPrice">
+        <property name="geometry">
+         <rect>
+          <x>642</x>
+          <y>55</y>
+          <width>21</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>A</string>
+        </property>
+        <property name="flat">
+         <bool>false</bool>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="sellETHButton">
+        <property name="geometry">
+         <rect>
+          <x>540</x>
+          <y>150</y>
+          <width>93</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Sell</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="buyETHButton">
+        <property name="geometry">
+         <rect>
+          <x>190</x>
+          <y>150</y>
+          <width>93</width>
+          <height>28</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>Buy</string>
+        </property>
+       </widget>
+       <widget class="QPushButton" name="btnETHBuyGetBTCTotal">
+        <property name="geometry">
+         <rect>
+          <x>292</x>
+          <y>115</y>
+          <width>21</width>
+          <height>21</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string>A</string>
+        </property>
+       </widget>
       </widget>
      </widget>
     </widget>
@@ -2199,6 +2394,27 @@
    <zorder>lblMyBalances</zorder>
    <zorder>lblEthereuminclO</zorder>
    <zorder>lblCancelOrderInfo</zorder>
+  </widget>
+  <widget class="QToolBar" name="toolBar">
+   <property name="windowTitle">
+    <string>toolBar</string>
+   </property>
+   <attribute name="toolBarArea">
+    <enum>TopToolBarArea</enum>
+   </attribute>
+   <attribute name="toolBarBreak">
+    <bool>false</bool>
+   </attribute>
+  </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>911</width>
+     <height>26</height>
+    </rect>
+   </property>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
