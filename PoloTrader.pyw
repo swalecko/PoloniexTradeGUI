@@ -8,6 +8,7 @@ from PyQt5.QtCore import QThread
 import main_thread
 import thread_getusd
 import key
+import eth_thread
 import ui_ResourceFile
 
 from main import Ui_MainWindow
@@ -24,6 +25,13 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow):
         self.lnBuyPrice.setText(_translate("MainWindow", str(0.0))) 
         self.lnBuyAmount.setText(_translate("MainWindow", str(0.0)))
         self.lnBuyTotal.setText(_translate("MainWindow", str(0.0))) 
+
+        self.lnETHSellPrice.setText(_translate("MainWindow", str(0.0))) 
+        self.lnETHSellAmount.setText(_translate("MainWindow", str(0.0)))
+        self.lnETHSellTotal.setText(_translate("MainWindow", str(0.0)))
+        self.lnETHBuyPrice.setText(_translate("MainWindow", str(0.0))) 
+        self.lnETHBuyAmount.setText(_translate("MainWindow", str(0.0)))
+        self.lnETHBuyTotal.setText(_translate("MainWindow", str(0.0))) 
 
         self.lnPublicKey.setPlaceholderText("Insert your Poloniex Public key..")
         self.lnSecretKey.setPlaceholderText("Insert your Poloniex Secret key..")
@@ -74,20 +82,27 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow):
     def setSellBTCTotal(self, sellbtctotal):
         _translate = QtCore.QCoreApplication.translate
         self.lnSellTotal.setText(_translate("MainWindow", str(sellbtctotal)))
+    def setETHSellBTCTotal(self, sellbtctotal):
+        _translate = QtCore.QCoreApplication.translate
+        self.lnETHSellTotal.setText(_translate("MainWindow", str(sellbtctotal)))
     def setSellBTCPrice(self, sellbtcprice):
         _translate = QtCore.QCoreApplication.translate
-        self.lnSellPrice.setText(_translate("MainWindow", str(sellbtcprice)))   
+        self.lnSellPrice.setText(_translate("MainWindow", str(sellbtcprice)))
+    def setETHSellBTCPrice(self, sellbtcprice):
+        _translate = QtCore.QCoreApplication.translate
+        self.lnETHSellPrice.setText(_translate("MainWindow", str(sellbtcprice)))   
     def setBuyXMRAmount(self, buyxmramount):
         _translate = QtCore.QCoreApplication.translate
         self.lnBuyAmount.setText(_translate("MainWindow", str(buyxmramount)))
+    def setBuyETHAmount(self, buyethamount):
+        _translate = QtCore.QCoreApplication.translate
+        self.lnETHBuyAmount.setText(_translate("MainWindow", str(buyethamount)))
     def setBuyBTCTotal(self, buybtctotal):
         _translate = QtCore.QCoreApplication.translate
         self.lnBuyTotal.setText(_translate("MainWindow", str(buybtctotal)))
-
-
-
-
-
+    def setETHBuyBTCTotal(self, buybtctotal):
+        _translate = QtCore.QCoreApplication.translate
+        self.lnETHBuyTotal.setText(_translate("MainWindow", str(buybtctotal)))
 
 
 
@@ -106,6 +121,7 @@ def main():
     myThread.cancelOrder()
     myThread_getusd = thread_getusd.Thread(form)
     myThread_getusd.start()
+
     sys.exit(app.exec_())
 
 

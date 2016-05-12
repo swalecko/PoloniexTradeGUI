@@ -117,8 +117,8 @@
    <widget class="QLabel" name="lblMonero">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>52</y>
+      <x>340</x>
+      <y>72</y>
       <width>81</width>
       <height>16</height>
      </rect>
@@ -135,8 +135,8 @@
    <widget class="QLabel" name="lblMoneroinclO">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>81</y>
+      <x>340</x>
+      <y>101</y>
       <width>171</width>
       <height>16</height>
      </rect>
@@ -153,8 +153,8 @@
    <widget class="QLabel" name="lblBitcoin">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>172</y>
+      <x>340</x>
+      <y>192</y>
       <width>71</width>
       <height>16</height>
      </rect>
@@ -171,8 +171,8 @@
    <widget class="QLabel" name="lblEthereum">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>110</y>
+      <x>340</x>
+      <y>130</y>
       <width>101</width>
       <height>16</height>
      </rect>
@@ -389,7 +389,7 @@
      <enum>QTabWidget::Triangular</enum>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>0</number>
     </property>
     <property name="movable">
      <bool>true</bool>
@@ -432,7 +432,7 @@
        <attribute name="title">
         <string>XMR</string>
        </attribute>
-       <widget class="QTableWidget" name="OpenOrdersWidget">
+       <widget class="QTableWidget" name="OpenOrdersWidgetXMR">
         <property name="geometry">
          <rect>
           <x>-1</x>
@@ -1009,7 +1009,7 @@
        </rect>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tabXMR">
        <attribute name="title">
@@ -1518,8 +1518,8 @@
    <widget class="QLabel" name="lblMyBalances">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>20</y>
+      <x>340</x>
+      <y>40</y>
       <width>111</width>
       <height>16</height>
      </rect>
@@ -1538,8 +1538,8 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>21</x>
-      <y>20</y>
+      <x>51</x>
+      <y>40</y>
       <width>85</width>
       <height>171</height>
      </rect>
@@ -1627,8 +1627,8 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>121</x>
-      <y>21</y>
+      <x>151</x>
+      <y>41</y>
       <width>131</width>
       <height>169</height>
      </rect>
@@ -1657,8 +1657,8 @@
    <widget class="QLabel" name="lblEthereuminclO">
     <property name="geometry">
      <rect>
-      <x>310</x>
-      <y>140</y>
+      <x>340</x>
+      <y>160</y>
       <width>191</width>
       <height>20</height>
      </rect>
@@ -1675,8 +1675,8 @@
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>520</x>
-      <y>46</y>
+      <x>550</x>
+      <y>66</y>
       <width>156</width>
       <height>145</height>
      </rect>
@@ -2394,27 +2394,6 @@
    <zorder>lblMyBalances</zorder>
    <zorder>lblEthereuminclO</zorder>
    <zorder>lblCancelOrderInfo</zorder>
-  </widget>
-  <widget class="QToolBar" name="toolBar">
-   <property name="windowTitle">
-    <string>toolBar</string>
-   </property>
-   <attribute name="toolBarArea">
-    <enum>TopToolBarArea</enum>
-   </attribute>
-   <attribute name="toolBarBreak">
-    <bool>false</bool>
-   </attribute>
-  </widget>
-  <widget class="QMenuBar" name="menuBar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>911</width>
-     <height>26</height>
-    </rect>
-   </property>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

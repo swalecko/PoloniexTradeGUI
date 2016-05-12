@@ -10,6 +10,7 @@ from PyQt5.QtCore import QThread
 
 
 class Thread(QThread):
+    ETHEREUM = "ETH"
 
     def __init__(self, ui_instance, PUBLIC_KEY, SECRET_KEY):
         self.ui = ui_instance
@@ -28,10 +29,11 @@ class Thread(QThread):
         
 
         poloInstance = polowrapper.poloniex(self.PUBLIC_KEY, self.SECRET_KEY)
-        
+        z = 0
         
         while True:
 
+            
             retBalances = poloInstance.returnBalances()
             retTicker = poloInstance.returnTicker()
 
@@ -52,76 +54,54 @@ class Thread(QThread):
 
             retHistoryXMR = poloInstance.returnTradeHistory("BTC_XMR")
             retHistoryETH = poloInstance.returnTradeHistory("BTC_ETH")
-            countHistoryXMR = len(retHistoryXMR)
+            self.countHistoryXMR = len(retHistoryXMR)
             countHistoryETH = len(retHistoryETH)
-            retOpenOrdersXMR = poloInstance.returnOpenOrders("BTC_XMR")
-            retOpenOrdersETH = poloInstance.returnOpenOrders("BTC_ETH")
-            print (retOpenOrdersXMR)
+            self.retOpenOrdersXMR = poloInstance.returnOpenOrders("BTC_XMR")
+            self.retOpenOrdersETH = poloInstance.returnOpenOrders("BTC_ETH")
+            print (self.retOpenOrdersXMR)
 
-            countOpenOrdersXMR = len(retOpenOrdersXMR)
-            countOpenOrdersETH = len(retOpenOrdersETH)
+            self.countOpenOrdersXMR = len(self.retOpenOrdersXMR)
+            self.countOpenOrdersETH = len(self.retOpenOrdersETH)
 
 
             countXMR = 0
             OOAmountXMR = 0
-
-            for i in range(countOpenOrdersXMR):
-                #if retOpenOrdersXMR[i]["type"] == "buy":
-                OOAmountXMR = float(retOpenOrdersXMR[i]["amount"])
+            for i in range(self.countOpenOrdersXMR):
+            #if self.retOpenOrdersXMR[i]["type"] == "buy":
+                OOAmountXMR = float(self.retOpenOrdersXMR[i]["amount"])
                 print (OOAmountXMR)
                 countXMR = countXMR + OOAmountXMR
-                print (countXMR)
-                
+                print (countXMR)                               
 
             XMRCompleteAmount = format(countXMR + float(retBalances['XMR']), '.8f')
             self.ui.setLcdMoneroinclIO(str(XMRCompleteAmount))
             
             countETH = 0
             OOAmountETH = 0
-            for i in range(countOpenOrdersETH):
+            for i in range(self.countOpenOrdersETH):
             	#if retOpenOrdersETH[i]["type"] == "buy":
-                OOAmountETH = float(retOpenOrdersETH[i]["amount"])
+                OOAmountETH = float(self.retOpenOrdersETH[i]["amount"])
                 countETH = countETH + OOAmountETH
 
             ETHCompleteAmount = format(countETH + float(retBalances['ETH']), '.8f')
 
             self.ui.setLcdEthereuminclIO(str(ETHCompleteAmount))
-            
+                             
 
-            if countOpenOrdersXMR > self.ui.OpenOrdersWidget.rowCount():
-               self.ui.OpenOrdersWidget.setRowCount(countOpenOrdersXMR)
-               print ("After setting rows Open Orders: " + str(self.ui.OpenOrdersWidget.rowCount()))
-               self.sleep(1)
- 
-            if countOpenOrdersXMR != 0:
-                self.ui.OpenOrdersWidget.clearContents()
+            self.setOpenOrders(self.countOpenOrdersXMR, self.ui.OpenOrdersWidgetXMR, self.retOpenOrdersXMR)
+            self.setOpenOrders(self.countOpenOrdersETH, self.ui.OpenOrdersWidgetETH, self.retOpenOrdersETH)
 
-                for i in range(countOpenOrdersXMR):
-            
-                    self.ui.OpenOrdersWidget.setItem(i,0, QTableWidgetItem(retOpenOrdersXMR[i]["orderNumber"]))
-                    self.ui.OpenOrdersWidget.setItem(i,1, QTableWidgetItem(retOpenOrdersXMR[i]["type"]))
-                    self.ui.OpenOrdersWidget.setItem(i,2, QTableWidgetItem(retOpenOrdersXMR[i]["rate"]))
-                    self.ui.OpenOrdersWidget.setItem(i,3, QTableWidgetItem(retOpenOrdersXMR[i]["startingAmount"]))
-                    self.ui.OpenOrdersWidget.setItem(i,4, QTableWidgetItem(retOpenOrdersXMR[i]["amount"]))
-                    if retOpenOrdersXMR[i]["type"] == "sell":
-                        self.ui.OpenOrdersWidget.item(i, 1).setBackground(QtGui.QColor(176,10,49))
-                        self.ui.OpenOrdersWidget.item(i, 1).setForeground(QtGui.QColor(255,255,255))
-                    else:
-                        self.ui.OpenOrdersWidget.item(i, 1).setBackground(QtGui.QColor(10,189,82))
-
-            print ("countHistoryXMR: " + str(countHistoryXMR))
+            print ("self.countHistoryXMR: " + str(self.countHistoryXMR))
             print ("rowcount: " + str(self.ui.HistoryWidget.rowCount()))
 
-            if countHistoryXMR > self.ui.HistoryWidget.rowCount():
-               self.ui.HistoryWidget.setRowCount(countHistoryXMR)
-               print ("After setting rows History: " + str(self.ui.HistoryWidget.rowCount()))
-               self.sleep(1)
+            if self.countHistoryXMR > self.ui.HistoryWidget.rowCount():
+               self.ui.HistoryWidget.setRowCount(self.countHistoryXMR)
+               print ("After setting rows History: " + str(self.ui.HistoryWidget.rowCount()))            
 
-
-            if countHistoryXMR != 0:
+            if self.countHistoryXMR != 0:
                 self.ui.HistoryWidget.clearContents()
 
-                for i in range(countHistoryXMR):
+                for i in range(self.countHistoryXMR):
 
                     self.ui.HistoryWidget.setItem(i,0, QTableWidgetItem("XMR"))
                     self.ui.HistoryWidget.setItem(i,1, QTableWidgetItem(retHistoryXMR[i]["type"]))
@@ -135,6 +115,8 @@ class Thread(QThread):
                     else:
                         self.ui.HistoryWidget.item(i, 1).setBackground(QtGui.QColor(10,189,82))
             
+
+
 
             #read Input for trading for using in def calcSellBTCTotal and calcBuyXMRAmount
             self.SellreadBTCprice = self.ui.lnSellPrice.text()
@@ -154,15 +136,45 @@ class Thread(QThread):
                 continue
             self.calcBuyXMRAmount(self.BuyreadBTCprice, self.BuyreadBTCTotal)
 
-
+            
+            z = z + 1
+            print ("Loop count: " + str(z))
 
             self.sleep (1)
 
+    
+
+    def setOpenOrders(self, countopenorders, openorderswidget, retopenorders):
+
+
+
+        if countopenorders > openorderswidget.rowCount():
+            openorderswidget.setRowCount(countopenorders)
+            print ("After setting rows Open Orders: " + str(openorderswidget.rowCount()))
+
+        if countopenorders != 0:
+            openorderswidget.clearContents()
+
+            for i in range(countopenorders):
+                
+                openorderswidget.setItem(i,0, QTableWidgetItem(retopenorders[i]["orderNumber"]))
+                openorderswidget.setItem(i,1, QTableWidgetItem(retopenorders[i]["type"]))
+                openorderswidget.setItem(i,2, QTableWidgetItem(retopenorders[i]["rate"]))
+                openorderswidget.setItem(i,3, QTableWidgetItem(retopenorders[i]["startingAmount"]))
+                openorderswidget.setItem(i,4, QTableWidgetItem(retopenorders[i]["amount"]))
+                if retopenorders[i]["type"] == "sell":
+                    openorderswidget.item(i, 1).setBackground(QtGui.QColor(176,10,49))
+                    openorderswidget.item(i, 1).setForeground(QtGui.QColor(255,255,255))
+                else:
+                    openorderswidget.item(i, 1).setBackground(QtGui.QColor(10,189,82))
+                   
+
+
     def cancelOrder(self):
-        self.ui.OpenOrdersWidget.cellDoubleClicked.connect(self.double_clicked)
+        self.ui.OpenOrdersWidgetXMR.cellDoubleClicked.connect(self.double_clicked)
     def double_clicked(self):
         poloInstance = polowrapper.poloniex(self.PUBLIC_KEY, self.SECRET_KEY)
-        orderNumberXMR = self.ui.OpenOrdersWidget.currentItem().text()
+        orderNumberXMR = self.ui.OpenOrdersWidgetXMR.currentItem().text()
         poloInstance.cancel("BTC_XMR", orderNumberXMR)
 
 
