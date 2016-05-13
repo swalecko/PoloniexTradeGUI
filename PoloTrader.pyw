@@ -8,7 +8,6 @@ from PyQt5.QtCore import QThread
 import main_thread
 import thread_getusd
 import key
-import eth_thread
 import ui_ResourceFile
 
 from main import Ui_MainWindow

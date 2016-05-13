@@ -389,7 +389,7 @@
      <enum>QTabWidget::Triangular</enum>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <property name="movable">
      <bool>true</bool>
@@ -773,7 +773,7 @@
        <attribute name="title">
         <string>XMR</string>
        </attribute>
-       <widget class="QTableWidget" name="HistoryWidget">
+       <widget class="QTableWidget" name="HistoryWidgetXMR">
         <property name="geometry">
          <rect>
           <x>-1</x>
