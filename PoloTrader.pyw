@@ -1,16 +1,19 @@
 import sys
+import os
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import QGridLayout, QLabel, QLineEdit
-from PyQt5.QtWidgets import QTextEdit, QWidget, QDialog, QApplication, QMainWindow, QTableWidgetItem
+from PyQt5.QtWidgets import QTextEdit, QWidget, QDialog, QApplication, QMainWindow, QTableWidgetItem, QMessageBox
 from PyQt5.QtCore import QThread
 import main_thread
 import thread_getusd
-import key
+
 import ui_ResourceFile
 
 from main import Ui_MainWindow
+
+import key
 
 class MyGui(QtWidgets.QMainWindow, Ui_MainWindow):    
     def __init__(self, parent=None):
@@ -34,6 +37,7 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow):
 
         self.lnPublicKey.setPlaceholderText("Insert your Poloniex Public key..")
         self.lnSecretKey.setPlaceholderText("Insert your Poloniex Secret key..")
+
 
 
     def setTaskWindowTitle(self, gui, price):

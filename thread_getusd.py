@@ -24,8 +24,9 @@ class Thread(QThread):
             try:
                 tickerResponse = requests.post(urlTicker, headers={ "Accept": "application/json" })
             except:
-                print ("")
+                self.ui.setUSDPrice("N/A")
                 print ("Error: Could not connect to the cryptonator API to get the XMR/USD price")
+                break
 
 
             try:
@@ -34,7 +35,8 @@ class Thread(QThread):
                 self.ui.setUSDPrice("N/A")
                 print ("Error: Could not set the price variable")
                 print ("")
+                break
 
-            self.ui.setUSDPrice(price)
+            self.ui.setUSDPrice(round(price,2))
 
             self.sleep(1)
