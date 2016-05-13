@@ -37,6 +37,6 @@ class Thread(QThread):
                 print ("")
                 break
 
-            self.ui.setUSDPrice(round(price,2))
-
+            #self.ui.setUSDPrice(round(price,2))
+            self.ui.setUSDPrice(round (float(price),2))
             self.sleep(1)

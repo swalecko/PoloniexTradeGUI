@@ -34,7 +34,7 @@ Trading app for XMR and also ETH soon at the Poloniex exchange using the Polonie
 
 **How to use:**
   - Execute the PoloTrader.pyw file 
-  - When you execute the app for the first time, you need to add your PUBLIC and SECRET API Keys and save them.  
+  - When you execute the app for the first time, you need to add your PUBLIC and SECRET API Keys in the Configuration tab and save them.  
     A file "key.py" will be created with the following content:     
     first line: "PUBLIC_KEY = '<key>'"   
     second line: "SECRET_KEY = '<key>'"     
