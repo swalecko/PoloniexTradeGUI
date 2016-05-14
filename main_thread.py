@@ -10,12 +10,9 @@ if not os.path.exists("key.py") or os.stat("key.py").st_size == 0:
     with open("key.py", "w") as keyfile:
             keyfile.write("PUBLIC_KEY = ''\nSECRET_KEY = ''")
             keyfile.close()
-
 import key
 
 class Thread(QThread):
-    ETHEREUM = "ETH"
-
     def __init__(self, ui_instance, PUBLIC_KEY, SECRET_KEY):
         self.ui = ui_instance
         self.PUBLIC_KEY = PUBLIC_KEY
@@ -30,8 +27,7 @@ class Thread(QThread):
         self.wait()
 
     def run(self):
-        z = 0
-        
+        z = 0 
         while True:
             try:
                 self.retBalances = self.poloInstance.returnBalances()
@@ -64,8 +60,6 @@ class Thread(QThread):
                 self.countHistoryETH = len(retHistoryETH)
                 self.retOpenOrdersXMR = self.poloInstance.returnOpenOrders("BTC_XMR")
                 self.retOpenOrdersETH = self.poloInstance.returnOpenOrders("BTC_ETH")
-                print (self.retOpenOrdersXMR)
-
                 self.countOpenOrdersXMR = len(self.retOpenOrdersXMR)
                 self.countOpenOrdersETH = len(self.retOpenOrdersETH)
                 self.setBalanceInclIO(self.countOpenOrdersXMR, self.retOpenOrdersXMR, self.retBalances['XMR'], self.ui.setLcdMoneroinclIO)
@@ -74,8 +68,7 @@ class Thread(QThread):
                 self.setOpenOrders(self.countOpenOrdersETH, self.ui.OpenOrdersWidgetETH, self.retOpenOrdersETH)
                 self.setHistory(self.countHistoryXMR, self.ui.HistoryWidgetXMR, retHistoryXMR, "XMR")
                 self.setHistory(self.countHistoryETH, self.ui.HistoryWidgetETH, retHistoryETH, "ETH")
-
-        
+   
                 #read Input for trading for using in def calcSellBTCTotal and calcBuyXMRAmount
                 self.SellreadBTCprice = self.ui.lnSellPrice.text()
                 self.SellreadBTCprice = float(self.SellreadBTCprice)
@@ -84,8 +77,7 @@ class Thread(QThread):
                 self.calcSellBTCTotal(self.SellreadBTCprice, self.SellreadXMRAmount)
                 self.BuyreadBTCprice = self.ui.lnBuyPrice.text()
                 self.BuyreadBTCprice = float(self.BuyreadBTCprice)        
-                self.BuyreadBTCTotal = self.ui.lnBuyTotal.text()
-                
+                self.BuyreadBTCTotal = self.ui.lnBuyTotal.text()          
                 try:
                     self.BuyreadBTCTotal = float(self.BuyreadBTCTotal)
                 except ValueError:
@@ -104,13 +96,11 @@ class Thread(QThread):
             count = count + OOAmount
         CompleteAmount = format(count + float(currency), '.8f')
         currencyio(str(CompleteAmount))
-
     def setOpenOrders(self, countopenorders, openorderswidget, retopenorders):
+        openorderswidget.setRowCount(0)
         if countopenorders > openorderswidget.rowCount():
             openorderswidget.setRowCount(countopenorders)
-            print ("After setting rows Open Orders: " + str(openorderswidget.rowCount()))
         if countopenorders != 0:
-            openorderswidget.clearContents()
             for i in range(countopenorders):              
                 openorderswidget.setItem(i,0, QTableWidgetItem(retopenorders[i]["orderNumber"]))
                 openorderswidget.setItem(i,1, QTableWidgetItem(retopenorders[i]["type"]))
@@ -122,15 +112,11 @@ class Thread(QThread):
                     openorderswidget.item(i, 1).setForeground(QtGui.QColor(255,255,255))
                 else:
                     openorderswidget.item(i, 1).setBackground(QtGui.QColor(10,189,82))
-                   
     def setHistory(self, counthistory, historywidget, rethistory, currency):
-        print ("self.countHistoryXMR: " + str(counthistory))
-        print ("rowcount: " + str(historywidget.rowCount()))
+        historywidget.setRowCount(0)
         if counthistory > historywidget.rowCount():
-           historywidget.setRowCount(counthistory)
-           print ("After setting rows History: " + str(historywidget.rowCount()))            
+           historywidget.setRowCount(counthistory)   
         if counthistory != 0:
-            historywidget.clearContents()
             for i in range(counthistory):
                 historywidget.setItem(i,0, QTableWidgetItem(currency))
                 historywidget.setItem(i,1, QTableWidgetItem(rethistory[i]["type"]))
@@ -142,20 +128,16 @@ class Thread(QThread):
                     historywidget.item(i, 1).setForeground(QtGui.QColor(255,255,255))
                 else:
                     historywidget.item(i, 1).setBackground(QtGui.QColor(10,189,82))
-
     def cancelOrder(self):
         self.ui.OpenOrdersWidgetXMR.cellDoubleClicked.connect(self.double_clicked)
-    
     def double_clicked(self):
         orderNumberXMR = self.ui.OpenOrdersWidgetXMR.currentItem().text()
         self.poloInstance.cancel("BTC_XMR", orderNumberXMR)
-
     def calcSellBTCTotal(self, sellreadbtcprice, sellreadxmramount):
         self.sellreadbtcprice = sellreadbtcprice
         self.sellreadxmramount = sellreadxmramount
         self.resultSellBTCTotal = self.sellreadbtcprice*self.sellreadxmramount
         self.ui.setSellBTCTotal(self.resultSellBTCTotal)
-
     def calcBuyXMRAmount(self, buyreadbtcprice, buyreadbtctotal):
         self.buyreadbtcprice = buyreadbtcprice
         self.buyreadbtctotal = buyreadbtctotal
@@ -164,40 +146,28 @@ class Thread(QThread):
         except ZeroDivisionError:
             self.resultBuyXMRAmount = 0.0      
         self.ui.setBuyXMRAmount(self.resultBuyXMRAmount)
-
     def clickBuy(self):
         self.ui.buyButton.clicked.connect(self.clickedBuy)
-    
     def clickedBuy(self):
         exeBuy = self.poloInstance.buy("BTC_XMR",self.BuyreadBTCprice,self.resultBuyXMRAmount)
-
     def clickSell(self):
         self.ui.sellButton.clicked.connect(self.clickedSell)
-
     def clickedSell(self):
         exeSell = self.poloInstance.sell("BTC_XMR",self.SellreadBTCprice, self.SellreadXMRAmount)
-
     def clickSaveConfiguration(self):
         self.ui.saveButton.clicked.connect(self.clickedSaveConfiguration)
-    
     def clickedSaveConfiguration(self):
         inputPublicKey = self.ui.lnPublicKey.text()
         inputSecretKey = self.ui.lnSecretKey.text()
         with open("key.py", "w") as keyfile:
             keyfile.write("PUBLIC_KEY = '" + inputPublicKey + "' \nSECRET_KEY = '" + inputSecretKey + "'")
-
     def clickSellGetBTCPrice(self):
-        self.ui.btnSellGetBTCPrice.clicked.connect(self.clickedSellGetBTCPrice)
-    
+        self.ui.btnSellGetBTCPrice.clicked.connect(self.clickedSellGetBTCPrice)   
     def clickedSellGetBTCPrice(self):
         retTicker = self.poloInstance.returnTicker()
         self.ui.setSellBTCPrice(retTicker['BTC_XMR']['last'])
-
     def clickBuyGetBTCTotal(self):
         self.ui.btnBuyGetBTCTotal.clicked.connect(self.clickedBuyGetBTCTotal)
-    
     def clickedBuyGetBTCTotal(self):
         self.retBalances = self.poloInstance.returnBalances()
         self.ui.setBuyBTCTotal(self.retBalances['BTC'])
-
-            

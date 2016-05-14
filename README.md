@@ -1,4 +1,4 @@
-# PoloTradeGUI
+# PoloniexTradeGUI
 
 Donations: soon
 

@@ -8,18 +8,14 @@ from PyQt5.QtWidgets import QTextEdit, QWidget, QDialog, QApplication, QMainWind
 from PyQt5.QtCore import QThread
 import main_thread
 import thread_getusd
-
 import ui_ResourceFile
-
 from main import Ui_MainWindow
-
 import key
 
 class MyGui(QtWidgets.QMainWindow, Ui_MainWindow):    
     def __init__(self, parent=None):
         super(MyGui, self).__init__(parent)
         self.setupUi(self)
-
         _translate = QtCore.QCoreApplication.translate
         self.lnSellPrice.setText(_translate("MainWindow", str(0.0))) 
         self.lnSellAmount.setText(_translate("MainWindow", str(0.0)))
@@ -27,19 +23,14 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow):
         self.lnBuyPrice.setText(_translate("MainWindow", str(0.0))) 
         self.lnBuyAmount.setText(_translate("MainWindow", str(0.0)))
         self.lnBuyTotal.setText(_translate("MainWindow", str(0.0))) 
-
         self.lnETHSellPrice.setText(_translate("MainWindow", str(0.0))) 
         self.lnETHSellAmount.setText(_translate("MainWindow", str(0.0)))
         self.lnETHSellTotal.setText(_translate("MainWindow", str(0.0)))
         self.lnETHBuyPrice.setText(_translate("MainWindow", str(0.0))) 
         self.lnETHBuyAmount.setText(_translate("MainWindow", str(0.0)))
         self.lnETHBuyTotal.setText(_translate("MainWindow", str(0.0))) 
-
         self.lnPublicKey.setPlaceholderText("Insert your Poloniex Public key..")
         self.lnSecretKey.setPlaceholderText("Insert your Poloniex Secret key..")
-
-
-
     def setTaskWindowTitle(self, gui, price):
         self.gui = gui
         _translate = QtCore.QCoreApplication.translate
@@ -107,8 +98,6 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow):
         _translate = QtCore.QCoreApplication.translate
         self.lnETHBuyTotal.setText(_translate("MainWindow", str(buybtctotal)))
 
-
-
 def main():
     app = QtWidgets.QApplication(sys.argv)
     form = MyGui()
@@ -124,9 +113,7 @@ def main():
     myThread.cancelOrder()
     myThread_getusd = thread_getusd.Thread(form)
     myThread_getusd.start()
-
     sys.exit(app.exec_())
-
 
 if __name__ == "__main__":
 	main()
