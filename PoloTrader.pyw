@@ -105,12 +105,20 @@ def main():
     form.setMenu(form)
     myThread = main_thread.Thread(form, key.PUBLIC_KEY, key.SECRET_KEY)
     myThread.start()
+    
     myThread.clickBuy()
     myThread.clickSell()
-    myThread.clickSaveConfiguration()
     myThread.clickSellGetBTCPrice()
     myThread.clickBuyGetBTCTotal()
-    myThread.cancelOrder()
+    myThread.cancelOrder() 
+    
+    myThread.clickETHBuy()
+    myThread.clickETHSell()
+    myThread.clickETHSellGetBTCPrice()
+    myThread.clickETHBuyGetBTCTotal()
+    myThread.cancelETHOrder()
+    
+    myThread.clickSaveConfiguration()
     myThread_getusd = thread_getusd.Thread(form)
     myThread_getusd.start()
     sys.exit(app.exec_())
