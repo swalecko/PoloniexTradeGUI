@@ -5,18 +5,17 @@ Donations: soon
 Trading app for XMR and also ETH soon at the Poloniex exchange using the Poloniex API.
 
 **Current Features:**
-  - Price informations XMRBTC, XMRUSD, ETHBTC
-  - Balances for XMR, EMX included open orders, ETH, ETH included open orders, Bitcoin
-  - 24h High, 24h Low and 24h Change for XMR
-  - Open Orders for XMR
+  - Price information for XMR and ETH
+  - Balances for XMR, XMR included open orders, ETH, ETH included open orders, Bitcoin
+  - 24h High, 24h Low and 24h Change for XMR and ETH
+  - Open Orders for XMR and ETH
     - Note: to cancel an open order double click the cell with the order number
-  - History of executed orders
-  - Trading: Buy and Sell XMR
+  - History of executed orders for XMR and ETH
+  - Trading Opportunity for XMR and ETH
     - Note: "A" Auto Button for setting current BTC price in the sell section and Total BTC in the sell section  
   - Configuration: Poloniex Public and Secret Key
 
 **Future Features:**
-  - Adding ETH for trading and showing informations like open orders and history
   - There's more to come..
   
 **Pre-Information:**
