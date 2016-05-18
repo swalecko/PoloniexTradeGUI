@@ -4,6 +4,9 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import *
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
+import requests
+import json
+
 
 
 if not os.path.exists("key.py") or os.stat("key.py").st_size == 0:
@@ -27,33 +30,27 @@ class Thread(QThread):
         self.wait()
 
     def run(self):
-        z = 0 #DEBUG
-        
-        self.retBalances = self.poloInstance.returnBalances()
-        self.retTicker = self.poloInstance.returnTicker()
-        
+           
         while True:
             try:
-
-                self.ui.setTaskWindowTitle(self.ui, self.retTicker['BTC_XMR']['last'])
-                
-                currentPriceXMR = self.retTicker['BTC_XMR']['last']
-                lastPriceXMR = self.ui.lnPriceBTC.text()
-                
-
-                print ("Public key: " + str(self.PUBLIC_KEY)) #DEBUG
-                z = z + 1 #DEBUG
-                print ("Loop count: " + str(z)) #DEBUG
                 
                 if self.PUBLIC_KEY == '' or self.SECRET_KEY == '':
                     break
 
-                self.setXMRPriceInfo(self.retTicker['BTC_XMR'])
-                self.setETHPriceInfo(self.retTicker['BTC_ETH'])
-                
-                self.ui.setLcdMonero(self.retBalances['XMR'])
-                self.ui.setLcdBitcoin(self.retBalances['BTC'])
-                self.ui.setLcdEthereum(self.retBalances['ETH'])
+                self.retBalances = self.poloInstance.returnBalances()
+                self.BalanceXMR = self.retBalances['XMR']
+
+                self.BalanceETH = self.retBalances['ETH']
+                self.BalanceBTC = self.retBalances['BTC']
+                self.retTicker = self.poloInstance.returnTicker()
+                self.tickerXMR = self.retTicker['BTC_XMR']
+                self.tickerETH = self.retTicker['BTC_ETH']
+                self.lastXMR = self.tickerXMR['last']
+                self.lastETH = self.tickerETH['last']
+
+                self.ui.setLcdMonero(self.BalanceXMR)
+                self.ui.setLcdBitcoin(self.BalanceBTC)
+                self.ui.setLcdEthereum(self.BalanceETH)
 
                 retHistoryXMR = self.poloInstance.returnTradeHistory("BTC_XMR")
                 retHistoryETH = self.poloInstance.returnTradeHistory("BTC_ETH")
@@ -64,8 +61,8 @@ class Thread(QThread):
                 self.countOpenOrdersXMR = len(self.retOpenOrdersXMR)
                 self.countOpenOrdersETH = len(self.retOpenOrdersETH)
                 
-                self.setBalanceInclIO(self.countOpenOrdersXMR, self.retOpenOrdersXMR, self.retBalances['XMR'], self.ui.setLcdMoneroinclIO)
-                self.setBalanceInclIO(self.countOpenOrdersETH, self.retOpenOrdersETH, self.retBalances['ETH'], self.ui.setLcdEthereuminclIO)
+                self.setBalanceInclIO(self.countOpenOrdersXMR, self.retOpenOrdersXMR, self.BalanceXMR, self.ui.setLcdMoneroinclIO)
+                self.setBalanceInclIO(self.countOpenOrdersETH, self.retOpenOrdersETH, self.BalanceETH, self.ui.setLcdEthereuminclIO)
                 self.setOpenOrders(self.countOpenOrdersXMR, self.ui.OpenOrdersWidgetXMR, self.retOpenOrdersXMR)
                 self.setOpenOrders(self.countOpenOrdersETH, self.ui.OpenOrdersWidgetETH, self.retOpenOrdersETH)
                 self.setHistory(self.countHistoryXMR, self.ui.HistoryWidgetXMR, retHistoryXMR, "XMR")
@@ -113,24 +110,8 @@ class Thread(QThread):
 
 
             except Exception as e:
-                print ("Loop Exception: " + str(e))
-    
-    def setXMRPriceInfo(self, xmrticker):
-        self.ui.setWindowTitle(xmrticker['last'])
-        self.ui.setXMRPrice(xmrticker['last'])
-        self.ui.setHigh(xmrticker['high24hr'])
-        self.sleep (2)
-        self.ui.setLow(xmrticker['low24hr'])
-        change = round(float(xmrticker['percentChange'])*100,2)
-        self.ui.setChange(str(change) + " %")
+                print ("main_thread Loop Exception: " + str(e))
 
-    def setETHPriceInfo(self, ethticker): 
-        self.sleep(1)
-        self.ui.setETHPrice(ethticker['last'])
-        self.ui.setETHHigh(ethticker['high24hr'])
-        self.sleep(2)
-        self.ui.setETHLow(ethticker['low24hr'])
-        self.ui.setETHChange(str(round(float(ethticker['percentChange'])*100,2)) + " %")
 
     def setBalanceInclIO(self, countopenorders, retopenorders, currency, currencyio):
         count = 0
@@ -144,8 +125,9 @@ class Thread(QThread):
         openorderswidget.setRowCount(0)
         if countopenorders > openorderswidget.rowCount():
             openorderswidget.setRowCount(countopenorders)
+
         if countopenorders != 0:
-            for i in range(countopenorders):              
+            for i in range(countopenorders):         
                 openorderswidget.setItem(i,0, QTableWidgetItem(retopenorders[i]["orderNumber"]))
                 openorderswidget.setItem(i,1, QTableWidgetItem(retopenorders[i]["type"]))
                 openorderswidget.setItem(i,2, QTableWidgetItem(retopenorders[i]["rate"]))
@@ -199,12 +181,12 @@ class Thread(QThread):
     def clickSellGetBTCPrice(self):
         self.ui.btnSellGetBTCPrice.clicked.connect(self.clickedSellGetBTCPrice)   
     def clickedSellGetBTCPrice(self):
-        self.retTicker = self.poloInstance.returnTicker()
-        self.ui.setSellBTCPrice(self.retTicker['BTC_XMR']['last'])
+        #self.retTicker = self.poloInstance.returnTicker()
+        self.ui.setSellBTCPrice(self.lastXMR)
     def clickBuyGetBTCTotal(self):
         self.ui.btnBuyGetBTCTotal.clicked.connect(self.clickedBuyGetBTCTotal)
     def clickedBuyGetBTCTotal(self):
-        self.ui.setBuyBTCTotal(self.retBalances['BTC'])
+        self.ui.setBuyBTCTotal(self.BalanceBTC)
     def clickBuy(self):
         self.ui.buyButton.clicked.connect(self.clickedBuy)
     def clickedBuy(self):
@@ -236,12 +218,12 @@ class Thread(QThread):
     def clickETHSellGetBTCPrice(self):
         self.ui.btnETHSellGetBTCPrice.clicked.connect(self.clickedETHSellGetBTCPrice)   
     def clickedETHSellGetBTCPrice(self):
-        self.retTicker = self.poloInstance.returnTicker()
-        self.ui.setETHSellBTCPrice(self.retTicker['BTC_ETH']['last'])
+        #self.retTicker = self.poloInstance.returnTicker()
+        self.ui.setETHSellBTCPrice(self.lastETH)
     def clickETHBuyGetBTCTotal(self):
         self.ui.btnETHBuyGetBTCTotal.clicked.connect(self.clickedETHBuyGetBTCTotal)
     def clickedETHBuyGetBTCTotal(self):
-        self.ui.setETHBuyBTCTotal(self.retBalances['BTC'])
+        self.ui.setETHBuyBTCTotal(self.BalanceBTC)
     def clickETHBuy(self):
         self.ui.buyETHButton.clicked.connect(self.clickedETHBuy)
     def clickedETHBuy(self):
