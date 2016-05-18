@@ -16,27 +16,33 @@ class Thread(QThread):
 
     def run(self):
 
-        price = 0	
+        XMRUSDPRICE = 0	
+        ETHUSDPRICE = 0
         while True:
 
-            urlTicker = "https://www.cryptonator.com/api/ticker/xmr-usd"
+            XMRUSD = "https://www.cryptonator.com/api/ticker/xmr-usd"
+            ETHUSD = "https://www.cryptonator.com/api/ticker/eth-usd"
 
             try:
-                tickerResponse = requests.post(urlTicker, headers={ "Accept": "application/json" })
+                TICKERRESPXMRUSD = requests.post(XMRUSD, headers={ "Accept": "application/json" })
+                TICKERRESPETHUSD = requests.post(ETHUSD, headers={ "Accept": "application/json" })
             except:
-                self.ui.setUSDPrice("N/A")
-                print ("Error: Could not connect to the cryptonator API to get the XMR/USD price")
+                self.ui.setXMRUSDPrice("N/A")
+                self.ui.setETHUSDPrice("N/A")
+                print ("Error: Could not connect to the cryptonator API to get the USD price")
                 break
 
-
             try:
-                price = str(json.loads(tickerResponse.text)['ticker']['price'])
+                XMRUSDPRICE = str(json.loads(TICKERRESPXMRUSD.text)['ticker']['price'])
+                ETHUSDPRICE = str(json.loads(TICKERRESPETHUSD.text)['ticker']['price'])
             except:
-                self.ui.setUSDPrice("N/A")
+                self.ui.setXMRUSDPrice("N/A")
+                self.ui.setETHUSDPrice("N/A")
                 print ("Error: Could not set the price variable")
                 print ("")
                 break
 
             #self.ui.setUSDPrice(round(price,2))
-            self.ui.setUSDPrice(round (float(price),2))
+            self.ui.setXMRUSDPrice(round (float(XMRUSDPRICE),2))
+            self.ui.setETHUSDPrice(round (float(ETHUSDPRICE),2))
             self.sleep(1)

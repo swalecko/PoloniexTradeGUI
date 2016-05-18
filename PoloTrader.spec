@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['PoloTrader.pyw'],
-             pathex=['C:\\Users\\swalecko\\Documents\\PoloTradeGui'],
+             pathex=['C:\\Users\\swalecko\\Documents\\PoloniexTradeGUI'],
              binaries=None,
              datas=None,
              hiddenimports=[],
@@ -25,4 +25,4 @@ exe = EXE(pyz,
           debug=False,
           strip=False,
           upx=True,
-          console=False , icon='XMRicon.ico')
+          console=False , icon='1.png.ico')

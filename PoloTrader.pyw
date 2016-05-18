@@ -49,15 +49,12 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow):
     def setLcdEthereum(self,lcdethereum):
         _translate = QtCore.QCoreApplication.translate
         self.lcdEthereum.display(_translate("MainWindow", lcdethereum)) 
-    def setUSDPrice(self, usd):
+    def setXMRUSDPrice(self, xmrusd):
         _translate = QtCore.QCoreApplication.translate
-        self.lnPriceUSD.setText(_translate("MainWindow", str(usd)))    
+        self.lnPriceUSD.setText(_translate("MainWindow", str(xmrusd))) 
     def setXMRPrice(self, price):
         _translate = QtCore.QCoreApplication.translate
         self.lnPriceBTC.setText(_translate("MainWindow", str(price)))
-    def setETHPrice(self, price):
-        _translate = QtCore.QCoreApplication.translate
-        self.lnPriceETH.setText(_translate("MainWindow", str(price)))
     def setHigh(self, high):
         _translate = QtCore.QCoreApplication.translate
         self.lnHigh.setText(_translate("MainWindow", str(high)))
@@ -66,7 +63,24 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow):
         self.lnLow.setText(_translate("MainWindow", str(low)))        
     def setChange(self, change):
         _translate = QtCore.QCoreApplication.translate
-        self.lnChange.setText(_translate("MainWindow", change))    
+        self.lnChange.setText(_translate("MainWindow", change))
+    
+    def setETHUSDPrice(self, ethusd):
+        _translate = QtCore.QCoreApplication.translate
+        self.lnETHPriceUSD.setText(_translate("MainWindow", str(ethusd)))   
+    def setETHPrice(self, ethprice):
+        _translate = QtCore.QCoreApplication.translate
+        self.lnPriceETH.setText(_translate("MainWindow", str(ethprice)))
+    def setETHHigh(self, ethhigh):
+        _translate = QtCore.QCoreApplication.translate
+        self.lnETHHigh.setText(_translate("MainWindow", str(ethhigh)))
+    def setETHLow(self, ethlow):
+        _translate = QtCore.QCoreApplication.translate
+        self.lnETHLow.setText(_translate("MainWindow", str(ethlow)))        
+    def setETHChange(self, ethchange):
+        _translate = QtCore.QCoreApplication.translate
+        self.lnETHChange.setText(_translate("MainWindow", ethchange))  
+
     def setLcdMoneroinclIO(self, moneroinclio):
         _translate = QtCore.QCoreApplication.translate
         self.lcdMoneroinclO.display(_translate("MainWindow", moneroinclio))
