@@ -7,6 +7,9 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 import polowrapper
 import key
+from requests.exceptions import ConnectionError
+
+
 
 class Thread(QThread):
 
@@ -22,6 +25,7 @@ class Thread(QThread):
 
     def run(self):
 
+        
         XMRUSDPRICE = 0 
         ETHUSDPRICE = 0
         XMRUSD = "https://www.cryptonator.com/api/ticker/xmr-usd"
@@ -29,13 +33,17 @@ class Thread(QThread):
         while True:
             try:
                
+                
                 try:
                     TICKERRESPXMRUSD = requests.post(XMRUSD, headers={ "Accept": "application/json" })
                     TICKERRESPETHUSD = requests.post(ETHUSD, headers={ "Accept": "application/json" })
-                except:
+                except ConnectionError as a:
                     self.ui.setXMRUSDPrice("N/A")
                     self.ui.setETHUSDPrice("N/A")
                     print ("Error: Could not connect to the cryptonator API to get the USD price")
+                    print ("Connection ERROR GETUSD: " + str(a))
+                    self.ui.setNetworkStatus("ERROR")
+                    self.sleep(1)
                     continue
 
                 try:
@@ -58,8 +66,14 @@ class Thread(QThread):
                 self.sleep (1)
 
 
+            except (ConnectionError, TimeoutError) as e:
+                print ("thread_getusd Loop Exception Connection: " + str(e))
+                self.ui.setNetworkStatus("ERROR")
+                self.sleep(1)
+                continue
             except Exception as e:
                 print ("thread_getusd Loop Exception: " + str(e))
+                self.sleep(1)
 
     def setXMRPriceInfo(self):
         self.sleep(1)
@@ -103,3 +117,5 @@ class Thread(QThread):
         self.highETH = self.tickerETH['high24hr']
         self.lowETH = self.tickerETH['low24hr']
         self.changeETH = self.tickerETH['percentChange']
+
+

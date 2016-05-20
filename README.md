@@ -2,7 +2,7 @@
 
 Donations: soon
 
-Trading app for XMR and also ETH soon at the Poloniex exchange using the Poloniex API.
+Trading app for XMR and ETH at the Poloniex exchange using the Poloniex API.
 
 **Current Features:**
   - Price information for XMR and ETH

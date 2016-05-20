@@ -12,6 +12,7 @@ import ui_ResourceFile
 from main import Ui_MainWindow
 import key
 
+
 class MyGui(QtWidgets.QMainWindow, Ui_MainWindow):    
     def __init__(self, parent=None):
         super(MyGui, self).__init__(parent)
@@ -111,6 +112,12 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow):
     def setETHBuyBTCTotal(self, buybtctotal):
         _translate = QtCore.QCoreApplication.translate
         self.lnETHBuyTotal.setText(_translate("MainWindow", str(buybtctotal)))
+    def setAppStatus(self, appstatus):
+        _translate = QtCore.QCoreApplication.translate
+        self.lblAppStatusResult.setText(_translate("MainWindow", str(appstatus)))
+    def setNetworkStatus(self, networkstatus):
+        _translate = QtCore.QCoreApplication.translate
+        self.lblNetworkStatusResult.setText(_translate("MainWindow", str(networkstatus)))
 
 def main():
     app = QtWidgets.QApplication(sys.argv)
@@ -135,6 +142,8 @@ def main():
     myThread.clickSaveConfiguration()
     myThread_getusd = thread_getusd.Thread(form)
     myThread_getusd.start()
+
+
     sys.exit(app.exec_())
 
 if __name__ == "__main__":

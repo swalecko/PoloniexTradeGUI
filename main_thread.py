@@ -6,7 +6,8 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 import requests
 import json
-
+import sys
+from requests.exceptions import ConnectionError
 
 
 if not os.path.exists("key.py") or os.stat("key.py").st_size == 0:
@@ -22,6 +23,7 @@ class Thread(QThread):
         self.SECRET_KEY = SECRET_KEY
         super(QThread, self).__init__()
         self.poloInstance = polowrapper.poloniex(self.PUBLIC_KEY, self.SECRET_KEY)
+        
 
     def function():
         QThread.__init__(self)
@@ -30,7 +32,7 @@ class Thread(QThread):
         self.wait()
 
     def run(self):
-           
+
         while True:
             try:
                 
@@ -67,7 +69,7 @@ class Thread(QThread):
                 self.setOpenOrders(self.countOpenOrdersETH, self.ui.OpenOrdersWidgetETH, self.retOpenOrdersETH)
                 self.setHistory(self.countHistoryXMR, self.ui.HistoryWidgetXMR, retHistoryXMR, "XMR")
                 self.setHistory(self.countHistoryETH, self.ui.HistoryWidgetETH, retHistoryETH, "ETH")
-   
+
                 #XMR
                 self.SellreadBTCprice = self.ui.lnSellPrice.text()
                 self.SellreadBTCprice = float(self.SellreadBTCprice)
@@ -85,7 +87,7 @@ class Thread(QThread):
                 except ValueError:
                     continue
                 self.calcBuyAmount(self.BuyreadBTCprice, self.BuyreadBTCTotal)
-  
+
                 
                 #ETH
                 self.SellETHreadBTCprice = self.ui.lnETHSellPrice.text()
@@ -107,12 +109,20 @@ class Thread(QThread):
 
 
                 self.sleep (1)
-
-
+                self.ui.setAppStatus("OK")
+                self.ui.setNetworkStatus("OK")
+           
+            except (ConnectionError, TimeoutError) as x:
+                print ("main_thread Loop Exception HTTPSConnectionPool: " + str(x))
+                self.ui.setNetworkStatus("ERROR")
+                self.sleep(1)
+                continue         
             except Exception as e:
                 print ("main_thread Loop Exception: " + str(e))
-
-
+                self.ui.setAppStatus("ERROR")
+                self.sleep(1)
+                continue
+    
     def setBalanceInclIO(self, countopenorders, retopenorders, currency, currencyio):
         count = 0
         OOAmount = 0
@@ -181,7 +191,6 @@ class Thread(QThread):
     def clickSellGetBTCPrice(self):
         self.ui.btnSellGetBTCPrice.clicked.connect(self.clickedSellGetBTCPrice)   
     def clickedSellGetBTCPrice(self):
-        #self.retTicker = self.poloInstance.returnTicker()
         self.ui.setSellBTCPrice(self.lastXMR)
     def clickBuyGetBTCTotal(self):
         self.ui.btnBuyGetBTCTotal.clicked.connect(self.clickedBuyGetBTCTotal)
@@ -218,7 +227,6 @@ class Thread(QThread):
     def clickETHSellGetBTCPrice(self):
         self.ui.btnETHSellGetBTCPrice.clicked.connect(self.clickedETHSellGetBTCPrice)   
     def clickedETHSellGetBTCPrice(self):
-        #self.retTicker = self.poloInstance.returnTicker()
         self.ui.setETHSellBTCPrice(self.lastETH)
     def clickETHBuyGetBTCTotal(self):
         self.ui.btnETHBuyGetBTCTotal.clicked.connect(self.clickedETHBuyGetBTCTotal)
@@ -237,3 +245,5 @@ class Thread(QThread):
     def doubleETH_clicked(self):
         orderNumberETH = self.ui.OpenOrdersWidgetETH.currentItem().text()
         self.poloInstance.cancel("BTC_ETH", orderNumberETH)
+
+
