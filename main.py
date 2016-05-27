@@ -47,6 +47,9 @@ class Ui_MainWindow(object):
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Window, brush)
         MainWindow.setPalette(palette)
+        icon = QtGui.QIcon()
+        icon.addPixmap(QtGui.QPixmap("1.png.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
+        MainWindow.setWindowIcon(icon)
         MainWindow.setToolButtonStyle(QtCore.Qt.ToolButtonIconOnly)
         MainWindow.setDockNestingEnabled(False)
         self.centralWidget = QtWidgets.QWidget(MainWindow)
@@ -100,6 +103,12 @@ class Ui_MainWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(156, 143, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.HighlightedText, brush)
         brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
@@ -118,6 +127,12 @@ class Ui_MainWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(156, 143, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.HighlightedText, brush)
         brush = QtGui.QBrush(QtGui.QColor(72, 118, 160))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
@@ -136,6 +151,12 @@ class Ui_MainWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(72, 118, 160))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(238, 238, 238))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(156, 143, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.HighlightedText, brush)
         self.tabWidget.setPalette(palette)
         font = QtGui.QFont()
         font.setFamily("Century Gothic")
@@ -146,7 +167,17 @@ class Ui_MainWindow(object):
         self.tabWidget.setFont(font)
         self.tabWidget.setMouseTracking(False)
         self.tabWidget.setFocusPolicy(QtCore.Qt.TabFocus)
-        self.tabWidget.setAutoFillBackground(False)
+        self.tabWidget.setAutoFillBackground(True)
+        self.tabWidget.setStyleSheet("QHeaderView::section {\n"
+"    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
+"                                      stop:0 #616161, stop: 0.5 #505050,\n"
+"                                      stop: 0.6 #434343, stop:1 #656565);\n"
+"    color: white;\n"
+"    padding-left: 4px;\n"
+"    padding-top: 2px;\n"
+"    padding-bottom: 2px;\n"
+"    border: 1px solid #6c6c6c;\n"
+"}")
         self.tabWidget.setTabPosition(QtWidgets.QTabWidget.North)
         self.tabWidget.setTabShape(QtWidgets.QTabWidget.Triangular)
         self.tabWidget.setMovable(True)
@@ -158,6 +189,42 @@ class Ui_MainWindow(object):
         self.OpenOrders.setObjectName("OpenOrders")
         self.tabOO = QtWidgets.QTabWidget(self.OpenOrders)
         self.tabOO.setGeometry(QtCore.QRect(-1, -2, 791, 361))
+        self.tabOO.setStyleSheet("QTabWidget::pane { /* The tab widget frame */\n"
+"    border-top: 2px solid #C2C7CB;\n"
+"}\n"
+"\n"
+"QTabWidget::tab-bar {\n"
+"    left: 0px; /* move to the right by 5px */\n"
+"}\n"
+"\n"
+"/* Style the tab using the tab sub-control. Note that\n"
+"    it reads QTabBar _not_ QTabWidget */\n"
+"QTabBar::tab {\n"
+"    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,\n"
+"                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);\n"
+"    border: 0px solid #C4C4C3;\n"
+"    border-bottom-color: #C2C7CB; /* same as the pane color */\n"
+"    border-top-left-radius: 4px;\n"
+"    border-top-right-radius: 4px;\n"
+"    min-width: 12ex;\n"
+"    padding: 2px;\n"
+"}\n"
+"\n"
+"QTabBar::tab:selected, QTabBar::tab:hover {\n"
+"    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                stop: 0 #fafafa, stop: 0.4 #f4f4f4,\n"
+"                                stop: 0.5 #e7e7e7, stop: 1.0 #fafafa);\n"
+"}\n"
+"\n"
+"QTabBar::tab:selected {\n"
+"    border-color: #9B9B9B;\n"
+"    border-bottom-color: #C2C7CB; /* same as pane color */\n"
+"}\n"
+"\n"
+"QTabBar::tab:!selected {\n"
+"    margin-top: 2px; /* make non-selected tabs look smaller */\n"
+"}")
         self.tabOO.setObjectName("tabOO")
         self.tabXMR = QtWidgets.QWidget()
         self.tabXMR.setObjectName("tabXMR")
@@ -204,6 +271,18 @@ class Ui_MainWindow(object):
         self.OpenOrdersWidgetXMR.setFont(font)
         self.OpenOrdersWidgetXMR.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.OpenOrdersWidgetXMR.setAutoFillBackground(True)
+        self.OpenOrdersWidgetXMR.setStyleSheet("QHeaderView::section {\n"
+"    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
+"                                      stop:0 #616161, stop: 0.5 #505050,\n"
+"                                      stop: 0.6 #434343, stop:1 #656565);\n"
+"    color: white;\n"
+"    padding-left: 0px;\n"
+"    padding-top: 2px;\n"
+"    padding-bottom: 2px;\n"
+"    border-left-width:1 px;\n"
+"     border-right-width: 1px ;\n"
+"    border-bottom-width: 1px;\n"
+"}")
         self.OpenOrdersWidgetXMR.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.OpenOrdersWidgetXMR.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.OpenOrdersWidgetXMR.setLineWidth(1)
@@ -249,7 +328,7 @@ class Ui_MainWindow(object):
         self.tabETH = QtWidgets.QWidget()
         self.tabETH.setObjectName("tabETH")
         self.OpenOrdersWidgetETH = QtWidgets.QTableWidget(self.tabETH)
-        self.OpenOrdersWidgetETH.setGeometry(QtCore.QRect(-1, -1, 787, 333))
+        self.OpenOrdersWidgetETH.setGeometry(QtCore.QRect(-1, -1, 790, 333))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -273,6 +352,18 @@ class Ui_MainWindow(object):
         self.OpenOrdersWidgetETH.setFont(font)
         self.OpenOrdersWidgetETH.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.OpenOrdersWidgetETH.setAutoFillBackground(False)
+        self.OpenOrdersWidgetETH.setStyleSheet("QHeaderView::section {\n"
+"    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
+"                                      stop:0 #616161, stop: 0.5 #505050,\n"
+"                                      stop: 0.6 #434343, stop:1 #656565);\n"
+"    color: white;\n"
+"    padding-left: 0px;\n"
+"    padding-top: 2px;\n"
+"    padding-bottom: 2px;\n"
+"    border-left-width:1 px;\n"
+"     border-right-width: 1px ;\n"
+"    border-bottom-width: 1px;\n"
+"}")
         self.OpenOrdersWidgetETH.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.OpenOrdersWidgetETH.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.OpenOrdersWidgetETH.setLineWidth(1)
@@ -318,12 +409,48 @@ class Ui_MainWindow(object):
         self.History = QtWidgets.QWidget()
         self.History.setObjectName("History")
         self.tabHistory = QtWidgets.QTabWidget(self.History)
-        self.tabHistory.setGeometry(QtCore.QRect(-1, -2, 789, 361))
+        self.tabHistory.setGeometry(QtCore.QRect(-1, -2, 790, 361))
+        self.tabHistory.setStyleSheet("QTabWidget::pane { /* The tab widget frame */\n"
+"    border-top: 2px solid #C2C7CB;\n"
+"}\n"
+"\n"
+"QTabWidget::tab-bar {\n"
+"    left: 0px; /* move to the right by 5px */\n"
+"}\n"
+"\n"
+"/* Style the tab using the tab sub-control. Note that\n"
+"    it reads QTabBar _not_ QTabWidget */\n"
+"QTabBar::tab {\n"
+"    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,\n"
+"                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);\n"
+"    border: 0px solid #C4C4C3;\n"
+"    border-bottom-color: #C2C7CB; /* same as the pane color */\n"
+"    border-top-left-radius: 4px;\n"
+"    border-top-right-radius: 4px;\n"
+"    min-width: 12ex;\n"
+"    padding: 2px;\n"
+"}\n"
+"\n"
+"QTabBar::tab:selected, QTabBar::tab:hover {\n"
+"    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                stop: 0 #fafafa, stop: 0.4 #f4f4f4,\n"
+"                                stop: 0.5 #e7e7e7, stop: 1.0 #fafafa);\n"
+"}\n"
+"\n"
+"QTabBar::tab:selected {\n"
+"    border-color: #9B9B9B;\n"
+"    border-bottom-color: #C2C7CB; /* same as pane color */\n"
+"}\n"
+"\n"
+"QTabBar::tab:!selected {\n"
+"    margin-top: 2px; /* make non-selected tabs look smaller */\n"
+"}")
         self.tabHistory.setObjectName("tabHistory")
         self.tabXMR1 = QtWidgets.QWidget()
         self.tabXMR1.setObjectName("tabXMR1")
         self.HistoryWidgetXMR = QtWidgets.QTableWidget(self.tabXMR1)
-        self.HistoryWidgetXMR.setGeometry(QtCore.QRect(-1, -1, 786, 333))
+        self.HistoryWidgetXMR.setGeometry(QtCore.QRect(-1, -1, 791, 333))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -334,6 +461,21 @@ class Ui_MainWindow(object):
         self.HistoryWidgetXMR.setFont(font)
         self.HistoryWidgetXMR.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.HistoryWidgetXMR.setAutoFillBackground(False)
+        self.HistoryWidgetXMR.setStyleSheet("\n"
+"QHeaderView::section {\n"
+"    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
+"                                      stop:0 #616161, stop: 0.5 #505050,\n"
+"                                      stop: 0.6 #434343, stop:1 #656565);\n"
+"    color: white;\n"
+"    padding-left: 0px;\n"
+"    padding-top: 2px;\n"
+"    padding-bottom: 2px;\n"
+"    border-left-width:1 px;\n"
+"     border-right-width: 1px ;\n"
+"    border-bottom-width: 1px;\n"
+"}\n"
+"\n"
+"")
         self.HistoryWidgetXMR.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.HistoryWidgetXMR.setLineWidth(1)
         self.HistoryWidgetXMR.setShowGrid(True)
@@ -375,7 +517,7 @@ class Ui_MainWindow(object):
         self.tabETH1 = QtWidgets.QWidget()
         self.tabETH1.setObjectName("tabETH1")
         self.HistoryWidgetETH = QtWidgets.QTableWidget(self.tabETH1)
-        self.HistoryWidgetETH.setGeometry(QtCore.QRect(-1, -1, 786, 333))
+        self.HistoryWidgetETH.setGeometry(QtCore.QRect(-1, -1, 790, 333))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Expanding)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
@@ -386,6 +528,22 @@ class Ui_MainWindow(object):
         self.HistoryWidgetETH.setFont(font)
         self.HistoryWidgetETH.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.HistoryWidgetETH.setAutoFillBackground(False)
+        self.HistoryWidgetETH.setStyleSheet("QHeaderView::section {\n"
+"    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,\n"
+"                                      stop:0 #616161, stop: 0.5 #505050,\n"
+"                                      stop: 0.6 #434343, stop:1 #656565);\n"
+"    color: white;\n"
+"    padding-left: 0px;\n"
+"    padding-top: 2px;\n"
+"    padding-bottom: 2px;\n"
+"    border-left-width:1 px;\n"
+"     border-right-width: 1px ;\n"
+"    border-bottom-width: 1px;\n"
+"}\n"
+"QTableWidget {\n"
+"    selection-background-color: qlineargradient(x1: 0, y1: 0, x2: 0.5, y2: 0.5,\n"
+"                                stop: 0 #FF92BB, stop: 1 white);\n"
+"}")
         self.HistoryWidgetETH.setFrameShape(QtWidgets.QFrame.StyledPanel)
         self.HistoryWidgetETH.setLineWidth(1)
         self.HistoryWidgetETH.setShowGrid(True)
@@ -429,11 +587,67 @@ class Ui_MainWindow(object):
         self.Trading.setObjectName("Trading")
         self.tabTrading = QtWidgets.QTabWidget(self.Trading)
         self.tabTrading.setGeometry(QtCore.QRect(-1, -2, 791, 361))
+        self.tabTrading.setStyleSheet("QTabWidget::pane { /* The tab widget frame */\n"
+"    border-top: 2px solid #C2C7CB;\n"
+"}\n"
+"\n"
+"QTabWidget::tab-bar {\n"
+"    left: 0px; /* move to the right by 5px */\n"
+"}\n"
+"\n"
+"/* Style the tab using the tab sub-control. Note that\n"
+"    it reads QTabBar _not_ QTabWidget */\n"
+"QTabBar::tab {\n"
+"    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,\n"
+"                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);\n"
+"    border: 0px solid #C4C4C3;\n"
+"    border-bottom-color: #C2C7CB; /* same as the pane color */\n"
+"    border-top-left-radius: 4px;\n"
+"    border-top-right-radius: 4px;\n"
+"    min-width: 12ex;\n"
+"    padding: 2px;\n"
+"}\n"
+"\n"
+"QTabBar::tab:selected, QTabBar::tab:hover {\n"
+"    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                stop: 0 #fafafa, stop: 0.4 #f4f4f4,\n"
+"                                stop: 0.5 #e7e7e7, stop: 1.0 #fafafa);\n"
+"}\n"
+"\n"
+"QTabBar::tab:selected {\n"
+"    border-color: #9B9B9B;\n"
+"    border-bottom-color: #C2C7CB; /* same as pane color */\n"
+"}\n"
+"\n"
+"QTabBar::tab:!selected {\n"
+"    margin-top: 2px; /* make non-selected tabs look smaller */\n"
+"}")
         self.tabTrading.setObjectName("tabTrading")
         self.tabXMR2 = QtWidgets.QWidget()
         self.tabXMR2.setObjectName("tabXMR2")
         self.sellButton = QtWidgets.QPushButton(self.tabXMR2)
         self.sellButton.setGeometry(QtCore.QRect(540, 150, 93, 28))
+        self.sellButton.setStyleSheet("QPushButton {\n"
+"    border: 1px solid #8f8f91;\n"
+"    border-radius: 6px;\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                      stop: 0 #f6f7fa, stop: 1 #dadbde);\n"
+"    min-width: 80px;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                      stop: 0 #dadbde, stop: 1 #f6f7fa);\n"
+"}\n"
+"\n"
+"QPushButton:flat {\n"
+"    border: none; /* no border for a flat push button */\n"
+"}\n"
+"\n"
+"QPushButton:default {\n"
+"    border-color: navy; /* make the default button prominent */\n"
+"}")
         self.sellButton.setObjectName("sellButton")
         self.layoutWidget = QtWidgets.QWidget(self.tabXMR2)
         self.layoutWidget.setGeometry(QtCore.QRect(32, 30, 101, 101))
@@ -516,13 +730,71 @@ class Ui_MainWindow(object):
         self.verticalLayout_7.addWidget(self.lnSellTotal)
         self.btnSellGetBTCPrice = QtWidgets.QPushButton(self.tabXMR2)
         self.btnSellGetBTCPrice.setGeometry(QtCore.QRect(642, 55, 21, 21))
+        self.btnSellGetBTCPrice.setStyleSheet("QPushButton {\n"
+"    border: 1px solid #8f8f91;\n"
+"    border-radius: 6px;\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                      stop: 0 #f6f7fa, stop: 1 #dadbde);\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                      stop: 0 #dadbde, stop: 1 #f6f7fa);\n"
+"}\n"
+"\n"
+"QPushButton:flat {\n"
+"    border: none; /* no border for a flat push button */\n"
+"}\n"
+"\n"
+"QPushButton:default {\n"
+"    border-color: navy; /* make the default button prominent */\n"
+"}")
         self.btnSellGetBTCPrice.setFlat(False)
         self.btnSellGetBTCPrice.setObjectName("btnSellGetBTCPrice")
         self.btnBuyGetBTCTotal = QtWidgets.QPushButton(self.tabXMR2)
         self.btnBuyGetBTCTotal.setGeometry(QtCore.QRect(292, 115, 21, 21))
+        self.btnBuyGetBTCTotal.setStyleSheet("QPushButton {\n"
+"    border: 1px solid #8f8f91;\n"
+"    border-radius: 6px;\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                      stop: 0 #f6f7fa, stop: 1 #dadbde);\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                      stop: 0 #dadbde, stop: 1 #f6f7fa);\n"
+"}\n"
+"\n"
+"QPushButton:flat {\n"
+"    border: none; /* no border for a flat push button */\n"
+"}\n"
+"\n"
+"QPushButton:default {\n"
+"    border-color: navy; /* make the default button prominent */\n"
+"}")
         self.btnBuyGetBTCTotal.setObjectName("btnBuyGetBTCTotal")
         self.buyButton = QtWidgets.QPushButton(self.tabXMR2)
         self.buyButton.setGeometry(QtCore.QRect(190, 150, 93, 28))
+        self.buyButton.setStyleSheet("QPushButton {\n"
+"    border: 1px solid #8f8f91;\n"
+"    border-radius: 6px;\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                      stop: 0 #f6f7fa, stop: 1 #dadbde);\n"
+"    min-width: 80px;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                      stop: 0 #dadbde, stop: 1 #f6f7fa);\n"
+"}\n"
+"\n"
+"QPushButton:flat {\n"
+"    border: none; /* no border for a flat push button */\n"
+"}\n"
+"\n"
+"QPushButton:default {\n"
+"    border-color: navy; /* make the default button prominent */\n"
+"}")
         self.buyButton.setObjectName("buyButton")
         self.tabTrading.addTab(self.tabXMR2, "")
         self.tabETH2 = QtWidgets.QWidget()
@@ -608,16 +880,94 @@ class Ui_MainWindow(object):
         self.verticalLayout_13.addWidget(self.lnETHSellTotal)
         self.btnETHSellGetBTCPrice = QtWidgets.QPushButton(self.tabETH2)
         self.btnETHSellGetBTCPrice.setGeometry(QtCore.QRect(642, 55, 21, 21))
+        self.btnETHSellGetBTCPrice.setStyleSheet("QPushButton {\n"
+"    border: 1px solid #8f8f91;\n"
+"    border-radius: 6px;\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                      stop: 0 #f6f7fa, stop: 1 #dadbde);\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                      stop: 0 #dadbde, stop: 1 #f6f7fa);\n"
+"}\n"
+"\n"
+"QPushButton:flat {\n"
+"    border: none; /* no border for a flat push button */\n"
+"}\n"
+"\n"
+"QPushButton:default {\n"
+"    border-color: navy; /* make the default button prominent */\n"
+"}")
         self.btnETHSellGetBTCPrice.setFlat(False)
         self.btnETHSellGetBTCPrice.setObjectName("btnETHSellGetBTCPrice")
         self.sellETHButton = QtWidgets.QPushButton(self.tabETH2)
         self.sellETHButton.setGeometry(QtCore.QRect(540, 150, 93, 28))
+        self.sellETHButton.setStyleSheet("QPushButton {\n"
+"    border: 1px solid #8f8f91;\n"
+"    border-radius: 6px;\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                      stop: 0 #f6f7fa, stop: 1 #dadbde);\n"
+"    min-width: 80px;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                      stop: 0 #dadbde, stop: 1 #f6f7fa);\n"
+"}\n"
+"\n"
+"QPushButton:flat {\n"
+"    border: none; /* no border for a flat push button */\n"
+"}\n"
+"\n"
+"QPushButton:default {\n"
+"    border-color: navy; /* make the default button prominent */\n"
+"}")
         self.sellETHButton.setObjectName("sellETHButton")
         self.buyETHButton = QtWidgets.QPushButton(self.tabETH2)
         self.buyETHButton.setGeometry(QtCore.QRect(190, 150, 93, 28))
+        self.buyETHButton.setStyleSheet("QPushButton {\n"
+"    border: 1px solid #8f8f91;\n"
+"    border-radius: 6px;\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                      stop: 0 #f6f7fa, stop: 1 #dadbde);\n"
+"    min-width: 80px;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                      stop: 0 #dadbde, stop: 1 #f6f7fa);\n"
+"}\n"
+"\n"
+"QPushButton:flat {\n"
+"    border: none; /* no border for a flat push button */\n"
+"}\n"
+"\n"
+"QPushButton:default {\n"
+"    border-color: navy; /* make the default button prominent */\n"
+"}")
         self.buyETHButton.setObjectName("buyETHButton")
         self.btnETHBuyGetBTCTotal = QtWidgets.QPushButton(self.tabETH2)
         self.btnETHBuyGetBTCTotal.setGeometry(QtCore.QRect(292, 115, 21, 21))
+        self.btnETHBuyGetBTCTotal.setStyleSheet("QPushButton {\n"
+"    border: 1px solid #8f8f91;\n"
+"    border-radius: 6px;\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                      stop: 0 #f6f7fa, stop: 1 #dadbde);\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                      stop: 0 #dadbde, stop: 1 #f6f7fa);\n"
+"}\n"
+"\n"
+"QPushButton:flat {\n"
+"    border: none; /* no border for a flat push button */\n"
+"}\n"
+"\n"
+"QPushButton:default {\n"
+"    border-color: navy; /* make the default button prominent */\n"
+"}")
         self.btnETHBuyGetBTCTotal.setObjectName("btnETHBuyGetBTCTotal")
         self.tabTrading.addTab(self.tabETH2, "")
         self.tabWidget.addTab(self.Trading, "")
@@ -625,6 +975,26 @@ class Ui_MainWindow(object):
         self.tabConfiguration.setObjectName("tabConfiguration")
         self.saveButton = QtWidgets.QPushButton(self.tabConfiguration)
         self.saveButton.setGeometry(QtCore.QRect(590, 120, 93, 28))
+        self.saveButton.setStyleSheet("QPushButton {\n"
+"    border: 1px solid #8f8f91;\n"
+"    border-radius: 6px;\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                      stop: 0 #f6f7fa, stop: 1 #dadbde);\n"
+"    min-width: 80px;\n"
+"}\n"
+"\n"
+"QPushButton:pressed {\n"
+"    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,\n"
+"                                      stop: 0 #dadbde, stop: 1 #f6f7fa);\n"
+"}\n"
+"\n"
+"QPushButton:flat {\n"
+"    border: none; /* no border for a flat push button */\n"
+"}\n"
+"\n"
+"QPushButton:default {\n"
+"    border-color: navy; /* make the default button prominent */\n"
+"}")
         self.saveButton.setDefault(False)
         self.saveButton.setFlat(False)
         self.saveButton.setObjectName("saveButton")
@@ -663,6 +1033,13 @@ class Ui_MainWindow(object):
         self.lblrestartkey.setGeometry(QtCore.QRect(30, 160, 501, 16))
         self.lblrestartkey.setObjectName("lblrestartkey")
         self.tabWidget.addTab(self.tabConfiguration, "")
+        self.tabLog = QtWidgets.QWidget()
+        self.tabLog.setObjectName("tabLog")
+        self.plainTextEdit = QtWidgets.QPlainTextEdit(self.tabLog)
+        self.plainTextEdit.setGeometry(QtCore.QRect(-1, -1, 791, 351))
+        self.plainTextEdit.setObjectName("plainTextEdit")
+        icon = QtGui.QIcon.fromTheme("test")
+        self.tabWidget.addTab(self.tabLog, icon, "")
         self.layoutWidget6 = QtWidgets.QWidget(self.centralWidget)
         self.layoutWidget6.setGeometry(QtCore.QRect(40, 39, 95, 141))
         font = QtGui.QFont()
@@ -728,20 +1105,56 @@ class Ui_MainWindow(object):
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(239, 132, 45))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(239, 132, 45))
+        brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(253, 152, 51))
+        brush = QtGui.QBrush(QtGui.QColor(239, 132, 45))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Window, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(239, 132, 45))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(239, 132, 45))
+        brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(253, 152, 51))
+        brush = QtGui.QBrush(QtGui.QColor(239, 132, 45))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Window, brush)
-        brush = QtGui.QBrush(QtGui.QColor(253, 152, 51))
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(239, 132, 45))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(239, 132, 45))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
-        brush = QtGui.QBrush(QtGui.QColor(253, 152, 51))
+        brush = QtGui.QBrush(QtGui.QColor(239, 132, 45))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Window, brush)
         self.lblMonerox.setPalette(palette)
@@ -750,7 +1163,13 @@ class Ui_MainWindow(object):
         font.setBold(False)
         font.setWeight(50)
         self.lblMonerox.setFont(font)
-        self.lblMonerox.setAutoFillBackground(True)
+        self.lblMonerox.setAutoFillBackground(False)
+        self.lblMonerox.setStyleSheet("QLabel{\n"
+"    color: white;\n"
+"    border-radius: 10px;\n"
+"    padding: 0 8px;\n"
+"    background: rgb(239, 132, 45);\n"
+"}")
         self.lblMonerox.setTextFormat(QtCore.Qt.AutoText)
         self.lblMonerox.setScaledContents(False)
         self.lblMonerox.setAlignment(QtCore.Qt.AlignCenter)
@@ -761,10 +1180,16 @@ class Ui_MainWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Button, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Text, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
         brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
@@ -773,21 +1198,33 @@ class Ui_MainWindow(object):
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Button, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Text, brush)
         brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
         brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Window, brush)
-        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
-        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ButtonText, brush)
         brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
@@ -800,7 +1237,13 @@ class Ui_MainWindow(object):
         font.setBold(False)
         font.setWeight(50)
         self.lblEthereumx.setFont(font)
-        self.lblEthereumx.setAutoFillBackground(True)
+        self.lblEthereumx.setAutoFillBackground(False)
+        self.lblEthereumx.setStyleSheet("QLabel{\n"
+"    color: white;\n"
+"    border-radius: 10px;\n"
+"    padding: 0 8px;\n"
+"    background: black;\n"
+"}")
         self.lblEthereumx.setAlignment(QtCore.Qt.AlignCenter)
         self.lblEthereumx.setWordWrap(False)
         self.lblEthereumx.setContentsMargins(0, 0, 0, 0)
@@ -811,30 +1254,65 @@ class Ui_MainWindow(object):
         self.verticalLayout_2 = QtWidgets.QVBoxLayout(self.layoutWidget7)
         self.verticalLayout_2.setContentsMargins(0, 0, 0, 0)
         self.verticalLayout_2.setObjectName("verticalLayout_2")
-        self.lnPriceBTC = QtWidgets.QLineEdit(self.layoutWidget7)
+        self.lnPriceXMR = QtWidgets.QLineEdit(self.layoutWidget7)
         font = QtGui.QFont()
         font.setPointSize(8)
         font.setBold(False)
         font.setWeight(50)
         font.setKerning(True)
-        self.lnPriceBTC.setFont(font)
-        self.lnPriceBTC.setFrame(False)
-        self.lnPriceBTC.setClearButtonEnabled(False)
-        self.lnPriceBTC.setObjectName("lnPriceBTC")
-        self.verticalLayout_2.addWidget(self.lnPriceBTC)
+        self.lnPriceXMR.setFont(font)
+        self.lnPriceXMR.setStyleSheet("QLineEdit {\n"
+"    border: 1px solid gray;\n"
+"    border-radius: 10px;\n"
+"    padding: 0 8px;\n"
+"    background: white;\n"
+"    selection-background-color: darkgray;\n"
+"}")
+        self.lnPriceXMR.setFrame(False)
+        self.lnPriceXMR.setClearButtonEnabled(False)
+        self.lnPriceXMR.setObjectName("lnPriceXMR")
+        self.verticalLayout_2.addWidget(self.lnPriceXMR)
         self.lnPriceUSD = QtWidgets.QLineEdit(self.layoutWidget7)
+        self.lnPriceUSD.setStyleSheet("QLineEdit {\n"
+"    border: 1px solid gray;\n"
+"    border-radius: 10px;\n"
+"    padding: 0 8px;\n"
+"    background: white;\n"
+"    selection-background-color: darkgray;\n"
+"}")
         self.lnPriceUSD.setFrame(False)
         self.lnPriceUSD.setObjectName("lnPriceUSD")
         self.verticalLayout_2.addWidget(self.lnPriceUSD)
         self.lnHigh = QtWidgets.QLineEdit(self.layoutWidget7)
+        self.lnHigh.setStyleSheet("QLineEdit {\n"
+"    border: 1px solid gray;\n"
+"    border-radius: 10px;\n"
+"    padding: 0 8px;\n"
+"    background: white;\n"
+"    selection-background-color: darkgray;\n"
+"}")
         self.lnHigh.setFrame(False)
         self.lnHigh.setObjectName("lnHigh")
         self.verticalLayout_2.addWidget(self.lnHigh)
         self.lnLow = QtWidgets.QLineEdit(self.layoutWidget7)
+        self.lnLow.setStyleSheet("QLineEdit {\n"
+"    border: 1px solid gray;\n"
+"    border-radius: 10px;\n"
+"    padding: 0 8px;\n"
+"    background: white;\n"
+"    selection-background-color: darkgray;\n"
+"}")
         self.lnLow.setFrame(False)
         self.lnLow.setObjectName("lnLow")
         self.verticalLayout_2.addWidget(self.lnLow)
         self.lnChange = QtWidgets.QLineEdit(self.layoutWidget7)
+        self.lnChange.setStyleSheet("QLineEdit {\n"
+"    border: 1px solid gray;\n"
+"    border-radius: 10px;\n"
+"    padding: 0 8px;\n"
+"    background: white;\n"
+"    selection-background-color: darkgray;\n"
+"}")
         self.lnChange.setFrame(False)
         self.lnChange.setObjectName("lnChange")
         self.verticalLayout_2.addWidget(self.lnChange)
@@ -849,22 +1327,57 @@ class Ui_MainWindow(object):
         font.setBold(False)
         font.setWeight(50)
         self.lnPriceETH.setFont(font)
+        self.lnPriceETH.setStyleSheet("QLineEdit {\n"
+"    border: 1px solid gray;\n"
+"    border-radius: 10px;\n"
+"    padding: 0 8px;\n"
+"    background: white;\n"
+"    selection-background-color: darkgray;\n"
+"}")
         self.lnPriceETH.setFrame(False)
         self.lnPriceETH.setObjectName("lnPriceETH")
         self.verticalLayout_4.addWidget(self.lnPriceETH)
         self.lnETHPriceUSD = QtWidgets.QLineEdit(self.layoutWidget8)
+        self.lnETHPriceUSD.setStyleSheet("QLineEdit {\n"
+"    border: 1px solid gray;\n"
+"    border-radius: 10px;\n"
+"    padding: 0 8px;\n"
+"    background: white;\n"
+"    selection-background-color: darkgray;\n"
+"}")
         self.lnETHPriceUSD.setFrame(False)
         self.lnETHPriceUSD.setObjectName("lnETHPriceUSD")
         self.verticalLayout_4.addWidget(self.lnETHPriceUSD)
         self.lnETHHigh = QtWidgets.QLineEdit(self.layoutWidget8)
+        self.lnETHHigh.setStyleSheet("QLineEdit {\n"
+"    border: 1px solid gray;\n"
+"    border-radius: 10px;\n"
+"    padding: 0 8px;\n"
+"    background: white;\n"
+"    selection-background-color: darkgray;\n"
+"}")
         self.lnETHHigh.setFrame(False)
         self.lnETHHigh.setObjectName("lnETHHigh")
         self.verticalLayout_4.addWidget(self.lnETHHigh)
         self.lnETHLow = QtWidgets.QLineEdit(self.layoutWidget8)
+        self.lnETHLow.setStyleSheet("QLineEdit {\n"
+"    border: 1px solid gray;\n"
+"    border-radius: 10px;\n"
+"    padding: 0 8px;\n"
+"    background: white;\n"
+"    selection-background-color: darkgray;\n"
+"}")
         self.lnETHLow.setFrame(False)
         self.lnETHLow.setObjectName("lnETHLow")
         self.verticalLayout_4.addWidget(self.lnETHLow)
         self.lnETHChange = QtWidgets.QLineEdit(self.layoutWidget8)
+        self.lnETHChange.setStyleSheet("QLineEdit {\n"
+"    border: 1px solid gray;\n"
+"    border-radius: 10px;\n"
+"    padding: 0 8px;\n"
+"    background: white;\n"
+"    selection-background-color: darkgray;\n"
+"}")
         self.lnETHChange.setFrame(False)
         self.lnETHChange.setObjectName("lnETHChange")
         self.verticalLayout_4.addWidget(self.lnETHChange)
@@ -1211,7 +1724,7 @@ class Ui_MainWindow(object):
         self.lcdMoneroinclO.setSegmentStyle(QtWidgets.QLCDNumber.Flat)
         self.lcdMoneroinclO.setObjectName("lcdMoneroinclO")
         self.layoutWidget9 = QtWidgets.QWidget(self.centralWidget)
-        self.layoutWidget9.setGeometry(QtCore.QRect(664, 20, 102, 41))
+        self.layoutWidget9.setGeometry(QtCore.QRect(664, 20, 102, 43))
         self.layoutWidget9.setObjectName("layoutWidget9")
         self.verticalLayout_14 = QtWidgets.QVBoxLayout(self.layoutWidget9)
         self.verticalLayout_14.setContentsMargins(0, 0, 0, 0)
@@ -1259,7 +1772,7 @@ class Ui_MainWindow(object):
         self.lblNetworkStatus.setObjectName("lblNetworkStatus")
         self.verticalLayout_14.addWidget(self.lblNetworkStatus)
         self.layoutWidget10 = QtWidgets.QWidget(self.centralWidget)
-        self.layoutWidget10.setGeometry(QtCore.QRect(774, 20, 61, 41))
+        self.layoutWidget10.setGeometry(QtCore.QRect(774, 20, 61, 43))
         self.layoutWidget10.setObjectName("layoutWidget10")
         self.verticalLayout_15 = QtWidgets.QVBoxLayout(self.layoutWidget10)
         self.verticalLayout_15.setContentsMargins(0, 0, 0, 0)
@@ -1280,13 +1793,108 @@ class Ui_MainWindow(object):
         self.lblNetworkStatusResult.setText("")
         self.lblNetworkStatusResult.setObjectName("lblNetworkStatusResult")
         self.verticalLayout_15.addWidget(self.lblNetworkStatusResult)
+        self.lblBitcoinx = QtWidgets.QLabel(self.centralWidget)
+        self.lblBitcoinx.setGeometry(QtCore.QRect(360, 17, 91, 20))
+        palette = QtGui.QPalette()
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 215, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 215, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 215, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.Window, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 215, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 215, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 215, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.Window, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.WindowText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 215, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Button, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Text, brush)
+        brush = QtGui.QBrush(QtGui.QColor(0, 0, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 215, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Base, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 215, 0))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Window, brush)
+        self.lblBitcoinx.setPalette(palette)
+        font = QtGui.QFont()
+        font.setFamily("Century Gothic")
+        font.setBold(False)
+        font.setWeight(50)
+        self.lblBitcoinx.setFont(font)
+        self.lblBitcoinx.setAutoFillBackground(False)
+        self.lblBitcoinx.setStyleSheet("QLabel{\n"
+"    color: black;\n"
+"    border-radius: 10px;\n"
+"    padding: 0 8px;\n"
+"    background: gold;\n"
+"}")
+        self.lblBitcoinx.setAlignment(QtCore.Qt.AlignCenter)
+        self.lblBitcoinx.setWordWrap(False)
+        self.lblBitcoinx.setContentsMargins(0, 0, 0, 0)
+        self.lblBitcoinx.setObjectName("lblBitcoinx")
+        self.widget = QtWidgets.QWidget(self.centralWidget)
+        self.widget.setGeometry(QtCore.QRect(361, 55, 91, 51))
+        self.widget.setObjectName("widget")
+        self.verticalLayout_16 = QtWidgets.QVBoxLayout(self.widget)
+        self.verticalLayout_16.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout_16.setObjectName("verticalLayout_16")
+        self.lnBTCPriceUSD = QtWidgets.QLineEdit(self.widget)
+        font = QtGui.QFont()
+        font.setBold(False)
+        font.setWeight(50)
+        self.lnBTCPriceUSD.setFont(font)
+        self.lnBTCPriceUSD.setStyleSheet("QLineEdit {\n"
+"    border: 1px solid gray;\n"
+"    border-radius: 10px;\n"
+"    padding: 0 8px;\n"
+"    background: white;\n"
+"    selection-background-color: darkgray;\n"
+"}")
+        self.lnBTCPriceUSD.setFrame(False)
+        self.lnBTCPriceUSD.setObjectName("lnBTCPriceUSD")
+        self.verticalLayout_16.addWidget(self.lnBTCPriceUSD)
         MainWindow.setCentralWidget(self.centralWidget)
 
         self.retranslateUi(MainWindow)
-        self.tabWidget.setCurrentIndex(3)
-        self.tabOO.setCurrentIndex(0)
+        self.tabWidget.setCurrentIndex(1)
+        self.tabOO.setCurrentIndex(1)
         self.tabHistory.setCurrentIndex(0)
-        self.tabTrading.setCurrentIndex(0)
+        self.tabTrading.setCurrentIndex(1)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -1375,6 +1983,7 @@ class Ui_MainWindow(object):
         self.lblSecretKey.setText(_translate("MainWindow", "Secret Key:"))
         self.lblrestartkey.setText(_translate("MainWindow", "Restart the application to activate the saved keys."))
         self.tabWidget.setTabText(self.tabWidget.indexOf(self.tabConfiguration), _translate("MainWindow", "Configuration"))
+        self.tabWidget.setTabText(self.tabWidget.indexOf(self.tabLog), _translate("MainWindow", "Log"))
         self.lblPriceBTC.setText(_translate("MainWindow", "Price (BTC):"))
         self.lblPriceUSD.setText(_translate("MainWindow", "Price (USD):"))
         self.lblHigh.setText(_translate("MainWindow", "24h High:"))
@@ -1386,4 +1995,5 @@ class Ui_MainWindow(object):
         self.lblEthereumx.setText(_translate("MainWindow", "Ethereum"))
         self.lblAppStatus.setText(_translate("MainWindow", "App status: "))
         self.lblNetworkStatus.setText(_translate("MainWindow", "Connection:"))
+        self.lblBitcoinx.setText(_translate("MainWindow", "Bitcoin"))
 

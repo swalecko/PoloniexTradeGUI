@@ -8,6 +8,7 @@ import requests
 import json
 import sys
 from requests.exceptions import ConnectionError
+import logging
 
 
 if not os.path.exists("key.py") or os.stat("key.py").st_size == 0:
@@ -85,6 +86,7 @@ class Thread(QThread):
                 try:
                     self.BuyreadBTCTotal = float(self.BuyreadBTCTotal)
                 except ValueError:
+                    logging.debug()
                     continue
                 self.calcBuyAmount(self.BuyreadBTCprice, self.BuyreadBTCTotal)
 
@@ -113,14 +115,14 @@ class Thread(QThread):
                 self.ui.setNetworkStatus("OK")
            
             except (ConnectionError, TimeoutError) as x:
-                print ("main_thread Loop Exception HTTPSConnectionPool: " + str(x))
+                self.ui.setLog(logging.debug("main_thread Loop Exception HTTPSConnectionPool: " + str(x)))
                 self.ui.setNetworkStatus("ERROR")
-                self.sleep(1)
+                self.sleep(2)
                 continue         
             except Exception as e:
-                print ("main_thread Loop Exception: " + str(e))
+                logging.debug("main_thread Loop Exception: " + str(e))
                 self.ui.setAppStatus("ERROR")
-                self.sleep(1)
+                self.sleep(2)
                 continue
     
     def setBalanceInclIO(self, countopenorders, retopenorders, currency, currencyio):
@@ -135,6 +137,8 @@ class Thread(QThread):
         openorderswidget.setRowCount(0)
         if countopenorders > openorderswidget.rowCount():
             openorderswidget.setRowCount(countopenorders)
+
+
 
         if countopenorders != 0:
             for i in range(countopenorders):         
@@ -203,7 +207,12 @@ class Thread(QThread):
     def clickSell(self):
         self.ui.sellButton.clicked.connect(self.clickedSell)
     def clickedSell(self):
-        exeSell = self.poloInstance.sell("BTC_XMR",self.SellreadBTCprice, self.SellreadXMRAmount)
+        try:
+            exeSell = self.poloInstance.sell("BTC_XMR",self.SellreadBTCprice, self.SellreadXMRAmount)
+            logging.info("Sell Order executed.")
+        except:
+            logging.debug("Sell Order Error!")
+
     def cancelOrder(self):
         self.ui.OpenOrdersWidgetXMR.cellDoubleClicked.connect(self.double_clicked)
     def double_clicked(self):

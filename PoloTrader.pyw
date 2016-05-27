@@ -11,6 +11,7 @@ import thread_getusd
 import ui_ResourceFile
 from main import Ui_MainWindow
 import key
+import logging
 
 
 class MyGui(QtWidgets.QMainWindow, Ui_MainWindow):    
@@ -55,7 +56,7 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow):
         self.lnPriceUSD.setText(_translate("MainWindow", str(xmrusd))) 
     def setXMRPrice(self, price):
         _translate = QtCore.QCoreApplication.translate
-        self.lnPriceBTC.setText(_translate("MainWindow", str(price)))
+        self.lnPriceXMR.setText(_translate("MainWindow", str(price)))
     def setHigh(self, high):
         _translate = QtCore.QCoreApplication.translate
         self.lnHigh.setText(_translate("MainWindow", str(high)))
@@ -65,10 +66,13 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow):
     def setChange(self, change):
         _translate = QtCore.QCoreApplication.translate
         self.lnChange.setText(_translate("MainWindow", change))
-    
     def setETHUSDPrice(self, ethusd):
         _translate = QtCore.QCoreApplication.translate
-        self.lnETHPriceUSD.setText(_translate("MainWindow", str(ethusd)))   
+        self.lnETHPriceUSD.setText(_translate("MainWindow", str(ethusd)))
+    def setBTCUSDPrice(self, btcusd):
+        _translate = QtCore.QCoreApplication.translate
+        self.lnBTCPriceUSD.setText(_translate("MainWindow", str(btcusd)))   
+
     def setETHPrice(self, ethprice):
         _translate = QtCore.QCoreApplication.translate
         self.lnPriceETH.setText(_translate("MainWindow", str(ethprice)))
@@ -81,7 +85,6 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow):
     def setETHChange(self, ethchange):
         _translate = QtCore.QCoreApplication.translate
         self.lnETHChange.setText(_translate("MainWindow", ethchange))  
-
     def setLcdMoneroinclIO(self, moneroinclio):
         _translate = QtCore.QCoreApplication.translate
         self.lcdMoneroinclO.display(_translate("MainWindow", moneroinclio))
@@ -118,8 +121,33 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow):
     def setNetworkStatus(self, networkstatus):
         _translate = QtCore.QCoreApplication.translate
         self.lblNetworkStatusResult.setText(_translate("MainWindow", str(networkstatus)))
+    def setLog(self, log):
+       _translate = QtCore.QCoreApplication.translate
+       self.plainTextEdit.appendPlainText(log)
+
+
+logger = logging.getLogger(__name__)
+
+class QtHandler(logging.Handler):
+
+    def __init__(self):
+        logging.Handler.__init__(self)
+
+    def emit(self, record):
+        record = self.format(record)
+        XStream.stdout().write("{}\n".format(record))
+
+handler = QtHandler()
+handler.setFormatter(logging.Formatter("%(levelname)s: %(message)s"))
+logger.addHandler(handler)
+logger.setLevel(logging.DEBUG)
+
+
+
 
 def main():
+    logging.basicConfig(filename="qt.log", level=logging.DEBUG, format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
+    logging.getLogger("requests").setLevel(logging.WARNING)
     app = QtWidgets.QApplication(sys.argv)
     form = MyGui()
     form.show()
@@ -142,7 +170,6 @@ def main():
     myThread.clickSaveConfiguration()
     myThread_getusd = thread_getusd.Thread(form)
     myThread_getusd.start()
-
 
     sys.exit(app.exec_())
 

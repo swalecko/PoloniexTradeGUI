@@ -8,7 +8,7 @@ from PyQt5.QtWidgets import *
 import polowrapper
 import key
 from requests.exceptions import ConnectionError
-
+import logging
 
 
 class Thread(QThread):
@@ -28,8 +28,10 @@ class Thread(QThread):
         
         XMRUSDPRICE = 0 
         ETHUSDPRICE = 0
+        BTCUSDPRICE = 0
         XMRUSD = "https://www.cryptonator.com/api/ticker/xmr-usd"
         ETHUSD = "https://www.cryptonator.com/api/ticker/eth-usd" 
+        BTCUSD = "https://www.cryptonator.com/api/ticker/btc-usd"
         while True:
             try:
                
@@ -37,11 +39,13 @@ class Thread(QThread):
                 try:
                     TICKERRESPXMRUSD = requests.post(XMRUSD, headers={ "Accept": "application/json" })
                     TICKERRESPETHUSD = requests.post(ETHUSD, headers={ "Accept": "application/json" })
+                    TICKERRESPBTCUSD = requests.post(BTCUSD, headers={ "Accept": "application/json" })
                 except ConnectionError as a:
                     self.ui.setXMRUSDPrice("N/A")
                     self.ui.setETHUSDPrice("N/A")
-                    print ("Error: Could not connect to the cryptonator API to get the USD price")
-                    print ("Connection ERROR GETUSD: " + str(a))
+                    self.ui.setBTCUSDPrice("N/A")
+                    
+                    self.ui.setLog(logging.debug("Connection ERROR GETUSD: " + str(a)))
                     self.ui.setNetworkStatus("ERROR")
                     self.sleep(1)
                     continue
@@ -49,16 +53,21 @@ class Thread(QThread):
                 try:
                     XMRUSDPRICE = str(json.loads(TICKERRESPXMRUSD.text)['ticker']['price'])
                     ETHUSDPRICE = str(json.loads(TICKERRESPETHUSD.text)['ticker']['price'])
+                    BTCUSDPRICE = str(json.loads(TICKERRESPBTCUSD.text)['ticker']['price'])
+
                 except:
                     self.ui.setXMRUSDPrice("N/A")
                     self.ui.setETHUSDPrice("N/A")
-                    print ("Error: Could not set the price variable")
-                    print ("")
+                    self.ui.setBTCUSDPrice("N/A")
+                    logging.debug("Error: Could not set the price variable")
                     continue
 
                 
                 self.ui.setXMRUSDPrice(round (float(XMRUSDPRICE),2))
                 self.ui.setETHUSDPrice(round (float(ETHUSDPRICE),2))
+                self.sleep(0.5)
+                self.ui.setBTCUSDPrice(round (float(BTCUSDPRICE),2))
+
 
                 self.getPoloInfo()
                 self.setXMRPriceInfo()
@@ -67,13 +76,13 @@ class Thread(QThread):
 
 
             except (ConnectionError, TimeoutError) as e:
-                print ("thread_getusd Loop Exception Connection: " + str(e))
+                self.ui.setLog(logging.debug("thread_getusd Loop Exception Connection: " + str(e)))
                 self.ui.setNetworkStatus("ERROR")
-                self.sleep(1)
+                self.sleep(2)
                 continue
             except Exception as e:
-                print ("thread_getusd Loop Exception: " + str(e))
-                self.sleep(1)
+                logging.debug("thread_getusd Loop Exception: " + str(e))
+                self.sleep(2)
 
     def setXMRPriceInfo(self):
         self.sleep(1)
@@ -99,6 +108,7 @@ class Thread(QThread):
         self.sleep(0.5)
         self.ui.setETHChange(str(round(float(self.changeETH)*100,2)) + " %")
 
+       
     def getPoloInfo(self):
         self.poloInstance = polowrapper.poloniex(key.PUBLIC_KEY, key.SECRET_KEY)
 
@@ -107,8 +117,6 @@ class Thread(QThread):
 
         self.tickerXMR = self.retTicker['BTC_XMR']
         self.tickerETH = self.retTicker['BTC_ETH']
-        print ("tickerXMR: " + str(self.tickerXMR))
-
         self.lastXMR = self.tickerXMR['last']
         self.highXMR = self.tickerXMR['high24hr']
         self.lowXMR = self.tickerXMR['low24hr']

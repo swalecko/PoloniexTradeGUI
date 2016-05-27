@@ -1,6 +1,7 @@
 key.py
 build/
 dist/
+qt.log
 __pycache__/
 # Windows image file caches
 Thumbs.db

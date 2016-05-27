@@ -16,28 +16,28 @@ class PoloniexComponent(ApplicationSession):
                 print (args[0])    
            
            
-            # if args[0] == "BTC_XMR":
+            if args[0] == "BTC_XMR":
                                                
-            #     # print ("")
-            #     # print ("===================================")
+                print ("")
+                print ("===================================")
                 
-            #     # print ("Currency: " + args[0])
-            #     # print ("Current Prize: " + args[1] + " BTC") 
-            #     # print ("24hr High: " + args[8] + " BTC")
-            #     # print ("24hr Low: " + args[9] + " BTC")
-            #     # print ("Percent Change: " + str(float(args[4])*100) + " %")
+                print ("Currency: " + args[0])
+                print ("Current Prize: " + args[1] + " BTC") 
+                print ("24hr High: " + args[8] + " BTC")
+                print ("24hr Low: " + args[9] + " BTC")
+                print ("Percent Change: " + str(float(args[4])*100) + " %")
 
-            #     return args[0]
-            #     return args[1]
-            # #if args[0] == "BTC_ETH":
+                return args[0]
+                return args[1]
+            if args[0] == "BTC_ETH":
                                                
-            #     # print ("")
-            #     # print ("===================================")
-            #     # print ("Currency: " + args[0])
-            #     # print ("Current Prize: " + args[1] + " BTC") 
-            #     # print ("24hr High: " + args[8] + " BTC")
-            #     # print ("24hr Low: " + args[9] + " BTC")
-            #     # print ("Percent Change: " + str(float(args[4])*100) + " %")
+                print ("")
+                print ("===================================")
+                print ("Currency: " + args[0])
+                print ("Current Prize: " + args[1] + " BTC") 
+                print ("24hr High: " + args[8] + " BTC")
+                print ("24hr Low: " + args[9] + " BTC")
+                print ("Percent Change: " + str(float(args[4])*100) + " %")
             
 
         try:

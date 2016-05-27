@@ -1,3 +1,0 @@
-import polopush
-
-polopush.main()
