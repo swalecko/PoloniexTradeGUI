@@ -1,5 +1,5 @@
 # PoloniexTradeGUI
-(unoffical)
+(unofficial)
 
 **Donations:** 
 XMR: 49wH4MLdp62BrG7pUuh7dJ51icq1T2edpNJpHt7R2qoJTpuR7oK81jWXxH5K6Rz1nZHneK24jj7XdZDmc7U2W2dH8aso46n
