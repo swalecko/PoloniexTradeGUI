@@ -1,6 +1,8 @@
 # PoloniexTradeGUI
+(unoffical)
 
-Donations: XMR: 49wH4MLdp62BrG7pUuh7dJ51icq1T2edpNJpHt7R2qoJTpuR7oK81jWXxH5K6Rz1nZHneK24jj7XdZDmc7U2W2dH8aso46n
+**Donations:** 
+XMR: 49wH4MLdp62BrG7pUuh7dJ51icq1T2edpNJpHt7R2qoJTpuR7oK81jWXxH5K6Rz1nZHneK24jj7XdZDmc7U2W2dH8aso46n
 
 Trading app for XMR and ETH at the Poloniex exchange using the Poloniex API.
 
