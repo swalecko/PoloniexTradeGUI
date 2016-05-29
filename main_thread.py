@@ -124,6 +124,7 @@ class Thread(QThread):
                 self.ui.setAppStatus("ERROR")
                 self.sleep(2)
                 continue
+
     
     def setBalanceInclIO(self, countopenorders, retopenorders, currency, currencyio):
         count = 0
@@ -149,9 +150,10 @@ class Thread(QThread):
                 openorderswidget.setItem(i,4, QTableWidgetItem(retopenorders[i]["amount"]))
                 if retopenorders[i]["type"] == "sell":
                     openorderswidget.item(i, 1).setBackground(QtGui.QColor(176,10,49))
-                    openorderswidget.item(i, 1).setForeground(QtGui.QColor(255,255,255))
+                   
                 else:
-                    openorderswidget.item(i, 1).setBackground(QtGui.QColor(10,189,82))
+                    openorderswidget.item(i, 1).setBackground(QtGui.QColor(0,139,0))
+                    openorderswidget.item(i, 1).setForeground(QtGui.QColor(255,255,255))
     def setHistory(self, counthistory, historywidget, rethistory, currency):
         historywidget.setRowCount(0)
         if counthistory > historywidget.rowCount():
@@ -165,9 +167,9 @@ class Thread(QThread):
                 historywidget.setItem(i,4, QTableWidgetItem(rethistory[i]["date"]))
                 if rethistory[i]["type"] == "sell":
                     historywidget.item(i, 1).setBackground(QtGui.QColor(176,10,49))
-                    historywidget.item(i, 1).setForeground(QtGui.QColor(255,255,255))
                 else:
-                    historywidget.item(i, 1).setBackground(QtGui.QColor(10,189,82))
+                    historywidget.item(i, 1).setBackground(QtGui.QColor(0,139,0))
+                    historywidget.item(i, 1).setForeground(QtGui.QColor(255,255,255))
 
     def clickSaveConfiguration(self):
         self.ui.saveButton.clicked.connect(self.clickedSaveConfiguration)
@@ -210,14 +212,18 @@ class Thread(QThread):
         try:
             exeSell = self.poloInstance.sell("BTC_XMR",self.SellreadBTCprice, self.SellreadXMRAmount)
             logging.info("Sell Order executed.")
-        except:
-            logging.debug("Sell Order Error!")
+            self.setOpenOrders(self.countOpenOrdersXMR, self.ui.OpenOrdersWidgetXMR, self.retOpenOrdersXMR)
+           
+        except Exception as e:
+            logging.debug("Sell Order Error!" + str(e))
 
     def cancelOrder(self):
         self.ui.OpenOrdersWidgetXMR.cellDoubleClicked.connect(self.double_clicked)
+
     def double_clicked(self):
         orderNumberXMR = self.ui.OpenOrdersWidgetXMR.currentItem().text()
         self.poloInstance.cancel("BTC_XMR", orderNumberXMR)
+        self.setOpenOrders(self.countOpenOrdersXMR, self.ui.OpenOrdersWidgetXMR, self.retOpenOrdersXMR)
 
     #ETH
     def calcETHBuyAmount(self, buyreadbtcprice, buyreadbtctotal):

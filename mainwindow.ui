@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>872</width>
-    <height>673</height>
+    <width>870</width>
+    <height>671</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -22,88 +22,169 @@
   <property name="palette">
    <palette>
     <active>
+     <colorrole role="WindowText">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>177</red>
+        <green>177</green>
+        <blue>177</blue>
+       </color>
+      </brush>
+     </colorrole>
      <colorrole role="Button">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>240</red>
-        <green>183</green>
-        <blue>68</blue>
+        <red>50</red>
+        <green>50</green>
+        <blue>50</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Text">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>177</red>
+        <green>177</green>
+        <blue>177</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="ButtonText">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>177</red>
+        <green>177</green>
+        <blue>177</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Base">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>255</red>
-        <green>255</green>
-        <blue>255</blue>
+        <red>50</red>
+        <green>50</green>
+        <blue>50</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>238</red>
-        <green>238</green>
-        <blue>238</blue>
+        <red>50</red>
+        <green>50</green>
+        <blue>50</blue>
        </color>
       </brush>
      </colorrole>
     </active>
     <inactive>
+     <colorrole role="WindowText">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>177</red>
+        <green>177</green>
+        <blue>177</blue>
+       </color>
+      </brush>
+     </colorrole>
      <colorrole role="Button">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>240</red>
-        <green>183</green>
-        <blue>68</blue>
+        <red>50</red>
+        <green>50</green>
+        <blue>50</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Text">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>177</red>
+        <green>177</green>
+        <blue>177</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="ButtonText">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>177</red>
+        <green>177</green>
+        <blue>177</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Base">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>255</red>
-        <green>255</green>
-        <blue>255</blue>
+        <red>50</red>
+        <green>50</green>
+        <blue>50</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>238</red>
-        <green>238</green>
-        <blue>238</blue>
+        <red>50</red>
+        <green>50</green>
+        <blue>50</blue>
        </color>
       </brush>
      </colorrole>
     </inactive>
     <disabled>
+     <colorrole role="WindowText">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>64</red>
+        <green>64</green>
+        <blue>64</blue>
+       </color>
+      </brush>
+     </colorrole>
      <colorrole role="Button">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>240</red>
-        <green>183</green>
-        <blue>68</blue>
+        <red>50</red>
+        <green>50</green>
+        <blue>50</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="Text">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>64</red>
+        <green>64</green>
+        <blue>64</blue>
+       </color>
+      </brush>
+     </colorrole>
+     <colorrole role="ButtonText">
+      <brush brushstyle="SolidPattern">
+       <color alpha="255">
+        <red>64</red>
+        <green>64</green>
+        <blue>64</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Base">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>238</red>
-        <green>238</green>
-        <blue>238</blue>
+        <red>50</red>
+        <green>50</green>
+        <blue>50</blue>
        </color>
       </brush>
      </colorrole>
      <colorrole role="Window">
       <brush brushstyle="SolidPattern">
        <color alpha="255">
-        <red>238</red>
-        <green>238</green>
-        <blue>238</blue>
+        <red>50</red>
+        <green>50</green>
+        <blue>50</blue>
        </color>
       </brush>
      </colorrole>
@@ -116,6 +197,472 @@
   <property name="windowIcon">
    <iconset>
     <normaloff>1.png.ico</normaloff>1.png.ico</iconset>
+  </property>
+  <property name="autoFillBackground">
+   <bool>false</bool>
+  </property>
+  <property name="styleSheet">
+   <string notr="true">QToolTip
+{
+     border: 1px solid black;
+     background-color: #ffa02f;
+     padding: 1px;
+     border-radius: 3px;
+     opacity: 100;
+}
+
+QWidget
+{
+    color: #b1b1b1;
+    background-color: #323232;
+}
+
+QWidget:item:hover
+{
+    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ffa02f, stop: 1 #ca0619);
+    color: #000000;
+}
+
+QWidget:item:selected
+{
+    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ffa02f, stop: 1 #d7801a);
+}
+
+QMenuBar::item
+{
+    background: transparent;
+}
+
+QMenuBar::item:selected
+{
+    background: transparent;
+    border: 1px solid #ffaa00;
+}
+
+QMenuBar::item:pressed
+{
+    background: #444;
+    border: 1px solid #000;
+    background-color: QLinearGradient(
+        x1:0, y1:0,
+        x2:0, y2:1,
+        stop:1 #212121,
+        stop:0.4 #343434/*,
+        stop:0.2 #343434,
+        stop:0.1 #ffaa00*/
+    );
+    margin-bottom:-1px;
+    padding-bottom:1px;
+}
+
+QMenu
+{
+    border: 1px solid #000;
+}
+
+QMenu::item
+{
+    padding: 2px 20px 2px 20px;
+}
+
+QMenu::item:selected
+{
+    color: #000000;
+}
+
+QWidget:disabled
+{
+    color: #404040;
+    background-color: #323232;
+}
+
+QAbstractItemView
+{
+    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #4d4d4d, stop: 0.1 #646464, stop: 1 #5d5d5d);
+}
+
+QWidget:focus
+{
+    /*border: 2px solid QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ffa02f, stop: 1 #d7801a);*/
+}
+
+QLineEdit
+{
+    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #4d4d4d, stop: 0 #646464, stop: 1 #5d5d5d);
+    padding: 1px;
+    border-style: solid;
+    border: 1px solid #1e1e1e;
+    border-radius: 5;
+}
+
+QPushButton
+{
+    color: grey;
+    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #565656, stop: 0.1 #525252, stop: 0.5 #4e4e4e, stop: 0.9 #4a4a4a, stop: 1 #464646);
+    border-width: 1px;
+    border-color: #1e1e1e;
+    border-style: solid;
+    border-radius: 6;
+    padding: 3px;
+    font-size: 12px;
+    padding-left: 5px;
+    padding-right: 5px;
+}
+
+QPushButton:pressed
+{
+    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #2d2d2d, stop: 0.1 #2b2b2b, stop: 0.5 #292929, stop: 0.9 #282828, stop: 1 #252525);
+}
+
+QComboBox
+{
+    selection-background-color: #ffaa00;
+    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #565656, stop: 0.1 #525252, stop: 0.5 #4e4e4e, stop: 0.9 #4a4a4a, stop: 1 #464646);
+    border-style: solid;
+    border: 1px solid #1e1e1e;
+    border-radius: 5;
+}
+
+QComboBox:hover,QPushButton:hover
+{
+    border: 2px solid QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ffa02f, stop: 1 #d7801a);
+}
+
+
+QComboBox:on
+{
+    padding-top: 3px;
+    padding-left: 4px;
+    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #2d2d2d, stop: 0.1 #2b2b2b, stop: 0.5 #292929, stop: 0.9 #282828, stop: 1 #252525);
+    selection-background-color: #ffaa00;
+}
+
+QComboBox QAbstractItemView
+{
+    border: 2px solid darkgray;
+    selection-background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ffa02f, stop: 1 #d7801a);
+}
+
+QComboBox::drop-down
+{
+     subcontrol-origin: padding;
+     subcontrol-position: top right;
+     width: 15px;
+
+     border-left-width: 0px;
+     border-left-color: darkgray;
+     border-left-style: solid; /* just a single line */
+     border-top-right-radius: 3px; /* same radius as the QComboBox */
+     border-bottom-right-radius: 3px;
+ }
+
+QComboBox::down-arrow
+{
+     image: url(:/down_arrow.png);
+}
+
+QGroupBox:focus
+{
+border: 2px solid QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ffa02f, stop: 1 #d7801a);
+}
+
+QTextEdit:focus
+{
+    border: 2px solid QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ffa02f, stop: 1 #d7801a);
+}
+
+QScrollBar:horizontal {
+     border: 1px solid #222222;
+     background: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0.0 #121212, stop: 0.2 #282828, stop: 1 #484848);
+     height: 7px;
+     margin: 0px 16px 0 16px;
+}
+
+QScrollBar::handle:horizontal
+{
+      background: QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 #ffa02f, stop: 0.5 #d7801a, stop: 1 #ffa02f);
+      min-height: 20px;
+      border-radius: 2px;
+}
+
+QScrollBar::add-line:horizontal {
+      border: 1px solid #1b1b19;
+      border-radius: 2px;
+      background: QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 #ffa02f, stop: 1 #d7801a);
+      width: 14px;
+      subcontrol-position: right;
+      subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:horizontal {
+      border: 1px solid #1b1b19;
+      border-radius: 2px;
+      background: QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0, stop: 0 #ffa02f, stop: 1 #d7801a);
+      width: 14px;
+     subcontrol-position: left;
+     subcontrol-origin: margin;
+}
+
+QScrollBar::right-arrow:horizontal, QScrollBar::left-arrow:horizontal
+{
+      border: 1px solid black;
+      width: 1px;
+      height: 1px;
+      background: white;
+}
+
+QScrollBar::add-page:horizontal, QScrollBar::sub-page:horizontal
+{
+      background: none;
+}
+
+QScrollBar:vertical
+{
+      background: QLinearGradient( x1: 0, y1: 0, x2: 1, y2: 0, stop: 0.0 #121212, stop: 0.2 #282828, stop: 1 #484848);
+      width: 7px;
+      margin: 16px 0 16px 0;
+      border: 1px solid #222222;
+}
+
+QScrollBar::handle:vertical
+{
+      background: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ffa02f, stop: 0.5 #d7801a, stop: 1 #ffa02f);
+      min-height: 20px;
+      border-radius: 2px;
+}
+
+QScrollBar::add-line:vertical
+{
+      border: 1px solid #1b1b19;
+      border-radius: 2px;
+      background: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ffa02f, stop: 1 #d7801a);
+      height: 14px;
+      subcontrol-position: bottom;
+      subcontrol-origin: margin;
+}
+
+QScrollBar::sub-line:vertical
+{
+      border: 1px solid #1b1b19;
+      border-radius: 2px;
+      background: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #d7801a, stop: 1 #ffa02f);
+      height: 14px;
+      subcontrol-position: top;
+      subcontrol-origin: margin;
+}
+
+QScrollBar::up-arrow:vertical, QScrollBar::down-arrow:vertical
+{
+      border: 1px solid black;
+      width: 1px;
+      height: 1px;
+      background: white;
+}
+
+
+QScrollBar::add-page:vertical, QScrollBar::sub-page:vertical
+{
+      background: none;
+}
+
+QTextEdit
+{
+    background-color: #242424;
+}
+
+QPlainTextEdit
+{
+    background-color: #242424;
+}
+
+QHeaderView::section
+{
+    background-color: QLinearGradient(x1:0, y1:0, x2:0, y2:1, stop:0 #616161, stop: 0.5 #505050, stop: 0.6 #434343, stop:1 #656565);
+    color: white;
+    padding-left: 4px;
+    border: 1px solid #6c6c6c;
+}
+
+QCheckBox:disabled
+{
+color: #414141;
+}
+
+QDockWidget::title
+{
+    text-align: center;
+    spacing: 3px; /* spacing between items in the tool bar */
+    background-color: QLinearGradient(x1:0, y1:0, x2:0, y2:1, stop:0 #323232, stop: 0.5 #242424, stop:1 #323232);
+}
+
+QDockWidget::close-button, QDockWidget::float-button
+{
+    text-align: center;
+    spacing: 1px; /* spacing between items in the tool bar */
+    background-color: QLinearGradient(x1:0, y1:0, x2:0, y2:1, stop:0 #323232, stop: 0.5 #242424, stop:1 #323232);
+}
+
+QDockWidget::close-button:hover, QDockWidget::float-button:hover
+{
+    background: #242424;
+}
+
+QDockWidget::close-button:pressed, QDockWidget::float-button:pressed
+{
+    padding: 1px -1px -1px 1px;
+}
+
+QMainWindow::separator
+{
+    background-color: QLinearGradient(x1:0, y1:0, x2:0, y2:1, stop:0 #161616, stop: 0.5 #151515, stop: 0.6 #212121, stop:1 #343434);
+    color: white;
+    padding-left: 4px;
+    border: 1px solid #4c4c4c;
+    spacing: 3px; /* spacing between items in the tool bar */
+}
+
+QMainWindow::separator:hover
+{
+
+    background-color: QLinearGradient(x1:0, y1:0, x2:0, y2:1, stop:0 #d7801a, stop:0.5 #b56c17 stop:1 #ffa02f);
+    color: white;
+    padding-left: 4px;
+    border: 1px solid #6c6c6c;
+    spacing: 3px; /* spacing between items in the tool bar */
+}
+
+QToolBar::handle
+{
+     spacing: 3px; /* spacing between items in the tool bar */
+     background: url(:/images/handle.png);
+}
+
+QMenu::separator
+{
+    height: 2px;
+    background-color: QLinearGradient(x1:0, y1:0, x2:0, y2:1, stop:0 #161616, stop: 0.5 #151515, stop: 0.6 #212121, stop:1 #343434);
+    color: white;
+    padding-left: 4px;
+    margin-left: 10px;
+    margin-right: 5px;
+}
+
+QProgressBar
+{
+    border: 2px solid grey;
+    border-radius: 5px;
+    text-align: center;
+}
+
+QProgressBar::chunk
+{
+    background-color: #d7801a;
+    width: 2.15px;
+    margin: 0.5px;
+}
+
+QTabBar::tab {
+    color: #b1b1b1;
+    border: 1px solid #444;
+    border-bottom-style: none;
+    background-color: #323232;
+    padding-left: 10px;
+    padding-right: 10px;
+    padding-top: 3px;
+    padding-bottom: 2px;
+    margin-right: -1px;
+}
+
+QTabWidget::pane {
+    border: 1px solid #444;
+    top: 1px;
+}
+
+QTabBar::tab:last
+{
+    margin-right: 0; /* the last selected tab has nothing to overlap with on the right */
+    border-top-right-radius: 3px;
+}
+
+QTabBar::tab:first:!selected
+{
+ margin-left: 0px; /* the last selected tab has nothing to overlap with on the right */
+
+
+    border-top-left-radius: 3px;
+}
+
+QTabBar::tab:!selected
+{
+   color: #b1b1b1;
+
+    border-bottom-style: solid;
+    margin-top: 3px;
+    background-color: QLinearGradient(x1:0, y1:0, x2:0, y2:1, stop:1 #212121, stop:.4 #343434);
+}
+
+QTabBar::tab:selected
+{
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    margin-bottom: 0px;
+    background-color: QLinearGradient(x1:0, y1:0, x2:0, y2:1, stop:1 #212121, stop:0.4 #343434, stop:0.2 #343434, stop:0.1 #ffaa00);
+}
+
+QTabBar::tab:!selected:hover
+{
+    /*border-top: 2px solid #ffaa00;
+    padding-bottom: 3px;*/
+    border-top-left-radius: 3px;
+    border-top-right-radius: 3px;
+    background-color: QLinearGradient(x1:0, y1:0, x2:0, y2:1, stop:1 #212121, stop:0.4 #343434, stop:0.2 #343434, stop:0.1 #ffaa00);
+}
+
+QRadioButton::indicator:checked, QRadioButton::indicator:unchecked{
+    color: #b1b1b1;
+    background-color: #323232;
+    border: 1px solid #b1b1b1;
+    border-radius: 6px;
+}
+
+QRadioButton::indicator:checked
+{
+    background-color: qradialgradient(
+        cx: 0.5, cy: 0.5,
+        fx: 0.5, fy: 0.5,
+        radius: 1.0,
+        stop: 0.25 #ffaa00,
+        stop: 0.3 #323232
+    );
+}
+
+QCheckBox::indicator{
+    color: #b1b1b1;
+    background-color: #323232;
+    border: 1px solid #b1b1b1;
+    width: 9px;
+    height: 9px;
+}
+
+QRadioButton::indicator
+{
+    border-radius: 6px;
+}
+
+QRadioButton::indicator:hover, QCheckBox::indicator:hover
+{
+    border: 1px solid #ffaa00;
+}
+
+QCheckBox::indicator:checked
+{
+    image:url(:/images/checkbox.png);
+}
+
+QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
+{
+    border: 1px solid #444;
+}</string>
   </property>
   <property name="toolButtonStyle">
    <enum>Qt::ToolButtonIconOnly</enum>
@@ -215,9 +762,18 @@
        <colorrole role="WindowText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>0</red>
-          <green>0</green>
-          <blue>0</blue>
+          <red>177</red>
+          <green>177</green>
+          <blue>177</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
          </color>
         </brush>
        </colorrole>
@@ -251,27 +807,36 @@
        <colorrole role="Text">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>0</red>
-          <green>0</green>
-          <blue>0</blue>
+          <red>177</red>
+          <green>177</green>
+          <blue>177</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="ButtonText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>0</red>
-          <green>0</green>
-          <blue>0</blue>
+          <red>177</red>
+          <green>177</green>
+          <blue>177</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Base">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
          </color>
         </brush>
        </colorrole>
@@ -289,9 +854,18 @@
        <colorrole role="WindowText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>0</red>
-          <green>0</green>
-          <blue>0</blue>
+          <red>177</red>
+          <green>177</green>
+          <blue>177</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
          </color>
         </brush>
        </colorrole>
@@ -325,27 +899,36 @@
        <colorrole role="Text">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>0</red>
-          <green>0</green>
-          <blue>0</blue>
+          <red>177</red>
+          <green>177</green>
+          <blue>177</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="ButtonText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>0</red>
-          <green>0</green>
-          <blue>0</blue>
+          <red>177</red>
+          <green>177</green>
+          <blue>177</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Base">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
          </color>
         </brush>
        </colorrole>
@@ -363,9 +946,18 @@
        <colorrole role="WindowText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>72</red>
-          <green>118</green>
-          <blue>160</blue>
+          <red>64</red>
+          <green>64</green>
+          <blue>64</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
          </color>
         </brush>
        </colorrole>
@@ -399,27 +991,36 @@
        <colorrole role="Text">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>72</red>
-          <green>118</green>
-          <blue>160</blue>
+          <red>64</red>
+          <green>64</green>
+          <blue>64</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="ButtonText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>72</red>
-          <green>118</green>
-          <blue>160</blue>
+          <red>64</red>
+          <green>64</green>
+          <blue>64</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Base">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>238</red>
-          <green>238</green>
-          <blue>238</blue>
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Window">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
          </color>
         </brush>
        </colorrole>
@@ -451,19 +1052,10 @@
      <enum>Qt::TabFocus</enum>
     </property>
     <property name="autoFillBackground">
-     <bool>true</bool>
+     <bool>false</bool>
     </property>
     <property name="styleSheet">
-     <string notr="true">QHeaderView::section {
-    background-color: qlineargradient(x1:0, y1:0, x2:0, y2:1,
-                                      stop:0 #616161, stop: 0.5 #505050,
-                                      stop: 0.6 #434343, stop:1 #656565);
-    color: white;
-    padding-left: 4px;
-	padding-top: 2px;
-	padding-bottom: 2px;
-    border: 1px solid #6c6c6c;
-}</string>
+     <string notr="true"/>
     </property>
     <property name="tabPosition">
      <enum>QTabWidget::North</enum>
@@ -472,7 +1064,7 @@
      <enum>QTabWidget::Triangular</enum>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>2</number>
     </property>
     <property name="movable">
      <bool>true</bool>
@@ -509,42 +1101,7 @@
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">QTabWidget::pane { /* The tab widget frame */
-    border-top: 2px solid #C2C7CB;
-}
-
-QTabWidget::tab-bar {
-    left: 0px; /* move to the right by 5px */
-}
-
-/* Style the tab using the tab sub-control. Note that
-    it reads QTabBar _not_ QTabWidget */
-QTabBar::tab {
-    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,
-                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);
-    border: 0px solid #C4C4C3;
-    border-bottom-color: #C2C7CB; /* same as the pane color */
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-    min-width: 12ex;
-    padding: 2px;
-}
-
-QTabBar::tab:selected, QTabBar::tab:hover {
-    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #fafafa, stop: 0.4 #f4f4f4,
-                                stop: 0.5 #e7e7e7, stop: 1.0 #fafafa);
-}
-
-QTabBar::tab:selected {
-    border-color: #9B9B9B;
-    border-bottom-color: #C2C7CB; /* same as pane color */
-}
-
-QTabBar::tab:!selected {
-    margin-top: 2px; /* make non-selected tabs look smaller */
-}</string>
+       <string notr="true"/>
       </property>
       <property name="currentIndex">
        <number>0</number>
@@ -556,9 +1113,9 @@ QTabBar::tab:!selected {
        <widget class="QTableWidget" name="OpenOrdersWidgetXMR">
         <property name="geometry">
          <rect>
-          <x>-1</x>
+          <x>-2</x>
           <y>-1</y>
-          <width>791</width>
+          <width>801</width>
           <height>331</height>
          </rect>
         </property>
@@ -571,6 +1128,42 @@ QTabBar::tab:!selected {
         <property name="palette">
          <palette>
           <active>
+           <colorrole role="WindowText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>177</red>
+              <green>177</green>
+              <blue>177</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Button">
+            <brush brushstyle="LinearGradientPattern">
+             <gradient startx="0.000000000000000" starty="0.000000000000000" endx="0.000000000000000" endy="1.000000000000000" type="LinearGradient" spread="PadSpread" coordinatemode="ObjectBoundingMode">
+              <gradientstop position="0.000000000000000">
+               <color alpha="255">
+                <red>77</red>
+                <green>77</green>
+                <blue>77</blue>
+               </color>
+              </gradientstop>
+              <gradientstop position="0.100000000000000">
+               <color alpha="255">
+                <red>100</red>
+                <green>100</green>
+                <blue>100</blue>
+               </color>
+              </gradientstop>
+              <gradientstop position="1.000000000000000">
+               <color alpha="255">
+                <red>93</red>
+                <green>93</green>
+                <blue>93</blue>
+               </color>
+              </gradientstop>
+             </gradient>
+            </brush>
+           </colorrole>
            <colorrole role="Light">
             <brush brushstyle="SolidPattern">
              <color alpha="255">
@@ -589,17 +1182,116 @@ QTabBar::tab:!selected {
              </color>
             </brush>
            </colorrole>
-           <colorrole role="Base">
+           <colorrole role="Text">
             <brush brushstyle="SolidPattern">
              <color alpha="255">
-              <red>255</red>
-              <green>255</green>
-              <blue>255</blue>
+              <red>177</red>
+              <green>177</green>
+              <blue>177</blue>
              </color>
+            </brush>
+           </colorrole>
+           <colorrole role="ButtonText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>177</red>
+              <green>177</green>
+              <blue>177</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Base">
+            <brush brushstyle="LinearGradientPattern">
+             <gradient startx="0.000000000000000" starty="0.000000000000000" endx="0.000000000000000" endy="1.000000000000000" type="LinearGradient" spread="PadSpread" coordinatemode="ObjectBoundingMode">
+              <gradientstop position="0.000000000000000">
+               <color alpha="255">
+                <red>77</red>
+                <green>77</green>
+                <blue>77</blue>
+               </color>
+              </gradientstop>
+              <gradientstop position="0.100000000000000">
+               <color alpha="255">
+                <red>100</red>
+                <green>100</green>
+                <blue>100</blue>
+               </color>
+              </gradientstop>
+              <gradientstop position="1.000000000000000">
+               <color alpha="255">
+                <red>93</red>
+                <green>93</green>
+                <blue>93</blue>
+               </color>
+              </gradientstop>
+             </gradient>
+            </brush>
+           </colorrole>
+           <colorrole role="Window">
+            <brush brushstyle="LinearGradientPattern">
+             <gradient startx="0.000000000000000" starty="0.000000000000000" endx="0.000000000000000" endy="1.000000000000000" type="LinearGradient" spread="PadSpread" coordinatemode="ObjectBoundingMode">
+              <gradientstop position="0.000000000000000">
+               <color alpha="255">
+                <red>77</red>
+                <green>77</green>
+                <blue>77</blue>
+               </color>
+              </gradientstop>
+              <gradientstop position="0.100000000000000">
+               <color alpha="255">
+                <red>100</red>
+                <green>100</green>
+                <blue>100</blue>
+               </color>
+              </gradientstop>
+              <gradientstop position="1.000000000000000">
+               <color alpha="255">
+                <red>93</red>
+                <green>93</green>
+                <blue>93</blue>
+               </color>
+              </gradientstop>
+             </gradient>
             </brush>
            </colorrole>
           </active>
           <inactive>
+           <colorrole role="WindowText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>177</red>
+              <green>177</green>
+              <blue>177</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Button">
+            <brush brushstyle="LinearGradientPattern">
+             <gradient startx="0.000000000000000" starty="0.000000000000000" endx="0.000000000000000" endy="1.000000000000000" type="LinearGradient" spread="PadSpread" coordinatemode="ObjectBoundingMode">
+              <gradientstop position="0.000000000000000">
+               <color alpha="255">
+                <red>77</red>
+                <green>77</green>
+                <blue>77</blue>
+               </color>
+              </gradientstop>
+              <gradientstop position="0.100000000000000">
+               <color alpha="255">
+                <red>100</red>
+                <green>100</green>
+                <blue>100</blue>
+               </color>
+              </gradientstop>
+              <gradientstop position="1.000000000000000">
+               <color alpha="255">
+                <red>93</red>
+                <green>93</green>
+                <blue>93</blue>
+               </color>
+              </gradientstop>
+             </gradient>
+            </brush>
+           </colorrole>
            <colorrole role="Light">
             <brush brushstyle="SolidPattern">
              <color alpha="255">
@@ -618,17 +1310,98 @@ QTabBar::tab:!selected {
              </color>
             </brush>
            </colorrole>
-           <colorrole role="Base">
+           <colorrole role="Text">
             <brush brushstyle="SolidPattern">
              <color alpha="255">
-              <red>255</red>
-              <green>255</green>
-              <blue>255</blue>
+              <red>177</red>
+              <green>177</green>
+              <blue>177</blue>
              </color>
+            </brush>
+           </colorrole>
+           <colorrole role="ButtonText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>177</red>
+              <green>177</green>
+              <blue>177</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Base">
+            <brush brushstyle="LinearGradientPattern">
+             <gradient startx="0.000000000000000" starty="0.000000000000000" endx="0.000000000000000" endy="1.000000000000000" type="LinearGradient" spread="PadSpread" coordinatemode="ObjectBoundingMode">
+              <gradientstop position="0.000000000000000">
+               <color alpha="255">
+                <red>77</red>
+                <green>77</green>
+                <blue>77</blue>
+               </color>
+              </gradientstop>
+              <gradientstop position="0.100000000000000">
+               <color alpha="255">
+                <red>100</red>
+                <green>100</green>
+                <blue>100</blue>
+               </color>
+              </gradientstop>
+              <gradientstop position="1.000000000000000">
+               <color alpha="255">
+                <red>93</red>
+                <green>93</green>
+                <blue>93</blue>
+               </color>
+              </gradientstop>
+             </gradient>
+            </brush>
+           </colorrole>
+           <colorrole role="Window">
+            <brush brushstyle="LinearGradientPattern">
+             <gradient startx="0.000000000000000" starty="0.000000000000000" endx="0.000000000000000" endy="1.000000000000000" type="LinearGradient" spread="PadSpread" coordinatemode="ObjectBoundingMode">
+              <gradientstop position="0.000000000000000">
+               <color alpha="255">
+                <red>77</red>
+                <green>77</green>
+                <blue>77</blue>
+               </color>
+              </gradientstop>
+              <gradientstop position="0.100000000000000">
+               <color alpha="255">
+                <red>100</red>
+                <green>100</green>
+                <blue>100</blue>
+               </color>
+              </gradientstop>
+              <gradientstop position="1.000000000000000">
+               <color alpha="255">
+                <red>93</red>
+                <green>93</green>
+                <blue>93</blue>
+               </color>
+              </gradientstop>
+             </gradient>
             </brush>
            </colorrole>
           </inactive>
           <disabled>
+           <colorrole role="WindowText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>64</red>
+              <green>64</green>
+              <blue>64</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Button">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>50</red>
+              <green>50</green>
+              <blue>50</blue>
+             </color>
+            </brush>
+           </colorrole>
            <colorrole role="Light">
             <brush brushstyle="SolidPattern">
              <color alpha="255">
@@ -647,12 +1420,39 @@ QTabBar::tab:!selected {
              </color>
             </brush>
            </colorrole>
+           <colorrole role="Text">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>64</red>
+              <green>64</green>
+              <blue>64</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="ButtonText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>64</red>
+              <green>64</green>
+              <blue>64</blue>
+             </color>
+            </brush>
+           </colorrole>
            <colorrole role="Base">
             <brush brushstyle="SolidPattern">
              <color alpha="255">
-              <red>238</red>
-              <green>238</green>
-              <blue>238</blue>
+              <red>50</red>
+              <green>50</green>
+              <blue>50</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Window">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>50</red>
+              <green>50</green>
+              <blue>50</blue>
              </color>
             </brush>
            </colorrole>
@@ -796,9 +1596,9 @@ QTabBar::tab:!selected {
        <widget class="QTableWidget" name="OpenOrdersWidgetETH">
         <property name="geometry">
          <rect>
-          <x>-1</x>
+          <x>-2</x>
           <y>-1</y>
-          <width>790</width>
+          <width>801</width>
           <height>333</height>
          </rect>
         </property>
@@ -811,6 +1611,42 @@ QTabBar::tab:!selected {
         <property name="palette">
          <palette>
           <active>
+           <colorrole role="WindowText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>177</red>
+              <green>177</green>
+              <blue>177</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Button">
+            <brush brushstyle="LinearGradientPattern">
+             <gradient startx="0.000000000000000" starty="0.000000000000000" endx="0.000000000000000" endy="1.000000000000000" type="LinearGradient" spread="PadSpread" coordinatemode="ObjectBoundingMode">
+              <gradientstop position="0.000000000000000">
+               <color alpha="255">
+                <red>77</red>
+                <green>77</green>
+                <blue>77</blue>
+               </color>
+              </gradientstop>
+              <gradientstop position="0.100000000000000">
+               <color alpha="255">
+                <red>100</red>
+                <green>100</green>
+                <blue>100</blue>
+               </color>
+              </gradientstop>
+              <gradientstop position="1.000000000000000">
+               <color alpha="255">
+                <red>93</red>
+                <green>93</green>
+                <blue>93</blue>
+               </color>
+              </gradientstop>
+             </gradient>
+            </brush>
+           </colorrole>
            <colorrole role="Light">
             <brush brushstyle="SolidPattern">
              <color alpha="255">
@@ -818,10 +1654,118 @@ QTabBar::tab:!selected {
               <green>101</green>
               <blue>255</blue>
              </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Text">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>177</red>
+              <green>177</green>
+              <blue>177</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="ButtonText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>177</red>
+              <green>177</green>
+              <blue>177</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Base">
+            <brush brushstyle="LinearGradientPattern">
+             <gradient startx="0.000000000000000" starty="0.000000000000000" endx="0.000000000000000" endy="1.000000000000000" type="LinearGradient" spread="PadSpread" coordinatemode="ObjectBoundingMode">
+              <gradientstop position="0.000000000000000">
+               <color alpha="255">
+                <red>77</red>
+                <green>77</green>
+                <blue>77</blue>
+               </color>
+              </gradientstop>
+              <gradientstop position="0.100000000000000">
+               <color alpha="255">
+                <red>100</red>
+                <green>100</green>
+                <blue>100</blue>
+               </color>
+              </gradientstop>
+              <gradientstop position="1.000000000000000">
+               <color alpha="255">
+                <red>93</red>
+                <green>93</green>
+                <blue>93</blue>
+               </color>
+              </gradientstop>
+             </gradient>
+            </brush>
+           </colorrole>
+           <colorrole role="Window">
+            <brush brushstyle="LinearGradientPattern">
+             <gradient startx="0.000000000000000" starty="0.000000000000000" endx="0.000000000000000" endy="1.000000000000000" type="LinearGradient" spread="PadSpread" coordinatemode="ObjectBoundingMode">
+              <gradientstop position="0.000000000000000">
+               <color alpha="255">
+                <red>77</red>
+                <green>77</green>
+                <blue>77</blue>
+               </color>
+              </gradientstop>
+              <gradientstop position="0.100000000000000">
+               <color alpha="255">
+                <red>100</red>
+                <green>100</green>
+                <blue>100</blue>
+               </color>
+              </gradientstop>
+              <gradientstop position="1.000000000000000">
+               <color alpha="255">
+                <red>93</red>
+                <green>93</green>
+                <blue>93</blue>
+               </color>
+              </gradientstop>
+             </gradient>
             </brush>
            </colorrole>
           </active>
           <inactive>
+           <colorrole role="WindowText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>177</red>
+              <green>177</green>
+              <blue>177</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Button">
+            <brush brushstyle="LinearGradientPattern">
+             <gradient startx="0.000000000000000" starty="0.000000000000000" endx="0.000000000000000" endy="1.000000000000000" type="LinearGradient" spread="PadSpread" coordinatemode="ObjectBoundingMode">
+              <gradientstop position="0.000000000000000">
+               <color alpha="255">
+                <red>77</red>
+                <green>77</green>
+                <blue>77</blue>
+               </color>
+              </gradientstop>
+              <gradientstop position="0.100000000000000">
+               <color alpha="255">
+                <red>100</red>
+                <green>100</green>
+                <blue>100</blue>
+               </color>
+              </gradientstop>
+              <gradientstop position="1.000000000000000">
+               <color alpha="255">
+                <red>93</red>
+                <green>93</green>
+                <blue>93</blue>
+               </color>
+              </gradientstop>
+             </gradient>
+            </brush>
+           </colorrole>
            <colorrole role="Light">
             <brush brushstyle="SolidPattern">
              <color alpha="255">
@@ -831,14 +1775,140 @@ QTabBar::tab:!selected {
              </color>
             </brush>
            </colorrole>
+           <colorrole role="Text">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>177</red>
+              <green>177</green>
+              <blue>177</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="ButtonText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>177</red>
+              <green>177</green>
+              <blue>177</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Base">
+            <brush brushstyle="LinearGradientPattern">
+             <gradient startx="0.000000000000000" starty="0.000000000000000" endx="0.000000000000000" endy="1.000000000000000" type="LinearGradient" spread="PadSpread" coordinatemode="ObjectBoundingMode">
+              <gradientstop position="0.000000000000000">
+               <color alpha="255">
+                <red>77</red>
+                <green>77</green>
+                <blue>77</blue>
+               </color>
+              </gradientstop>
+              <gradientstop position="0.100000000000000">
+               <color alpha="255">
+                <red>100</red>
+                <green>100</green>
+                <blue>100</blue>
+               </color>
+              </gradientstop>
+              <gradientstop position="1.000000000000000">
+               <color alpha="255">
+                <red>93</red>
+                <green>93</green>
+                <blue>93</blue>
+               </color>
+              </gradientstop>
+             </gradient>
+            </brush>
+           </colorrole>
+           <colorrole role="Window">
+            <brush brushstyle="LinearGradientPattern">
+             <gradient startx="0.000000000000000" starty="0.000000000000000" endx="0.000000000000000" endy="1.000000000000000" type="LinearGradient" spread="PadSpread" coordinatemode="ObjectBoundingMode">
+              <gradientstop position="0.000000000000000">
+               <color alpha="255">
+                <red>77</red>
+                <green>77</green>
+                <blue>77</blue>
+               </color>
+              </gradientstop>
+              <gradientstop position="0.100000000000000">
+               <color alpha="255">
+                <red>100</red>
+                <green>100</green>
+                <blue>100</blue>
+               </color>
+              </gradientstop>
+              <gradientstop position="1.000000000000000">
+               <color alpha="255">
+                <red>93</red>
+                <green>93</green>
+                <blue>93</blue>
+               </color>
+              </gradientstop>
+             </gradient>
+            </brush>
+           </colorrole>
           </inactive>
           <disabled>
+           <colorrole role="WindowText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>64</red>
+              <green>64</green>
+              <blue>64</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Button">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>50</red>
+              <green>50</green>
+              <blue>50</blue>
+             </color>
+            </brush>
+           </colorrole>
            <colorrole role="Light">
             <brush brushstyle="SolidPattern">
              <color alpha="255">
               <red>150</red>
               <green>101</green>
               <blue>255</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Text">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>64</red>
+              <green>64</green>
+              <blue>64</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="ButtonText">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>64</red>
+              <green>64</green>
+              <blue>64</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Base">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>50</red>
+              <green>50</green>
+              <blue>50</blue>
+             </color>
+            </brush>
+           </colorrole>
+           <colorrole role="Window">
+            <brush brushstyle="SolidPattern">
+             <color alpha="255">
+              <red>50</red>
+              <green>50</green>
+              <blue>50</blue>
              </color>
             </brush>
            </colorrole>
@@ -979,45 +2049,10 @@ QTabBar::tab:!selected {
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">QTabWidget::pane { /* The tab widget frame */
-    border-top: 2px solid #C2C7CB;
-}
-
-QTabWidget::tab-bar {
-    left: 0px; /* move to the right by 5px */
-}
-
-/* Style the tab using the tab sub-control. Note that
-    it reads QTabBar _not_ QTabWidget */
-QTabBar::tab {
-    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,
-                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);
-    border: 0px solid #C4C4C3;
-    border-bottom-color: #C2C7CB; /* same as the pane color */
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-    min-width: 12ex;
-    padding: 2px;
-}
-
-QTabBar::tab:selected, QTabBar::tab:hover {
-    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #fafafa, stop: 0.4 #f4f4f4,
-                                stop: 0.5 #e7e7e7, stop: 1.0 #fafafa);
-}
-
-QTabBar::tab:selected {
-    border-color: #9B9B9B;
-    border-bottom-color: #C2C7CB; /* same as pane color */
-}
-
-QTabBar::tab:!selected {
-    margin-top: 2px; /* make non-selected tabs look smaller */
-}</string>
+       <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tabXMR">
        <attribute name="title">
@@ -1026,9 +2061,9 @@ QTabBar::tab:!selected {
        <widget class="QTableWidget" name="HistoryWidgetXMR">
         <property name="geometry">
          <rect>
-          <x>-1</x>
+          <x>-2</x>
           <y>-1</y>
-          <width>791</width>
+          <width>801</width>
           <height>333</height>
          </rect>
         </property>
@@ -1155,9 +2190,9 @@ QHeaderView::section {
        <widget class="QTableWidget" name="HistoryWidgetETH">
         <property name="geometry">
          <rect>
-          <x>-1</x>
+          <x>-2</x>
           <y>-1</y>
-          <width>790</width>
+          <width>801</width>
           <height>333</height>
          </rect>
         </property>
@@ -1190,10 +2225,6 @@ QHeaderView::section {
 	border-left-width:1 px;
 	 border-right-width: 1px ;
 	border-bottom-width: 1px;
-}
-QTableWidget {
-    selection-background-color: qlineargradient(x1: 0, y1: 0, x2: 0.5, y2: 0.5,
-                                stop: 0 #FF92BB, stop: 1 white);
 }</string>
         </property>
         <property name="frameShape">
@@ -1294,45 +2325,10 @@ QTableWidget {
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">QTabWidget::pane { /* The tab widget frame */
-    border-top: 2px solid #C2C7CB;
-}
-
-QTabWidget::tab-bar {
-    left: 0px; /* move to the right by 5px */
-}
-
-/* Style the tab using the tab sub-control. Note that
-    it reads QTabBar _not_ QTabWidget */
-QTabBar::tab {
-    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #E1E1E1, stop: 0.4 #DDDDDD,
-                                stop: 0.5 #D8D8D8, stop: 1.0 #D3D3D3);
-    border: 0px solid #C4C4C3;
-    border-bottom-color: #C2C7CB; /* same as the pane color */
-    border-top-left-radius: 4px;
-    border-top-right-radius: 4px;
-    min-width: 12ex;
-    padding: 2px;
-}
-
-QTabBar::tab:selected, QTabBar::tab:hover {
-    background: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                stop: 0 #fafafa, stop: 0.4 #f4f4f4,
-                                stop: 0.5 #e7e7e7, stop: 1.0 #fafafa);
-}
-
-QTabBar::tab:selected {
-    border-color: #9B9B9B;
-    border-bottom-color: #C2C7CB; /* same as pane color */
-}
-
-QTabBar::tab:!selected {
-    margin-top: 2px; /* make non-selected tabs look smaller */
-}</string>
+       <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tabXMR">
        <attribute name="title">
@@ -2154,7 +3150,7 @@ QPushButton:default {
      <rect>
       <x>520</x>
       <y>603</y>
-      <width>176</width>
+      <width>131</width>
       <height>17</height>
      </rect>
     </property>
@@ -2166,26 +3162,6 @@ QPushButton:default {
     </property>
     <property name="text">
      <string>Ethereum incl. OO</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="lblCancelOrderInfo">
-    <property name="geometry">
-     <rect>
-      <x>39</x>
-      <y>196</y>
-      <width>391</width>
-      <height>16</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Century Gothic</family>
-      <pointsize>7</pointsize>
-      <italic>true</italic>
-     </font>
-    </property>
-    <property name="text">
-     <string>To cancel an order double click the cell with the order number.</string>
     </property>
    </widget>
    <widget class="QLabel" name="lblMonerox">
@@ -2597,6 +3573,7 @@ QPushButton:default {
     border-radius: 10px;
     padding: 0 8px;
     background: black;
+
 }</string>
     </property>
     <property name="text">
@@ -2639,7 +3616,11 @@ QPushButton:default {
     padding: 0 8px;
     background: white;
     selection-background-color: darkgray;
-}</string>
+    color: black;
+}
+
+
+</string>
        </property>
        <property name="frame">
         <bool>false</bool>
@@ -2658,7 +3639,11 @@ QPushButton:default {
     padding: 0 8px;
     background: white;
     selection-background-color: darkgray;
-}</string>
+    color: black;
+}
+
+
+</string>
        </property>
        <property name="frame">
         <bool>false</bool>
@@ -2673,7 +3658,8 @@ QPushButton:default {
     border-radius: 10px;
     padding: 0 8px;
     background: white;
-    selection-background-color: darkgray;
+    selection-background-color: darkgrey;
+    color: rgb(136, 136, 136);
 }</string>
        </property>
        <property name="frame">
@@ -2689,7 +3675,8 @@ QPushButton:default {
     border-radius: 10px;
     padding: 0 8px;
     background: white;
-    selection-background-color: darkgray;
+    selection-background-color: darkgrey;
+    color: rgb(136, 136, 136);
 }</string>
        </property>
        <property name="frame">
@@ -2705,7 +3692,8 @@ QPushButton:default {
     border-radius: 10px;
     padding: 0 8px;
     background: white;
-    selection-background-color: darkgray;
+    selection-background-color: darkgrey;
+    color: rgb(136, 136, 136);
 }</string>
        </property>
        <property name="frame">
@@ -2740,7 +3728,11 @@ QPushButton:default {
     padding: 0 8px;
     background: white;
     selection-background-color: darkgray;
-}</string>
+    color: black;
+}
+
+
+</string>
        </property>
        <property name="frame">
         <bool>false</bool>
@@ -2756,7 +3748,11 @@ QPushButton:default {
     padding: 0 8px;
     background: white;
     selection-background-color: darkgray;
-}</string>
+    color: black;
+}
+
+
+</string>
        </property>
        <property name="frame">
         <bool>false</bool>
@@ -2771,7 +3767,8 @@ QPushButton:default {
     border-radius: 10px;
     padding: 0 8px;
     background: white;
-    selection-background-color: darkgray;
+    selection-background-color: darkgrey;
+    color: rgb(136, 136, 136);
 }</string>
        </property>
        <property name="frame">
@@ -2787,7 +3784,8 @@ QPushButton:default {
     border-radius: 10px;
     padding: 0 8px;
     background: white;
-    selection-background-color: darkgray;
+    selection-background-color: darkgrey;
+    color: rgb(136, 136, 136);
 }</string>
        </property>
        <property name="frame">
@@ -2803,7 +3801,8 @@ QPushButton:default {
     border-radius: 10px;
     padding: 0 8px;
     background: white;
-    selection-background-color: darkgray;
+    selection-background-color: darkgrey;
+    color: rgb(136, 136, 136);
 }</string>
        </property>
        <property name="frame">
@@ -2816,7 +3815,7 @@ QPushButton:default {
    <widget class="QLCDNumber" name="lcdEthereum">
     <property name="geometry">
      <rect>
-      <x>360</x>
+      <x>310</x>
       <y>620</y>
       <width>141</width>
       <height>21</height>
@@ -2834,9 +3833,18 @@ QPushButton:default {
        <colorrole role="WindowText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>189</red>
-          <green>57</green>
-          <blue>17</blue>
+          <red>216</red>
+          <green>32</green>
+          <blue>32</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
          </color>
         </brush>
        </colorrole>
@@ -2852,36 +3860,36 @@ QPushButton:default {
        <colorrole role="Text">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>165</red>
-          <green>27</green>
-          <blue>37</blue>
+          <red>216</red>
+          <green>32</green>
+          <blue>32</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="ButtonText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>0</red>
-          <green>0</green>
-          <blue>0</blue>
+          <red>216</red>
+          <green>32</green>
+          <blue>32</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Base">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Window">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>220</red>
-          <green>220</green>
-          <blue>220</blue>
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
          </color>
         </brush>
        </colorrole>
@@ -2890,9 +3898,18 @@ QPushButton:default {
        <colorrole role="WindowText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>189</red>
-          <green>57</green>
-          <blue>17</blue>
+          <red>216</red>
+          <green>32</green>
+          <blue>32</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
          </color>
         </brush>
        </colorrole>
@@ -2908,36 +3925,36 @@ QPushButton:default {
        <colorrole role="Text">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>165</red>
-          <green>27</green>
-          <blue>37</blue>
+          <red>216</red>
+          <green>32</green>
+          <blue>32</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="ButtonText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>0</red>
-          <green>0</green>
-          <blue>0</blue>
+          <red>216</red>
+          <green>32</green>
+          <blue>32</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Base">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Window">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>220</red>
-          <green>220</green>
-          <blue>220</blue>
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
          </color>
         </brush>
        </colorrole>
@@ -2946,9 +3963,18 @@ QPushButton:default {
        <colorrole role="WindowText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>160</red>
-          <green>14</green>
-          <blue>33</blue>
+          <red>216</red>
+          <green>32</green>
+          <blue>32</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
          </color>
         </brush>
        </colorrole>
@@ -2964,36 +3990,36 @@ QPushButton:default {
        <colorrole role="Text">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>160</red>
-          <green>14</green>
-          <blue>33</blue>
+          <red>216</red>
+          <green>32</green>
+          <blue>32</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="ButtonText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>160</red>
-          <green>14</green>
-          <blue>33</blue>
+          <red>216</red>
+          <green>32</green>
+          <blue>32</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Base">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>220</red>
-          <green>220</green>
-          <blue>220</blue>
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Window">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>220</red>
-          <green>220</green>
-          <blue>220</blue>
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
          </color>
         </brush>
        </colorrole>
@@ -3001,7 +4027,12 @@ QPushButton:default {
      </palette>
     </property>
     <property name="autoFillBackground">
-     <bool>true</bool>
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLCDNumber {
+	color: rgb(216, 32, 32);
+}</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::NoFrame</enum>
@@ -3016,11 +4047,17 @@ QPushButton:default {
    <widget class="QLCDNumber" name="lcdMonero">
     <property name="geometry">
      <rect>
-      <x>40</x>
+      <x>13</x>
       <y>620</y>
       <width>141</width>
       <height>21</height>
      </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Minimum" vsizetype="Minimum">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
     </property>
     <property name="palette">
      <palette>
@@ -3028,9 +4065,18 @@ QPushButton:default {
        <colorrole role="WindowText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>189</red>
-          <green>57</green>
-          <blue>17</blue>
+          <red>216</red>
+          <green>32</green>
+          <blue>32</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
          </color>
         </brush>
        </colorrole>
@@ -3055,36 +4101,36 @@ QPushButton:default {
        <colorrole role="Text">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>165</red>
-          <green>27</green>
-          <blue>37</blue>
+          <red>216</red>
+          <green>32</green>
+          <blue>32</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="ButtonText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>93</red>
-          <green>181</green>
-          <blue>91</blue>
+          <red>216</red>
+          <green>32</green>
+          <blue>32</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Base">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Window">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>220</red>
-          <green>220</green>
-          <blue>220</blue>
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
          </color>
         </brush>
        </colorrole>
@@ -3102,9 +4148,18 @@ QPushButton:default {
        <colorrole role="WindowText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>189</red>
-          <green>57</green>
-          <blue>17</blue>
+          <red>216</red>
+          <green>32</green>
+          <blue>32</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
          </color>
         </brush>
        </colorrole>
@@ -3129,36 +4184,36 @@ QPushButton:default {
        <colorrole role="Text">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>165</red>
-          <green>27</green>
-          <blue>37</blue>
+          <red>216</red>
+          <green>32</green>
+          <blue>32</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="ButtonText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>93</red>
-          <green>181</green>
-          <blue>91</blue>
+          <red>216</red>
+          <green>32</green>
+          <blue>32</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Base">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Window">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>220</red>
-          <green>220</green>
-          <blue>220</blue>
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
          </color>
         </brush>
        </colorrole>
@@ -3176,9 +4231,18 @@ QPushButton:default {
        <colorrole role="WindowText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>160</red>
-          <green>14</green>
-          <blue>33</blue>
+          <red>216</red>
+          <green>32</green>
+          <blue>32</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
          </color>
         </brush>
        </colorrole>
@@ -3203,36 +4267,36 @@ QPushButton:default {
        <colorrole role="Text">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>160</red>
-          <green>14</green>
-          <blue>33</blue>
+          <red>216</red>
+          <green>32</green>
+          <blue>32</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="ButtonText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>160</red>
-          <green>14</green>
-          <blue>33</blue>
+          <red>216</red>
+          <green>32</green>
+          <blue>32</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Base">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>220</red>
-          <green>220</green>
-          <blue>220</blue>
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Window">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>220</red>
-          <green>220</green>
-          <blue>220</blue>
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
          </color>
         </brush>
        </colorrole>
@@ -3254,7 +4318,12 @@ QPushButton:default {
      </font>
     </property>
     <property name="autoFillBackground">
-     <bool>true</bool>
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLCDNumber {
+	color: rgb(216, 32, 32);
+}</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::NoFrame</enum>
@@ -3281,7 +4350,7 @@ QPushButton:default {
    <widget class="QLCDNumber" name="lcdEthereuminclO">
     <property name="geometry">
      <rect>
-      <x>520</x>
+      <x>470</x>
       <y>620</y>
       <width>141</width>
       <height>21</height>
@@ -3299,9 +4368,18 @@ QPushButton:default {
        <colorrole role="WindowText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>189</red>
-          <green>57</green>
-          <blue>17</blue>
+          <red>216</red>
+          <green>32</green>
+          <blue>32</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
          </color>
         </brush>
        </colorrole>
@@ -3317,36 +4395,36 @@ QPushButton:default {
        <colorrole role="Text">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>165</red>
-          <green>27</green>
-          <blue>37</blue>
+          <red>216</red>
+          <green>32</green>
+          <blue>32</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="ButtonText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>0</red>
-          <green>0</green>
-          <blue>0</blue>
+          <red>216</red>
+          <green>32</green>
+          <blue>32</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Base">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Window">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>220</red>
-          <green>220</green>
-          <blue>220</blue>
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
          </color>
         </brush>
        </colorrole>
@@ -3355,9 +4433,18 @@ QPushButton:default {
        <colorrole role="WindowText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>189</red>
-          <green>57</green>
-          <blue>17</blue>
+          <red>216</red>
+          <green>32</green>
+          <blue>32</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
          </color>
         </brush>
        </colorrole>
@@ -3373,36 +4460,36 @@ QPushButton:default {
        <colorrole role="Text">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>165</red>
-          <green>27</green>
-          <blue>37</blue>
+          <red>216</red>
+          <green>32</green>
+          <blue>32</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="ButtonText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>0</red>
-          <green>0</green>
-          <blue>0</blue>
+          <red>216</red>
+          <green>32</green>
+          <blue>32</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Base">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Window">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>220</red>
-          <green>220</green>
-          <blue>220</blue>
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
          </color>
         </brush>
        </colorrole>
@@ -3411,9 +4498,18 @@ QPushButton:default {
        <colorrole role="WindowText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>160</red>
-          <green>14</green>
-          <blue>33</blue>
+          <red>216</red>
+          <green>32</green>
+          <blue>32</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
          </color>
         </brush>
        </colorrole>
@@ -3429,36 +4525,36 @@ QPushButton:default {
        <colorrole role="Text">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>160</red>
-          <green>14</green>
-          <blue>33</blue>
+          <red>216</red>
+          <green>32</green>
+          <blue>32</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="ButtonText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>160</red>
-          <green>14</green>
-          <blue>33</blue>
+          <red>216</red>
+          <green>32</green>
+          <blue>32</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Base">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>220</red>
-          <green>220</green>
-          <blue>220</blue>
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Window">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>220</red>
-          <green>220</green>
-          <blue>220</blue>
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
          </color>
         </brush>
        </colorrole>
@@ -3466,7 +4562,12 @@ QPushButton:default {
      </palette>
     </property>
     <property name="autoFillBackground">
-     <bool>true</bool>
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLCDNumber {
+	color: rgb(216, 32, 32);
+}</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::NoFrame</enum>
@@ -3481,7 +4582,7 @@ QPushButton:default {
    <widget class="QLCDNumber" name="lcdBitcoin">
     <property name="geometry">
      <rect>
-      <x>680</x>
+      <x>630</x>
       <y>620</y>
       <width>141</width>
       <height>21</height>
@@ -3493,9 +4594,18 @@ QPushButton:default {
        <colorrole role="WindowText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>189</red>
-          <green>57</green>
-          <blue>17</blue>
+          <red>216</red>
+          <green>32</green>
+          <blue>32</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
          </color>
         </brush>
        </colorrole>
@@ -3511,36 +4621,36 @@ QPushButton:default {
        <colorrole role="Text">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>165</red>
-          <green>27</green>
-          <blue>37</blue>
+          <red>216</red>
+          <green>32</green>
+          <blue>32</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="ButtonText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>0</red>
-          <green>0</green>
-          <blue>0</blue>
+          <red>216</red>
+          <green>32</green>
+          <blue>32</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Base">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Window">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>220</red>
-          <green>220</green>
-          <blue>220</blue>
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
          </color>
         </brush>
        </colorrole>
@@ -3549,9 +4659,18 @@ QPushButton:default {
        <colorrole role="WindowText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>189</red>
-          <green>57</green>
-          <blue>17</blue>
+          <red>216</red>
+          <green>32</green>
+          <blue>32</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
          </color>
         </brush>
        </colorrole>
@@ -3567,36 +4686,36 @@ QPushButton:default {
        <colorrole role="Text">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>165</red>
-          <green>27</green>
-          <blue>37</blue>
+          <red>216</red>
+          <green>32</green>
+          <blue>32</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="ButtonText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>0</red>
-          <green>0</green>
-          <blue>0</blue>
+          <red>216</red>
+          <green>32</green>
+          <blue>32</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Base">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Window">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>220</red>
-          <green>220</green>
-          <blue>220</blue>
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
          </color>
         </brush>
        </colorrole>
@@ -3605,9 +4724,18 @@ QPushButton:default {
        <colorrole role="WindowText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>160</red>
-          <green>14</green>
-          <blue>33</blue>
+          <red>216</red>
+          <green>32</green>
+          <blue>32</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
          </color>
         </brush>
        </colorrole>
@@ -3623,36 +4751,36 @@ QPushButton:default {
        <colorrole role="Text">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>160</red>
-          <green>14</green>
-          <blue>33</blue>
+          <red>216</red>
+          <green>32</green>
+          <blue>32</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="ButtonText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>160</red>
-          <green>14</green>
-          <blue>33</blue>
+          <red>216</red>
+          <green>32</green>
+          <blue>32</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Base">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>220</red>
-          <green>220</green>
-          <blue>220</blue>
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Window">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>220</red>
-          <green>220</green>
-          <blue>220</blue>
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
          </color>
         </brush>
        </colorrole>
@@ -3660,7 +4788,12 @@ QPushButton:default {
      </palette>
     </property>
     <property name="autoFillBackground">
-     <bool>true</bool>
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLCDNumber {
+	color: rgb(216, 32, 32);
+}</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::NoFrame</enum>
@@ -3675,7 +4808,7 @@ QPushButton:default {
    <widget class="QLCDNumber" name="lcdMoneroinclO">
     <property name="geometry">
      <rect>
-      <x>200</x>
+      <x>174</x>
       <y>620</y>
       <width>141</width>
       <height>21</height>
@@ -3687,9 +4820,18 @@ QPushButton:default {
        <colorrole role="WindowText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>189</red>
-          <green>57</green>
-          <blue>17</blue>
+          <red>216</red>
+          <green>32</green>
+          <blue>32</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
          </color>
         </brush>
        </colorrole>
@@ -3705,36 +4847,36 @@ QPushButton:default {
        <colorrole role="Text">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>165</red>
-          <green>27</green>
-          <blue>37</blue>
+          <red>216</red>
+          <green>32</green>
+          <blue>32</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="ButtonText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>0</red>
-          <green>0</green>
-          <blue>0</blue>
+          <red>216</red>
+          <green>32</green>
+          <blue>32</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Base">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Window">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>220</red>
-          <green>220</green>
-          <blue>220</blue>
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
          </color>
         </brush>
        </colorrole>
@@ -3743,9 +4885,18 @@ QPushButton:default {
        <colorrole role="WindowText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>189</red>
-          <green>57</green>
-          <blue>17</blue>
+          <red>216</red>
+          <green>32</green>
+          <blue>32</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
          </color>
         </brush>
        </colorrole>
@@ -3761,36 +4912,36 @@ QPushButton:default {
        <colorrole role="Text">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>165</red>
-          <green>27</green>
-          <blue>37</blue>
+          <red>216</red>
+          <green>32</green>
+          <blue>32</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="ButtonText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>0</red>
-          <green>0</green>
-          <blue>0</blue>
+          <red>216</red>
+          <green>32</green>
+          <blue>32</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Base">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>255</red>
-          <green>255</green>
-          <blue>255</blue>
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Window">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>220</red>
-          <green>220</green>
-          <blue>220</blue>
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
          </color>
         </brush>
        </colorrole>
@@ -3799,9 +4950,18 @@ QPushButton:default {
        <colorrole role="WindowText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>160</red>
-          <green>14</green>
-          <blue>33</blue>
+          <red>216</red>
+          <green>32</green>
+          <blue>32</blue>
+         </color>
+        </brush>
+       </colorrole>
+       <colorrole role="Button">
+        <brush brushstyle="SolidPattern">
+         <color alpha="255">
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
          </color>
         </brush>
        </colorrole>
@@ -3817,36 +4977,36 @@ QPushButton:default {
        <colorrole role="Text">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>160</red>
-          <green>14</green>
-          <blue>33</blue>
+          <red>216</red>
+          <green>32</green>
+          <blue>32</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="ButtonText">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>160</red>
-          <green>14</green>
-          <blue>33</blue>
+          <red>216</red>
+          <green>32</green>
+          <blue>32</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Base">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>220</red>
-          <green>220</green>
-          <blue>220</blue>
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
          </color>
         </brush>
        </colorrole>
        <colorrole role="Window">
         <brush brushstyle="SolidPattern">
          <color alpha="255">
-          <red>220</red>
-          <green>220</green>
-          <blue>220</blue>
+          <red>50</red>
+          <green>50</green>
+          <blue>50</blue>
          </color>
         </brush>
        </colorrole>
@@ -3854,7 +5014,12 @@ QPushButton:default {
      </palette>
     </property>
     <property name="autoFillBackground">
-     <bool>true</bool>
+     <bool>false</bool>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLCDNumber {
+	color: rgb(216, 32, 32);
+}</string>
     </property>
     <property name="frameShape">
      <enum>QFrame::NoFrame</enum>
@@ -3869,10 +5034,10 @@ QPushButton:default {
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>664</x>
+      <x>630</x>
       <y>20</y>
       <width>102</width>
-      <height>43</height>
+      <height>49</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_14">
@@ -3884,9 +5049,54 @@ QPushButton:default {
           <colorrole role="WindowText">
            <brush brushstyle="SolidPattern">
             <color alpha="255">
-             <red>147</red>
-             <green>49</green>
-             <blue>25</blue>
+             <red>177</red>
+             <green>177</green>
+             <blue>177</blue>
+            </color>
+           </brush>
+          </colorrole>
+          <colorrole role="Button">
+           <brush brushstyle="SolidPattern">
+            <color alpha="255">
+             <red>50</red>
+             <green>50</green>
+             <blue>50</blue>
+            </color>
+           </brush>
+          </colorrole>
+          <colorrole role="Text">
+           <brush brushstyle="SolidPattern">
+            <color alpha="255">
+             <red>177</red>
+             <green>177</green>
+             <blue>177</blue>
+            </color>
+           </brush>
+          </colorrole>
+          <colorrole role="ButtonText">
+           <brush brushstyle="SolidPattern">
+            <color alpha="255">
+             <red>177</red>
+             <green>177</green>
+             <blue>177</blue>
+            </color>
+           </brush>
+          </colorrole>
+          <colorrole role="Base">
+           <brush brushstyle="SolidPattern">
+            <color alpha="255">
+             <red>50</red>
+             <green>50</green>
+             <blue>50</blue>
+            </color>
+           </brush>
+          </colorrole>
+          <colorrole role="Window">
+           <brush brushstyle="SolidPattern">
+            <color alpha="255">
+             <red>50</red>
+             <green>50</green>
+             <blue>50</blue>
             </color>
            </brush>
           </colorrole>
@@ -3895,9 +5105,54 @@ QPushButton:default {
           <colorrole role="WindowText">
            <brush brushstyle="SolidPattern">
             <color alpha="255">
-             <red>147</red>
-             <green>49</green>
-             <blue>25</blue>
+             <red>177</red>
+             <green>177</green>
+             <blue>177</blue>
+            </color>
+           </brush>
+          </colorrole>
+          <colorrole role="Button">
+           <brush brushstyle="SolidPattern">
+            <color alpha="255">
+             <red>50</red>
+             <green>50</green>
+             <blue>50</blue>
+            </color>
+           </brush>
+          </colorrole>
+          <colorrole role="Text">
+           <brush brushstyle="SolidPattern">
+            <color alpha="255">
+             <red>177</red>
+             <green>177</green>
+             <blue>177</blue>
+            </color>
+           </brush>
+          </colorrole>
+          <colorrole role="ButtonText">
+           <brush brushstyle="SolidPattern">
+            <color alpha="255">
+             <red>177</red>
+             <green>177</green>
+             <blue>177</blue>
+            </color>
+           </brush>
+          </colorrole>
+          <colorrole role="Base">
+           <brush brushstyle="SolidPattern">
+            <color alpha="255">
+             <red>50</red>
+             <green>50</green>
+             <blue>50</blue>
+            </color>
+           </brush>
+          </colorrole>
+          <colorrole role="Window">
+           <brush brushstyle="SolidPattern">
+            <color alpha="255">
+             <red>50</red>
+             <green>50</green>
+             <blue>50</blue>
             </color>
            </brush>
           </colorrole>
@@ -3906,9 +5161,54 @@ QPushButton:default {
           <colorrole role="WindowText">
            <brush brushstyle="SolidPattern">
             <color alpha="255">
-             <red>120</red>
-             <green>120</green>
-             <blue>120</blue>
+             <red>64</red>
+             <green>64</green>
+             <blue>64</blue>
+            </color>
+           </brush>
+          </colorrole>
+          <colorrole role="Button">
+           <brush brushstyle="SolidPattern">
+            <color alpha="255">
+             <red>50</red>
+             <green>50</green>
+             <blue>50</blue>
+            </color>
+           </brush>
+          </colorrole>
+          <colorrole role="Text">
+           <brush brushstyle="SolidPattern">
+            <color alpha="255">
+             <red>64</red>
+             <green>64</green>
+             <blue>64</blue>
+            </color>
+           </brush>
+          </colorrole>
+          <colorrole role="ButtonText">
+           <brush brushstyle="SolidPattern">
+            <color alpha="255">
+             <red>64</red>
+             <green>64</green>
+             <blue>64</blue>
+            </color>
+           </brush>
+          </colorrole>
+          <colorrole role="Base">
+           <brush brushstyle="SolidPattern">
+            <color alpha="255">
+             <red>50</red>
+             <green>50</green>
+             <blue>50</blue>
+            </color>
+           </brush>
+          </colorrole>
+          <colorrole role="Window">
+           <brush brushstyle="SolidPattern">
+            <color alpha="255">
+             <red>50</red>
+             <green>50</green>
+             <blue>50</blue>
             </color>
            </brush>
           </colorrole>
@@ -3924,7 +5224,7 @@ QPushButton:default {
         </font>
        </property>
        <property name="autoFillBackground">
-        <bool>true</bool>
+        <bool>false</bool>
        </property>
        <property name="text">
         <string>App status: </string>
@@ -3939,9 +5239,54 @@ QPushButton:default {
           <colorrole role="WindowText">
            <brush brushstyle="SolidPattern">
             <color alpha="255">
-             <red>165</red>
-             <green>16</green>
-             <blue>11</blue>
+             <red>177</red>
+             <green>177</green>
+             <blue>177</blue>
+            </color>
+           </brush>
+          </colorrole>
+          <colorrole role="Button">
+           <brush brushstyle="SolidPattern">
+            <color alpha="255">
+             <red>50</red>
+             <green>50</green>
+             <blue>50</blue>
+            </color>
+           </brush>
+          </colorrole>
+          <colorrole role="Text">
+           <brush brushstyle="SolidPattern">
+            <color alpha="255">
+             <red>177</red>
+             <green>177</green>
+             <blue>177</blue>
+            </color>
+           </brush>
+          </colorrole>
+          <colorrole role="ButtonText">
+           <brush brushstyle="SolidPattern">
+            <color alpha="255">
+             <red>177</red>
+             <green>177</green>
+             <blue>177</blue>
+            </color>
+           </brush>
+          </colorrole>
+          <colorrole role="Base">
+           <brush brushstyle="SolidPattern">
+            <color alpha="255">
+             <red>50</red>
+             <green>50</green>
+             <blue>50</blue>
+            </color>
+           </brush>
+          </colorrole>
+          <colorrole role="Window">
+           <brush brushstyle="SolidPattern">
+            <color alpha="255">
+             <red>50</red>
+             <green>50</green>
+             <blue>50</blue>
             </color>
            </brush>
           </colorrole>
@@ -3950,9 +5295,54 @@ QPushButton:default {
           <colorrole role="WindowText">
            <brush brushstyle="SolidPattern">
             <color alpha="255">
-             <red>165</red>
-             <green>16</green>
-             <blue>11</blue>
+             <red>177</red>
+             <green>177</green>
+             <blue>177</blue>
+            </color>
+           </brush>
+          </colorrole>
+          <colorrole role="Button">
+           <brush brushstyle="SolidPattern">
+            <color alpha="255">
+             <red>50</red>
+             <green>50</green>
+             <blue>50</blue>
+            </color>
+           </brush>
+          </colorrole>
+          <colorrole role="Text">
+           <brush brushstyle="SolidPattern">
+            <color alpha="255">
+             <red>177</red>
+             <green>177</green>
+             <blue>177</blue>
+            </color>
+           </brush>
+          </colorrole>
+          <colorrole role="ButtonText">
+           <brush brushstyle="SolidPattern">
+            <color alpha="255">
+             <red>177</red>
+             <green>177</green>
+             <blue>177</blue>
+            </color>
+           </brush>
+          </colorrole>
+          <colorrole role="Base">
+           <brush brushstyle="SolidPattern">
+            <color alpha="255">
+             <red>50</red>
+             <green>50</green>
+             <blue>50</blue>
+            </color>
+           </brush>
+          </colorrole>
+          <colorrole role="Window">
+           <brush brushstyle="SolidPattern">
+            <color alpha="255">
+             <red>50</red>
+             <green>50</green>
+             <blue>50</blue>
             </color>
            </brush>
           </colorrole>
@@ -3961,9 +5351,54 @@ QPushButton:default {
           <colorrole role="WindowText">
            <brush brushstyle="SolidPattern">
             <color alpha="255">
-             <red>120</red>
-             <green>120</green>
-             <blue>120</blue>
+             <red>64</red>
+             <green>64</green>
+             <blue>64</blue>
+            </color>
+           </brush>
+          </colorrole>
+          <colorrole role="Button">
+           <brush brushstyle="SolidPattern">
+            <color alpha="255">
+             <red>50</red>
+             <green>50</green>
+             <blue>50</blue>
+            </color>
+           </brush>
+          </colorrole>
+          <colorrole role="Text">
+           <brush brushstyle="SolidPattern">
+            <color alpha="255">
+             <red>64</red>
+             <green>64</green>
+             <blue>64</blue>
+            </color>
+           </brush>
+          </colorrole>
+          <colorrole role="ButtonText">
+           <brush brushstyle="SolidPattern">
+            <color alpha="255">
+             <red>64</red>
+             <green>64</green>
+             <blue>64</blue>
+            </color>
+           </brush>
+          </colorrole>
+          <colorrole role="Base">
+           <brush brushstyle="SolidPattern">
+            <color alpha="255">
+             <red>50</red>
+             <green>50</green>
+             <blue>50</blue>
+            </color>
+           </brush>
+          </colorrole>
+          <colorrole role="Window">
+           <brush brushstyle="SolidPattern">
+            <color alpha="255">
+             <red>50</red>
+             <green>50</green>
+             <blue>50</blue>
             </color>
            </brush>
           </colorrole>
@@ -3979,7 +5414,7 @@ QPushButton:default {
         </font>
        </property>
        <property name="autoFillBackground">
-        <bool>true</bool>
+        <bool>false</bool>
        </property>
        <property name="text">
         <string>Connection:</string>
@@ -3991,10 +5426,10 @@ QPushButton:default {
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>774</x>
+      <x>740</x>
       <y>20</y>
-      <width>61</width>
-      <height>43</height>
+      <width>91</width>
+      <height>49</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="verticalLayout_15">
@@ -4007,7 +5442,7 @@ QPushButton:default {
         </font>
        </property>
        <property name="text">
-        <string/>
+        <string>checking..</string>
        </property>
       </widget>
      </item>
@@ -4020,7 +5455,7 @@ QPushButton:default {
         </font>
        </property>
        <property name="text">
-        <string/>
+        <string>checking..</string>
        </property>
       </widget>
      </item>
@@ -4263,7 +5698,11 @@ QPushButton:default {
     padding: 0 8px;
     background: white;
     selection-background-color: darkgray;
-}</string>
+    color: black;
+}
+
+
+</string>
        </property>
        <property name="frame">
         <bool>false</bool>
