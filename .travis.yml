@@ -2,42 +2,20 @@ language: python
 python:
   - "3.4"
 # command to install dependencies
+sudo: required
+dist: trusty
+
 before_install:
-  - if [ "${TRAVIS_OS_NAME}" = "linux" ]; then
-         lsb_release -a
-      && sudo apt-add-repository -y ppa:ubuntu-toolchain-r/test
-      && sudo apt-add-repository -y ppa:beineri/opt-qt542
-      && sudo apt-get -qq update
-      && sudo apt-get -qq install g++-4.8 libc6-i386 qt54tools qt54svg qt54webkit qt54script
-      && export CXX="g++-4.8"
-      && export CC="gcc-4.8"
-      && curl -sL https://sourceforge.net/projects/pyqt/files/PyQt5/PyQt-5.6/PyQt5_gpl-5.6.tar.gz -o PyQt5_gpl-5.6.tar.gz
-      ;
-    else
-         brew update > /dev/null
-      && brew install qt5
-      && chmod -R 755 /usr/local/opt/qt5/*
-      ;
-    fi
+  - sudo add-apt-repository --yes ppa:beineri/opt-qt551-trusty
+  - sudo apt-get update -qq
+
+install:
+  - sudo apt-get -y install qt55[QTPACKAGE]
 
 script:
-  - if [ "${TRAVIS_OS_NAME}" = "linux" ]; then
-         QTDIR="/opt/qt54"
-      && PATH="$QTDIR/bin:$PATH"
-      && qt54-env.sh 
-      ;
-    else
-         QTDIR="/usr/local/opt/qt5"
-      && PATH="$QTDIR/bin:$PATH"
-      && LDFLAGS=-L$QTDIR/lib
-      && CPPFLAGS=-I$QTDIR/include
-      ;
-    fi
-  
-  
-
-
-script: 
+  - source /opt/qt55/bin/qt55-env.sh
+  - /opt/qt55/bin/qmake
+  - make
   - tar xvf PyQt5_gpl-5.6.tar.gz
   - cd PyQt5_gpl-5.6
   - python configure.py --confirm-license
