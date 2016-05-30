@@ -8,7 +8,7 @@ dist: trusty
 before_install:
   - sudo add-apt-repository --yes ppa:beineri/opt-qt551-trusty
   - sudo apt-get update -qq
-  - wget http://www.riverbankcomputing.com/static/Downloads/sip4/sip-4.13.3.tar.gz
+  - curl -sL https://sourceforge.net/projects/pyqt/files/sip/sip-4.18/sip-4.18.tar.gz/download -o sip-4.18.tar.gz
   - tar zxvf sip-4.13.3.tar.gz
   - cd sip-4.13.3/
   - python configure.py
