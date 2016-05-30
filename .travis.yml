@@ -3,13 +3,21 @@ python:
   - "3.4"
 # command to install dependencies
 before_install:
+  - sudo add-apt-repository --yes ppa:ubuntu-sdk-team/ppa
+  - sudo apt-get update -qq
+  - sudo apt-get install -qq libqt5webkit5-dev qtdeclarative5-dev
+  - export QMAKE=/usr/lib/x86_64-linux-gnu/qt5/bin/qmake
   - curl -sL https://sourceforge.net/projects/pyqt/files/PyQt5/PyQt-5.6/PyQt5_gpl-5.6.tar.gz -o PyQt5_gpl-5.6.tar.gz
+  
+
+
+script: 
   - tar xvf PyQt5_gpl-5.6.tar.gz
   - cd PyQt5_gpl-5.6
   - python configure.py --confirm-license
   - make -j 2
   - sudo make install
-script: python PoloTrader.pyw
+  - python PoloTrader.pyw
 branches:
   only:
     - master
