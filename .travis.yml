@@ -30,7 +30,6 @@ script:
   - python configure.py --confirm-license
   - make -j 2
   - sudo make install
-  - python PoloTrader.pyw
 branches:
   only:
     - master
