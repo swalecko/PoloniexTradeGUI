@@ -11,6 +11,7 @@ before_install:
       && sudo apt-get -qq install g++-4.8 libc6-i386 qt54tools qt54svg qt54webkit qt54script
       && export CXX="g++-4.8"
       && export CC="gcc-4.8"
+      && curl -sL https://sourceforge.net/projects/pyqt/files/PyQt5/PyQt-5.6/PyQt5_gpl-5.6.tar.gz -o PyQt5_gpl-5.6.tar.gz
       ;
     else
          brew update > /dev/null
@@ -37,7 +38,6 @@ script:
 
 
 script: 
-  - curl -sL https://sourceforge.net/projects/pyqt/files/PyQt5/PyQt-5.6/PyQt5_gpl-5.6.tar.gz -o PyQt5_gpl-5.6.tar.gz
   - tar xvf PyQt5_gpl-5.6.tar.gz
   - cd PyQt5_gpl-5.6
   - python configure.py --confirm-license
