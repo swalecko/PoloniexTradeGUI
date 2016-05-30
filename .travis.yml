@@ -3,7 +3,7 @@ python:
   - "3.4"
 # command to install dependencies
 before_install:
-  - curl -L https://sourceforge.net/projects/pyqt/files/PyQt5/PyQt-5.6/PyQt5_gpl-5.6.tar.gz 
+  - curl -sL https://sourceforge.net/projects/pyqt/files/PyQt5/PyQt-5.6/PyQt5_gpl-5.6.tar.gz 
   - tar xvf PyQt5_gpl-5.6.tar.gz
   - cd PyQt5_gpl-5.6
   - python configure.py --confirm-license
