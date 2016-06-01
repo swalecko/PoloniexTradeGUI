@@ -2,7 +2,7 @@
 (unofficial)
 
  [![Documentation](https://codedocs.xyz/swalecko/PoloniexTradeGUI.svg)](https://codedocs.xyz/swalecko/PoloniexTradeGUI/)
- [![Build Status](https://travis-ci.org/swalecko/PoloniexTradeGUI.svg?branch=master)](https://travis-ci.org/swalecko/PoloniexTradeGUI)
+ 
 
 **Donations:** 
 XMR: 49wH4MLdp62BrG7pUuh7dJ51icq1T2edpNJpHt7R2qoJTpuR7oK81jWXxH5K6Rz1nZHneK24jj7XdZDmc7U2W2dH8aso46n
@@ -10,7 +10,7 @@ XMR: 49wH4MLdp62BrG7pUuh7dJ51icq1T2edpNJpHt7R2qoJTpuR7oK81jWXxH5K6Rz1nZHneK24jj7
 Trading app for XMR and ETH at the Poloniex exchange using the Poloniex API.
 
 ##Current Features:
-  - Supported Currencyies for trading: XMR and ETH
+  - Supported Currencies for trading: XMR and ETH
   - Price informations 
   - Balances, Balances included open orders
   - 24h High, 24h Low and 24h Change 
