@@ -9,8 +9,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>870</width>
-    <height>706</height>
+    <width>871</width>
+    <height>690</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -685,7 +685,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>603</y>
+      <y>622</y>
       <width>53</width>
       <height>17</height>
      </rect>
@@ -704,7 +704,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
     <property name="geometry">
      <rect>
       <x>200</x>
-      <y>603</y>
+      <y>622</y>
       <width>164</width>
       <height>17</height>
      </rect>
@@ -723,7 +723,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
     <property name="geometry">
      <rect>
       <x>710</x>
-      <y>603</y>
+      <y>622</y>
       <width>47</width>
       <height>17</height>
      </rect>
@@ -742,7 +742,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
     <property name="geometry">
      <rect>
       <x>360</x>
-      <y>603</y>
+      <y>622</y>
       <width>65</width>
       <height>17</height>
      </rect>
@@ -761,7 +761,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>220</y>
+      <y>239</y>
       <width>791</width>
       <height>371</height>
      </rect>
@@ -2794,7 +2794,7 @@ QHeaderView::section {
       <property name="geometry">
        <rect>
         <x>590</x>
-        <y>120</y>
+        <y>139</y>
         <width>93</width>
         <height>28</height>
        </rect>
@@ -2816,7 +2816,7 @@ QHeaderView::section {
       <property name="geometry">
        <rect>
         <x>30</x>
-        <y>30</y>
+        <y>49</y>
         <width>91</width>
         <height>66</height>
        </rect>
@@ -2855,7 +2855,7 @@ QHeaderView::section {
       <property name="geometry">
        <rect>
         <x>150</x>
-        <y>50</y>
+        <y>69</y>
         <width>531</width>
         <height>55</height>
        </rect>
@@ -2873,7 +2873,7 @@ QHeaderView::section {
       <property name="geometry">
        <rect>
         <x>30</x>
-        <y>160</y>
+        <y>179</y>
         <width>501</width>
         <height>16</height>
        </rect>
@@ -2888,7 +2888,7 @@ QHeaderView::section {
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>41</y>
+      <y>60</y>
       <width>95</width>
       <height>141</height>
      </rect>
@@ -2973,7 +2973,7 @@ QHeaderView::section {
     <property name="geometry">
      <rect>
       <x>520</x>
-      <y>603</y>
+      <y>622</y>
       <width>131</width>
       <height>17</height>
      </rect>
@@ -2992,7 +2992,7 @@ QHeaderView::section {
     <property name="geometry">
      <rect>
       <x>140</x>
-      <y>19</y>
+      <y>38</y>
       <width>91</width>
       <height>20</height>
      </rect>
@@ -3204,7 +3204,7 @@ QHeaderView::section {
     <property name="geometry">
      <rect>
       <x>249</x>
-      <y>19</y>
+      <y>38</y>
       <width>91</width>
       <height>20</height>
      </rect>
@@ -3417,7 +3417,7 @@ QHeaderView::section {
     <property name="geometry">
      <rect>
       <x>140</x>
-      <y>42</y>
+      <y>61</y>
       <width>91</width>
       <height>140</height>
      </rect>
@@ -3552,7 +3552,7 @@ QHeaderView::section {
     <property name="geometry">
      <rect>
       <x>249</x>
-      <y>42</y>
+      <y>61</y>
       <width>91</width>
       <height>140</height>
      </rect>
@@ -3682,7 +3682,7 @@ QHeaderView::section {
     <property name="geometry">
      <rect>
       <x>310</x>
-      <y>620</y>
+      <y>639</y>
       <width>141</width>
       <height>21</height>
      </rect>
@@ -3914,7 +3914,7 @@ QHeaderView::section {
     <property name="geometry">
      <rect>
       <x>13</x>
-      <y>620</y>
+      <y>639</y>
       <width>141</width>
       <height>21</height>
      </rect>
@@ -4217,7 +4217,7 @@ QHeaderView::section {
     <property name="geometry">
      <rect>
       <x>470</x>
-      <y>620</y>
+      <y>639</y>
       <width>141</width>
       <height>21</height>
      </rect>
@@ -4449,7 +4449,7 @@ QHeaderView::section {
     <property name="geometry">
      <rect>
       <x>660</x>
-      <y>620</y>
+      <y>639</y>
       <width>141</width>
       <height>21</height>
      </rect>
@@ -4675,7 +4675,7 @@ QHeaderView::section {
     <property name="geometry">
      <rect>
       <x>174</x>
-      <y>620</y>
+      <y>639</y>
       <width>141</width>
       <height>21</height>
      </rect>
@@ -4901,7 +4901,7 @@ QHeaderView::section {
     <property name="geometry">
      <rect>
       <x>640</x>
-      <y>20</y>
+      <y>39</y>
       <width>102</width>
       <height>49</height>
      </rect>
@@ -5293,7 +5293,7 @@ QHeaderView::section {
     <property name="geometry">
      <rect>
       <x>750</x>
-      <y>20</y>
+      <y>39</y>
       <width>91</width>
       <height>49</height>
      </rect>
@@ -5331,7 +5331,7 @@ QHeaderView::section {
     <property name="geometry">
      <rect>
       <x>358</x>
-      <y>20</y>
+      <y>39</y>
       <width>91</width>
       <height>20</height>
      </rect>
@@ -5543,7 +5543,7 @@ QHeaderView::section {
     <property name="geometry">
      <rect>
       <x>359</x>
-      <y>57</y>
+      <y>76</y>
       <width>91</width>
       <height>51</height>
      </rect>
@@ -5582,7 +5582,7 @@ QHeaderView::section {
     <property name="geometry">
      <rect>
       <x>590</x>
-      <y>108</y>
+      <y>127</y>
       <width>111</width>
       <height>16</height>
      </rect>
@@ -5600,7 +5600,7 @@ QHeaderView::section {
     <property name="geometry">
      <rect>
       <x>590</x>
-      <y>130</y>
+      <y>149</y>
       <width>89</width>
       <height>20</height>
      </rect>
@@ -5644,7 +5644,7 @@ QHeaderView::section {
     <property name="geometry">
      <rect>
       <x>589</x>
-      <y>160</y>
+      <y>179</y>
       <width>231</width>
       <height>16</height>
      </rect>
@@ -5662,7 +5662,7 @@ QHeaderView::section {
     <property name="geometry">
      <rect>
       <x>590</x>
-      <y>181</y>
+      <y>200</y>
       <width>89</width>
       <height>20</height>
      </rect>
@@ -5702,24 +5702,6 @@ QHeaderView::section {
      <bool>false</bool>
     </property>
    </widget>
-  </widget>
-  <widget class="QMenuBar" name="menuBar">
-   <property name="geometry">
-    <rect>
-     <x>0</x>
-     <y>0</y>
-     <width>870</width>
-     <height>26</height>
-    </rect>
-   </property>
-   <widget class="QMenu" name="menuMen">
-    <property name="title">
-     <string>Menü</string>
-    </property>
-    <addaction name="actionSettings"/>
-    <addaction name="actionLog"/>
-   </widget>
-   <addaction name="menuMen"/>
   </widget>
   <action name="actionSettings">
    <property name="text">

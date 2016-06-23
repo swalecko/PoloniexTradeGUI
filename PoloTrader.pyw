@@ -167,11 +167,6 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow, logging.Handler):
        self.lnMyAssetsALL.setText(str(myassetsall))
 
 
-
-
-
-
-
 def main():
     logging.basicConfig(filename="qt.log", level=logging.DEBUG, format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
     logging.getLogger("requests").setLevel(logging.WARNING)
