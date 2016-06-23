@@ -9,6 +9,7 @@ import json
 import sys
 from requests.exceptions import ConnectionError
 import logging
+import thread_getusd
 
 
 if not os.path.exists("key.py") or os.stat("key.py").st_size == 0:
@@ -34,6 +35,7 @@ class Thread(QThread):
 
     def run(self):
 
+        
         while True:
             try:
                 
@@ -41,16 +43,18 @@ class Thread(QThread):
                     break
 
                 self.retBalances = self.poloInstance.returnBalances()
+                self.retTicker = self.poloInstance.returnTicker()
+               
                 self.BalanceXMR = self.retBalances['XMR']
-
                 self.BalanceETH = self.retBalances['ETH']
                 self.BalanceBTC = self.retBalances['BTC']
-                self.retTicker = self.poloInstance.returnTicker()
+                
                 self.tickerXMR = self.retTicker['BTC_XMR']
                 self.tickerETH = self.retTicker['BTC_ETH']
                 self.lastXMR = self.tickerXMR['last']
                 self.lastETH = self.tickerETH['last']
 
+                
                 self.ui.setLcdMonero(self.BalanceXMR)
                 self.ui.setLcdBitcoin(self.BalanceBTC)
                 self.ui.setLcdEthereum(self.BalanceETH)
@@ -66,6 +70,7 @@ class Thread(QThread):
                 
                 self.setBalanceInclIO(self.countOpenOrdersXMR, self.retOpenOrdersXMR, self.BalanceXMR, self.ui.setLcdMoneroinclIO)
                 self.setBalanceInclIO(self.countOpenOrdersETH, self.retOpenOrdersETH, self.BalanceETH, self.ui.setLcdEthereuminclIO)
+               
                 self.setOpenOrders(self.countOpenOrdersXMR, self.ui.OpenOrdersWidgetXMR, self.retOpenOrdersXMR)
                 self.setOpenOrders(self.countOpenOrdersETH, self.ui.OpenOrdersWidgetETH, self.retOpenOrdersETH)
                 self.setHistory(self.countHistoryXMR, self.ui.HistoryWidgetXMR, retHistoryXMR, "XMR")
@@ -109,6 +114,8 @@ class Thread(QThread):
                     continue
                 self.calcETHBuyAmount(self.BuyETHreadBTCprice, self.BuyETHreadBTCTotal)
 
+                self.calcMyAssets()
+
 
                 self.sleep (1)
                 self.ui.setAppStatus("OK")
@@ -125,15 +132,28 @@ class Thread(QThread):
                 self.sleep(2)
                 continue
 
-    
+    def popup(self, text, art):
+        msg = QMessageBox()
+        msg.setIcon(art)
+
+        msg.setText(text)
+        msg.setWindowTitle("Notification")
+        msg.setStandardButtons(QMessageBox.Ok)
+     #   msg.setStyleSheet("QMessageBox { color: white;background-color: #323232; } QPushButton {color: orange; background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #565656, stop: 0.1 #525252, stop: 0.5 #4e4e4e, stop: 0.9 #4a4a4a, stop: 1 #464646); border-width: 1px;border-color: orange;border-style: solid;border-radius: 6;padding: 3px;font-size: 12px;padding-left: 5px;padding-right: 5px;}")
+        msg.exec_()
+
     def setBalanceInclIO(self, countopenorders, retopenorders, currency, currencyio):
         count = 0
         OOAmount = 0
-        for i in range(countopenorders):
-            OOAmount = float(retopenorders[i]["amount"])
-            count = count + OOAmount
-        CompleteAmount = format(count + float(currency), '.8f')
-        currencyio(str(CompleteAmount))
+        if countopenorders != 0:
+            for i in range(countopenorders):
+                OOAmount = float(retopenorders[i]["amount"])
+                count = count + OOAmount
+            CompleteAmount = format(count + float(currency), '.8f')
+            currencyio(str(CompleteAmount))
+        else:
+            currencyio(str(0.00000000))
+
     def setOpenOrders(self, countopenorders, openorderswidget, retopenorders):
         openorderswidget.setRowCount(0)
         if countopenorders > openorderswidget.rowCount():
@@ -154,6 +174,9 @@ class Thread(QThread):
                 else:
                     openorderswidget.item(i, 1).setBackground(QtGui.QColor(0,139,0))
                     openorderswidget.item(i, 1).setForeground(QtGui.QColor(255,255,255))
+    
+
+
     def setHistory(self, counthistory, historywidget, rethistory, currency):
         historywidget.setRowCount(0)
         if counthistory > historywidget.rowCount():
@@ -171,14 +194,54 @@ class Thread(QThread):
                     historywidget.item(i, 1).setBackground(QtGui.QColor(0,139,0))
                     historywidget.item(i, 1).setForeground(QtGui.QColor(255,255,255))
 
+    def calcMyAssets(self):
+       XMRUSDPRICE = float(self.ui.lnPriceUSD.text())
+       XMRAmount = self.ui.lcdMoneroinclO.value()
+       
+       ETHUSDPRICE = float(self.ui.lnETHPriceUSD.text())
+       ETHAmount = self.ui.lcdEthereuminclO.value()
+       
+       BTCUSDPRICE = float(self.ui.lnBTCPriceUSD.text())
+       BTCAmount = self.ui.lcdBitcoin.value()
+
+       #Calculate Value of all Coins in Poloniex
+       XMRMYASSETVALUE = XMRUSDPRICE * XMRAmount
+       ETHMYASSETVALUE = ETHUSDPRICE * ETHAmount
+       BTCMYASSETVALUE = BTCUSDPRICE * BTCAmount
+
+       FINALVALUE = XMRMYASSETVALUE + ETHMYASSETVALUE + BTCMYASSETVALUE
+
+       #Calculate Value of all Coins in Poloniex and Offline Wallet
+       XMRWITHOFFLINE = XMRAmount + 4000
+       XMRMYASSETVALUEALL = XMRUSDPRICE * XMRWITHOFFLINE
+       FINALVALUEALL = XMRMYASSETVALUEALL + ETHMYASSETVALUE + BTCMYASSETVALUE
+
+       #Set both Values
+       self.ui.setMyAssets(round(FINALVALUE,2), round(FINALVALUEALL,2))
+
+
     def clickSaveConfiguration(self):
         self.ui.saveButton.clicked.connect(self.clickedSaveConfiguration)
     def clickedSaveConfiguration(self):
-        inputPublicKey = self.ui.lnPublicKey.text()
-        inputSecretKey = self.ui.lnSecretKey.text()
-        with open("key.py", "w") as keyfile:
-            keyfile.write("PUBLIC_KEY = '" + inputPublicKey + "' \nSECRET_KEY = '" + inputSecretKey + "'")
-    
+        try:
+            inputPublicKey = self.ui.lnPublicKey.text()
+            inputSecretKey = self.ui.lnSecretKey.text()
+
+            if (inputPublicKey == "" or inputSecretKey == ""):
+                logging.debug("Could not save API keys. One input field is empty.")
+                self.popup("API keys not saved. One or more API keys are missing.", QMessageBox.Critical)
+            
+            else:
+
+                with open("key.py", "w") as keyfile:
+                    keyfile.write("PUBLIC_KEY = '" + inputPublicKey + "' \nSECRET_KEY = '" + inputSecretKey + "'")
+                logging.info("API Keys succesfully saved.")
+                self.popup("API Keys succesfully saved.", QMessageBox.Information)
+        
+        except Exception as e:
+            logging.debug("Error! API Keys not saved.")
+            self.popup("Error! API Keys not saved.",QMessageBox.Critical)
+
 
     #XMR
     def calcSellBTCTotal(self, sellreadbtcprice, sellreadxmramount):
@@ -205,25 +268,38 @@ class Thread(QThread):
     def clickBuy(self):
         self.ui.buyButton.clicked.connect(self.clickedBuy)
     def clickedBuy(self):
-        exeBuy = self.poloInstance.buy("BTC_XMR",self.BuyreadBTCprice,self.resultBuyXMRAmount)
+        try:
+            exeBuy = self.poloInstance.buy("BTC_XMR",self.BuyreadBTCprice,self.resultBuyXMRAmount)
+            logging.info("Buy Order executed.")
+            self.popup("Buy order succesfully executed!",QMessageBox.Information)
+        except Exception as e:
+            logging.debug("Buy Order Error!" + str(e))
+            self.popup("Buy order Failed!",QMessageBox.Critical)
     def clickSell(self):
         self.ui.sellButton.clicked.connect(self.clickedSell)
     def clickedSell(self):
+    
         try:
             exeSell = self.poloInstance.sell("BTC_XMR",self.SellreadBTCprice, self.SellreadXMRAmount)
             logging.info("Sell Order executed.")
-            self.setOpenOrders(self.countOpenOrdersXMR, self.ui.OpenOrdersWidgetXMR, self.retOpenOrdersXMR)
-           
+            self.popup("Sell order succesfully executed!", QMessageBox.Information)
+
         except Exception as e:
             logging.debug("Sell Order Error!" + str(e))
+            self.popup("Sell order failed!", QMessageBox.Critical)
 
     def cancelOrder(self):
         self.ui.OpenOrdersWidgetXMR.cellDoubleClicked.connect(self.double_clicked)
 
     def double_clicked(self):
-        orderNumberXMR = self.ui.OpenOrdersWidgetXMR.currentItem().text()
-        self.poloInstance.cancel("BTC_XMR", orderNumberXMR)
-        self.setOpenOrders(self.countOpenOrdersXMR, self.ui.OpenOrdersWidgetXMR, self.retOpenOrdersXMR)
+        try:
+            orderNumberXMR = self.ui.OpenOrdersWidgetXMR.currentItem().text()
+            self.poloInstance.cancel("BTC_XMR", orderNumberXMR)
+            logging.info("Order cancelled succesfully!")
+            self.popup("Order cancelled successfully!",QMessageBox.Information)
+        except Exception as e:
+            logging.debug("Error! Order could not be cancelled.")
+            self.popup("Error! Order could not be cancelled.",QMessageBox.Critical)
 
     #ETH
     def calcETHBuyAmount(self, buyreadbtcprice, buyreadbtctotal):
@@ -249,16 +325,37 @@ class Thread(QThread):
         self.ui.setETHBuyBTCTotal(self.BalanceBTC)
     def clickETHBuy(self):
         self.ui.buyETHButton.clicked.connect(self.clickedETHBuy)
-    def clickedETHBuy(self):
-        exeBuy = self.poloInstance.buy("BTC_ETH",self.BuyETHreadBTCprice,self.resultBuyETHAmount)
+    def clickedETHBuy(self): 
+        try:
+            exeBuy = self.poloInstance.buy("BTC_ETH",self.BuyETHreadBTCprice,self.resultBuyETHAmount)
+            logging.info("Buy Order executed.")
+            self.popup("Buy order succesfully executed!",QMessageBox.Information)
+        except Exception as e:
+            logging.debug("Buy Order Error!" + str(e))
+            self.popup("Buy order Failed!",QMessageBox.Critical)
     def clickETHSell(self):
         self.ui.sellETHButton.clicked.connect(self.clickedETHSell)
     def clickedETHSell(self):
-        exeSell = self.poloInstance.sell("BTC_ETH",self.SellETHreadBTCprice, self.SellETHreadAmount)
+        
+        try:
+            exeSell = self.poloInstance.sell("BTC_ETH",self.SellETHreadBTCprice, self.SellETHreadAmount)
+            logging.info("Sell Order executed.")
+            self.popup("Sell order succesfully executed!", QMessageBox.Information)
+
+        except Exception as e:
+            logging.debug("Sell Order Error!" + str(e))
+            self.popup("Sell order failed!", QMessageBox.Critical)
     def cancelETHOrder(self):
         self.ui.OpenOrdersWidgetETH.cellDoubleClicked.connect(self.doubleETH_clicked)
     def doubleETH_clicked(self):
-        orderNumberETH = self.ui.OpenOrdersWidgetETH.currentItem().text()
-        self.poloInstance.cancel("BTC_ETH", orderNumberETH)
+        try:
+            orderNumberETH = self.ui.OpenOrdersWidgetETH.currentItem().text()
+            self.poloInstance.cancel("BTC_ETH", orderNumberETH)
+            logging.info("Order cancelled succesfully!")
+            self.popup("Order cancelled successfully!",QMessageBox.Information)
+        except Exception as e:
+            logging.debug("Error! Order could not be cancelled.")
+            self.popup("Error! Order could not be cancelled.",QMessageBox.Critical)
+
 
 

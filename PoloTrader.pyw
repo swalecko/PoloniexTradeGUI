@@ -4,7 +4,7 @@ from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import Qt
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import QGridLayout, QLabel, QLineEdit
-from PyQt5.QtWidgets import QTextEdit, QWidget, QDialog, QApplication, QMainWindow, QTableWidgetItem, QMessageBox
+from PyQt5.QtWidgets import QTextEdit, QWidget, QDialog, QApplication, QMainWindow, QTableWidgetItem, QMessageBox, QPlainTextEdit
 from PyQt5.QtCore import QThread
 import main_thread
 import thread_getusd
@@ -13,12 +13,12 @@ from main import Ui_MainWindow
 import key
 import logging
 
-
-class MyGui(QtWidgets.QMainWindow, Ui_MainWindow):    
+class MyGui(QtWidgets.QMainWindow, Ui_MainWindow, logging.Handler):    
     def __init__(self, parent=None):
         super(MyGui, self).__init__(parent)
+        
         self.setupUi(self)
-        _translate = QtCore.QCoreApplication.translate
+        _translate = QtCore.QCoreApplication.translate      
         self.lnSellPrice.setText(_translate("MainWindow", str(0.0))) 
         self.lnSellAmount.setText(_translate("MainWindow", str(0.0)))
         self.lnSellTotal.setText(_translate("MainWindow", str(0.0)))
@@ -33,6 +33,12 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow):
         self.lnETHBuyTotal.setText(_translate("MainWindow", str(0.0))) 
         self.lnPublicKey.setPlaceholderText("Insert your Poloniex Public key..")
         self.lnSecretKey.setPlaceholderText("Insert your Poloniex Secret key..")
+        
+        self.palettegreen = QPalette()
+        self.palettegreen.setColor(self.palettegreen.WindowText, QColor(120,255,195))
+        self.palettered = QPalette()
+        self.palettered.setColor(self.palettered.WindowText, QColor(216,32,32))
+    
     def setTaskWindowTitle(self, gui, price):
         self.gui = gui
         _translate = QtCore.QCoreApplication.translate
@@ -44,12 +50,30 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow):
         _translate = QtCore.QCoreApplication.translate
     def setLcdMonero(self,lcdmonero):
         _translate = QtCore.QCoreApplication.translate
+        
+        if float(lcdmonero) > 0.0:
+            self.lcdMonero.setPalette(self.palettegreen)
+        else:
+            self.lcdMonero.setPalette(self.palettered)
+
         self.lcdMonero.display(_translate("MainWindow", lcdmonero))
     def setLcdBitcoin(self,lcdbitcoin):
         _translate = QtCore.QCoreApplication.translate
-        self.lcdBitcoin.display(_translate("MainWindow", lcdbitcoin))
+
+        if float(lcdbitcoin) > 0.0:
+            self.lcdBitcoin.setPalette(self.palettegreen)
+        else:
+            self.lcdBitcoin.setPalette(self.palettered)
+
+        self.lcdBitcoin.display(_translate("MainWindow", str(lcdbitcoin)))
     def setLcdEthereum(self,lcdethereum):
         _translate = QtCore.QCoreApplication.translate
+
+        if float(lcdethereum) > 0.0:
+            self.lcdEthereum.setPalette(self.palettegreen)
+        else:
+            self.lcdEthereum.setPalette(self.palettered)
+
         self.lcdEthereum.display(_translate("MainWindow", lcdethereum)) 
     def setXMRUSDPrice(self, xmrusd):
         _translate = QtCore.QCoreApplication.translate
@@ -62,7 +86,8 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow):
         self.lnHigh.setText(_translate("MainWindow", str(high)))
     def setLow(self, low):
         _translate = QtCore.QCoreApplication.translate
-        self.lnLow.setText(_translate("MainWindow", str(low)))        
+        self.lnLow.setText(_translate("MainWindow", str(low)))    
+    
     def setChange(self, change):
         _translate = QtCore.QCoreApplication.translate
         self.lnChange.setText(_translate("MainWindow", change))
@@ -87,9 +112,21 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow):
         self.lnETHChange.setText(_translate("MainWindow", ethchange))  
     def setLcdMoneroinclIO(self, moneroinclio):
         _translate = QtCore.QCoreApplication.translate
+
+        if float(moneroinclio) > 0.0:
+            self.lcdMoneroinclO.setPalette(self.palettegreen)
+        else:
+            self.lcdMoneroinclO.setPalette(self.palettered)
+
         self.lcdMoneroinclO.display(_translate("MainWindow", moneroinclio))
     def setLcdEthereuminclIO(self, ethereuminclio):
         _translate = QtCore.QCoreApplication.translate
+
+        if float(ethereuminclio) > 0.0:
+            self.lcdEthereuminclO.setPalette(self.palettegreen)
+        else:
+            self.lcdEthereuminclO.setPalette(self.palettered)
+
         self.lcdEthereuminclO.display(_translate("MainWindow", ethereuminclio))
     def setSellBTCTotal(self, sellbtctotal):
         _translate = QtCore.QCoreApplication.translate
@@ -124,23 +161,13 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow):
     def setLog(self, log):
        _translate = QtCore.QCoreApplication.translate
        self.plainTextEdit.appendPlainText(log)
+    def setMyAssets(self, myassets, myassetsall):
+       _translate = QtCore.QCoreApplication.translate
+       self.lnMyAssets.setText(str(myassets))
+       self.lnMyAssetsALL.setText(str(myassetsall))
 
 
-logger = logging.getLogger(__name__)
 
-class QtHandler(logging.Handler):
-
-    def __init__(self):
-        logging.Handler.__init__(self)
-
-    def emit(self, record):
-        record = self.format(record)
-        XStream.stdout().write("{}\n".format(record))
-
-handler = QtHandler()
-handler.setFormatter(logging.Formatter("%(levelname)s: %(message)s"))
-logger.addHandler(handler)
-logger.setLevel(logging.DEBUG)
 
 
 

@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>870</width>
-    <height>671</height>
+    <height>706</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -217,6 +217,12 @@ QWidget
     background-color: #323232;
 }
 
+QMessageBox
+{
+    color: #b1b1b1;
+    background-color: #323232;
+}
+
 QWidget:item:hover
 {
     background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ffa02f, stop: 1 #ca0619);
@@ -297,10 +303,11 @@ QLineEdit
 
 QPushButton
 {
-    color: grey;
+    color: orange;
     background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #565656, stop: 0.1 #525252, stop: 0.5 #4e4e4e, stop: 0.9 #4a4a4a, stop: 1 #464646);
     border-width: 1px;
-    border-color: #1e1e1e;
+   /* border-color: #1e1e1e;*/
+    border-color: orange;
     border-style: solid;
     border-radius: 6;
     padding: 3px;
@@ -311,7 +318,7 @@ QPushButton
 
 QPushButton:pressed
 {
-    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #2d2d2d, stop: 0.1 #2b2b2b, stop: 0.5 #292929, stop: 0.9 #282828, stop: 1 #252525);
+    background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #2d2d30, stop: 0.1 #2b2b2b, stop: 0.5 #292929, stop: 0.9 #282828, stop: 1 #252530)
 }
 
 QComboBox
@@ -667,6 +674,9 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
   <property name="toolButtonStyle">
    <enum>Qt::ToolButtonIconOnly</enum>
   </property>
+  <property name="tabShape">
+   <enum>QTabWidget::Rounded</enum>
+  </property>
   <property name="dockNestingEnabled">
    <bool>false</bool>
   </property>
@@ -712,7 +722,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
    <widget class="QLabel" name="lblBitcoin">
     <property name="geometry">
      <rect>
-      <x>680</x>
+      <x>710</x>
       <y>603</y>
       <width>47</width>
       <height>17</height>
@@ -1064,7 +1074,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
      <enum>QTabWidget::Triangular</enum>
     </property>
     <property name="currentIndex">
-     <number>2</number>
+     <number>3</number>
     </property>
     <property name="movable">
      <bool>true</bool>
@@ -2328,7 +2338,7 @@ QHeaderView::section {
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tabXMR">
        <attribute name="title">
@@ -2344,26 +2354,7 @@ QHeaderView::section {
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">QPushButton {
-    border: 1px solid #8f8f91;
-    border-radius: 6px;
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #f6f7fa, stop: 1 #dadbde);
-    min-width: 80px;
-}
-
-QPushButton:pressed {
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
-}
-
-QPushButton:flat {
-    border: none; /* no border for a flat push button */
-}
-
-QPushButton:default {
-    border-color: navy; /* make the default button prominent */
-}</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string>Sell</string>
@@ -2529,25 +2520,7 @@ QPushButton:default {
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">QPushButton {
-    border: 1px solid #8f8f91;
-    border-radius: 6px;
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #f6f7fa, stop: 1 #dadbde);
-}
-
-QPushButton:pressed {
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
-}
-
-QPushButton:flat {
-    border: none; /* no border for a flat push button */
-}
-
-QPushButton:default {
-    border-color: navy; /* make the default button prominent */
-}</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string>A</string>
@@ -2566,25 +2539,7 @@ QPushButton:default {
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">QPushButton {
-    border: 1px solid #8f8f91;
-    border-radius: 6px;
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #f6f7fa, stop: 1 #dadbde);
-}
-
-QPushButton:pressed {
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
-}
-
-QPushButton:flat {
-    border: none; /* no border for a flat push button */
-}
-
-QPushButton:default {
-    border-color: navy; /* make the default button prominent */
-}</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string>A</string>
@@ -2600,26 +2555,7 @@ QPushButton:default {
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">QPushButton {
-    border: 1px solid #8f8f91;
-    border-radius: 6px;
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #f6f7fa, stop: 1 #dadbde);
-    min-width: 80px;
-}
-
-QPushButton:pressed {
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
-}
-
-QPushButton:flat {
-    border: none; /* no border for a flat push button */
-}
-
-QPushButton:default {
-    border-color: navy; /* make the default button prominent */
-}</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string>Buy</string>
@@ -2790,25 +2726,7 @@ QPushButton:default {
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">QPushButton {
-    border: 1px solid #8f8f91;
-    border-radius: 6px;
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #f6f7fa, stop: 1 #dadbde);
-}
-
-QPushButton:pressed {
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
-}
-
-QPushButton:flat {
-    border: none; /* no border for a flat push button */
-}
-
-QPushButton:default {
-    border-color: navy; /* make the default button prominent */
-}</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string>A</string>
@@ -2827,26 +2745,7 @@ QPushButton:default {
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">QPushButton {
-    border: 1px solid #8f8f91;
-    border-radius: 6px;
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #f6f7fa, stop: 1 #dadbde);
-    min-width: 80px;
-}
-
-QPushButton:pressed {
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
-}
-
-QPushButton:flat {
-    border: none; /* no border for a flat push button */
-}
-
-QPushButton:default {
-    border-color: navy; /* make the default button prominent */
-}</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string>Sell</string>
@@ -2862,26 +2761,7 @@ QPushButton:default {
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">QPushButton {
-    border: 1px solid #8f8f91;
-    border-radius: 6px;
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #f6f7fa, stop: 1 #dadbde);
-    min-width: 80px;
-}
-
-QPushButton:pressed {
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
-}
-
-QPushButton:flat {
-    border: none; /* no border for a flat push button */
-}
-
-QPushButton:default {
-    border-color: navy; /* make the default button prominent */
-}</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string>Buy</string>
@@ -2897,25 +2777,7 @@ QPushButton:default {
          </rect>
         </property>
         <property name="styleSheet">
-         <string notr="true">QPushButton {
-    border: 1px solid #8f8f91;
-    border-radius: 6px;
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #f6f7fa, stop: 1 #dadbde);
-}
-
-QPushButton:pressed {
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
-}
-
-QPushButton:flat {
-    border: none; /* no border for a flat push button */
-}
-
-QPushButton:default {
-    border-color: navy; /* make the default button prominent */
-}</string>
+         <string notr="true"/>
         </property>
         <property name="text">
          <string>A</string>
@@ -2938,26 +2800,7 @@ QPushButton:default {
        </rect>
       </property>
       <property name="styleSheet">
-       <string notr="true">QPushButton {
-    border: 1px solid #8f8f91;
-    border-radius: 6px;
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #f6f7fa, stop: 1 #dadbde);
-    min-width: 80px;
-}
-
-QPushButton:pressed {
-    background-color: qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1,
-                                      stop: 0 #dadbde, stop: 1 #f6f7fa);
-}
-
-QPushButton:flat {
-    border: none; /* no border for a flat push button */
-}
-
-QPushButton:default {
-    border-color: navy; /* make the default button prominent */
-}</string>
+       <string notr="true"/>
       </property>
       <property name="text">
        <string>Save</string>
@@ -3040,31 +2883,12 @@ QPushButton:default {
       </property>
      </widget>
     </widget>
-    <widget class="QWidget" name="tabLog">
-     <attribute name="icon">
-      <iconset theme="test">
-       <normaloff>.</normaloff>.</iconset>
-     </attribute>
-     <attribute name="title">
-      <string>Log</string>
-     </attribute>
-     <widget class="QPlainTextEdit" name="plainTextEdit">
-      <property name="geometry">
-       <rect>
-        <x>-1</x>
-        <y>-1</y>
-        <width>791</width>
-        <height>351</height>
-       </rect>
-      </property>
-     </widget>
-    </widget>
    </widget>
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
       <x>40</x>
-      <y>39</y>
+      <y>41</y>
       <width>95</width>
       <height>141</height>
      </rect>
@@ -3168,7 +2992,7 @@ QPushButton:default {
     <property name="geometry">
      <rect>
       <x>140</x>
-      <y>17</y>
+      <y>19</y>
       <width>91</width>
       <height>20</height>
      </rect>
@@ -3380,7 +3204,7 @@ QPushButton:default {
     <property name="geometry">
      <rect>
       <x>249</x>
-      <y>17</y>
+      <y>19</y>
       <width>91</width>
       <height>20</height>
      </rect>
@@ -3593,7 +3417,7 @@ QPushButton:default {
     <property name="geometry">
      <rect>
       <x>140</x>
-      <y>40</y>
+      <y>42</y>
       <width>91</width>
       <height>140</height>
      </rect>
@@ -3603,6 +3427,7 @@ QPushButton:default {
       <widget class="QLineEdit" name="lnPriceXMR">
        <property name="font">
         <font>
+         <family>Century Gothic</family>
          <pointsize>8</pointsize>
          <weight>50</weight>
          <bold>false</bold>
@@ -3632,6 +3457,11 @@ QPushButton:default {
      </item>
      <item>
       <widget class="QLineEdit" name="lnPriceUSD">
+       <property name="font">
+        <font>
+         <family>Century Gothic</family>
+        </font>
+       </property>
        <property name="styleSheet">
         <string notr="true">QLineEdit {
     border: 1px solid gray;
@@ -3652,6 +3482,11 @@ QPushButton:default {
      </item>
      <item>
       <widget class="QLineEdit" name="lnHigh">
+       <property name="font">
+        <font>
+         <family>Century Gothic</family>
+        </font>
+       </property>
        <property name="styleSheet">
         <string notr="true">QLineEdit {
     border: 1px solid gray;
@@ -3669,6 +3504,11 @@ QPushButton:default {
      </item>
      <item>
       <widget class="QLineEdit" name="lnLow">
+       <property name="font">
+        <font>
+         <family>Century Gothic</family>
+        </font>
+       </property>
        <property name="styleSheet">
         <string notr="true">QLineEdit {
     border: 1px solid gray;
@@ -3686,6 +3526,11 @@ QPushButton:default {
      </item>
      <item>
       <widget class="QLineEdit" name="lnChange">
+       <property name="font">
+        <font>
+         <family>Century Gothic</family>
+        </font>
+       </property>
        <property name="styleSheet">
         <string notr="true">QLineEdit {
     border: 1px solid gray;
@@ -3707,7 +3552,7 @@ QPushButton:default {
     <property name="geometry">
      <rect>
       <x>249</x>
-      <y>40</y>
+      <y>42</y>
       <width>91</width>
       <height>140</height>
      </rect>
@@ -3717,6 +3562,7 @@ QPushButton:default {
       <widget class="QLineEdit" name="lnPriceETH">
        <property name="font">
         <font>
+         <family>Century Gothic</family>
          <weight>50</weight>
          <bold>false</bold>
         </font>
@@ -3741,6 +3587,11 @@ QPushButton:default {
      </item>
      <item>
       <widget class="QLineEdit" name="lnETHPriceUSD">
+       <property name="font">
+        <font>
+         <family>Century Gothic</family>
+        </font>
+       </property>
        <property name="styleSheet">
         <string notr="true">QLineEdit {
     border: 1px solid gray;
@@ -3761,6 +3612,11 @@ QPushButton:default {
      </item>
      <item>
       <widget class="QLineEdit" name="lnETHHigh">
+       <property name="font">
+        <font>
+         <family>Century Gothic</family>
+        </font>
+       </property>
        <property name="styleSheet">
         <string notr="true">QLineEdit {
     border: 1px solid gray;
@@ -3778,6 +3634,11 @@ QPushButton:default {
      </item>
      <item>
       <widget class="QLineEdit" name="lnETHLow">
+       <property name="font">
+        <font>
+         <family>Century Gothic</family>
+        </font>
+       </property>
        <property name="styleSheet">
         <string notr="true">QLineEdit {
     border: 1px solid gray;
@@ -3795,6 +3656,11 @@ QPushButton:default {
      </item>
      <item>
       <widget class="QLineEdit" name="lnETHChange">
+       <property name="font">
+        <font>
+         <family>Century Gothic</family>
+        </font>
+       </property>
        <property name="styleSheet">
         <string notr="true">QLineEdit {
     border: 1px solid gray;
@@ -4582,7 +4448,7 @@ QPushButton:default {
    <widget class="QLCDNumber" name="lcdBitcoin">
     <property name="geometry">
      <rect>
-      <x>630</x>
+      <x>660</x>
       <y>620</y>
       <width>141</width>
       <height>21</height>
@@ -5034,7 +4900,7 @@ QPushButton:default {
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>630</x>
+      <x>640</x>
       <y>20</y>
       <width>102</width>
       <height>49</height>
@@ -5426,7 +5292,7 @@ QPushButton:default {
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>740</x>
+      <x>750</x>
       <y>20</y>
       <width>91</width>
       <height>49</height>
@@ -5464,8 +5330,8 @@ QPushButton:default {
    <widget class="QLabel" name="lblBitcoinx">
     <property name="geometry">
      <rect>
-      <x>360</x>
-      <y>17</y>
+      <x>358</x>
+      <y>20</y>
       <width>91</width>
       <height>20</height>
      </rect>
@@ -5676,8 +5542,8 @@ QPushButton:default {
    <widget class="QWidget" name="layoutWidget">
     <property name="geometry">
      <rect>
-      <x>361</x>
-      <y>55</y>
+      <x>359</x>
+      <y>57</y>
       <width>91</width>
       <height>51</height>
      </rect>
@@ -5687,6 +5553,7 @@ QPushButton:default {
       <widget class="QLineEdit" name="lnBTCPriceUSD">
        <property name="font">
         <font>
+         <family>Century Gothic</family>
          <weight>50</weight>
          <bold>false</bold>
         </font>
@@ -5711,7 +5578,162 @@ QPushButton:default {
      </item>
     </layout>
    </widget>
+   <widget class="QLabel" name="label_2">
+    <property name="geometry">
+     <rect>
+      <x>590</x>
+      <y>108</y>
+      <width>111</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Century Gothic</family>
+     </font>
+    </property>
+    <property name="text">
+     <string>My Assets (USD):</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lnMyAssets">
+    <property name="geometry">
+     <rect>
+      <x>590</x>
+      <y>130</y>
+      <width>89</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Century Gothic</family>
+      <pointsize>8</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+      <kerning>true</kerning>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit {
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 0 8px;
+    background: white;
+    selection-background-color: darkgray;
+    color: black;
+}
+
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="frame">
+     <bool>false</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="clearButtonEnabled">
+     <bool>false</bool>
+    </property>
+   </widget>
+   <widget class="QLabel" name="label_3">
+    <property name="geometry">
+     <rect>
+      <x>589</x>
+      <y>160</y>
+      <width>231</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Century Gothic</family>
+     </font>
+    </property>
+    <property name="text">
+     <string>Included Offline Wallet Value:</string>
+    </property>
+   </widget>
+   <widget class="QLineEdit" name="lnMyAssetsALL">
+    <property name="geometry">
+     <rect>
+      <x>590</x>
+      <y>181</y>
+      <width>89</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Century Gothic</family>
+      <pointsize>8</pointsize>
+      <weight>50</weight>
+      <bold>false</bold>
+      <kerning>true</kerning>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QLineEdit {
+    border: 1px solid gray;
+    border-radius: 10px;
+    padding: 0 8px;
+    background: white;
+    selection-background-color: darkgray;
+    color: black;
+}
+
+
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="frame">
+     <bool>false</bool>
+    </property>
+    <property name="alignment">
+     <set>Qt::AlignCenter</set>
+    </property>
+    <property name="clearButtonEnabled">
+     <bool>false</bool>
+    </property>
+   </widget>
   </widget>
+  <widget class="QMenuBar" name="menuBar">
+   <property name="geometry">
+    <rect>
+     <x>0</x>
+     <y>0</y>
+     <width>870</width>
+     <height>26</height>
+    </rect>
+   </property>
+   <widget class="QMenu" name="menuMen">
+    <property name="title">
+     <string>Menü</string>
+    </property>
+    <addaction name="actionSettings"/>
+    <addaction name="actionLog"/>
+   </widget>
+   <addaction name="menuMen"/>
+  </widget>
+  <action name="actionSettings">
+   <property name="text">
+    <string>Settings</string>
+   </property>
+   <property name="menuRole">
+    <enum>QAction::TextHeuristicRole</enum>
+   </property>
+  </action>
+  <action name="actionLog">
+   <property name="text">
+    <string>Log</string>
+   </property>
+  </action>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources/>
