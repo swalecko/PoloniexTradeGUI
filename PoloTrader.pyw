@@ -6,12 +6,24 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import QGridLayout, QLabel, QLineEdit
 from PyQt5.QtWidgets import QTextEdit, QWidget, QDialog, QApplication, QMainWindow, QTableWidgetItem, QMessageBox, QPlainTextEdit
 from PyQt5.QtCore import QThread
+
+keypath = os.path.abspath('key.py')
+
+if not os.path.exists(keypath) or os.stat(keypath).st_size == 0:
+    with open(keypath, "w") as keyfile:
+        keyfile.write("PUBLIC_KEY = ''\nSECRET_KEY = ''")
+        keyfile.close()
+
+from importlib.machinery import SourceFileLoader
+
+importkey = SourceFileLoader("key", keypath).load_module()
+
 import main_thread
 import thread_getusd
 import ui_ResourceFile
 from main import Ui_MainWindow
-import key
 import logging
+
 
 class MyGui(QtWidgets.QMainWindow, Ui_MainWindow, logging.Handler):    
     def __init__(self, parent=None):
@@ -167,6 +179,7 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow, logging.Handler):
        self.lnMyAssetsALL.setText(str(myassetsall))
 
 
+
 def main():
     logging.basicConfig(filename="qt.log", level=logging.DEBUG, format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
     logging.getLogger("requests").setLevel(logging.WARNING)
@@ -174,7 +187,7 @@ def main():
     form = MyGui()
     form.show()
     form.setMenu(form)
-    myThread = main_thread.Thread(form, key.PUBLIC_KEY, key.SECRET_KEY)
+    myThread = main_thread.Thread(form, importkey.PUBLIC_KEY, importkey.SECRET_KEY)
     myThread.start()
     
     myThread.clickBuy()
