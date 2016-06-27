@@ -43,7 +43,7 @@ Trading app for XMR and ETH at the Poloniex exchange using the Poloniex API.
   - Now you should see your Balances and you are able to trade.
   - Info: If you have some problems, just restart the program. 
 
-  **Linux**
+**Linux**
   - Just contact me for more informations
 
 ##Screenshot:
