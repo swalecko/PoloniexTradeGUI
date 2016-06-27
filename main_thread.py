@@ -12,12 +12,6 @@ import logging
 import thread_getusd
 
 
-if not os.path.exists("key.py") or os.stat("key.py").st_size == 0:
-    with open("key.py", "w") as keyfile:
-            keyfile.write("PUBLIC_KEY = ''\nSECRET_KEY = ''")
-            keyfile.close()
-import key
-
 class Thread(QThread):
     def __init__(self, ui_instance, PUBLIC_KEY, SECRET_KEY):
         self.ui = ui_instance
@@ -25,6 +19,7 @@ class Thread(QThread):
         self.SECRET_KEY = SECRET_KEY
         super(QThread, self).__init__()
         self.poloInstance = polowrapper.poloniex(self.PUBLIC_KEY, self.SECRET_KEY)
+        self.OFFLINEAMOUNT = 0
         
 
     def function():
@@ -40,6 +35,7 @@ class Thread(QThread):
             try:
                 
                 if self.PUBLIC_KEY == '' or self.SECRET_KEY == '':
+                    
                     break
 
                 self.retBalances = self.poloInstance.returnBalances()
@@ -139,7 +135,6 @@ class Thread(QThread):
         msg.setText(text)
         msg.setWindowTitle("Notification")
         msg.setStandardButtons(QMessageBox.Ok)
-     #   msg.setStyleSheet("QMessageBox { color: white;background-color: #323232; } QPushButton {color: orange; background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #565656, stop: 0.1 #525252, stop: 0.5 #4e4e4e, stop: 0.9 #4a4a4a, stop: 1 #464646); border-width: 1px;border-color: orange;border-style: solid;border-radius: 6;padding: 3px;font-size: 12px;padding-left: 5px;padding-right: 5px;}")
         msg.exec_()
 
     def setBalanceInclIO(self, countopenorders, retopenorders, currency, currencyio):
@@ -152,7 +147,7 @@ class Thread(QThread):
             CompleteAmount = format(count + float(currency), '.8f')
             currencyio(str(CompleteAmount))
         else:
-            currencyio(str(0.00000000))
+            currencyio(format(float(0.00000000), '.8f'))
 
     def setOpenOrders(self, countopenorders, openorderswidget, retopenorders):
         openorderswidget.setRowCount(0)
@@ -212,7 +207,7 @@ class Thread(QThread):
        FINALVALUE = XMRMYASSETVALUE + ETHMYASSETVALUE + BTCMYASSETVALUE
 
        #Calculate Value of all Coins in Poloniex and Offline Wallet
-       XMRWITHOFFLINE = XMRAmount + 4000
+       XMRWITHOFFLINE = XMRAmount + self.OFFLINEAMOUNT
        XMRMYASSETVALUEALL = XMRUSDPRICE * XMRWITHOFFLINE
        FINALVALUEALL = XMRMYASSETVALUEALL + ETHMYASSETVALUE + BTCMYASSETVALUE
 
@@ -224,8 +219,9 @@ class Thread(QThread):
         self.ui.saveButton.clicked.connect(self.clickedSaveConfiguration)
     def clickedSaveConfiguration(self):
         try:
-            inputPublicKey = self.ui.lnPublicKey.text()
-            inputSecretKey = self.ui.lnSecretKey.text()
+            inputPublicKey = self.ui.lnPublicKey.text().strip()
+            inputSecretKey = self.ui.lnSecretKey.text().strip()
+
 
             if (inputPublicKey == "" or inputSecretKey == ""):
                 logging.debug("Could not save API keys. One input field is empty.")
