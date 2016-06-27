@@ -30,27 +30,20 @@ Trading app for XMR and ETH at the Poloniex exchange using the Poloniex API.
   - Using Pyqt for the python code
   - Written in Python 3
   
-##Requirements:
-  - Python 3   
-    - Additional modules:  
-      - json  
-      - requests  
-  - PyQt5
 
 ##How to use:
-  - Execute the PoloTrader.pyw file 
-  - When you execute the app for the first time, you need to add your PUBLIC and SECRET API Keys in the Configuration tab and save them.  
-    A file "key.py" will be created with the following content:     
-    first line: "PUBLIC_KEY = '<key>'"   
-    second line: "SECRET_KEY = '<key>'"     
-    **Important**: You need to restart the app to activate the keys
-  - Happy trading :-)  
-  Alternative:
-  - Use for example pyinstaller to create a package or a "one-file" for execution  
-    Installation: pip install pyinstaller  
-    Command Example: pyinstaller -w -n PoloTrader -i XMRicon.ico -F PoloTrader.pyw   
-    More information for pyinstaller: http://www.pyinstaller.org/
+    Windows:
+  - Download PoloTrader.zip from the latest release
+  - Unzip PoloTrader.zip
+  - Execute PoloTrader.exe (Info: exe file is created with pyinstaller)
+  - 2 files (key.py, qt.log) will be created in the same directory 
+  - Insert your Poloniex API keys into configuration tab and save them. You can check your keys in the key.py file.
+  - Restart the program to activate the API keys
+  - Now you should see your Balances and you are able to trade.
+  - Info: If you have some problems, just restart the program. 
 
+    Linux_
+  - Just contact me for more informations
 
 ##Screenshot:
 
