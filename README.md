@@ -18,7 +18,7 @@ Trading app for XMR and ETH at the Poloniex exchange using the Poloniex API.
     - Note: to cancel an open order double click the cell with the order number
   - History 
   - Trading (Simple Buy and Sell)
-    - Note: "A" Auto Button for setting current BTC price in the sell section and Total BTC in the sell section  
+    - Note: "A" Auto Button for setting current BTC price in the sell section and Total BTC in the buy section  
   - Configuration: Poloniex Public and Secret Key
 
 ##Future Features:
