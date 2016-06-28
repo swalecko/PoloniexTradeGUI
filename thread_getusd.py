@@ -45,7 +45,7 @@ class Thread(QThread):
                     self.ui.setETHUSDPrice("N/A")
                     self.ui.setBTCUSDPrice("N/A")
                     
-                    self.ui.setLog(logging.debug("Connection ERROR GETUSD: " + str(a)))
+                    self.ui.setLog(logging.debug("ERROR: Connection GETUSD: " + str(a)))
                     self.ui.setNetworkStatus("ERROR")
                     self.sleep(1)
                     continue
@@ -76,12 +76,12 @@ class Thread(QThread):
 
 
             except (ConnectionError, TimeoutError) as e:
-                self.ui.setLog(logging.debug("thread_getusd Loop Exception Connection: " + str(e)))
+                self.ui.setLog(logging.debug("ERROR: thread_getusd Loop Exception Connection: " + str(e)))
                 self.ui.setNetworkStatus("ERROR")
                 self.sleep(2)
                 continue
             except Exception as e:
-                logging.debug("thread_getusd Loop Exception: " + str(e))
+                logging.debug("ERROR: thread_getusd Loop Exception: " + str(e))
                 self.sleep(2)
 
     def setXMRPriceInfo(self):

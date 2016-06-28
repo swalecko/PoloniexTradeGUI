@@ -118,12 +118,12 @@ class Thread(QThread):
                 self.ui.setNetworkStatus("OK")
            
             except (ConnectionError, TimeoutError) as x:
-                self.ui.setLog(logging.debug("main_thread Loop Exception HTTPSConnectionPool: " + str(x)))
+                self.ui.setLog(logging.debug("ERROR: main_thread Loop Exception HTTPSConnectionPool: " + str(x)))
                 self.ui.setNetworkStatus("ERROR")
                 self.sleep(2)
                 continue         
             except Exception as e:
-                logging.debug("main_thread Loop Exception: " + str(e))
+                logging.debug("ERROR: main_thread Loop Exception: " + str(e))
                 self.ui.setAppStatus("ERROR")
                 self.sleep(2)
                 continue
@@ -224,18 +224,18 @@ class Thread(QThread):
 
 
             if (inputPublicKey == "" or inputSecretKey == ""):
-                logging.debug("Could not save API keys. One input field is empty.")
-                self.popup("API keys not saved. One or more API keys are missing.", QMessageBox.Critical)
+                logging.warning("Warning: Could not save API keys. Invalid Input.")
+                self.popup("API keys not saved. Invalid input.", QMessageBox.Warning)
             
             else:
 
                 with open("key.py", "w") as keyfile:
                     keyfile.write("PUBLIC_KEY = '" + inputPublicKey + "' \nSECRET_KEY = '" + inputSecretKey + "'")
-                logging.info("API Keys succesfully saved.")
+                logging.info("INFO: API Keys succesfully saved.")
                 self.popup("API Keys succesfully saved.", QMessageBox.Information)
         
         except Exception as e:
-            logging.debug("Error! API Keys not saved.")
+            logging.debug("Error: API Keys not saved.")
             self.popup("Error! API Keys not saved.",QMessageBox.Critical)
 
 
@@ -264,25 +264,33 @@ class Thread(QThread):
     def clickBuy(self):
         self.ui.buyButton.clicked.connect(self.clickedBuy)
     def clickedBuy(self):
-        try:
-            exeBuy = self.poloInstance.buy("BTC_XMR",self.BuyreadBTCprice,self.resultBuyXMRAmount)
-            logging.info("Buy Order executed.")
-            self.popup("Buy order succesfully executed!",QMessageBox.Information)
-        except Exception as e:
-            logging.debug("Buy Order Error!" + str(e))
-            self.popup("Buy order Failed!",QMessageBox.Critical)
+        
+        if self.BuyreadBTCprice == "" or self.BuyreadBTCprice == 0.0 or self.resultBuyXMRAmount == "" or self.resultBuyXMRAmount == 0.0:
+            self.popup("Invalid input.", QMessageBox.Warning)
+            
+        else:
+            try:
+                exeBuy = self.poloInstance.buy("BTC_XMR",self.BuyreadBTCprice,self.resultBuyXMRAmount)
+                logging.info("INFO: Buy Order executed.")
+                self.popup("Buy order succesfully executed!",QMessageBox.Information)
+            except Exception as e:
+                logging.debug("ERROR: Buy Order failed!" + str(e))
+                self.popup("Buy order Failed!",QMessageBox.Critical)
     def clickSell(self):
         self.ui.sellButton.clicked.connect(self.clickedSell)
     def clickedSell(self):
     
-        try:
-            exeSell = self.poloInstance.sell("BTC_XMR",self.SellreadBTCprice, self.SellreadXMRAmount)
-            logging.info("Sell Order executed.")
-            self.popup("Sell order succesfully executed!", QMessageBox.Information)
+        if self.SellreadBTCprice == "" or self.SellreadBTCprice == 0.0 or self.SellreadXMRAmount == "" or self.SellreadXMRAmount == 0.0:     
+            self.popup("Invalid input.", QMessageBox.Warning)
+        else:   
+            try:
+                exeSell = self.poloInstance.sell("BTC_XMR",self.SellreadBTCprice, self.SellreadXMRAmount)
+                logging.info("INFO: Sell Order executed.")
+                self.popup("Sell order succesfully executed!", QMessageBox.Information)
 
-        except Exception as e:
-            logging.debug("Sell Order Error!" + str(e))
-            self.popup("Sell order failed!", QMessageBox.Critical)
+            except Exception as e:
+                logging.debug("ERROR: Sell Order failed!" + str(e))
+                self.popup("Sell order failed!", QMessageBox.Critical)
 
     def cancelOrder(self):
         self.ui.OpenOrdersWidgetXMR.cellDoubleClicked.connect(self.double_clicked)
@@ -291,10 +299,10 @@ class Thread(QThread):
         try:
             orderNumberXMR = self.ui.OpenOrdersWidgetXMR.currentItem().text()
             self.poloInstance.cancel("BTC_XMR", orderNumberXMR)
-            logging.info("Order cancelled succesfully!")
+            logging.info("INFO: Order cancelled succesfully!")
             self.popup("Order cancelled successfully!",QMessageBox.Information)
         except Exception as e:
-            logging.debug("Error! Order could not be cancelled.")
+            logging.debug("Error: Order could not be cancelled.")
             self.popup("Error! Order could not be cancelled.",QMessageBox.Critical)
 
     #ETH
@@ -322,35 +330,41 @@ class Thread(QThread):
     def clickETHBuy(self):
         self.ui.buyETHButton.clicked.connect(self.clickedETHBuy)
     def clickedETHBuy(self): 
-        try:
-            exeBuy = self.poloInstance.buy("BTC_ETH",self.BuyETHreadBTCprice,self.resultBuyETHAmount)
-            logging.info("Buy Order executed.")
-            self.popup("Buy order succesfully executed!",QMessageBox.Information)
-        except Exception as e:
-            logging.debug("Buy Order Error!" + str(e))
-            self.popup("Buy order Failed!",QMessageBox.Critical)
+        if self.BuyETHreadBTCprice == "" or self.BuyETHreadBTCprice == 0.0 or self.resultBuyETHAmount == "" or self.resultBuyETHAmount == 0.0:     
+            self.popup("Invalid input.", QMessageBox.Warning)
+        else:   
+
+            try:
+                exeBuy = self.poloInstance.buy("BTC_ETH",self.BuyETHreadBTCprice,self.resultBuyETHAmount)
+                logging.info("INFO: Buy Order executed.")
+                self.popup("Buy order succesfully executed!",QMessageBox.Information)
+            except Exception as e:
+                logging.debug("ERROR: Buy Order failed!" + str(e))
+                self.popup("Buy order Failed!",QMessageBox.Critical)
     def clickETHSell(self):
         self.ui.sellETHButton.clicked.connect(self.clickedETHSell)
     def clickedETHSell(self):
-        
-        try:
-            exeSell = self.poloInstance.sell("BTC_ETH",self.SellETHreadBTCprice, self.SellETHreadAmount)
-            logging.info("Sell Order executed.")
-            self.popup("Sell order succesfully executed!", QMessageBox.Information)
+        if self.SellETHreadBTCprice == "" or self.SellETHreadBTCprice == 0.0 or self.SellETHreadAmount == "" or self.SellETHreadAmount == 0.0:     
+            self.popup("Invalid input.", QMessageBox.Warning)
+        else:
+            try:
+                exeSell = self.poloInstance.sell("BTC_ETH",self.SellETHreadBTCprice, self.SellETHreadAmount)
+                logging.info("INFO: Sell Order executed.")
+                self.popup("Sell order succesfully executed!", QMessageBox.Information)
 
-        except Exception as e:
-            logging.debug("Sell Order Error!" + str(e))
-            self.popup("Sell order failed!", QMessageBox.Critical)
+            except Exception as e:
+                logging.debug("ERROR: Sell Order failed!" + str(e))
+                self.popup("Sell order failed!", QMessageBox.Critical)
     def cancelETHOrder(self):
         self.ui.OpenOrdersWidgetETH.cellDoubleClicked.connect(self.doubleETH_clicked)
     def doubleETH_clicked(self):
         try:
             orderNumberETH = self.ui.OpenOrdersWidgetETH.currentItem().text()
             self.poloInstance.cancel("BTC_ETH", orderNumberETH)
-            logging.info("Order cancelled succesfully!")
+            logging.info("INFO: Order cancelled succesfully!")
             self.popup("Order cancelled successfully!",QMessageBox.Information)
         except Exception as e:
-            logging.debug("Error! Order could not be cancelled.")
+            logging.debug("Error: Order could not be cancelled.")
             self.popup("Error! Order could not be cancelled.",QMessageBox.Critical)
 
 
