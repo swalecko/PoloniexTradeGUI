@@ -191,6 +191,12 @@
     </disabled>
    </palette>
   </property>
+  <property name="mouseTracking">
+   <bool>true</bool>
+  </property>
+  <property name="focusPolicy">
+   <enum>Qt::ClickFocus</enum>
+  </property>
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
@@ -217,11 +223,6 @@ QWidget
     background-color: #323232;
 }
 
-QMessageBox
-{
-    color: #b1b1b1;
-    background-color: #323232;
-}
 
 QWidget:item:hover
 {
@@ -1074,7 +1075,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
      <enum>QTabWidget::Triangular</enum>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>2</number>
     </property>
     <property name="movable">
      <bool>true</bool>
@@ -4216,7 +4217,7 @@ QHeaderView::section {
    <widget class="QLCDNumber" name="lcdEthereuminclO">
     <property name="geometry">
      <rect>
-      <x>470</x>
+      <x>490</x>
       <y>639</y>
       <width>141</width>
       <height>21</height>
@@ -5581,8 +5582,8 @@ QHeaderView::section {
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>590</x>
-      <y>127</y>
+      <x>642</x>
+      <y>180</y>
       <width>111</width>
       <height>16</height>
      </rect>
@@ -5599,8 +5600,8 @@ QHeaderView::section {
    <widget class="QLineEdit" name="lnMyAssets">
     <property name="geometry">
      <rect>
-      <x>590</x>
-      <y>149</y>
+      <x>642</x>
+      <y>202</y>
       <width>89</width>
       <height>20</height>
      </rect>
@@ -5640,66 +5641,24 @@ QHeaderView::section {
      <bool>false</bool>
     </property>
    </widget>
-   <widget class="QLabel" name="label_3">
+   <widget class="QLabel" name="lbldescAssets">
     <property name="geometry">
      <rect>
-      <x>589</x>
-      <y>179</y>
-      <width>231</width>
+      <x>640</x>
+      <y>230</y>
+      <width>141</width>
       <height>16</height>
      </rect>
     </property>
     <property name="font">
      <font>
       <family>Century Gothic</family>
+      <pointsize>7</pointsize>
+      <italic>true</italic>
      </font>
     </property>
     <property name="text">
-     <string>Included Offline Wallet Value:</string>
-    </property>
-   </widget>
-   <widget class="QLineEdit" name="lnMyAssetsALL">
-    <property name="geometry">
-     <rect>
-      <x>590</x>
-      <y>200</y>
-      <width>89</width>
-      <height>20</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Century Gothic</family>
-      <pointsize>8</pointsize>
-      <weight>50</weight>
-      <bold>false</bold>
-      <kerning>true</kerning>
-     </font>
-    </property>
-    <property name="styleSheet">
-     <string notr="true">QLineEdit {
-    border: 1px solid gray;
-    border-radius: 10px;
-    padding: 0 8px;
-    background: white;
-    selection-background-color: darkgray;
-    color: black;
-}
-
-
-</string>
-    </property>
-    <property name="text">
-     <string/>
-    </property>
-    <property name="frame">
-     <bool>false</bool>
-    </property>
-    <property name="alignment">
-     <set>Qt::AlignCenter</set>
-    </property>
-    <property name="clearButtonEnabled">
-     <bool>false</bool>
+     <string>Monero+Ethereum+Bitcoin</string>
     </property>
    </widget>
   </widget>

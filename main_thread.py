@@ -39,7 +39,9 @@ class Thread(QThread):
                     break
 
                 self.retBalances = self.poloInstance.returnBalances()
+
                 self.retTicker = self.poloInstance.returnTicker()
+
                
                 self.BalanceXMR = self.retBalances['XMR']
                 self.BalanceETH = self.retBalances['ETH']
@@ -130,11 +132,13 @@ class Thread(QThread):
 
     def popup(self, text, art):
         msg = QMessageBox()
+        msg.setWindowFlags(QtCore.Qt.FramelessWindowHint)
         msg.setIcon(art)
-
+ 
         msg.setText(text)
-        msg.setWindowTitle("Notification")
         msg.setStandardButtons(QMessageBox.Ok)
+        msg.setStyleSheet("QWidget {color: white;} QMessageBox {background-color: #333333; border-width: 1px; border-color:orange; border-style: solid; border-radius: 6;} QPushButton{color: orange; background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #565656, stop: 0.1 #525252, stop: 0.5 #4e4e4e, stop: 0.9 #4a4a4a, stop: 1 #464646); border-width: 1px;border-color: orange; border-style: solid;border-radius: 6;padding: 3px;font-size: 12px;padding-left: 5px;padding-right: 5px;} QPushButton:pressed {background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #2d2d30, stop: 0.1 #2b2b2b, stop: 0.5 #292929, stop: 0.9 #282828, stop: 1 #252530)} QPushButton:hover {border: 2px solid QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ffa02f, stop: 1 #d7801a);}")
+
         msg.exec_()
 
     def setBalanceInclIO(self, countopenorders, retopenorders, currency, currencyio):
@@ -190,29 +194,32 @@ class Thread(QThread):
                     historywidget.item(i, 1).setForeground(QtGui.QColor(255,255,255))
 
     def calcMyAssets(self):
-       XMRUSDPRICE = float(self.ui.lnPriceUSD.text())
-       XMRAmount = self.ui.lcdMoneroinclO.value()
+       XMRUSDPRICE = self.ui.lnPriceUSD.text()
+       ETHUSDPRICE = self.ui.lnETHPriceUSD.text()
+       BTCUSDPRICE = self.ui.lnBTCPriceUSD.text()
+
+      
+       if XMRUSDPRICE == "N/A" or XMRUSDPRICE == "" or ETHUSDPRICE == "N/A" or ETHUSDPRICE == "" or BTCUSDPRICE == "N/A" or BTCUSDPRICE == "":
+       	    self.ui.setMyAssets("N/A")
+       else:
+            XMRUSDPRICE = float(self.ui.lnPriceUSD.text())
+       	    ETHUSDPRICE = float(self.ui.lnETHPriceUSD.text())
+       	    BTCUSDPRICE = float(self.ui.lnBTCPriceUSD.text())
        
-       ETHUSDPRICE = float(self.ui.lnETHPriceUSD.text())
-       ETHAmount = self.ui.lcdEthereuminclO.value()
-       
-       BTCUSDPRICE = float(self.ui.lnBTCPriceUSD.text())
-       BTCAmount = self.ui.lcdBitcoin.value()
+            XMRAmount = self.ui.lcdMonero.value() 
+            ETHAmount = self.ui.lcdEthereum.value()
+            BTCAmount = self.ui.lcdBitcoin.value()
 
-       #Calculate Value of all Coins in Poloniex
-       XMRMYASSETVALUE = XMRUSDPRICE * XMRAmount
-       ETHMYASSETVALUE = ETHUSDPRICE * ETHAmount
-       BTCMYASSETVALUE = BTCUSDPRICE * BTCAmount
+            #Calculate Value of all Coins in Poloniex
+            XMRMYASSETVALUE = XMRUSDPRICE * XMRAmount
+            ETHMYASSETVALUE = ETHUSDPRICE * ETHAmount
+            BTCMYASSETVALUE = BTCUSDPRICE * BTCAmount
 
-       FINALVALUE = XMRMYASSETVALUE + ETHMYASSETVALUE + BTCMYASSETVALUE
+            FINALVALUE = XMRMYASSETVALUE + ETHMYASSETVALUE + BTCMYASSETVALUE
 
-       #Calculate Value of all Coins in Poloniex and Offline Wallet
-       XMRWITHOFFLINE = XMRAmount + self.OFFLINEAMOUNT
-       XMRMYASSETVALUEALL = XMRUSDPRICE * XMRWITHOFFLINE
-       FINALVALUEALL = XMRMYASSETVALUEALL + ETHMYASSETVALUE + BTCMYASSETVALUE
 
-       #Set both Values
-       self.ui.setMyAssets(round(FINALVALUE,2), round(FINALVALUEALL,2))
+            #Set both Values
+            self.ui.setMyAssets(round(FINALVALUE,2))
 
 
     def clickSaveConfiguration(self):

@@ -74,6 +74,8 @@ class Ui_MainWindow(object):
         brush.setStyle(QtCore.Qt.SolidPattern)
         palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.Window, brush)
         MainWindow.setPalette(palette)
+        MainWindow.setMouseTracking(True)
+        MainWindow.setFocusPolicy(QtCore.Qt.ClickFocus)
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("1.png.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
@@ -93,11 +95,6 @@ class Ui_MainWindow(object):
 "    background-color: #323232;\n"
 "}\n"
 "\n"
-"QMessageBox\n"
-"{\n"
-"    color: #b1b1b1;\n"
-"    background-color: #323232;\n"
-"}\n"
 "\n"
 "QWidget:item:hover\n"
 "{\n"
@@ -1989,7 +1986,7 @@ class Ui_MainWindow(object):
         self.lcdMonero.setSegmentStyle(QtWidgets.QLCDNumber.Flat)
         self.lcdMonero.setObjectName("lcdMonero")
         self.lcdEthereuminclO = QtWidgets.QLCDNumber(self.centralWidget)
-        self.lcdEthereuminclO.setGeometry(QtCore.QRect(470, 639, 141, 21))
+        self.lcdEthereuminclO.setGeometry(QtCore.QRect(490, 639, 141, 21))
         self.lcdEthereuminclO.setMaximumSize(QtCore.QSize(16777215, 16777215))
         palette = QtGui.QPalette()
         brush = QtGui.QBrush(QtGui.QColor(216, 32, 32))
@@ -2473,13 +2470,13 @@ class Ui_MainWindow(object):
         self.lnBTCPriceUSD.setObjectName("lnBTCPriceUSD")
         self.verticalLayout_16.addWidget(self.lnBTCPriceUSD)
         self.label_2 = QtWidgets.QLabel(self.centralWidget)
-        self.label_2.setGeometry(QtCore.QRect(590, 127, 111, 16))
+        self.label_2.setGeometry(QtCore.QRect(642, 180, 111, 16))
         font = QtGui.QFont()
         font.setFamily("Century Gothic")
         self.label_2.setFont(font)
         self.label_2.setObjectName("label_2")
         self.lnMyAssets = QtWidgets.QLineEdit(self.centralWidget)
-        self.lnMyAssets.setGeometry(QtCore.QRect(590, 149, 89, 20))
+        self.lnMyAssets.setGeometry(QtCore.QRect(642, 202, 89, 20))
         font = QtGui.QFont()
         font.setFamily("Century Gothic")
         font.setPointSize(8)
@@ -2503,37 +2500,14 @@ class Ui_MainWindow(object):
         self.lnMyAssets.setAlignment(QtCore.Qt.AlignCenter)
         self.lnMyAssets.setClearButtonEnabled(False)
         self.lnMyAssets.setObjectName("lnMyAssets")
-        self.label_3 = QtWidgets.QLabel(self.centralWidget)
-        self.label_3.setGeometry(QtCore.QRect(589, 179, 231, 16))
+        self.lbldescAssets = QtWidgets.QLabel(self.centralWidget)
+        self.lbldescAssets.setGeometry(QtCore.QRect(640, 230, 141, 16))
         font = QtGui.QFont()
         font.setFamily("Century Gothic")
-        self.label_3.setFont(font)
-        self.label_3.setObjectName("label_3")
-        self.lnMyAssetsALL = QtWidgets.QLineEdit(self.centralWidget)
-        self.lnMyAssetsALL.setGeometry(QtCore.QRect(590, 200, 89, 20))
-        font = QtGui.QFont()
-        font.setFamily("Century Gothic")
-        font.setPointSize(8)
-        font.setBold(False)
-        font.setWeight(50)
-        font.setKerning(True)
-        self.lnMyAssetsALL.setFont(font)
-        self.lnMyAssetsALL.setStyleSheet("QLineEdit {\n"
-"    border: 1px solid gray;\n"
-"    border-radius: 10px;\n"
-"    padding: 0 8px;\n"
-"    background: white;\n"
-"    selection-background-color: darkgray;\n"
-"    color: black;\n"
-"}\n"
-"\n"
-"\n"
-"")
-        self.lnMyAssetsALL.setText("")
-        self.lnMyAssetsALL.setFrame(False)
-        self.lnMyAssetsALL.setAlignment(QtCore.Qt.AlignCenter)
-        self.lnMyAssetsALL.setClearButtonEnabled(False)
-        self.lnMyAssetsALL.setObjectName("lnMyAssetsALL")
+        font.setPointSize(7)
+        font.setItalic(True)
+        self.lbldescAssets.setFont(font)
+        self.lbldescAssets.setObjectName("lbldescAssets")
         MainWindow.setCentralWidget(self.centralWidget)
         self.actionSettings = QtWidgets.QAction(MainWindow)
         self.actionSettings.setMenuRole(QtWidgets.QAction.TextHeuristicRole)
@@ -2648,7 +2622,7 @@ class Ui_MainWindow(object):
         self.lblNetworkStatusResult.setText(_translate("MainWindow", "checking.."))
         self.lblBitcoinx.setText(_translate("MainWindow", "Bitcoin"))
         self.label_2.setText(_translate("MainWindow", "My Assets (USD):"))
-        self.label_3.setText(_translate("MainWindow", "Included Offline Wallet Value:"))
+        self.lbldescAssets.setText(_translate("MainWindow", "Monero+Ethereum+Bitcoin"))
         self.actionSettings.setText(_translate("MainWindow", "Settings"))
         self.actionLog.setText(_translate("MainWindow", "Log"))
 

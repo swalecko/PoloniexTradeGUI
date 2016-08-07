@@ -20,6 +20,7 @@ importkey = SourceFileLoader("key", keypath).load_module()
 
 import main_thread
 import thread_getusd
+import thread_getcrypto
 import ui_ResourceFile
 from main import Ui_MainWindow
 import logging
@@ -28,6 +29,8 @@ import logging
 class MyGui(QtWidgets.QMainWindow, Ui_MainWindow, logging.Handler):    
     def __init__(self, parent=None):
         super(MyGui, self).__init__(parent)
+        #self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
+        #self.setObjectTransparent(self)
         
         self.setupUi(self)
         _translate = QtCore.QCoreApplication.translate      
@@ -173,10 +176,10 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow, logging.Handler):
     def setLog(self, log):
        _translate = QtCore.QCoreApplication.translate
        self.plainTextEdit.appendPlainText(log)
-    def setMyAssets(self, myassets, myassetsall):
+    def setMyAssets(self, myassets):
        _translate = QtCore.QCoreApplication.translate
        self.lnMyAssets.setText(str(myassets))
-       self.lnMyAssetsALL.setText(str(myassetsall))
+
 
 
 
@@ -205,6 +208,9 @@ def main():
     myThread.clickSaveConfiguration()
     myThread_getusd = thread_getusd.Thread(form)
     myThread_getusd.start()
+
+    myThread_getcrypto = thread_getcrypto.Thread(form)
+    myThread_getcrypto.start()
 
     sys.exit(app.exec_())
 
