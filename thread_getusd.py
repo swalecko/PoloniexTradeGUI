@@ -49,15 +49,15 @@ class Thread(QThread):
                 self.ui.setETHUSDPrice(round (float(ETHUSDPRICE),2))
                 self.ui.setBTCUSDPrice(round (float(BTCUSDPRICE),2))
              
-            
+                self.ui.setCryptonatorStatus("Connected")
 
 
             except (ConnectionError, TimeoutError) as e:
                 logging.debug("ERROR: thread_getusd Loop Exception Connection: " + str(e))
-                self.ui.setNetworkStatus("Warning")
                 self.ui.setXMRUSDPrice("N/A")
                 self.ui.setETHUSDPrice("N/A")
                 self.ui.setBTCUSDPrice("N/A")
+                self.ui.setCryptonatorStatus("Disconnected")
                 self.sleep(2)
                 continue
             except Exception as e:

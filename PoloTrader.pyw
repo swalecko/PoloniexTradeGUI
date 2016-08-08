@@ -170,9 +170,12 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow, logging.Handler):
     def setAppStatus(self, appstatus):
         _translate = QtCore.QCoreApplication.translate
         self.lblAppStatusResult.setText(_translate("MainWindow", str(appstatus)))
-    def setNetworkStatus(self, networkstatus):
+    def setPoloniexStatus(self, poloniexstatus):
         _translate = QtCore.QCoreApplication.translate
-        self.lblNetworkStatusResult.setText(_translate("MainWindow", str(networkstatus)))
+        self.lblPoloniexStatusResult.setText(_translate("MainWindow", str(poloniexstatus)))
+    def setCryptonatorStatus(self, cryptonatorstatus):
+        _translate = QtCore.QCoreApplication.translate
+        self.lblCryptonatorStatusResult.setText(_translate("MainWindow", str(cryptonatorstatus)))
     def setLog(self, log):
        _translate = QtCore.QCoreApplication.translate
        self.plainTextEdit.appendPlainText(log)

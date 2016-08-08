@@ -42,6 +42,8 @@ class Thread(QThread):
 
                 self.retTicker = self.poloInstance.returnTicker()
 
+                self.ui.setPoloniexStatus("Connected")
+
                
                 self.BalanceXMR = self.retBalances['XMR']
                 self.BalanceETH = self.retBalances['ETH']
@@ -116,17 +118,14 @@ class Thread(QThread):
 
 
                 self.sleep (1)
-                self.ui.setAppStatus("OK")
-                self.ui.setNetworkStatus("OK")
-           
+                           
             except (ConnectionError, TimeoutError) as x:
                 self.ui.setLog(logging.debug("ERROR: main_thread Loop Exception HTTPSConnectionPool: " + str(x)))
-                self.ui.setNetworkStatus("ERROR")
+                self.ui.setPoloniexStatus("Disconnected")
                 self.sleep(2)
                 continue         
             except Exception as e:
                 logging.debug("ERROR: main_thread Loop Exception: " + str(e))
-                self.ui.setAppStatus("ERROR")
                 self.sleep(2)
                 continue
 
