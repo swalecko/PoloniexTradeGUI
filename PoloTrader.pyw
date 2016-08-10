@@ -55,7 +55,7 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow, logging.Handler):
         self.palettered.setColor(self.palettered.WindowText, QColor(216,32,32))
     
     def setTaskWindowTitle(self, gui, price):
-        self.gui = gui
+        self.gui = bgui
         _translate = QtCore.QCoreApplication.translate
         self.gui.setWindowTitle(_translate("MainWindow", str(price)))
     def setMenu(self, menu):

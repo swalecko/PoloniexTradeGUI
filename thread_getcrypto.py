@@ -34,15 +34,13 @@ class Thread(QThread):
                  
             try:
                 self.getPoloInfo()
-                #self.sleep(1)
+                self.ui.setPoloniexStatus("Connected")
                 self.setXMRPriceInfo()
                 self.setETHPriceInfo()
-                #self.sleep (1)
-  
 
             except (ConnectionError, TimeoutError) as e:
                 logging.debug("ERROR: thread_getcrypto Loop Exception Connection: " + str(e))
-                self.ui.setNetworkStatus("Warning")
+                self.ui.setPoloniexStatus("Disconnected")
                 self.sleep(2)
                 continue
             except Exception as e:
@@ -52,9 +50,7 @@ class Thread(QThread):
                 logging.debug("ERROR: thread_getcrypto: Could not set prices: " + str(e))
                 continue
 
-
     def setXMRPriceInfo(self):
-        #self.sleep(1)
         self.ui.setWindowTitle(self.lastXMR)
         self.sleep(0.5)
         self.ui.setXMRPrice(self.lastXMR)
@@ -65,10 +61,7 @@ class Thread(QThread):
         self.sleep(1)
         self.ui.setChange(str(round(float(self.changeXMR)*100,2)) + " %")
 
-
-
     def setETHPriceInfo(self):
-        #self.sleep(1) 
         self.ui.setETHPrice(self.lastETH)
         self.sleep(0.5)
         self.ui.setETHHigh(self.highETH)
@@ -77,10 +70,8 @@ class Thread(QThread):
         self.sleep(0.5)
         self.ui.setETHChange(str(round(float(self.changeETH)*100,2)) + " %")
 
-       
     def getPoloInfo(self):
         self.poloInstance = polowrapper.poloniex(key.PUBLIC_KEY, key.SECRET_KEY)
-
 
         self.retTicker = self.poloInstance.returnTicker()
 
