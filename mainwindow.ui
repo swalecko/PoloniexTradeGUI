@@ -1075,7 +1075,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
      <enum>QTabWidget::Triangular</enum>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>0</number>
     </property>
     <property name="movable">
      <bool>true</bool>
@@ -1107,7 +1107,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
        <rect>
         <x>-1</x>
         <y>-2</y>
-        <width>791</width>
+        <width>801</width>
         <height>361</height>
        </rect>
       </property>
@@ -1115,7 +1115,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>0</number>
+       <number>1</number>
       </property>
       <widget class="QWidget" name="tabXMR">
        <attribute name="title">
@@ -1125,9 +1125,9 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
         <property name="geometry">
          <rect>
           <x>-2</x>
-          <y>-1</y>
-          <width>801</width>
-          <height>331</height>
+          <y>0</y>
+          <width>791</width>
+          <height>321</height>
          </rect>
         </property>
         <property name="sizePolicy">
@@ -1505,6 +1505,12 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
         </property>
         <property name="lineWidth">
          <number>1</number>
+        </property>
+        <property name="verticalScrollBarPolicy">
+         <enum>Qt::ScrollBarAlwaysOn</enum>
+        </property>
+        <property name="sizeAdjustPolicy">
+         <enum>QAbstractScrollArea::AdjustToContents</enum>
         </property>
         <property name="editTriggers">
          <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::EditKeyPressed</set>
@@ -1608,9 +1614,9 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
         <property name="geometry">
          <rect>
           <x>-2</x>
-          <y>-1</y>
-          <width>801</width>
-          <height>333</height>
+          <y>0</y>
+          <width>791</width>
+          <height>321</height>
          </rect>
         </property>
         <property name="sizePolicy">
@@ -1962,6 +1968,12 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
         <property name="lineWidth">
          <number>1</number>
         </property>
+        <property name="verticalScrollBarPolicy">
+         <enum>Qt::ScrollBarAlwaysOn</enum>
+        </property>
+        <property name="sizeAdjustPolicy">
+         <enum>QAbstractScrollArea::AdjustToContents</enum>
+        </property>
         <property name="editTriggers">
          <set>QAbstractItemView::AnyKeyPressed|QAbstractItemView::EditKeyPressed</set>
         </property>
@@ -2063,7 +2075,7 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
        <string notr="true"/>
       </property>
       <property name="currentIndex">
-       <number>1</number>
+       <number>0</number>
       </property>
       <widget class="QWidget" name="tabXMR">
        <attribute name="title">
@@ -2072,10 +2084,10 @@ QCheckBox::indicator:disabled, QRadioButton::indicator:disabled
        <widget class="QTableWidget" name="HistoryWidgetXMR">
         <property name="geometry">
          <rect>
-          <x>-2</x>
-          <y>-1</y>
-          <width>801</width>
-          <height>333</height>
+          <x>-3</x>
+          <y>0</y>
+          <width>791</width>
+          <height>321</height>
          </rect>
         </property>
         <property name="sizePolicy">
@@ -2117,6 +2129,12 @@ QHeaderView::section {
         </property>
         <property name="lineWidth">
          <number>1</number>
+        </property>
+        <property name="verticalScrollBarPolicy">
+         <enum>Qt::ScrollBarAlwaysOn</enum>
+        </property>
+        <property name="sizeAdjustPolicy">
+         <enum>QAbstractScrollArea::AdjustToContents</enum>
         </property>
         <property name="showGrid">
          <bool>true</bool>
@@ -2201,10 +2219,10 @@ QHeaderView::section {
        <widget class="QTableWidget" name="HistoryWidgetETH">
         <property name="geometry">
          <rect>
-          <x>-2</x>
-          <y>-1</y>
-          <width>801</width>
-          <height>333</height>
+          <x>-3</x>
+          <y>0</y>
+          <width>791</width>
+          <height>321</height>
          </rect>
         </property>
         <property name="sizePolicy">
@@ -2243,6 +2261,12 @@ QHeaderView::section {
         </property>
         <property name="lineWidth">
          <number>1</number>
+        </property>
+        <property name="verticalScrollBarPolicy">
+         <enum>Qt::ScrollBarAlwaysOn</enum>
+        </property>
+        <property name="sizeAdjustPolicy">
+         <enum>QAbstractScrollArea::AdjustToContents</enum>
         </property>
         <property name="showGrid">
          <bool>true</bool>
