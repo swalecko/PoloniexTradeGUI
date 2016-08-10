@@ -9,6 +9,10 @@ import polowrapper
 import key
 from requests.exceptions import ConnectionError
 import logging
+import socket
+
+import urllib.request
+import urllib
 
 
 class Thread(QThread):
@@ -29,6 +33,7 @@ class Thread(QThread):
         XMRUSDPRICE = 0 
         ETHUSDPRICE = 0
         BTCUSDPRICE = 0
+        CRYPWEB = "https://www.cryptonator.com"
         XMRUSD = "https://www.cryptonator.com/api/ticker/xmr-usd"
         ETHUSD = "https://www.cryptonator.com/api/ticker/eth-usd" 
         BTCUSD = "https://www.cryptonator.com/api/ticker/btc-usd"
@@ -36,6 +41,7 @@ class Thread(QThread):
                  
             try:
 
+                urllib.request.urlopen(CRYPWEB, timeout=1)
                 TICKERRESPXMRUSD = requests.post(XMRUSD, headers={ "Accept": "application/json" })
                 TICKERRESPETHUSD = requests.post(ETHUSD, headers={ "Accept": "application/json" })
                 TICKERRESPBTCUSD = requests.post(BTCUSD, headers={ "Accept": "application/json" })
@@ -51,20 +57,12 @@ class Thread(QThread):
              
                 self.ui.setCryptonatorStatus("Connected")
 
-
-            except (ConnectionError, TimeoutError) as e:
-                logging.debug("ERROR: thread_getusd Loop Exception Connection: " + str(e))
-                self.ui.setXMRUSDPrice("N/A")
-                self.ui.setETHUSDPrice("N/A")
-                self.ui.setBTCUSDPrice("N/A")
-                self.ui.setCryptonatorStatus("Disconnected")
-                self.sleep(2)
-                continue
             except Exception as e:
                 self.ui.setXMRUSDPrice("N/A")
                 self.ui.setETHUSDPrice("N/A")
                 self.ui.setBTCUSDPrice("N/A")
-                logging.debug("ERROR: thread_getusd: Could not set prices: " + str(e))
+                self.ui.setCryptonatorStatus("Disconnected")
+                logging.debug("ERROR: thread_getusd: " + str(e))
                 continue
 
 

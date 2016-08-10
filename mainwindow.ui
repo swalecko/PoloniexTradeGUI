@@ -4241,7 +4241,7 @@ QHeaderView::section {
    <widget class="QLCDNumber" name="lcdEthereuminclO">
     <property name="geometry">
      <rect>
-      <x>490</x>
+      <x>470</x>
       <y>639</y>
       <width>141</width>
       <height>21</height>
@@ -4699,7 +4699,7 @@ QHeaderView::section {
    <widget class="QLCDNumber" name="lcdMoneroinclO">
     <property name="geometry">
      <rect>
-      <x>174</x>
+      <x>150</x>
       <y>639</y>
       <width>141</width>
       <height>21</height>
