@@ -62,7 +62,7 @@ class Thread(QThread):
                 self.ui.setETHUSDPrice("N/A")
                 self.ui.setBTCUSDPrice("N/A")
                 self.ui.setCryptonatorStatus("Disconnected")
-                logging.debug("ERROR: thread_getusd: " + str(e))
+                #logging.debug("ERROR: thread_getusd: " + str(e))
                 continue
 
 
