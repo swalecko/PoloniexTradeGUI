@@ -58,9 +58,9 @@ class Thread(QThread):
                 self.ui.setCryptonatorStatus("Connected")
 
             except Exception as e:
-                self.ui.setXMRUSDPrice("N/A")
-                self.ui.setETHUSDPrice("N/A")
-                self.ui.setBTCUSDPrice("N/A")
+                # self.ui.setXMRUSDPrice("N/A")
+                # self.ui.setETHUSDPrice("N/A")
+                # self.ui.setBTCUSDPrice("N/A")
                 self.ui.setCryptonatorStatus("Disconnected")
                 #logging.debug("ERROR: thread_getusd: " + str(e))
                 continue
