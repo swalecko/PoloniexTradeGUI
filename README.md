@@ -34,7 +34,7 @@ Trading app for XMR and ETH at the Poloniex exchange using the Poloniex API.
 ##How to use:  
 
   **Windows**  
-  - Download PoloTrader_Win.zip from the latest release
+  - Download PoloTrader_1.x.x_Win.zip from the latest release
   - Unzip PoloTrader_1.x.x_Win.zip
   - Execute PoloTrader.exe (Info: exe file is created with pyinstaller)
   - 2 files (key.py, qt.log) will be created in the same directory 
