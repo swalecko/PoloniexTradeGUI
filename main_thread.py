@@ -44,10 +44,7 @@ class Thread(QThread):
                 self.retBalances = self.poloInstance.returnBalances()
 
                 self.retTicker = self.poloInstance.returnTicker()
-
-                #self.ui.setPoloniexStatus("Connected")
-
-               
+             
                 self.BalanceXMR = self.retBalances['XMR']
                 self.BalanceETH = self.retBalances['ETH']
                 self.BalanceBTC = self.retBalances['BTC']
@@ -124,6 +121,14 @@ class Thread(QThread):
                            
             except (ConnectionError, TimeoutError) as x:
                 logging.debug("ERROR: main_thread Loop Exception HTTPSConnectionPool: " + str(x))
+                self.ui.setXMRPrice("")
+                self.ui.setHigh("")
+                self.ui.setLow("")
+                self.ui.setChange("")
+                self.ui.setETHPrice("")
+                self.ui.setETHHigh("")
+                self.ui.setETHLow("")
+                self.ui.setETHChange("")
                 self.ui.setPoloniexStatus("Disconnected")
                 self.sleep(2)
                 continue         
@@ -176,8 +181,6 @@ class Thread(QThread):
                     openorderswidget.item(i, 1).setBackground(QtGui.QColor(0,139,0))
                     openorderswidget.item(i, 1).setForeground(QtGui.QColor(255,255,255))
     
-
-
     def setHistory(self, counthistory, historywidget, rethistory, currency):
         historywidget.setRowCount(0)
         if counthistory > historywidget.rowCount():
@@ -200,9 +203,8 @@ class Thread(QThread):
        ETHUSDPRICE = self.ui.lnETHPriceUSD.text()
        BTCUSDPRICE = self.ui.lnBTCPriceUSD.text()
 
-      
-       if XMRUSDPRICE == "" or ETHUSDPRICE == "" or BTCUSDPRICE == "":
-       	    self.ui.setMyAssets("")
+       if XMRUSDPRICE == " " or ETHUSDPRICE == " " or BTCUSDPRICE == " ":
+       	    self.ui.setMyAssets(" ")
        else:
             XMRUSDPRICE = float(self.ui.lnPriceUSD.text())
        	    ETHUSDPRICE = float(self.ui.lnETHPriceUSD.text())
@@ -219,10 +221,8 @@ class Thread(QThread):
 
             FINALVALUE = XMRMYASSETVALUE + ETHMYASSETVALUE + BTCMYASSETVALUE
 
-
             #Set both Values
             self.ui.setMyAssets(round(FINALVALUE,2))
-
 
     def clickSaveConfiguration(self):
         self.ui.saveButton.clicked.connect(self.clickedSaveConfiguration)
@@ -230,7 +230,6 @@ class Thread(QThread):
         try:
             inputPublicKey = self.ui.lnPublicKey.text().strip()
             inputSecretKey = self.ui.lnSecretKey.text().strip()
-
 
             if (inputPublicKey == "" or inputSecretKey == ""):
                 logging.warning("Warning: Could not save API keys. Invalid Input.")
@@ -246,7 +245,6 @@ class Thread(QThread):
         except Exception as e:
             logging.debug("Error: API Keys not saved.")
             self.popup("Error! API Keys not saved",QMessageBox.Critical)
-
 
     #XMR
     def calcSellBTCTotal(self, sellreadbtcprice, sellreadxmramount):
@@ -270,6 +268,7 @@ class Thread(QThread):
         self.ui.btnBuyGetBTCTotal.clicked.connect(self.clickedBuyGetBTCTotal)
     def clickedBuyGetBTCTotal(self):
         self.ui.setBuyBTCTotal(self.BalanceBTC)
+    
     def clickBuy(self):
         self.ui.buyButton.clicked.connect(self.clickedBuy)
     def clickedBuy(self):
@@ -278,7 +277,6 @@ class Thread(QThread):
             self.popup("Invalid input", QMessageBox.Warning)           
         else:
             try:
-                
                 exeBuy = self.poloInstance.buy("BTC_XMR",self.BuyreadBTCprice,self.resultBuyXMRAmount)
                 print (exeBuy)
 
@@ -293,10 +291,10 @@ class Thread(QThread):
             except Exception as e:
                 logging.debug("ERROR: Buy Order failed! " + str(e))
                 self.popup("Buy order failed",QMessageBox.Critical)
+    
     def clickSell(self):
         self.ui.sellButton.clicked.connect(self.clickedSell)
     def clickedSell(self):
-    
         if self.SellreadBTCprice == "" or self.SellreadBTCprice == 0.0 or self.SellreadXMRAmount == "" or self.SellreadXMRAmount == 0.0:     
             self.popup("Invalid input", QMessageBox.Warning)
         elif self.SellreadXMRAmount > float(self.BalanceXMR):
@@ -319,7 +317,6 @@ class Thread(QThread):
 
     def cancelOrder(self):
         self.ui.OpenOrdersWidgetXMR.cellDoubleClicked.connect(self.double_clicked)
-
     def double_clicked(self):
         try:
             orderNumberXMR = self.ui.OpenOrdersWidgetXMR.currentItem().text()
@@ -360,13 +357,13 @@ class Thread(QThread):
         self.ui.btnETHBuyGetBTCTotal.clicked.connect(self.clickedETHBuyGetBTCTotal)
     def clickedETHBuyGetBTCTotal(self):
         self.ui.setETHBuyBTCTotal(self.BalanceBTC)
+    
     def clickETHBuy(self):
         self.ui.buyETHButton.clicked.connect(self.clickedETHBuy)
     def clickedETHBuy(self): 
         if self.BuyETHreadBTCprice == "" or self.BuyETHreadBTCprice == 0.0 or self.resultBuyETHAmount == "" or self.resultBuyETHAmount == 0.0:     
             self.popup("Invalid input", QMessageBox.Warning)
         else:   
-
             try:
                 exeBuy = self.poloInstance.buy("BTC_ETH",self.BuyETHreadBTCprice,self.resultBuyETHAmount)
                 if exeBuy["orderNumber"] != '':
@@ -380,6 +377,7 @@ class Thread(QThread):
             except Exception as e:
                 logging.debug("ERROR: Buy Order failed! " + str(e))
                 self.popup("Buy order failed",QMessageBox.Critical)
+    
     def clickETHSell(self):
         self.ui.sellETHButton.clicked.connect(self.clickedETHSell)
     def clickedETHSell(self):
@@ -401,6 +399,7 @@ class Thread(QThread):
             except Exception as e:
                 logging.debug("ERROR: Sell Order failed!" + str(e))
                 self.popup("Sell order failed", QMessageBox.Critical)
+    
     def cancelETHOrder(self):
         self.ui.OpenOrdersWidgetETH.cellDoubleClicked.connect(self.doubleETH_clicked)
     def doubleETH_clicked(self):

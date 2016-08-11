@@ -24,14 +24,11 @@ class Thread(QThread):
         self.wait()
 
     def run(self):
-
-        
         XMRUSDPRICE = 0 
         ETHUSDPRICE = 0
         BTCUSDPRICE = 0
         
-        while True:
-                 
+        while True:      
             try:
                 self.getPoloInfo()
                 self.ui.setPoloniexStatus("Connected")
@@ -41,12 +38,25 @@ class Thread(QThread):
             except (ConnectionError, TimeoutError) as e:
                 logging.debug("ERROR: thread_getcrypto Loop Exception Connection: " + str(e))
                 self.ui.setPoloniexStatus("Disconnected")
+                self.ui.setXMRPrice("")
+                self.ui.setHigh("")
+                self.ui.setLow("")
+                self.ui.setChange("")
+                self.ui.setETHPrice("")
+                self.ui.setETHHigh("")
+                self.ui.setETHLow("")
+                self.ui.setETHChange("")
                 self.sleep(2)
                 continue
             except Exception as e:
-                self.ui.setXMRUSDPrice("N/A")
-                self.ui.setETHUSDPrice("N/A")
-                self.ui.setBTCUSDPrice("N/A")
+                self.ui.setXMRPrice("")
+                self.ui.setHigh("")
+                self.ui.setLow("")
+                self.ui.setChange("")
+                self.ui.setETHPrice("")
+                self.ui.setETHHigh("")
+                self.ui.setETHLow("")
+                self.ui.setETHChange("")
                 logging.debug("ERROR: thread_getcrypto: Could not set prices: " + str(e))
                 continue
 

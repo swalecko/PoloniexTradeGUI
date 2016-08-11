@@ -101,8 +101,7 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow, logging.Handler):
         self.lnHigh.setText(_translate("MainWindow", str(high)))
     def setLow(self, low):
         _translate = QtCore.QCoreApplication.translate
-        self.lnLow.setText(_translate("MainWindow", str(low)))    
-    
+        self.lnLow.setText(_translate("MainWindow", str(low)))     
     def setChange(self, change):
         _translate = QtCore.QCoreApplication.translate
         self.lnChange.setText(_translate("MainWindow", change))
@@ -112,7 +111,6 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow, logging.Handler):
     def setBTCUSDPrice(self, btcusd):
         _translate = QtCore.QCoreApplication.translate
         self.lnBTCPriceUSD.setText(_translate("MainWindow", str(btcusd)))   
-
     def setETHPrice(self, ethprice):
         _translate = QtCore.QCoreApplication.translate
         self.lnPriceETH.setText(_translate("MainWindow", str(ethprice)))
@@ -182,9 +180,6 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow, logging.Handler):
     def setMyAssets(self, myassets):
        _translate = QtCore.QCoreApplication.translate
        self.lnMyAssets.setText(str(myassets))
-
-
-
 
 def main():
     logging.basicConfig(filename="qt.log", level=logging.DEBUG, format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
