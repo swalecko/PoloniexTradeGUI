@@ -33,7 +33,7 @@ class Thread(QThread):
 
     def run(self):
 
-        
+        print ("test")
         while True:
             try:
                 
