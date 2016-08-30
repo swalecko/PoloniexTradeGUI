@@ -34,7 +34,7 @@ class Thread(QThread):
         while True:
                  
             try:
-                urllib.request.urlopen(CRYPWEB, timeout=1)
+                urllib.request.urlopen(CRYPWEB, timeout=2)
                 TICKERRESPXMRUSD = requests.post(XMRUSD, headers={ "Accept": "application/json" })
                 TICKERRESPETHUSD = requests.post(ETHUSD, headers={ "Accept": "application/json" })
                 TICKERRESPBTCUSD = requests.post(BTCUSD, headers={ "Accept": "application/json" })
@@ -55,6 +55,7 @@ class Thread(QThread):
                 self.ui.setBTCUSDPrice(" ")
                 self.ui.setCryptonatorStatus("Disconnected")
                 #logging.debug("ERROR: thread_getusd: " + str(e))
+
                 continue
 
 

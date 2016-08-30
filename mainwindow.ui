@@ -4699,7 +4699,7 @@ QHeaderView::section {
    <widget class="QLCDNumber" name="lcdMoneroinclO">
     <property name="geometry">
      <rect>
-      <x>150</x>
+      <x>174</x>
       <y>639</y>
       <width>141</width>
       <height>21</height>
@@ -5176,7 +5176,7 @@ QHeaderView::section {
    <widget class="QLabel" name="label_2">
     <property name="geometry">
      <rect>
-      <x>642</x>
+      <x>662</x>
       <y>180</y>
       <width>111</width>
       <height>16</height>
@@ -5194,7 +5194,7 @@ QHeaderView::section {
    <widget class="QLineEdit" name="lnMyAssets">
     <property name="geometry">
      <rect>
-      <x>642</x>
+      <x>662</x>
       <y>202</y>
       <width>89</width>
       <height>20</height>
@@ -5238,7 +5238,7 @@ QHeaderView::section {
    <widget class="QLabel" name="lbldescAssets">
     <property name="geometry">
      <rect>
-      <x>640</x>
+      <x>660</x>
       <y>230</y>
       <width>141</width>
       <height>16</height>
@@ -5253,202 +5253,6 @@ QHeaderView::section {
     </property>
     <property name="text">
      <string>Monero+Ethereum+Bitcoin</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="lblCryptonatorStatus">
-    <property name="geometry">
-     <rect>
-      <x>640</x>
-      <y>60</y>
-      <width>81</width>
-      <height>29</height>
-     </rect>
-    </property>
-    <property name="palette">
-     <palette>
-      <active>
-       <colorrole role="WindowText">
-        <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>177</red>
-          <green>177</green>
-          <blue>177</blue>
-         </color>
-        </brush>
-       </colorrole>
-       <colorrole role="Button">
-        <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>50</red>
-          <green>50</green>
-          <blue>50</blue>
-         </color>
-        </brush>
-       </colorrole>
-       <colorrole role="Text">
-        <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>177</red>
-          <green>177</green>
-          <blue>177</blue>
-         </color>
-        </brush>
-       </colorrole>
-       <colorrole role="ButtonText">
-        <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>177</red>
-          <green>177</green>
-          <blue>177</blue>
-         </color>
-        </brush>
-       </colorrole>
-       <colorrole role="Base">
-        <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>50</red>
-          <green>50</green>
-          <blue>50</blue>
-         </color>
-        </brush>
-       </colorrole>
-       <colorrole role="Window">
-        <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>50</red>
-          <green>50</green>
-          <blue>50</blue>
-         </color>
-        </brush>
-       </colorrole>
-      </active>
-      <inactive>
-       <colorrole role="WindowText">
-        <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>177</red>
-          <green>177</green>
-          <blue>177</blue>
-         </color>
-        </brush>
-       </colorrole>
-       <colorrole role="Button">
-        <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>50</red>
-          <green>50</green>
-          <blue>50</blue>
-         </color>
-        </brush>
-       </colorrole>
-       <colorrole role="Text">
-        <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>177</red>
-          <green>177</green>
-          <blue>177</blue>
-         </color>
-        </brush>
-       </colorrole>
-       <colorrole role="ButtonText">
-        <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>177</red>
-          <green>177</green>
-          <blue>177</blue>
-         </color>
-        </brush>
-       </colorrole>
-       <colorrole role="Base">
-        <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>50</red>
-          <green>50</green>
-          <blue>50</blue>
-         </color>
-        </brush>
-       </colorrole>
-       <colorrole role="Window">
-        <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>50</red>
-          <green>50</green>
-          <blue>50</blue>
-         </color>
-        </brush>
-       </colorrole>
-      </inactive>
-      <disabled>
-       <colorrole role="WindowText">
-        <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>64</red>
-          <green>64</green>
-          <blue>64</blue>
-         </color>
-        </brush>
-       </colorrole>
-       <colorrole role="Button">
-        <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>50</red>
-          <green>50</green>
-          <blue>50</blue>
-         </color>
-        </brush>
-       </colorrole>
-       <colorrole role="Text">
-        <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>64</red>
-          <green>64</green>
-          <blue>64</blue>
-         </color>
-        </brush>
-       </colorrole>
-       <colorrole role="ButtonText">
-        <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>64</red>
-          <green>64</green>
-          <blue>64</blue>
-         </color>
-        </brush>
-       </colorrole>
-       <colorrole role="Base">
-        <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>50</red>
-          <green>50</green>
-          <blue>50</blue>
-         </color>
-        </brush>
-       </colorrole>
-       <colorrole role="Window">
-        <brush brushstyle="SolidPattern">
-         <color alpha="255">
-          <red>50</red>
-          <green>50</green>
-          <blue>50</blue>
-         </color>
-        </brush>
-       </colorrole>
-      </disabled>
-     </palette>
-    </property>
-    <property name="font">
-     <font>
-      <family>Century Gothic</family>
-      <pointsize>9</pointsize>
-      <weight>50</weight>
-      <bold>false</bold>
-     </font>
-    </property>
-    <property name="autoFillBackground">
-     <bool>false</bool>
-    </property>
-    <property name="text">
-     <string>Cryptonator:</string>
     </property>
    </widget>
    <widget class="QLabel" name="lblPoloniexStatus">
@@ -5652,25 +5456,6 @@ QHeaderView::section {
      <rect>
       <x>730</x>
       <y>30</y>
-      <width>89</width>
-      <height>29</height>
-     </rect>
-    </property>
-    <property name="font">
-     <font>
-      <family>Century Gothic</family>
-      <pointsize>9</pointsize>
-     </font>
-    </property>
-    <property name="text">
-     <string>checking..</string>
-    </property>
-   </widget>
-   <widget class="QLabel" name="lblCryptonatorStatusResult">
-    <property name="geometry">
-     <rect>
-      <x>730</x>
-      <y>60</y>
       <width>89</width>
       <height>29</height>
      </rect>

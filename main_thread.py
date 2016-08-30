@@ -40,23 +40,34 @@ class Thread(QThread):
                     
                     break
 
-                self.retBalances = self.poloInstance.returnBalances()
+                try:
+                    self.retBalances = self.poloInstance.returnBalances()
+                except:
 
-                self.retTicker = self.poloInstance.returnTicker()
+                try:
+                    self.retTicker = self.poloInstance.returnTicker()
+                except:
              
-                self.BalanceXMR = self.retBalances['XMR']
-                self.BalanceETH = self.retBalances['ETH']
-                self.BalanceBTC = self.retBalances['BTC']
+                try:
+
+                    self.BalanceXMR = self.retBalances['XMR']
+                    self.BalanceETH = self.retBalances['ETH']
+                    self.BalanceBTC = self.retBalances['BTC']
+                except Exception as e:
+                    logging.error("ERROR: Wrong return value for Balances")
+
                 
                 self.tickerXMR = self.retTicker['BTC_XMR']
                 self.tickerETH = self.retTicker['BTC_ETH']
                 self.lastXMR = self.tickerXMR['last']
                 self.lastETH = self.tickerETH['last']
 
-                
-                self.ui.setLcdMonero(self.BalanceXMR)
-                self.ui.setLcdBitcoin(self.BalanceBTC)
-                self.ui.setLcdEthereum(self.BalanceETH)
+                try:
+                    self.ui.setLcdMonero(self.BalanceXMR)
+                    self.ui.setLcdBitcoin(self.BalanceBTC)
+                    self.ui.setLcdEthereum(self.BalanceETH)
+                except Exception as e:
+                    logging.error("ERROR: Can not set LCD values")
 
                 retHistoryXMR = self.poloInstance.returnTradeHistory("BTC_XMR")
                 retHistoryETH = self.poloInstance.returnTradeHistory("BTC_ETH")
@@ -152,8 +163,11 @@ class Thread(QThread):
         OOAmount = 0
         if countopenorders != 0:
             for i in range(countopenorders):
-                OOAmount = float(retopenorders[i]["amount"])
-                count = count + OOAmount
+                try:
+                    OOAmount = float(retopenorders[i]["amount"])
+                    count = count + OOAmount
+                except Exception as e:
+                    logging.error("ERROR: Could not calculate the Open Orders amount")
             CompleteAmount = format(count + float(currency), '.8f')
             currencyio(str(CompleteAmount))
         else:
@@ -186,42 +200,53 @@ class Thread(QThread):
            historywidget.setRowCount(counthistory)   
         if counthistory != 0:
             for i in range(counthistory):
-                historywidget.setItem(i,0, QTableWidgetItem(currency))
-                historywidget.setItem(i,1, QTableWidgetItem(rethistory[i]["type"]))
-                historywidget.setItem(i,2, QTableWidgetItem(rethistory[i]["rate"]))
-                historywidget.setItem(i,3, QTableWidgetItem(rethistory[i]["amount"]))
-                historywidget.setItem(i,4, QTableWidgetItem(rethistory[i]["date"]))
-                if rethistory[i]["type"] == "sell":
-                    historywidget.item(i, 1).setBackground(QtGui.QColor(176,10,49))
-                else:
-                    historywidget.item(i, 1).setBackground(QtGui.QColor(0,139,0))
-                    historywidget.item(i, 1).setForeground(QtGui.QColor(255,255,255))
+                try:
+                    historywidget.setItem(i,0, QTableWidgetItem(currency))
+                    historywidget.setItem(i,1, QTableWidgetItem(rethistory[i]["type"]))
+                    historywidget.setItem(i,2, QTableWidgetItem(rethistory[i]["rate"]))
+                    historywidget.setItem(i,3, QTableWidgetItem(rethistory[i]["amount"]))
+                    historywidget.setItem(i,4, QTableWidgetItem(rethistory[i]["date"]))
+                except Exception as e:
+                    logging.error("ERROR: Could not set history values properly")
 
+                try:
+                    if rethistory[i]["type"] == "sell":
+                        historywidget.item(i, 1).setBackground(QtGui.QColor(176,10,49))
+                    else:
+                        historywidget.item(i, 1).setBackground(QtGui.QColor(0,139,0))
+                        historywidget.item(i, 1).setForeground(QtGui.QColor(255,255,255))
+                except Exception as e:
+                    logging.ERROR("ERROR: Could not set the color for the history values")
+    
     def calcMyAssets(self):
-       XMRUSDPRICE = self.ui.lnPriceUSD.text()
-       ETHUSDPRICE = self.ui.lnETHPriceUSD.text()
-       BTCUSDPRICE = self.ui.lnBTCPriceUSD.text()
+        XMRUSDPRICE = self.ui.lnPriceUSD.text()
+        ETHUSDPRICE = self.ui.lnETHPriceUSD.text()
+        BTCUSDPRICE = self.ui.lnBTCPriceUSD.text()
 
-       if XMRUSDPRICE == " " or ETHUSDPRICE == " " or BTCUSDPRICE == " ":
-       	    self.ui.setMyAssets(" ")
-       else:
-            XMRUSDPRICE = float(self.ui.lnPriceUSD.text())
-       	    ETHUSDPRICE = float(self.ui.lnETHPriceUSD.text())
-       	    BTCUSDPRICE = float(self.ui.lnBTCPriceUSD.text())
-       
-            XMRAmount = self.ui.lcdMonero.value() 
-            ETHAmount = self.ui.lcdEthereum.value()
-            BTCAmount = self.ui.lcdBitcoin.value()
+        try:
+            XMRUSDPRICE = float(XMRUSDPRICE)
+            ETHUSDPRICE = float(ETHUSDPRICE)
+            BTCUSDPRICE = float(BTCUSDPRICE)
+        except Exception as e:
+            logging.warning("WARNING: Conversion of string USD Price to float: " + str(e))
 
+        XMRAmount = self.ui.lcdMonero.value() 
+        ETHAmount = self.ui.lcdEthereum.value()
+        BTCAmount = self.ui.lcdBitcoin.value()
+
+        try:
             #Calculate Value of all Coins in Poloniex
             XMRMYASSETVALUE = XMRUSDPRICE * XMRAmount
             ETHMYASSETVALUE = ETHUSDPRICE * ETHAmount
             BTCMYASSETVALUE = BTCUSDPRICE * BTCAmount
 
             FINALVALUE = XMRMYASSETVALUE + ETHMYASSETVALUE + BTCMYASSETVALUE
-
-            #Set both Values
             self.ui.setMyAssets(round(FINALVALUE,2))
+
+        except Exception as e:
+            logging.warning("WARNING: Asset calculation: " + str(e))
+
+
 
     def clickSaveConfiguration(self):
         self.ui.saveButton.clicked.connect(self.clickedSaveConfiguration)
@@ -242,8 +267,8 @@ class Thread(QThread):
                 self.popup("API Keys succesfully saved", QMessageBox.Information)
         
         except Exception as e:
-            logging.debug("Error: API Keys not saved.")
-            self.popup("Error! API Keys not saved",QMessageBox.Critical)
+            logging.debug("ERROR: API Keys not saved.")
+            self.popup("ERROR! API Keys not saved",QMessageBox.Critical)
 
     #XMR
     def calcSellBTCTotal(self, sellreadbtcprice, sellreadxmramount):
@@ -328,11 +353,11 @@ class Thread(QThread):
                 logging.info("INFO: Order cancelled succesfully!")
                 self.popup("Order cancelled successfully",QMessageBox.Information)
             else:
-                logging.debug("Error: Order could not be cancelled. Try again..")
-                self.popup("Error! Order could not be cancelled",QMessageBox.Critical)
+                logging.debug("ERROR: Order could not be cancelled. Try again..")
+                self.popup("ERROR! Order could not be cancelled",QMessageBox.Critical)
         except Exception as e:
-            logging.debug("Error: Order could not be cancelled. Try again..")
-            self.popup("Error! Order could not be cancelled",QMessageBox.Critical)
+            logging.debug("ERROR: Order could not be cancelled. Try again..")
+            self.popup("ERROR! Order could not be cancelled",QMessageBox.Critical)
 
     #ETH
     def calcETHBuyAmount(self, buyreadbtcprice, buyreadbtctotal):

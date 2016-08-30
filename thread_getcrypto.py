@@ -34,6 +34,7 @@ class Thread(QThread):
                 self.ui.setPoloniexStatus("Connected")
                 self.setXMRPriceInfo()
                 self.setETHPriceInfo()
+                self.setUSDPriceInfo()
 
             except (ConnectionError, TimeoutError) as e:
                 logging.debug("ERROR: thread_getcrypto Loop Exception Connection: " + str(e))
@@ -80,6 +81,12 @@ class Thread(QThread):
         self.sleep(0.5)
         self.ui.setETHChange(str(round(float(self.changeETH)*100,2)) + " %")
 
+    def setUSDPriceInfo(self):
+        self.ui.setXMRUSDPrice(round (float(self.lastUSDXMR),2))
+        self.ui.setETHUSDPrice(round (float(self.lastUSDETH),2))
+        self.ui.setBTCUSDPrice(round (float(self.lastUSDBTC),2))
+
+
     def getPoloInfo(self):
         self.poloInstance = polowrapper.poloniex(key.PUBLIC_KEY, key.SECRET_KEY)
 
@@ -87,6 +94,9 @@ class Thread(QThread):
 
         self.tickerXMR = self.retTicker['BTC_XMR']
         self.tickerETH = self.retTicker['BTC_ETH']
+        self.tickerUSDXMR = self.retTicker['USDT_XMR']
+        self.tickerUSDETH = self.retTicker['USDT_ETH']
+        self.tickerUSDBTC = self.retTicker['USDT_BTC']
         self.lastXMR = self.tickerXMR['last']
         self.highXMR = self.tickerXMR['high24hr']
         self.lowXMR = self.tickerXMR['low24hr']
@@ -95,5 +105,10 @@ class Thread(QThread):
         self.highETH = self.tickerETH['high24hr']
         self.lowETH = self.tickerETH['low24hr']
         self.changeETH = self.tickerETH['percentChange']
+        self.lastUSDXMR = self.tickerUSDXMR['last']
+        self.lastUSDETH = self.tickerUSDETH['last']       
+        self.lastUSDBTC = self.tickerUSDBTC['last']
+
+
 
 

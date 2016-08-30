@@ -31,7 +31,7 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow, logging.Handler):
         super(MyGui, self).__init__(parent)
         #self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
         #self.setObjectTransparent(self)
-        
+
         self.setupUi(self)
         _translate = QtCore.QCoreApplication.translate      
         self.lnSellPrice.setText(_translate("MainWindow", str(0.0))) 
@@ -204,8 +204,8 @@ def main():
     myThread.cancelETHOrder()
     
     myThread.clickSaveConfiguration()
-    myThread_getusd = thread_getusd.Thread(form)
-    myThread_getusd.start()
+#    myThread_getusd = thread_getusd.Thread(form)
+#    myThread_getusd.start()
 
     myThread_getcrypto = thread_getcrypto.Thread(form)
     myThread_getcrypto.start()
