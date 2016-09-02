@@ -29,7 +29,7 @@ import logging
 class MyGui(QtWidgets.QMainWindow, Ui_MainWindow, logging.Handler):    
     def __init__(self, parent=None):
         super(MyGui, self).__init__(parent)
-        #self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
+        #self.setWindowIcon(QtCore.Qt.FramelessWindowHint)
         #self.setObjectTransparent(self)
 
         self.setupUi(self)
@@ -188,6 +188,9 @@ def main():
     form = MyGui()
     form.show()
     form.setMenu(form)
+
+    myThread_getcrypto = thread_getcrypto.Thread(form)
+    myThread_getcrypto.start()
     myThread = main_thread.Thread(form, importkey.PUBLIC_KEY, importkey.SECRET_KEY)
     myThread.start()
     
@@ -207,8 +210,8 @@ def main():
 #    myThread_getusd = thread_getusd.Thread(form)
 #    myThread_getusd.start()
 
-    myThread_getcrypto = thread_getcrypto.Thread(form)
-    myThread_getcrypto.start()
+#    myThread_getcrypto = thread_getcrypto.Thread(form)
+#    myThread_getcrypto.start()
 
     sys.exit(app.exec_())
 

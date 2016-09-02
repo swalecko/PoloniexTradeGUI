@@ -83,7 +83,9 @@ class Thread(QThread):
 
     def setUSDPriceInfo(self):
         self.ui.setXMRUSDPrice(round (float(self.lastUSDXMR),2))
+        self.sleep(0.5)
         self.ui.setETHUSDPrice(round (float(self.lastUSDETH),2))
+        self.sleep(0.5)
         self.ui.setBTCUSDPrice(round (float(self.lastUSDBTC),2))
 
 

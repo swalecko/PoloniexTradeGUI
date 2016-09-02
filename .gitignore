@@ -2,6 +2,7 @@ key.py
 build/
 dist/
 qt.log
+thread_getusd.py
 __pycache__/
 # Windows image file caches
 Thumbs.db

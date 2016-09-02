@@ -30,13 +30,13 @@ class poloniex:
 
         
         if(command == "returnTicker" or command == "return24Volume"):
-            ret = requests.post('https://poloniex.com/public?command=' + command)
+            ret = requests.post('https://poloniex.com/public?command=' + command, timeout=2)
             return json.loads(ret.text)
         elif(command == "returnOrderBook"):
-            ret = requests.post('http://poloniex.com/public?command=' + command + '&currencyPair=' + str(req['currencyPair']))
+            ret = requests.post('http://poloniex.com/public?command=' + command + '&currencyPair=' + str(req['currencyPair']), timeout=2)
             return json.loads(ret.text)
         elif(command == "returnMarketTradeHistory"):
-            ret = requests.post('http://poloniex.com/public?command=' + "returnTradeHistory" + '&currencyPair=' + str(req['currencyPair']))
+            ret = requests.post('http://poloniex.com/public?command=' + "returnTradeHistory" + '&currencyPair=' + str(req['currencyPair']), timeout=2)
             return json.loads(ret.text)
         else:
             req['command'] = command
@@ -49,7 +49,7 @@ class poloniex:
                'Key': self.APIKey
             }
             
-            ret = requests.post('https://poloniex.com/tradingApi', data=req, headers=headers)
+            ret = requests.post('https://poloniex.com/tradingApi', data=req, headers=headers, timeout=2)
             jsonRet = json.loads(ret.text)
             return self.post_process(jsonRet)
        

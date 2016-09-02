@@ -43,10 +43,12 @@ class Thread(QThread):
                 try:
                     self.retBalances = self.poloInstance.returnBalances()
                 except:
+                    logging.error("ERROR: Return Balances not working")
 
                 try:
                     self.retTicker = self.poloInstance.returnTicker()
                 except:
+                    logging.error("ERROR: Return Ticker not working")
              
                 try:
 
@@ -125,7 +127,6 @@ class Thread(QThread):
                 self.calcETHBuyAmount(self.BuyETHreadBTCprice, self.BuyETHreadBTCTotal)
 
                 self.calcMyAssets()
-
 
                 self.sleep (1)
                            
@@ -219,32 +220,38 @@ class Thread(QThread):
                     logging.ERROR("ERROR: Could not set the color for the history values")
     
     def calcMyAssets(self):
+        
+        
         XMRUSDPRICE = self.ui.lnPriceUSD.text()
         ETHUSDPRICE = self.ui.lnETHPriceUSD.text()
         BTCUSDPRICE = self.ui.lnBTCPriceUSD.text()
 
-        try:
-            XMRUSDPRICE = float(XMRUSDPRICE)
-            ETHUSDPRICE = float(ETHUSDPRICE)
-            BTCUSDPRICE = float(BTCUSDPRICE)
-        except Exception as e:
-            logging.warning("WARNING: Conversion of string USD Price to float: " + str(e))
+        
+        if XMRUSDPRICE != "" or ETHUSDPRICE != "" or BTCUSDPRICE != "":
+            try:
+                XMRUSDPRICE = float(XMRUSDPRICE)
+                ETHUSDPRICE = float(ETHUSDPRICE)
+                BTCUSDPRICE = float(BTCUSDPRICE)
+            except Exception as e:
+                logging.warning("WARNING: Conversion of string USD Price to float: " + str(e))
 
-        XMRAmount = self.ui.lcdMonero.value() 
-        ETHAmount = self.ui.lcdEthereum.value()
-        BTCAmount = self.ui.lcdBitcoin.value()
+            XMRAmount = self.ui.lcdMonero.value() 
+            ETHAmount = self.ui.lcdEthereum.value()
+            BTCAmount = self.ui.lcdBitcoin.value()
 
-        try:
-            #Calculate Value of all Coins in Poloniex
-            XMRMYASSETVALUE = XMRUSDPRICE * XMRAmount
-            ETHMYASSETVALUE = ETHUSDPRICE * ETHAmount
-            BTCMYASSETVALUE = BTCUSDPRICE * BTCAmount
+            try:
+                #Calculate Value of all Coins in Poloniex
+                XMRMYASSETVALUE = XMRUSDPRICE * XMRAmount
+                ETHMYASSETVALUE = ETHUSDPRICE * ETHAmount
+                BTCMYASSETVALUE = BTCUSDPRICE * BTCAmount
 
-            FINALVALUE = XMRMYASSETVALUE + ETHMYASSETVALUE + BTCMYASSETVALUE
-            self.ui.setMyAssets(round(FINALVALUE,2))
+                FINALVALUE = XMRMYASSETVALUE + ETHMYASSETVALUE + BTCMYASSETVALUE
+                self.ui.setMyAssets(round(FINALVALUE,2))
 
-        except Exception as e:
-            logging.warning("WARNING: Asset calculation: " + str(e))
+            except Exception as e:
+                logging.warning("WARNING: Asset calculation: " + str(e))
+        else:
+            pass
 
 
 
@@ -322,7 +329,7 @@ class Thread(QThread):
         if self.SellreadBTCprice == "" or self.SellreadBTCprice == 0.0 or self.SellreadXMRAmount == "" or self.SellreadXMRAmount == 0.0:     
             self.popup("Invalid input", QMessageBox.Warning)
         elif self.SellreadXMRAmount > float(self.BalanceXMR):
-            self.popup("Amount > than Balance. Reduce your amount.", QMessageBox.Warning)
+            self.popup("Amount > Balance. Reduce your amount.", QMessageBox.Warning)
         else:   
             try:      
                 exeSell = self.poloInstance.sell("BTC_XMR",self.SellreadBTCprice, self.SellreadXMRAmount)
@@ -408,7 +415,7 @@ class Thread(QThread):
         if self.SellETHreadBTCprice == "" or self.SellETHreadBTCprice == 0.0 or self.SellETHreadAmount == "" or self.SellETHreadAmount == 0.0:     
             self.popup("Invalid input", QMessageBox.Warning)
         elif self.SellETHreadAmount > float(self.BalanceETH):
-            self.popup("Amount > than Balance. Reduce your amount.", QMessageBox.Warning)
+            self.popup("Amount > Balance. Reduce your amount.", QMessageBox.Warning)
         else:
             try:
                 exeSell = self.poloInstance.sell("BTC_ETH",self.SellETHreadBTCprice, self.SellETHreadAmount)
