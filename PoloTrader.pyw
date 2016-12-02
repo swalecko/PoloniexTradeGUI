@@ -1,11 +1,11 @@
-import sys
 import os
+import sys
 from PyQt5 import QtCore, QtGui, QtWidgets
-from PyQt5.QtCore import Qt
+from PyQt5.QtCore import Qt, QThread
 from PyQt5.QtGui import *
 from PyQt5.QtWidgets import QGridLayout, QLabel, QLineEdit
-from PyQt5.QtWidgets import QTextEdit, QWidget, QDialog, QApplication, QMainWindow, QTableWidgetItem, QMessageBox, QPlainTextEdit
-from PyQt5.QtCore import QThread
+from PyQt5.QtWidgets import QTextEdit, QWidget, QDialog, QApplication, QMainWindow, QTableWidgetItem, QMessageBox, QPlainTextEdit, QProgressBar
+
 
 keypath = os.path.abspath('key.py')
 
@@ -19,18 +19,14 @@ from importlib.machinery import SourceFileLoader
 importkey = SourceFileLoader("key", keypath).load_module()
 
 import main_thread
-import thread_getusd
-import thread_getcrypto
 import ui_ResourceFile
 from main import Ui_MainWindow
 import logging
 
 
-class MyGui(QtWidgets.QMainWindow, Ui_MainWindow, logging.Handler):    
+class MyGui(QtWidgets.QMainWindow, Ui_MainWindow):    
     def __init__(self, parent=None):
         super(MyGui, self).__init__(parent)
-        #self.setWindowIcon(QtCore.Qt.FramelessWindowHint)
-        #self.setObjectTransparent(self)
 
         self.setupUi(self)
         _translate = QtCore.QCoreApplication.translate      
@@ -40,15 +36,9 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow, logging.Handler):
         self.lnBuyPrice.setText(_translate("MainWindow", str(0.0))) 
         self.lnBuyAmount.setText(_translate("MainWindow", str(0.0)))
         self.lnBuyTotal.setText(_translate("MainWindow", str(0.0))) 
-        self.lnETHSellPrice.setText(_translate("MainWindow", str(0.0))) 
-        self.lnETHSellAmount.setText(_translate("MainWindow", str(0.0)))
-        self.lnETHSellTotal.setText(_translate("MainWindow", str(0.0)))
-        self.lnETHBuyPrice.setText(_translate("MainWindow", str(0.0))) 
-        self.lnETHBuyAmount.setText(_translate("MainWindow", str(0.0)))
-        self.lnETHBuyTotal.setText(_translate("MainWindow", str(0.0))) 
         self.lnPublicKey.setPlaceholderText("Insert your Poloniex Public key..")
         self.lnSecretKey.setPlaceholderText("Insert your Poloniex Secret key..")
-        
+        self.setWindowTitle(_translate("MainWindow", "Poloniex Monero Trading"))       
         self.palettegreen = QPalette()
         self.palettegreen.setColor(self.palettegreen.WindowText, QColor(120,255,195))
         self.palettered = QPalette()
@@ -93,9 +83,10 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow, logging.Handler):
     def setXMRUSDPrice(self, xmrusd):
         _translate = QtCore.QCoreApplication.translate
         self.lnPriceUSD.setText(_translate("MainWindow", str(xmrusd))) 
-    def setXMRPrice(self, price):
+    def setXMRPrice(self,price):
         _translate = QtCore.QCoreApplication.translate
         self.lnPriceXMR.setText(_translate("MainWindow", str(price)))
+        return "huuuuuuuuuuuu"
     def setHigh(self, high):
         _translate = QtCore.QCoreApplication.translate
         self.lnHigh.setText(_translate("MainWindow", str(high)))
@@ -180,39 +171,37 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow, logging.Handler):
     def setMyAssets(self, myassets):
        _translate = QtCore.QCoreApplication.translate
        self.lnMyAssets.setText(str(myassets))
+    def setOpenOrders(self, row, col, typ):
+       _translate = QtCore.QCoreApplication.translate
+       try:
+            self.OpenOrdersWidgetXMR.setItem(row, col, QTableWidgetItem(typ))   
+       except Exception as e:
+            print (str(e))
+     
+    def setOpenOrdersRowCount(self, c):
+        _translate = QtCore.QCoreApplication.translate
+        #print ("setOpenOrdersRowCount: " + str(c))
+        self.OpenOrdersWidgetXMR.setRowCount(c)
+        #self.OpenOrdersWidgetETH.setRowCount(c)
 
 def main():
-    logging.basicConfig(filename="qt.log", level=logging.DEBUG, format='%(asctime)s %(message)s', datefmt='%m/%d/%Y %I:%M:%S %p')
+    logging.basicConfig(filename="qt.log", level=logging.INFO, format='{asctime} {filename} {lineno} [{levelname:8}] {message}', datefmt='%m/%d/%Y %I:%M:%S', style = "{")
     logging.getLogger("requests").setLevel(logging.WARNING)
     app = QtWidgets.QApplication(sys.argv)
     form = MyGui()
     form.show()
     form.setMenu(form)
 
-    myThread_getcrypto = thread_getcrypto.Thread(form)
-    myThread_getcrypto.start()
     myThread = main_thread.Thread(form, importkey.PUBLIC_KEY, importkey.SECRET_KEY)
     myThread.start()
-    
     myThread.clickBuy()
     myThread.clickSell()
     myThread.clickSellGetBTCPrice()
     myThread.clickBuyGetBTCTotal()
     myThread.cancelOrder() 
-    
-    myThread.clickETHBuy()
-    myThread.clickETHSell()
-    myThread.clickETHSellGetBTCPrice()
-    myThread.clickETHBuyGetBTCTotal()
-    myThread.cancelETHOrder()
-    
+    myThread.clickRefresh()
+    myThread.clickXmrChart() 
     myThread.clickSaveConfiguration()
-#    myThread_getusd = thread_getusd.Thread(form)
-#    myThread_getusd.start()
-
-#    myThread_getcrypto = thread_getcrypto.Thread(form)
-#    myThread_getcrypto.start()
-
     sys.exit(app.exec_())
 
 if __name__ == "__main__":

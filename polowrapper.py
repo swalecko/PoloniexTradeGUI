@@ -28,16 +28,29 @@ class poloniex:
 
     def api_query(self, command, req={}):
 
-        
+        tout = 1.5
         if(command == "returnTicker" or command == "return24Volume"):
-            ret = requests.post('https://poloniex.com/public?command=' + command, timeout=2)
-            return json.loads(ret.text)
+            try:
+                ret =requests.post('https://poloniex.com/public?command=' + command, timeout=tout)
+                return json.loads(ret.text)
+            except Exception as e:
+                return False
+                print ("Request timeout: " + str(e))
+
         elif(command == "returnOrderBook"):
-            ret = requests.post('http://poloniex.com/public?command=' + command + '&currencyPair=' + str(req['currencyPair']), timeout=2)
-            return json.loads(ret.text)
+            try:
+                ret = requests.post('http://poloniex.com/public?command=' + command + '&currencyPair=' + str(req['currencyPair']), timeout=tout)
+                return json.loads(ret.text)
+            except Exception as e:
+                return False
+                print ("Request timeout: " + str(e))
         elif(command == "returnMarketTradeHistory"):
-            ret = requests.post('http://poloniex.com/public?command=' + "returnTradeHistory" + '&currencyPair=' + str(req['currencyPair']), timeout=2)
-            return json.loads(ret.text)
+            try:
+                ret = requests.post('http://poloniex.com/public?command=' + "returnTradeHistory" + '&currencyPair=' + str(req['currencyPair']), timeout=tout)
+                return json.loads(ret.text)
+            except Exception as e:
+                return False
+                print ("Request timeout: " + str(e))
         else:
             req['command'] = command
             req['nonce'] = int(time.time()*10**6)
@@ -48,10 +61,13 @@ class poloniex:
                'Sign': sign,
                'Key': self.APIKey
             }
-            
-            ret = requests.post('https://poloniex.com/tradingApi', data=req, headers=headers, timeout=2)
-            jsonRet = json.loads(ret.text)
-            return self.post_process(jsonRet)
+            try:
+                ret = requests.post('https://poloniex.com/tradingApi', data=req, headers=headers, timeout=tout)
+                jsonRet = json.loads(ret.text)
+                return self.post_process(jsonRet)
+            except Exception as e:
+                #print ("Request timeout: " + str(e))
+                return False
        
 
     def returnTicker(self):
