@@ -36,7 +36,7 @@ Trading app for Monero(XMR) at the Poloniex exchange using the Poloniex API.
   - Using Pyqt for the python code
   - Written in Python 3
   
-##Download  
+##How to Start:
 
   **Windows**  
   - Download PoloTrader_1.x.x_Win.zip from the latest release

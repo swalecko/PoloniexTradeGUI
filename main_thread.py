@@ -39,7 +39,8 @@ class Thread(QThread):
             print ("While Looping state: running")
 
             if self.PUBLIC_KEY == '' or self.SECRET_KEY == '':
-                
+                self.stateRefresh = 1
+                self.stateButtons(sell=False, buy=False, refresh=False)
                 break     
         
             if self.getPoloInfo() is True:
