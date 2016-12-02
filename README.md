@@ -1,6 +1,8 @@
 # PoloniexTradeGUI
 (unofficial)
 
+**Use at your own risk!
+
  [![Documentation](https://codedocs.xyz/swalecko/PoloniexTradeGUI.svg)](https://codedocs.xyz/swalecko/PoloniexTradeGUI/)
  
 
