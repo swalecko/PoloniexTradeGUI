@@ -128,7 +128,7 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow):
     def setPoloniexStatus(self, poloniexstatus):
         _translate = QtCore.QCoreApplication.translate
         self.lblPoloniexStatusResult.setText(_translate("MainWindow", str(poloniexstatus)))
-     def setLog(self, log):
+    def setLog(self, log):
        _translate = QtCore.QCoreApplication.translate
        self.plainTextEdit.appendPlainText(log)
     def setMyAssets(self, myassets):

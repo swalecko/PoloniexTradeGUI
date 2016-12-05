@@ -28,7 +28,7 @@ class poloniex:
 
     def api_query(self, command, req={}):
 
-        tout = 1.5
+        tout = 2
         if(command == "returnTicker" or command == "return24Volume"):
             try:
                 ret =requests.post('https://poloniex.com/public?command=' + command, timeout=tout)
