@@ -20,9 +20,6 @@ class Thread(QThread):
         self.SECRET_KEY = SECRET_KEY
         super(QThread, self).__init__()
         self.poloInstance = polowrapper.poloniex(self.PUBLIC_KEY, self.SECRET_KEY)
-        self.OFFLINEAMOUNT = 0
-        self.XMRLIST = []
-        self.ETHLIST = []
         
 
     def function():
@@ -208,28 +205,33 @@ class Thread(QThread):
 
         self.ui.GprogressBar.show()
         self.ui.GprogressBar.setValue(0)
+       
         if self.RefreshOO() is False:
             logging.critical("Refresh Open Orders failed")
+            self.popup("Refresh not completed. \nPlease refresh again.",QMessageBox.Warning)
         else:
 
             self.ui.GprogressBar.setValue(30)
         
-        if self.RefreshHistory() is False:
-            logging.critical("Refresh History failed")
-        else:
-            self.ui.GprogressBar.setValue(60)
+            if self.RefreshHistory() is False:
+                logging.critical("Refresh History failed")
+                self.popup("Refresh not completed. \nPlease refresh again.",QMessageBox.Warning)
+            else:
+                self.ui.GprogressBar.setValue(60)
         
-        if self.showBalances() is False:
-            logging.critical("Refresh Balances failed")
-        else:
-            self.stateButtons(sell=True, buy=True, refresh=True)
-           
-            self.ui.GprogressBar.setValue(80)
+                if self.showBalances() is False:
+                    logging.critical("Refresh Balances failed")
+                    self.popup("Refresh not completed. \nPlease refresh again.",QMessageBox.Warning)
+                else:
+                    self.stateButtons(sell=True, buy=True, refresh=True)
+                   
+                    self.ui.GprogressBar.setValue(75)
 
-        if self.calcMyAssets() is False:
-            logging.critical("Refresh Asset failed")
-        else:
-            self.ui.GprogressBar.setValue(100)
+                    if self.calcMyAssets() is False:
+                        logging.critical("Refresh Asset failed")
+                        self.popup("Refresh not completed. \nPlease refresh again.",QMessageBox.Warning)
+                    else:
+                        self.ui.GprogressBar.setValue(100)
 
         self.stateRefresh = 1
 

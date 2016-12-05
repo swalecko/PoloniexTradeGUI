@@ -86,7 +86,6 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow):
     def setXMRPrice(self,price):
         _translate = QtCore.QCoreApplication.translate
         self.lnPriceXMR.setText(_translate("MainWindow", str(price)))
-        return "huuuuuuuuuuuu"
     def setHigh(self, high):
         _translate = QtCore.QCoreApplication.translate
         self.lnHigh.setText(_translate("MainWindow", str(high)))
@@ -96,24 +95,9 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow):
     def setChange(self, change):
         _translate = QtCore.QCoreApplication.translate
         self.lnChange.setText(_translate("MainWindow", change))
-    def setETHUSDPrice(self, ethusd):
-        _translate = QtCore.QCoreApplication.translate
-        self.lnETHPriceUSD.setText(_translate("MainWindow", str(ethusd)))
     def setBTCUSDPrice(self, btcusd):
         _translate = QtCore.QCoreApplication.translate
         self.lnBTCPriceUSD.setText(_translate("MainWindow", str(btcusd)))   
-    def setETHPrice(self, ethprice):
-        _translate = QtCore.QCoreApplication.translate
-        self.lnPriceETH.setText(_translate("MainWindow", str(ethprice)))
-    def setETHHigh(self, ethhigh):
-        _translate = QtCore.QCoreApplication.translate
-        self.lnETHHigh.setText(_translate("MainWindow", str(ethhigh)))
-    def setETHLow(self, ethlow):
-        _translate = QtCore.QCoreApplication.translate
-        self.lnETHLow.setText(_translate("MainWindow", str(ethlow)))        
-    def setETHChange(self, ethchange):
-        _translate = QtCore.QCoreApplication.translate
-        self.lnETHChange.setText(_translate("MainWindow", ethchange))  
     def setLcdMoneroinclIO(self, moneroinclio):
         _translate = QtCore.QCoreApplication.translate
 
@@ -123,15 +107,6 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow):
             self.lcdMoneroinclO.setPalette(self.palettered)
 
         self.lcdMoneroinclO.display(_translate("MainWindow", moneroinclio))
-    def setLcdEthereuminclIO(self, ethereuminclio):
-        _translate = QtCore.QCoreApplication.translate
-
-        if float(ethereuminclio) > 0.0:
-            self.lcdEthereuminclO.setPalette(self.palettegreen)
-        else:
-            self.lcdEthereuminclO.setPalette(self.palettered)
-
-        self.lcdEthereuminclO.display(_translate("MainWindow", ethereuminclio))
     def setSellBTCTotal(self, sellbtctotal):
         _translate = QtCore.QCoreApplication.translate
         self.lnSellTotal.setText(_translate("MainWindow", str(sellbtctotal)))
@@ -141,31 +116,19 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow):
     def setSellBTCPrice(self, sellbtcprice):
         _translate = QtCore.QCoreApplication.translate
         self.lnSellPrice.setText(_translate("MainWindow", str(sellbtcprice)))
-    def setETHSellBTCPrice(self, sellbtcprice):
-        _translate = QtCore.QCoreApplication.translate
-        self.lnETHSellPrice.setText(_translate("MainWindow", str(sellbtcprice)))   
     def setBuyXMRAmount(self, buyxmramount):
         _translate = QtCore.QCoreApplication.translate
         self.lnBuyAmount.setText(_translate("MainWindow", str(buyxmramount)))
-    def setBuyETHAmount(self, buyethamount):
-        _translate = QtCore.QCoreApplication.translate
-        self.lnETHBuyAmount.setText(_translate("MainWindow", str(buyethamount)))
     def setBuyBTCTotal(self, buybtctotal):
         _translate = QtCore.QCoreApplication.translate
         self.lnBuyTotal.setText(_translate("MainWindow", str(buybtctotal)))
-    def setETHBuyBTCTotal(self, buybtctotal):
-        _translate = QtCore.QCoreApplication.translate
-        self.lnETHBuyTotal.setText(_translate("MainWindow", str(buybtctotal)))
     def setAppStatus(self, appstatus):
         _translate = QtCore.QCoreApplication.translate
         self.lblAppStatusResult.setText(_translate("MainWindow", str(appstatus)))
     def setPoloniexStatus(self, poloniexstatus):
         _translate = QtCore.QCoreApplication.translate
         self.lblPoloniexStatusResult.setText(_translate("MainWindow", str(poloniexstatus)))
-    def setCryptonatorStatus(self, cryptonatorstatus):
-        _translate = QtCore.QCoreApplication.translate
-        self.lblCryptonatorStatusResult.setText(_translate("MainWindow", str(cryptonatorstatus)))
-    def setLog(self, log):
+     def setLog(self, log):
        _translate = QtCore.QCoreApplication.translate
        self.plainTextEdit.appendPlainText(log)
     def setMyAssets(self, myassets):
