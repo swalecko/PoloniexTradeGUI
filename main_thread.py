@@ -308,7 +308,7 @@ class Thread(QThread):
 
 
         if self.retOpenOrdersXMR == False:
-            logging.warning("retOpenOrdersXMR = None")
+            logging.warning("retOpenOrdersXMR = None: Open Orders not refreshed")
             return False
             
         else:
@@ -380,7 +380,8 @@ class Thread(QThread):
         self.retTicker = self.poloInstance.returnTicker()
 
         if self.retTicker is None:
-            logging.warning("self.retTicker = None")
+            logging.warning("self.retTicker = None: Ticker not refreshed")
+            self.popup("Price not refreshed. \nPlease try again.")
         else:
             self.tickerXMR = self.retTicker['BTC_XMR']
             self.lastXMR = self.tickerXMR['last']     
@@ -411,7 +412,7 @@ class Thread(QThread):
 
                 if exeBuy["orderNumber"] != '':
 
-                    logging.info("Buy Order executed.")
+                    logging.info("Buy Order executed: " + str(exeBuy["orderNumber"]))
                     self.popup("Buy order placed: \n\n" + "Order Number: " + str(exeBuy["orderNumber"]), QMessageBox.Information)
                 else:
                     logging.debug("Buy Order failed! " + str(e))
@@ -497,7 +498,7 @@ class Thread(QThread):
         self.retTicker = self.poloInstance.returnTicker()
 
         if self.retTicker is False:
-            logging.warning("self.retTicker = None")
+            logging.warning("self.retTicker = None: No connection")
             return False
         else:
             self.tickerXMR = self.retTicker['BTC_XMR']
