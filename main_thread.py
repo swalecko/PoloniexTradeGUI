@@ -11,6 +11,7 @@ import sys
 from requests.exceptions import ConnectionError
 import logging
 import webbrowser
+import datetime
 
 
 class Thread(QThread):
@@ -195,9 +196,13 @@ class Thread(QThread):
     #     else:
     #         currencyio(format(float(0.00000000), '.8f'))
                            
-
+    def download(self, progress):
+        while self.completed < progress:
+            self.completed += 0.0001
+            self.ui.GprogressBar.setValue(self.completed)
     def clickRefresh(self):
         self.ui.btnRefresh.clicked.connect(self.clickedRefresh)
+    
     def clickedRefresh(self):
 
         self.ui.GprogressBar.setMinimum(0)
@@ -205,33 +210,34 @@ class Thread(QThread):
 
         self.ui.GprogressBar.show()
         self.ui.GprogressBar.setValue(0)
+
+        self.completed = 0
        
         if self.RefreshOO() is False:
             logging.critical("Refresh Open Orders failed")
             self.popup("Refresh not completed. \nPlease refresh again.",QMessageBox.Warning)
         else:
-
-            self.ui.GprogressBar.setValue(30)
-        
+            self.download(30)
+     
             if self.RefreshHistory() is False:
                 logging.critical("Refresh History failed")
                 self.popup("Refresh not completed. \nPlease refresh again.",QMessageBox.Warning)
             else:
-                self.ui.GprogressBar.setValue(60)
+                self.download(50)
         
                 if self.showBalances() is False:
                     logging.critical("Refresh Balances failed")
                     self.popup("Refresh not completed. \nPlease refresh again.",QMessageBox.Warning)
                 else:
                     self.stateButtons(sell=True, buy=True, refresh=True)
-                   
-                    self.ui.GprogressBar.setValue(75)
-
+                    self.download(75)
                     if self.calcMyAssets() is False:
                         logging.critical("Refresh Asset failed")
                         self.popup("Refresh not completed. \nPlease refresh again.",QMessageBox.Warning)
                     else:
-                        self.ui.GprogressBar.setValue(100)
+                        self.download(100)
+                        self.ui.lblLast.setText(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
+                        
 
         self.stateRefresh = 1
 
@@ -268,6 +274,7 @@ class Thread(QThread):
 
                     if rethistory[i]["type"] == "sell":
                         historywidget.item(i, 1).setBackground(QtGui.QColor(176,10,49))
+                        historywidget.item(i, 1).setForeground(QtGui.QColor(255,255,255))
                     else:
                         historywidget.item(i, 1).setBackground(QtGui.QColor(0,139,0))
                         historywidget.item(i, 1).setForeground(QtGui.QColor(255,255,255))
@@ -284,8 +291,8 @@ class Thread(QThread):
             BTCUSDPRICE = float(BTCUSDPRICE)
 
 
-            XMRAmount = self.ui.lcdMonero.value() 
-            BTCAmount = self.ui.lcdBitcoin.value()
+            XMRAmount = float(self.ui.lnMonero.text())
+            BTCAmount = float(self.ui.lnBitcoin.text())
 
             XMRMYASSETVALUE = XMRUSDPRICE * XMRAmount
             BTCMYASSETVALUE = BTCUSDPRICE * BTCAmount
@@ -336,6 +343,7 @@ class Thread(QThread):
 
                     if retopenorders[i]["type"] == "sell":
                         openorderswidget.item(i, 1).setBackground(QtGui.QColor(176,10,49))
+                        openorderswidget.item(i, 1).setForeground(QtGui.QColor(255,255,255))
                        
                     else:
                         openorderswidget.item(i, 1).setBackground(QtGui.QColor(0,139,0))
@@ -464,10 +472,10 @@ class Thread(QThread):
             logging.debug("ERROR: Order could not be cancelled. Try again..")
             self.popup("ERROR! Order could not be cancelled",QMessageBox.Critical)
     
-    def clickXmrChart(self):
-        self.ui.buttonChart.clicked.connect(self.clickedXmrChart)
-    def clickedXmrChart(self):
-        webbrowser.open('https://bitcoinwisdom.com/markets/poloniex/xmrbtc')
+    #def clickXmrChart(self):
+    #    self.ui.buttonChart.clicked.connect(self.clickedXmrChart)
+    #def clickedXmrChart(self):
+    #    webbrowser.open('https://bitcoinwisdom.com/markets/poloniex/xmrbtc')
 
     def setXMRPriceInfo(self):
         lastXMR = self.lastXMR
@@ -513,5 +521,37 @@ class Thread(QThread):
             self.lastUSDBTC = self.tickerUSDBTC['last']
             return True
 
+    def clickMenuOO(self):
+        self.ui.btnOO.clicked.connect(self.openOO)
 
 
+    def openOO(self):
+        self.ui.stackedWidget.setCurrentIndex(1)
+
+    def clickMenuHistory(self):
+        self.ui.btnHistory.clicked.connect(self.openHistory)
+
+
+    def openHistory(self):
+        self.ui.stackedWidget.setCurrentIndex(2)
+    
+    def clickMenuTrading(self):
+        self.ui.btnTrading.clicked.connect(self.openTrading)
+
+
+    def openTrading(self):
+        self.ui.stackedWidget.setCurrentIndex(0)
+    
+    def clickMenuConfiguration(self):
+        self.ui.btnConfiguration.clicked.connect(self.openConfiguration)
+
+
+    def openConfiguration(self):
+        self.ui.stackedWidget.setCurrentIndex(3)
+
+    def clickMenuExit(self):
+        self.ui.btnExit.clicked.connect(self.openExit)
+
+
+    def openExit(self):
+        sys.exit()

@@ -1,5 +1,6 @@
 import os
 import sys
+import datetime
 from PyQt5 import QtCore, QtGui, QtWidgets
 from PyQt5.QtCore import Qt, QThread
 from PyQt5.QtGui import *
@@ -40,10 +41,12 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow):
         self.lnSecretKey.setPlaceholderText("Insert your Poloniex Secret key..")
         self.setWindowTitle(_translate("MainWindow", "Poloniex Monero Trading"))       
         self.palettegreen = QPalette()
-        self.palettegreen.setColor(self.palettegreen.WindowText, QColor(120,255,195))
+        self.palettegreen.setColor(self.palettegreen.WindowText, QColor(112,245,20))
         self.palettered = QPalette()
         self.palettered.setColor(self.palettered.WindowText, QColor(216,32,32))
-    
+        self.setWindowFlags(QtCore.Qt.CustomizeWindowHint)
+        self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
+
     def setTaskWindowTitle(self, gui, price):
         self.gui = gui
         _translate = QtCore.QCoreApplication.translate
@@ -57,29 +60,25 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow):
         _translate = QtCore.QCoreApplication.translate
         
         if float(lcdmonero) > 0.0:
-            self.lcdMonero.setPalette(self.palettegreen)
+            self.lnMonero.setPalette(self.palettegreen)
         else:
-            self.lcdMonero.setPalette(self.palettered)
+            self.lnMonero.setPalette(self.palettered)
 
-        self.lcdMonero.display(_translate("MainWindow", lcdmonero))
+        #self.lcdMonero.display(_translate("MainWindow", lcdmonero))
+        _translate = QtCore.QCoreApplication.translate
+        self.lnMonero.setText(_translate("MainWindow", str(lcdmonero)))
+
     def setLcdBitcoin(self,lcdbitcoin):
         _translate = QtCore.QCoreApplication.translate
 
         if float(lcdbitcoin) > 0.0:
-            self.lcdBitcoin.setPalette(self.palettegreen)
+            self.lnBitcoin.setPalette(self.palettegreen)
         else:
-            self.lcdBitcoin.setPalette(self.palettered)
+            self.lnBitcoin.setPalette(self.palettered)
 
-        self.lcdBitcoin.display(_translate("MainWindow", str(lcdbitcoin)))
-    def setLcdEthereum(self,lcdethereum):
-        _translate = QtCore.QCoreApplication.translate
+        #self.lcdBitcoin.display(_translate("MainWindow", str(lcdbitcoin)))
 
-        if float(lcdethereum) > 0.0:
-            self.lcdEthereum.setPalette(self.palettegreen)
-        else:
-            self.lcdEthereum.setPalette(self.palettered)
-
-        self.lcdEthereum.display(_translate("MainWindow", lcdethereum)) 
+        self.lnBitcoin.setText(_translate("MainWindow", str(lcdbitcoin)))
     def setXMRUSDPrice(self, xmrusd):
         _translate = QtCore.QCoreApplication.translate
         self.lnPriceUSD.setText(_translate("MainWindow", str(xmrusd))) 
@@ -102,11 +101,13 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow):
         _translate = QtCore.QCoreApplication.translate
 
         if float(moneroinclio) > 0.0:
-            self.lcdMoneroinclO.setPalette(self.palettegreen)
+            self.lnMoneroOO.setPalette(self.palettegreen)
         else:
-            self.lcdMoneroinclO.setPalette(self.palettered)
+            self.lnMoneroOO.setPalette(self.palettered)
 
-        self.lcdMoneroinclO.display(_translate("MainWindow", moneroinclio))
+        #self.lcdMoneroinclO.display(_translate("MainWindow", moneroinclio))
+
+        self.lnMoneroOO.setText(_translate("MainWindow", str(moneroinclio)))
     def setSellBTCTotal(self, sellbtctotal):
         _translate = QtCore.QCoreApplication.translate
         self.lnSellTotal.setText(_translate("MainWindow", str(sellbtctotal)))
@@ -143,9 +144,8 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow):
      
     def setOpenOrdersRowCount(self, c):
         _translate = QtCore.QCoreApplication.translate
-        #print ("setOpenOrdersRowCount: " + str(c))
         self.OpenOrdersWidgetXMR.setRowCount(c)
-        #self.OpenOrdersWidgetETH.setRowCount(c)
+
 
 def main():
     logging.basicConfig(filename="qt.log", level=logging.INFO, format='{asctime} {filename} {lineno} [{levelname:8}] {message}', datefmt='%m/%d/%Y %I:%M:%S', style = "{")
@@ -163,7 +163,12 @@ def main():
     myThread.clickBuyGetBTCTotal()
     myThread.cancelOrder() 
     myThread.clickRefresh()
-    myThread.clickXmrChart() 
+    myThread.clickMenuOO()
+    myThread.clickMenuHistory()
+    myThread.clickMenuConfiguration()
+    myThread.clickMenuTrading()
+    #myThread.clickMenuExit()
+   # myThread.clickXmrChart() 
     myThread.clickSaveConfiguration()
     sys.exit(app.exec_())
 
