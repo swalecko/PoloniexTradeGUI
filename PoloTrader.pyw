@@ -20,7 +20,7 @@ from importlib.machinery import SourceFileLoader
 importkey = SourceFileLoader("key", keypath).load_module()
 
 import main_thread
-import ui_ResourceFile
+import res_rc
 from main import Ui_MainWindow
 import logging
 
@@ -39,7 +39,7 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow):
         self.lnBuyTotal.setText(_translate("MainWindow", str(0.0))) 
         self.lnPublicKey.setPlaceholderText("Insert your Poloniex Public key..")
         self.lnSecretKey.setPlaceholderText("Insert your Poloniex Secret key..")
-        self.setWindowTitle(_translate("MainWindow", "Poloniex Monero Trading"))       
+        self.setWindowTitle(_translate("MainWindow", "Monero Trading"))    
         self.palettegreen = QPalette()
         self.palettegreen.setColor(self.palettegreen.WindowText, QColor(112,245,20))
         self.palettered = QPalette()
@@ -172,6 +172,8 @@ def main():
     myThread.clickMenuTrading()
     #myThread.clickMenuExit()
    # myThread.clickXmrChart() 
+    myThread.clickMenuExit()
+    myThread.clickMenuMini()
     myThread.clickSaveConfiguration()
     sys.exit(app.exec_())
 

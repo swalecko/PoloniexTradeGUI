@@ -553,8 +553,11 @@ class Thread(QThread):
         self.ui.stackedWidget.setCurrentIndex(3)
 
     def clickMenuExit(self):
-        self.ui.btnExit.clicked.connect(self.openExit)
-
-
-    def openExit(self):
+        self.ui.btnExit.clicked.connect(self.clickedExit)
+    def clickedExit(self):    
         sys.exit()
+
+    def clickMenuMini(self):
+        self.ui.btnMini.clicked.connect(self.clickedMini)
+    def clickedMini(self):
+        self.ui.showMinimized()

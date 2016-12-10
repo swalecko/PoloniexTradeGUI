@@ -40,6 +40,10 @@
   <property name="windowTitle">
    <string>MainWindow</string>
   </property>
+  <property name="windowIcon">
+   <iconset>
+    <normaloff>1.png.ico</normaloff>1.png.ico</iconset>
+  </property>
   <property name="styleSheet">
    <string notr="true"/>
   </property>
@@ -307,7 +311,7 @@ background-color: rgb(193,210,230);
       <string>Trading</string>
      </property>
      <property name="icon">
-      <iconset resource="qtresourse.qrc">
+      <iconset resource="res.qrc">
        <normaloff>:/resource/ic_swap_horiz_white_24dp_2x.png</normaloff>:/resource/ic_swap_horiz_white_24dp_2x.png</iconset>
      </property>
      <property name="iconSize">
@@ -523,7 +527,7 @@ background-color: rgb(193,210,230);
       <string>History</string>
      </property>
      <property name="icon">
-      <iconset resource="qtresourse.qrc">
+      <iconset resource="res.qrc">
        <normaloff>:/resource/ic_history_white_24dp_2x.png</normaloff>:/resource/ic_history_white_24dp_2x.png</iconset>
      </property>
      <property name="iconSize">
@@ -736,7 +740,7 @@ background-color: rgb(193,210,230);
       <string>Open Orders</string>
      </property>
      <property name="icon">
-      <iconset resource="qtresourse.qrc">
+      <iconset resource="res.qrc">
        <normaloff>:/resource/ic_list_white_24dp_2x.png</normaloff>:/resource/ic_list_white_24dp_2x.png</iconset>
      </property>
      <property name="iconSize">
@@ -946,7 +950,7 @@ background-color: rgb(193,210,230);
       <string>Configuration</string>
      </property>
      <property name="icon">
-      <iconset resource="qtresourse.qrc">
+      <iconset resource="res.qrc">
        <normaloff>:/resource/ic_settings_white_24dp_2x.png</normaloff>:/resource/ic_settings_white_24dp_2x.png</iconset>
      </property>
      <property name="iconSize">
@@ -1156,7 +1160,7 @@ background-color: rgb(193,210,230);
       <string>Refresh</string>
      </property>
      <property name="icon">
-      <iconset resource="qtresourse.qrc">
+      <iconset resource="res.qrc">
        <normaloff>:/resource/ic_autorenew_white_24dp_2x.png</normaloff>:/resource/ic_autorenew_white_24dp_2x.png</iconset>
      </property>
      <property name="iconSize">
@@ -1191,7 +1195,7 @@ background-color: rgb(193,210,230);
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap resource="qtresourse.qrc">:/resource/ic_wifi_tethering_white_24dp_2x.png</pixmap>
+      <pixmap resource="res.qrc">:/resource/ic_wifi_tethering_white_24dp_2x.png</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
@@ -1263,7 +1267,7 @@ color: rgb(255, 255, 255);</string>
       <rect>
        <x>58</x>
        <y>179</y>
-       <width>85</width>
+       <width>88</width>
        <height>4</height>
       </rect>
      </property>
@@ -1349,9 +1353,9 @@ QProgressBar::chunk
     <property name="geometry">
      <rect>
       <x>170</x>
-      <y>0</y>
+      <y>20</y>
       <width>673</width>
-      <height>550</height>
+      <height>531</height>
      </rect>
     </property>
     <property name="sizePolicy">
@@ -1363,7 +1367,7 @@ QProgressBar::chunk
     <property name="minimumSize">
      <size>
       <width>671</width>
-      <height>550</height>
+      <height>520</height>
      </size>
     </property>
     <property name="maximumSize">
@@ -1414,7 +1418,7 @@ border-radius: 3px;
         <x>-1</x>
         <y>0</y>
         <width>673</width>
-        <height>551</height>
+        <height>531</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -1579,7 +1583,7 @@ QPushButton:checked{ background-color: pink; }
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="qtresourse.qrc">:/resource/130px-MoneroLogo.png</pixmap>
+        <pixmap resource="res.qrc">:/resource/130px-MoneroLogo.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>true</bool>
@@ -1609,7 +1613,7 @@ QPushButton:checked{ background-color: pink; }
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap resource="qtresourse.qrc">:/resource/bitcoin.png</pixmap>
+        <pixmap resource="res.qrc">:/resource/bitcoin.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>true</bool>
@@ -2247,7 +2251,7 @@ border-color: rgb(218, 218, 218);</string>
         <x>-2</x>
         <y>0</y>
         <width>673</width>
-        <height>551</height>
+        <height>531</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -2259,13 +2263,13 @@ border-color: rgb(218, 218, 218);</string>
       <property name="minimumSize">
        <size>
         <width>673</width>
-        <height>551</height>
+        <height>531</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
         <width>673</width>
-        <height>551</height>
+        <height>531</height>
        </size>
       </property>
       <property name="font">
@@ -2337,7 +2341,7 @@ border-color: rgb(218, 218, 218);</string>
         <x>-1</x>
         <y>0</y>
         <width>673</width>
-        <height>551</height>
+        <height>531</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -2349,13 +2353,13 @@ border-color: rgb(218, 218, 218);</string>
       <property name="minimumSize">
        <size>
         <width>673</width>
-        <height>551</height>
+        <height>531</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
         <width>673</width>
-        <height>551</height>
+        <height>531</height>
        </size>
       </property>
       <property name="font">
@@ -2427,19 +2431,19 @@ border-color: rgb(218, 218, 218);</string>
         <x>-1</x>
         <y>0</y>
         <width>673</width>
-        <height>551</height>
+        <height>531</height>
        </rect>
       </property>
       <property name="minimumSize">
        <size>
         <width>671</width>
-        <height>551</height>
+        <height>531</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
         <width>673</width>
-        <height>551</height>
+        <height>531</height>
        </size>
       </property>
       <property name="autoFillBackground">
@@ -2587,9 +2591,9 @@ QPushButton:checked{ background-color: pink; }
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>0</y>
+      <y>20</y>
       <width>170</width>
-      <height>241</height>
+      <height>221</height>
      </rect>
     </property>
     <property name="autoFillBackground">
@@ -2611,7 +2615,7 @@ color: rgb(103, 103, 103);
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>20</y>
+       <y>8</y>
        <width>81</width>
        <height>21</height>
       </rect>
@@ -2802,7 +2806,7 @@ color: rgb(103, 103, 103);
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>66</y>
+       <y>54</y>
        <width>121</width>
        <height>21</height>
       </rect>
@@ -2993,7 +2997,7 @@ color: rgb(103, 103, 103);
      <property name="geometry">
       <rect>
        <x>20</x>
-       <y>110</y>
+       <y>98</y>
        <width>81</width>
        <height>21</height>
       </rect>
@@ -3184,7 +3188,7 @@ color: rgb(103, 103, 103);
      <property name="geometry">
       <rect>
        <x>22</x>
-       <y>180</y>
+       <y>168</y>
        <width>121</width>
        <height>16</height>
       </rect>
@@ -3375,7 +3379,7 @@ color: rgb(103, 103, 103);
      <property name="geometry">
       <rect>
        <x>19</x>
-       <y>196</y>
+       <y>184</y>
        <width>131</width>
        <height>20</height>
       </rect>
@@ -3577,7 +3581,7 @@ color: rgb(103, 103, 103);
      <property name="geometry">
       <rect>
        <x>19</x>
-       <y>129</y>
+       <y>117</y>
        <width>131</width>
        <height>20</height>
       </rect>
@@ -3779,7 +3783,7 @@ color: rgb(103, 103, 103);
      <property name="geometry">
       <rect>
        <x>19</x>
-       <y>84</y>
+       <y>72</y>
        <width>131</width>
        <height>20</height>
       </rect>
@@ -3981,7 +3985,7 @@ color: rgb(103, 103, 103);
      <property name="geometry">
       <rect>
        <x>19</x>
-       <y>38</y>
+       <y>26</y>
        <width>131</width>
        <height>20</height>
       </rect>
@@ -4180,14 +4184,134 @@ color: rgb(103, 103, 103);
      </property>
     </widget>
    </widget>
+   <widget class="QLabel" name="label_8">
+    <property name="geometry">
+     <rect>
+      <x>0</x>
+      <y>0</y>
+      <width>841</width>
+      <height>20</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">
+background-color: rgb(120, 13, 13);
+</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnExit">
+    <property name="geometry">
+     <rect>
+      <x>818</x>
+      <y>0</y>
+      <width>21</width>
+      <height>21</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QToolButton:checked, QToolButton:pressed {
+background-color: rgb(193,210,230);
+border: 1px solid rgb(60,127,177);
+}
+
+QToolButton:hover {
+background-color:rgb(180, 186, 197);
+}
+
+QToolButton:checked:hover {
+background-color: rgb(193,210,230);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="res.qrc">
+      <normaloff>:/resource/ic_clear_white_24dp_1x.png</normaloff>:/resource/ic_clear_white_24dp_1x.png</iconset>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="autoExclusive">
+     <bool>true</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <widget class="QPushButton" name="btnMini">
+    <property name="geometry">
+     <rect>
+      <x>797</x>
+      <y>3</y>
+      <width>22</width>
+      <height>15</height>
+     </rect>
+    </property>
+    <property name="sizePolicy">
+     <sizepolicy hsizetype="Fixed" vsizetype="Fixed">
+      <horstretch>0</horstretch>
+      <verstretch>0</verstretch>
+     </sizepolicy>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">QToolButton:checked, QToolButton:pressed {
+background-color: rgb(193,210,230);
+border: 1px solid rgb(60,127,177);
+}
+
+QToolButton:hover {
+
+	background-color: rgb(4, 4, 4);
+}
+
+QToolButton:checked:hover {
+background-color: rgb(193,210,230);
+}</string>
+    </property>
+    <property name="text">
+     <string/>
+    </property>
+    <property name="icon">
+     <iconset resource="res.qrc">
+      <normaloff>:/resource/ic_call_to_action_white_24dp_1x.png</normaloff>:/resource/ic_call_to_action_white_24dp_1x.png</iconset>
+    </property>
+    <property name="checkable">
+     <bool>false</bool>
+    </property>
+    <property name="autoExclusive">
+     <bool>true</bool>
+    </property>
+    <property name="flat">
+     <bool>true</bool>
+    </property>
+   </widget>
+   <zorder>label_8</zorder>
    <zorder>frame_4</zorder>
    <zorder>frame</zorder>
    <zorder>stackedWidget</zorder>
+   <zorder>btnExit</zorder>
+   <zorder>btnMini</zorder>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
  <resources>
-  <include location="qtresourse.qrc"/>
+  <include location="res.qrc"/>
  </resources>
  <connections/>
 </ui>
