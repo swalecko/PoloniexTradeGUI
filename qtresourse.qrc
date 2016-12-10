@@ -1,5 +1,26 @@
 <RCC>
     <qresource prefix="/">
-        <file>1.png.ico</file>
+        <file>resource/130px-MoneroLogo.png</file>
+        <file>resource/bitcoin.png</file>
+        <file>resource/ic_autorenew_white_24dp_1x.png</file>
+        <file>resource/ic_autorenew_white_24dp_2x.png</file>
+        <file>resource/ic_cached_black_24dp_1x.png</file>
+        <file>resource/ic_cached_black_24dp_2x.png</file>
+        <file>resource/ic_compare_arrows_black_24dp_1x.png</file>
+        <file>resource/ic_compare_arrows_black_24dp_2x.png</file>
+        <file>resource/ic_exit_to_app_white_24dp_1x.png</file>
+        <file>resource/ic_exit_to_app_white_24dp_2x.png</file>
+        <file>resource/ic_history_white_24dp_1x.png</file>
+        <file>resource/ic_history_white_24dp_2x.png</file>
+        <file>resource/ic_list_white_24dp_1x.png</file>
+        <file>resource/ic_list_white_24dp_2x.png</file>
+        <file>resource/ic_settings_black_24dp_1x.png</file>
+        <file>resource/ic_settings_black_24dp_2x.png</file>
+        <file>resource/ic_settings_white_24dp_1x.png</file>
+        <file>resource/ic_settings_white_24dp_2x.png</file>
+        <file>resource/ic_swap_horiz_white_24dp_1x.png</file>
+        <file>resource/ic_swap_horiz_white_24dp_2x.png</file>
+        <file>resource/ic_wifi_tethering_white_24dp_1x.png</file>
+        <file>resource/ic_wifi_tethering_white_24dp_2x.png</file>
     </qresource>
 </RCC>

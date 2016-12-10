@@ -307,8 +307,8 @@ background-color: rgb(193,210,230);
       <string>Trading</string>
      </property>
      <property name="icon">
-      <iconset>
-       <normaloff>../../Desktop/resource/ic_swap_horiz_white_24dp/ic_swap_horiz_white_24dp/web/ic_swap_horiz_white_24dp_2x.png</normaloff>../../Desktop/resource/ic_swap_horiz_white_24dp/ic_swap_horiz_white_24dp/web/ic_swap_horiz_white_24dp_2x.png</iconset>
+      <iconset resource="qtresourse.qrc">
+       <normaloff>:/resource/ic_swap_horiz_white_24dp_2x.png</normaloff>:/resource/ic_swap_horiz_white_24dp_2x.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -523,8 +523,8 @@ background-color: rgb(193,210,230);
       <string>History</string>
      </property>
      <property name="icon">
-      <iconset>
-       <normaloff>../../Desktop/resource/ic_history_white_24dp/ic_history_white_24dp/web/ic_history_white_24dp_2x.png</normaloff>../../Desktop/resource/ic_history_white_24dp/ic_history_white_24dp/web/ic_history_white_24dp_2x.png</iconset>
+      <iconset resource="qtresourse.qrc">
+       <normaloff>:/resource/ic_history_white_24dp_2x.png</normaloff>:/resource/ic_history_white_24dp_2x.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -736,8 +736,8 @@ background-color: rgb(193,210,230);
       <string>Open Orders</string>
      </property>
      <property name="icon">
-      <iconset>
-       <normaloff>../../Desktop/resource/ic_list_white_24dp/ic_list_white_24dp/web/ic_list_white_24dp_2x.png</normaloff>../../Desktop/resource/ic_list_white_24dp/ic_list_white_24dp/web/ic_list_white_24dp_2x.png</iconset>
+      <iconset resource="qtresourse.qrc">
+       <normaloff>:/resource/ic_list_white_24dp_2x.png</normaloff>:/resource/ic_list_white_24dp_2x.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -946,8 +946,8 @@ background-color: rgb(193,210,230);
       <string>Configuration</string>
      </property>
      <property name="icon">
-      <iconset>
-       <normaloff>../../Desktop/resource/ic_settings_white_24dp/ic_settings_white_24dp/web/ic_settings_white_24dp_2x.png</normaloff>../../Desktop/resource/ic_settings_white_24dp/ic_settings_white_24dp/web/ic_settings_white_24dp_2x.png</iconset>
+      <iconset resource="qtresourse.qrc">
+       <normaloff>:/resource/ic_settings_white_24dp_2x.png</normaloff>:/resource/ic_settings_white_24dp_2x.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -1156,8 +1156,8 @@ background-color: rgb(193,210,230);
       <string>Refresh</string>
      </property>
      <property name="icon">
-      <iconset>
-       <normaloff>../../Desktop/resource/ic_autorenew_white_24dp/ic_autorenew_white_24dp/web/ic_autorenew_white_24dp_2x.png</normaloff>../../Desktop/resource/ic_autorenew_white_24dp/ic_autorenew_white_24dp/web/ic_autorenew_white_24dp_2x.png</iconset>
+      <iconset resource="qtresourse.qrc">
+       <normaloff>:/resource/ic_autorenew_white_24dp_2x.png</normaloff>:/resource/ic_autorenew_white_24dp_2x.png</iconset>
      </property>
      <property name="iconSize">
       <size>
@@ -1191,7 +1191,7 @@ background-color: rgb(193,210,230);
       <string/>
      </property>
      <property name="pixmap">
-      <pixmap>../../Desktop/resource/ic_wifi_tethering_white_24dp/ic_wifi_tethering_white_24dp/web/ic_wifi_tethering_white_24dp_2x.png</pixmap>
+      <pixmap resource="qtresourse.qrc">:/resource/ic_wifi_tethering_white_24dp_2x.png</pixmap>
      </property>
      <property name="scaledContents">
       <bool>true</bool>
@@ -1405,7 +1405,7 @@ border-radius: 3px;
      <number>0</number>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="stackTrading">
      <widget class="QFrame" name="frame_2">
@@ -1579,7 +1579,7 @@ QPushButton:checked{ background-color: pink; }
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap>../../Desktop/resource/130px-MoneroLogo.png</pixmap>
+        <pixmap resource="qtresourse.qrc">:/resource/130px-MoneroLogo.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>true</bool>
@@ -1609,7 +1609,7 @@ QPushButton:checked{ background-color: pink; }
         <string/>
        </property>
        <property name="pixmap">
-        <pixmap>../../Desktop/resource/bitcoin.png</pixmap>
+        <pixmap resource="qtresourse.qrc">:/resource/bitcoin.png</pixmap>
        </property>
        <property name="scaledContents">
         <bool>true</bool>
@@ -4184,23 +4184,10 @@ color: rgb(103, 103, 103);
    <zorder>frame</zorder>
    <zorder>stackedWidget</zorder>
   </widget>
-  <widget class="QDockWidget" name="dockWidget">
-   <property name="floating">
-    <bool>true</bool>
-   </property>
-   <property name="features">
-    <set>QDockWidget::DockWidgetFloatable|QDockWidget::DockWidgetVerticalTitleBar</set>
-   </property>
-   <property name="windowTitle">
-    <string>hoihohohoähoin</string>
-   </property>
-   <attribute name="dockWidgetArea">
-    <number>1</number>
-   </attribute>
-   <widget class="QWidget" name="dockWidgetContents"/>
-  </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
- <resources/>
+ <resources>
+  <include location="qtresourse.qrc"/>
+ </resources>
  <connections/>
 </ui>
