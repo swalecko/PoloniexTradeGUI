@@ -52,14 +52,16 @@
   <widget class="QWidget" name="centralWidget">
    <property name="styleSheet">
     <string notr="true">/*border-right-color: rgb(144, 144, 144);
-/*
+
 QLineEdit {
 border-color: rgb(0, 170, 255);
 padding: 1px;
 border-style: solid;
 border: 1px solid gray;
 border-radius: 3px;
-}*\</string>
+}*/
+
+</string>
    </property>
    <widget class="QFrame" name="frame">
     <property name="geometry">
@@ -1206,7 +1208,7 @@ background-color: rgb(193,210,230);
      </property>
      <property name="font">
       <font>
-       <family>Arial</family>
+       <family>Century Gothic</family>
        <pointsize>7</pointsize>
        <weight>50</weight>
        <italic>false</italic>
@@ -1214,11 +1216,11 @@ background-color: rgb(193,210,230);
       </font>
      </property>
      <property name="styleSheet">
-      <string notr="true">font: 7pt &quot;Arial&quot;;color: rgb(195, 195, 195);
+      <string notr="true">color: rgb(195, 195, 195);
 </string>
      </property>
      <property name="text">
-      <string>Network Status</string>
+      <string>Poloniex Status</string>
      </property>
     </widget>
     <widget class="QLabel" name="lblPoloniexStatusResult">
@@ -1232,8 +1234,8 @@ background-color: rgb(193,210,230);
      </property>
      <property name="font">
       <font>
-       <family>Arial</family>
-       <pointsize>12</pointsize>
+       <family>Century Gothic</family>
+       <pointsize>9</pointsize>
       </font>
      </property>
      <property name="styleSheet">
@@ -1259,8 +1261,8 @@ color: rgb(255, 255, 255);</string>
     <widget class="QProgressBar" name="GprogressBar">
      <property name="geometry">
       <rect>
-       <x>59</x>
-       <y>166</y>
+       <x>58</x>
+       <y>179</y>
        <width>85</width>
        <height>4</height>
       </rect>
@@ -1324,7 +1326,7 @@ QProgressBar::chunk
      <property name="geometry">
       <rect>
        <x>60</x>
-       <y>180</y>
+       <y>184</y>
        <width>111</width>
        <height>16</height>
       </rect>
@@ -1403,7 +1405,7 @@ border-radius: 3px;
      <number>0</number>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="stackTrading">
      <widget class="QFrame" name="frame_2">
@@ -1438,6 +1440,18 @@ border-style: solid;
 border: 1px solid gray;
 border-radius: 3px;
 }
+
+QPushButton{ background-color: white; }
+QPushButton:disabled{ color: rgb(234, 234, 234); background-color: rgb(240, 240, 240); }
+
+QPushButton:pressed{ background-color: orange; }
+QPushButton:focus:pressed{background-color: rgb(235, 235, 235);}
+QPushButton:hover{ background-color: rgb(218, 218, 218);}
+QPushButton:checked{ background-color: pink; }
+
+
+
+
 </string>
       </property>
       <property name="frameShape">
@@ -1610,6 +1624,11 @@ border-radius: 3px;
          <height>20</height>
         </rect>
        </property>
+       <property name="font">
+        <font>
+         <family>Century Gothic</family>
+        </font>
+       </property>
        <property name="styleSheet">
         <string notr="true">
 border-color: rgb(218, 218, 218);</string>
@@ -1627,6 +1646,11 @@ border-color: rgb(218, 218, 218);</string>
          <height>20</height>
         </rect>
        </property>
+       <property name="font">
+        <font>
+         <family>Century Gothic</family>
+        </font>
+       </property>
        <property name="styleSheet">
         <string notr="true">
 border-color: rgb(218, 218, 218);</string>
@@ -1643,6 +1667,11 @@ border-color: rgb(218, 218, 218);</string>
          <width>113</width>
          <height>20</height>
         </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Century Gothic</family>
+        </font>
        </property>
        <property name="styleSheet">
         <string notr="true">
@@ -1664,6 +1693,11 @@ border-color: rgb(218, 218, 218);</string>
          <height>20</height>
         </rect>
        </property>
+       <property name="font">
+        <font>
+         <family>Century Gothic</family>
+        </font>
+       </property>
        <property name="styleSheet">
         <string notr="true">
 border-color: rgb(218, 218, 218);</string>
@@ -1681,6 +1715,11 @@ border-color: rgb(218, 218, 218);</string>
          <height>20</height>
         </rect>
        </property>
+       <property name="font">
+        <font>
+         <family>Century Gothic</family>
+        </font>
+       </property>
        <property name="styleSheet">
         <string notr="true">
 border-color: rgb(218, 218, 218);</string>
@@ -1697,6 +1736,11 @@ border-color: rgb(218, 218, 218);</string>
          <width>113</width>
          <height>20</height>
         </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Century Gothic</family>
+        </font>
        </property>
        <property name="styleSheet">
         <string notr="true">
@@ -1854,6 +1898,11 @@ border-color: rgb(218, 218, 218);</string>
          <height>20</height>
         </rect>
        </property>
+       <property name="font">
+        <font>
+         <family>Century Gothic</family>
+        </font>
+       </property>
        <property name="styleSheet">
         <string notr="true">border-color: rgb(51, 135, 5);
 </string>
@@ -1870,6 +1919,11 @@ border-color: rgb(218, 218, 218);</string>
          <width>113</width>
          <height>20</height>
         </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Century Gothic</family>
+        </font>
        </property>
        <property name="styleSheet">
         <string notr="true">
@@ -1891,6 +1945,11 @@ border-color: rgb(218, 218, 218);</string>
          <height>20</height>
         </rect>
        </property>
+       <property name="font">
+        <font>
+         <family>Century Gothic</family>
+        </font>
+       </property>
        <property name="styleSheet">
         <string notr="true">border-color: rgb(51, 135, 5);</string>
        </property>
@@ -1906,6 +1965,11 @@ border-color: rgb(218, 218, 218);</string>
          <width>113</width>
          <height>20</height>
         </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Century Gothic</family>
+        </font>
        </property>
        <property name="styleSheet">
         <string notr="true">border-color: rgb(212, 57, 19);</string>
@@ -1923,6 +1987,11 @@ border-color: rgb(218, 218, 218);</string>
          <height>20</height>
         </rect>
        </property>
+       <property name="font">
+        <font>
+         <family>Century Gothic</family>
+        </font>
+       </property>
        <property name="styleSheet">
         <string notr="true">border-color: rgb(212, 57, 19);</string>
        </property>
@@ -1938,6 +2007,11 @@ border-color: rgb(218, 218, 218);</string>
          <width>113</width>
          <height>20</height>
         </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Century Gothic</family>
+        </font>
        </property>
        <property name="styleSheet">
         <string notr="true">
@@ -2025,7 +2099,7 @@ border-color: rgb(218, 218, 218);</string>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true"/>
+        <string notr="true">border: transparent;</string>
        </property>
        <property name="text">
         <string/>
@@ -2065,7 +2139,7 @@ border-color: rgb(218, 218, 218);</string>
         </font>
        </property>
        <property name="styleSheet">
-        <string notr="true"/>
+        <string notr="true">border: transparent;</string>
        </property>
        <property name="text">
         <string/>
@@ -2378,7 +2452,15 @@ padding: 1px;
 border-style: solid;
 border: 1px solid gray;
 border-radius: 3px;
-}</string>
+}
+
+QPushButton{ background-color: white; }
+QPushButton:disabled{ color: rgb(234, 234, 234);  background-color: rgb(239, 239, 239); }
+QPushButton:pressed{ background-color: orange; }
+QPushButton:focus:pressed{background-color: rgb(235, 235, 235);}
+QPushButton:hover{ background-color: rgb(218, 218, 218);}
+QPushButton:checked{ background-color: pink; }
+</string>
       </property>
       <property name="frameShape">
        <enum>QFrame::Box</enum>
@@ -2452,6 +2534,11 @@ border-radius: 3px;
          <height>20</height>
         </rect>
        </property>
+       <property name="font">
+        <font>
+         <family>Century Gothic</family>
+        </font>
+       </property>
        <property name="styleSheet">
         <string notr="true">border-color: rgb(218, 218, 218);</string>
        </property>
@@ -2464,6 +2551,11 @@ border-radius: 3px;
          <width>511</width>
          <height>20</height>
         </rect>
+       </property>
+       <property name="font">
+        <font>
+         <family>Century Gothic</family>
+        </font>
        </property>
        <property name="styleSheet">
         <string notr="true">border-color: rgb(218, 218, 218);</string>
@@ -4091,6 +4183,21 @@ color: rgb(103, 103, 103);
    <zorder>frame_4</zorder>
    <zorder>frame</zorder>
    <zorder>stackedWidget</zorder>
+  </widget>
+  <widget class="QDockWidget" name="dockWidget">
+   <property name="floating">
+    <bool>true</bool>
+   </property>
+   <property name="features">
+    <set>QDockWidget::DockWidgetFloatable|QDockWidget::DockWidgetVerticalTitleBar</set>
+   </property>
+   <property name="windowTitle">
+    <string>hoihohohoähoin</string>
+   </property>
+   <attribute name="dockWidgetArea">
+    <number>1</number>
+   </attribute>
+   <widget class="QWidget" name="dockWidgetContents"/>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>

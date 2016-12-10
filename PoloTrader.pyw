@@ -47,6 +47,16 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow):
         self.setWindowFlags(QtCore.Qt.CustomizeWindowHint)
         self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
 
+    def mousePressEvent(self, event):
+        self.offset = event.pos()
+
+    def mouseMoveEvent(self, event):
+        x=event.globalX()
+        y=event.globalY()
+        x_w = self.offset.x()
+        y_w = self.offset.y()
+        self.move(x-x_w, y-y_w)    
+
     def setTaskWindowTitle(self, gui, price):
         self.gui = gui
         _translate = QtCore.QCoreApplication.translate
@@ -63,8 +73,6 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow):
             self.lnMonero.setPalette(self.palettegreen)
         else:
             self.lnMonero.setPalette(self.palettered)
-
-        #self.lcdMonero.display(_translate("MainWindow", lcdmonero))
         _translate = QtCore.QCoreApplication.translate
         self.lnMonero.setText(_translate("MainWindow", str(lcdmonero)))
 
@@ -75,8 +83,6 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow):
             self.lnBitcoin.setPalette(self.palettegreen)
         else:
             self.lnBitcoin.setPalette(self.palettered)
-
-        #self.lcdBitcoin.display(_translate("MainWindow", str(lcdbitcoin)))
 
         self.lnBitcoin.setText(_translate("MainWindow", str(lcdbitcoin)))
     def setXMRUSDPrice(self, xmrusd):
@@ -104,8 +110,6 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow):
             self.lnMoneroOO.setPalette(self.palettegreen)
         else:
             self.lnMoneroOO.setPalette(self.palettered)
-
-        #self.lcdMoneroinclO.display(_translate("MainWindow", moneroinclio))
 
         self.lnMoneroOO.setText(_translate("MainWindow", str(moneroinclio)))
     def setSellBTCTotal(self, sellbtctotal):
@@ -145,7 +149,6 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow):
     def setOpenOrdersRowCount(self, c):
         _translate = QtCore.QCoreApplication.translate
         self.OpenOrdersWidgetXMR.setRowCount(c)
-
 
 def main():
     logging.basicConfig(filename="qt.log", level=logging.INFO, format='{asctime} {filename} {lineno} [{levelname:8}] {message}', datefmt='%m/%d/%Y %I:%M:%S', style = "{")

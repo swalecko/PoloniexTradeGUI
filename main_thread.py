@@ -156,7 +156,10 @@ class Thread(QThread):
  
         msg.setText(text)
         msg.setStandardButtons(QMessageBox.Ok)
-        msg.setStyleSheet("QWidget {color: white;} QMessageBox {background-color: #333333; border-width: 1px; border-color:orange; border-style: solid; border-radius: 6;} QPushButton{color: orange; background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #565656, stop: 0.1 #525252, stop: 0.5 #4e4e4e, stop: 0.9 #4a4a4a, stop: 1 #464646); border-width: 1px;border-color: orange; border-style: solid;border-radius: 6;padding: 3px;font-size: 12px;padding-left: 5px;padding-right: 5px;} QPushButton:pressed {background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #2d2d30, stop: 0.1 #2b2b2b, stop: 0.5 #292929, stop: 0.9 #282828, stop: 1 #252530)} QPushButton:hover {border: 2px solid QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ffa02f, stop: 1 #d7801a);}")
+        msg.setStyleSheet("QWidget {color: gray; padding-right: 10px;} QMessageBox {background-color: white; border-width: 1px; border-color:gray; border-style: solid; border-radius: 4;} QPushButton{color: gray; background-color: white; border-width: 1px;border-color: gray; border-style: solid;border-radius: 3;padding: 3px;font-size: 12px;padding-left: 5px;padding-right: 5px;} QPushButton:pressed {background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #2d2d30, stop: 0.1 #2b2b2b, stop: 0.5 #292929, stop: 0.9 #282828, stop: 1 #252530)} QPushButton:hover {border: 2px solid gray;}")
+
+
+
 
         msg.exec_()
 
@@ -169,8 +172,8 @@ class Thread(QThread):
         msg.setStandardButtons(QMessageBox.Ok | QMessageBox.Abort)
         btnConfirm = msg.button(QMessageBox.Ok)
         btnConfirm.setText("  Confirm  ")
-        msg.setStyleSheet("QWidget {color: white;} QMessageBox {background-color: #333333; border-width: 1px; border-color:orange; border-style: solid; border-radius: 6;} QPushButton{color: orange; background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #565656, stop: 0.1 #525252, stop: 0.5 #4e4e4e, stop: 0.9 #4a4a4a, stop: 1 #464646); border-width: 1px;border-color: orange; border-style: solid;border-radius: 6;padding: 3px;font-size: 12px;padding-left: 5px;padding-right: 5px;} QPushButton:pressed {background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #2d2d30, stop: 0.1 #2b2b2b, stop: 0.5 #292929, stop: 0.9 #282828, stop: 1 #252530)} QPushButton:hover {border: 2px solid QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ffa02f, stop: 1 #d7801a);}")
-
+        #msg.setStyleSheet("QWidget {color: white;} QMessageBox {background-color: #333333; border-width: 1px; border-color:orange; border-style: solid; border-radius: 6;} QPushButton{color: orange; background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #565656, stop: 0.1 #525252, stop: 0.5 #4e4e4e, stop: 0.9 #4a4a4a, stop: 1 #464646); border-width: 1px;border-color: orange; border-style: solid;border-radius: 6;padding: 3px;font-size: 12px;padding-left: 5px;padding-right: 5px;} QPushButton:pressed {background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #2d2d30, stop: 0.1 #2b2b2b, stop: 0.5 #292929, stop: 0.9 #282828, stop: 1 #252530)} QPushButton:hover {border: 2px solid QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ffa02f, stop: 1 #d7801a);}")
+        msg.setStyleSheet("QWidget {color: gray; padding-right: 10px;} QMessageBox {background-color: white; border-width: 1px; border-color:gray; border-style: solid; border-radius: 4;} QPushButton{color: gray; background-color: white; border-width: 1px;border-color: gray; border-style: solid;border-radius: 3;padding: 3px;font-size: 12px;padding-left: 5px;padding-right: 5px;} QPushButton:pressed {background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #2d2d30, stop: 0.1 #2b2b2b, stop: 0.5 #292929, stop: 0.9 #282828, stop: 1 #252530)} QPushButton:hover {border: 2px solid gray;}")
         ret = msg.exec_()
 
         if ret == QMessageBox.Ok:
@@ -215,25 +218,25 @@ class Thread(QThread):
        
         if self.RefreshOO() is False:
             logging.critical("Refresh Open Orders failed")
-            self.popup("Refresh not completed. \nPlease refresh again.",QMessageBox.Warning)
+            self.popup("Refresh failed \nPlease try again",QMessageBox.Warning)
         else:
             self.download(30)
      
             if self.RefreshHistory() is False:
                 logging.critical("Refresh History failed")
-                self.popup("Refresh not completed. \nPlease refresh again.",QMessageBox.Warning)
+                self.popup("Refresh failed \nPlease try again",QMessageBox.Warning)
             else:
                 self.download(50)
         
                 if self.showBalances() is False:
                     logging.critical("Refresh Balances failed")
-                    self.popup("Refresh not completed. \nPlease refresh again.",QMessageBox.Warning)
+                    self.popup("Refresh failed \nPlease try again",QMessageBox.Warning)
                 else:
                     self.stateButtons(sell=True, buy=True, refresh=True)
                     self.download(75)
                     if self.calcMyAssets() is False:
                         logging.critical("Refresh Asset failed")
-                        self.popup("Refresh not completed. \nPlease refresh again.",QMessageBox.Warning)
+                        self.popup("Refresh failed \nPlease try again",QMessageBox.Warning)
                     else:
                         self.download(100)
                         self.ui.lblLast.setText(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
@@ -359,13 +362,13 @@ class Thread(QThread):
 
         if (inputPublicKey == "" or inputSecretKey == ""):
             logging.warning("Warning: Could not save API keys. Invalid Input.")
-            self.popup("API keys not saved. Invalid input.", QMessageBox.Warning)
+            self.popup("Invalid keys \nAPI keys not saved", QMessageBox.Warning)
         
         else:
             with open("key.py", "w") as keyfile:
                 keyfile.write("PUBLIC_KEY = '" + inputPublicKey + "' \nSECRET_KEY = '" + inputSecretKey + "'")
             logging.info("API Keys succesfully saved.")
-            self.popup("API Keys succesfully saved", QMessageBox.Information)
+            self.popup("API Keys saved", QMessageBox.Information)
         
     def calcSellBTCTotal(self, sellreadbtcprice, sellreadxmramount):
         self.sellreadbtcprice = sellreadbtcprice
@@ -389,7 +392,7 @@ class Thread(QThread):
 
         if self.retTicker is None:
             logging.warning("self.retTicker = None: Ticker not refreshed")
-            self.popup("Price not refreshed. \nPlease try again.")
+            self.popup("Price not refreshed \nPlease try again")
         else:
             self.tickerXMR = self.retTicker['BTC_XMR']
             self.lastXMR = self.tickerXMR['last']     
@@ -402,16 +405,16 @@ class Thread(QThread):
     def clickBuy(self):
         self.ui.buyButton.clicked.connect(self.clickedBuy)
     def clickedBuy(self):
-        if self.BuyreadBTCprice == "" or self.BuyreadBTCprice == 0.0 or self.resultBuyXMRAmount == "" or self.resultBuyXMRAmount == 0.0:
+        if self.BuyreadBTCprice == "" or self.BuyreadBTCprice == 0.0 or self.resultBuyXMRAmount == "" or self.resultBuyXMRAmount == 0.0 or not isinstance(self.BuyreadBTCprice, (int,float)) or not isinstance(self.resultBuyXMRAmount, (int,float)):
             self.popup("Invalid input", QMessageBox.Warning)
         elif self.buyreadbtctotal > float(self.BalanceBTC):
-            self.popup("Invalid Amount. \nCheck your Balance.", QMessageBox.Warning)
+            self.popup("Invalid Amount \nPlease check your Balance", QMessageBox.Warning)
         else:
             self.refreshXMRvalues(calc=False)
             fixBuyreadBTCprice = self.BuyreadBTCprice
             fixresultBuyXMRAmount = self.resultBuyXMRAmount
 
-            text = "Order details: \n\nCurrency: XMR \nPrice: " + str(fixBuyreadBTCprice) + "\nAmount: " + str(fixresultBuyXMRAmount)
+            text = "Order details: \n\nPrice: " + str(fixBuyreadBTCprice) + " BTC" + "\nAmount: " + str(fixresultBuyXMRAmount) + " XMR"
 
             if self.confirmPopup(text) == True:
 
@@ -420,28 +423,28 @@ class Thread(QThread):
 
                 if exeBuy["orderNumber"] != '':
 
-                    logging.info("Buy Order executed: " + str(exeBuy["orderNumber"]))
-                    self.popup("Buy order placed: \n\n" + "Order Number: " + str(exeBuy["orderNumber"]), QMessageBox.Information)
+                    logging.info("Buy Order placed: " + str(exeBuy["orderNumber"]))
+                    self.popup("Buy order placed \n\n" + "Order Number: " + str(exeBuy["orderNumber"]), QMessageBox.Information)
                 else:
                     logging.debug("Buy Order failed! " + str(e))
-                    self.popup("Buy order failed",QMessageBox.Critical)
+                    self.popup("Place buy order failed",QMessageBox.Critical)
             else:
-                self.popup("Order aborted!", QMessageBox.Information)
+                self.popup("Order canceled", QMessageBox.Information)
             
     def clickSell(self):
         self.ui.sellButton.clicked.connect(self.clickedSell)
     def clickedSell(self):
 
-        if self.SellreadBTCprice == "" or self.SellreadBTCprice == 0.0 or self.SellreadXMRAmount == "" or self.SellreadXMRAmount == 0.0:     
+        if self.SellreadBTCprice == "" or self.SellreadBTCprice == 0.0 or self.SellreadXMRAmount == "" or self.SellreadXMRAmount == 0.0 or not isinstance(self.SellreadXMRAmount, (int,float)) or not isinstance(self.SellreadBTCprice, (int,float)):     
             self.popup("Invalid input", QMessageBox.Warning)
         elif self.SellreadXMRAmount > float(self.BalanceXMR):
-            self.popup("Invalid Amount. \nCheck your Balance.", QMessageBox.Warning)
+            self.popup("Invalid Amount \nPlease check your Balance", QMessageBox.Warning)
         else:   
             self.refreshXMRvalues(calc=False)
             fixSellreadBTCprice = self.SellreadBTCprice
             fixSellreadXMRAmount = self.SellreadXMRAmount    
 
-            text = "Order details: \n\nCurrency: XMR \nPrice: " + str(fixSellreadBTCprice) + "\nAmount: " + str(fixSellreadXMRAmount)
+            text = "Order details: \n\nPrice: " + str(fixSellreadBTCprice) + " BTC" + "\nAmount: " + str(fixSellreadXMRAmount) + " XMR"
 
             if self.confirmPopup(text) == True:
             
@@ -449,13 +452,13 @@ class Thread(QThread):
                 QtCore.QCoreApplication.processEvents()
 
                 if exeSell["orderNumber"] != '':
-                    logging.info("Sell Order executed: " + str(exeSell["orderNumber"]))
+                    logging.info("Sell Order placed: " + str(exeSell["orderNumber"]))
                     self.popup("Sell order placed: \n\n" + "Order Number: " + str(exeSell["orderNumber"]) , QMessageBox.Information)
                 else:
-                    logging.debug("Sell Order failed! " + str(e))
-                    self.popup("Sell order failed",QMessageBox.Critical)
+                    logging.debug("Place sell Order failed")
+                    self.popup("Place sell order failed",QMessageBox.Critical)
             else:
-                self.popup("Order aborted!", QMessageBox.Information)
+                self.popup("Order canceled", QMessageBox.Information)
 
     def cancelOrder(self):
         self.ui.OpenOrdersWidgetXMR.cellDoubleClicked.connect(self.double_clicked)
@@ -465,12 +468,12 @@ class Thread(QThread):
         QtCore.QCoreApplication.processEvents()
         
         if resultCancel["success"] == 1:
-            logging.info("Order cancelled succesfully: " + str(orderNumberXMR))
-            self.popup("Order cancelled: \n\n" + str(orderNumberXMR),QMessageBox.Information)
+            logging.info("Order canceled succesfully: " + str(orderNumberXMR))
+            self.popup("Order canceled \n\n" + "Order Number: " + str(orderNumberXMR),QMessageBox.Information)
            
         else:
-            logging.debug("ERROR: Order could not be cancelled. Try again..")
-            self.popup("ERROR! Order could not be cancelled",QMessageBox.Critical)
+            logging.debug("Order could not be canceled")
+            self.popup("Order could not be canceled \nPlease try again",QMessageBox.Critical)
     
     #def clickXmrChart(self):
     #    self.ui.buttonChart.clicked.connect(self.clickedXmrChart)

@@ -1,12 +1,11 @@
-key.py
-build/
-dist/
-qt.log
-thread_getusd.py
-__pycache__/
 # Windows image file caches
 Thumbs.db
 ehthumbs.db
+key.py
+__pycache__
+build/
+dist/
+qt.log
 
 # Folder config file
 Desktop.ini

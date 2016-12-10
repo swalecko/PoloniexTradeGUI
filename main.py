@@ -26,14 +26,16 @@ class Ui_MainWindow(object):
         MainWindow.setTabShape(QtWidgets.QTabWidget.Rounded)
         self.centralWidget = QtWidgets.QWidget(MainWindow)
         self.centralWidget.setStyleSheet("/*border-right-color: rgb(144, 144, 144);\n"
-"/*\n"
+"\n"
 "QLineEdit {\n"
 "border-color: rgb(0, 170, 255);\n"
 "padding: 1px;\n"
 "border-style: solid;\n"
 "border: 1px solid gray;\n"
 "border-radius: 3px;\n"
-"}*\\")
+"}*/\n"
+"\n"
+"")
         self.centralWidget.setObjectName("centralWidget")
         self.frame = QtWidgets.QFrame(self.centralWidget)
         self.frame.setGeometry(QtCore.QRect(-1, 240, 170, 312))
@@ -434,20 +436,20 @@ class Ui_MainWindow(object):
         self.label_26 = QtWidgets.QLabel(self.frame)
         self.label_26.setGeometry(QtCore.QRect(60, 258, 91, 16))
         font = QtGui.QFont()
-        font.setFamily("Arial")
+        font.setFamily("Century Gothic")
         font.setPointSize(7)
         font.setBold(False)
         font.setItalic(False)
         font.setWeight(50)
         self.label_26.setFont(font)
-        self.label_26.setStyleSheet("font: 7pt \"Arial\";color: rgb(195, 195, 195);\n"
+        self.label_26.setStyleSheet("color: rgb(195, 195, 195);\n"
 "")
         self.label_26.setObjectName("label_26")
         self.lblPoloniexStatusResult = QtWidgets.QLabel(self.frame)
         self.lblPoloniexStatusResult.setGeometry(QtCore.QRect(60, 274, 101, 16))
         font = QtGui.QFont()
-        font.setFamily("Arial")
-        font.setPointSize(12)
+        font.setFamily("Century Gothic")
+        font.setPointSize(9)
         self.lblPoloniexStatusResult.setFont(font)
         self.lblPoloniexStatusResult.setStyleSheet("\n"
 "color: rgb(255, 255, 255);")
@@ -457,7 +459,7 @@ class Ui_MainWindow(object):
         self.lblPoloniexStatusResult.setWordWrap(False)
         self.lblPoloniexStatusResult.setObjectName("lblPoloniexStatusResult")
         self.GprogressBar = QtWidgets.QProgressBar(self.frame)
-        self.GprogressBar.setGeometry(QtCore.QRect(59, 166, 85, 4))
+        self.GprogressBar.setGeometry(QtCore.QRect(58, 179, 85, 4))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(1)
         sizePolicy.setVerticalStretch(1)
@@ -486,7 +488,7 @@ class Ui_MainWindow(object):
         self.GprogressBar.setTextDirection(QtWidgets.QProgressBar.TopToBottom)
         self.GprogressBar.setObjectName("GprogressBar")
         self.lblLast = QtWidgets.QLabel(self.frame)
-        self.lblLast.setGeometry(QtCore.QRect(60, 180, 111, 16))
+        self.lblLast.setGeometry(QtCore.QRect(60, 184, 111, 16))
         font = QtGui.QFont()
         font.setFamily("Arial")
         font.setPointSize(7)
@@ -539,6 +541,18 @@ class Ui_MainWindow(object):
 "border: 1px solid gray;\n"
 "border-radius: 3px;\n"
 "}\n"
+"\n"
+"QPushButton{ background-color: white; }\n"
+"QPushButton:disabled{ color: rgb(234, 234, 234); background-color: rgb(240, 240, 240); }\n"
+"\n"
+"QPushButton:pressed{ background-color: orange; }\n"
+"QPushButton:focus:pressed{background-color: rgb(235, 235, 235);}\n"
+"QPushButton:hover{ background-color: rgb(218, 218, 218);}\n"
+"QPushButton:checked{ background-color: pink; }\n"
+"\n"
+"\n"
+"\n"
+"\n"
 "")
         self.frame_2.setFrameShape(QtWidgets.QFrame.Box)
         self.frame_2.setFrameShadow(QtWidgets.QFrame.Sunken)
@@ -606,18 +620,27 @@ class Ui_MainWindow(object):
         self.label_7.setObjectName("label_7")
         self.lnPriceXMR = QtWidgets.QLineEdit(self.frame_2)
         self.lnPriceXMR.setGeometry(QtCore.QRect(119, 70, 113, 20))
+        font = QtGui.QFont()
+        font.setFamily("Century Gothic")
+        self.lnPriceXMR.setFont(font)
         self.lnPriceXMR.setStyleSheet("\n"
 "border-color: rgb(218, 218, 218);")
         self.lnPriceXMR.setFrame(False)
         self.lnPriceXMR.setObjectName("lnPriceXMR")
         self.lnPriceUSD = QtWidgets.QLineEdit(self.frame_2)
         self.lnPriceUSD.setGeometry(QtCore.QRect(119, 100, 113, 20))
+        font = QtGui.QFont()
+        font.setFamily("Century Gothic")
+        self.lnPriceUSD.setFont(font)
         self.lnPriceUSD.setStyleSheet("\n"
 "border-color: rgb(218, 218, 218);")
         self.lnPriceUSD.setFrame(False)
         self.lnPriceUSD.setObjectName("lnPriceUSD")
         self.lnHigh = QtWidgets.QLineEdit(self.frame_2)
         self.lnHigh.setGeometry(QtCore.QRect(119, 130, 113, 20))
+        font = QtGui.QFont()
+        font.setFamily("Century Gothic")
+        self.lnHigh.setFont(font)
         self.lnHigh.setStyleSheet("\n"
 "border-color: rgb(218, 218, 218);")
         self.lnHigh.setText("")
@@ -625,18 +648,27 @@ class Ui_MainWindow(object):
         self.lnHigh.setObjectName("lnHigh")
         self.lnLow = QtWidgets.QLineEdit(self.frame_2)
         self.lnLow.setGeometry(QtCore.QRect(119, 160, 113, 20))
+        font = QtGui.QFont()
+        font.setFamily("Century Gothic")
+        self.lnLow.setFont(font)
         self.lnLow.setStyleSheet("\n"
 "border-color: rgb(218, 218, 218);")
         self.lnLow.setFrame(False)
         self.lnLow.setObjectName("lnLow")
         self.lnChange = QtWidgets.QLineEdit(self.frame_2)
         self.lnChange.setGeometry(QtCore.QRect(119, 190, 113, 20))
+        font = QtGui.QFont()
+        font.setFamily("Century Gothic")
+        self.lnChange.setFont(font)
         self.lnChange.setStyleSheet("\n"
 "border-color: rgb(218, 218, 218);")
         self.lnChange.setFrame(False)
         self.lnChange.setObjectName("lnChange")
         self.lnBTCPriceUSD = QtWidgets.QLineEdit(self.frame_2)
         self.lnBTCPriceUSD.setGeometry(QtCore.QRect(259, 100, 113, 20))
+        font = QtGui.QFont()
+        font.setFamily("Century Gothic")
+        self.lnBTCPriceUSD.setFont(font)
         self.lnBTCPriceUSD.setStyleSheet("\n"
 "border-color: rgb(218, 218, 218);")
         self.lnBTCPriceUSD.setFrame(False)
@@ -694,12 +726,18 @@ class Ui_MainWindow(object):
         self.label_15.setObjectName("label_15")
         self.lnBuyPrice = QtWidgets.QLineEdit(self.frame_2)
         self.lnBuyPrice.setGeometry(QtCore.QRect(120, 311, 113, 20))
+        font = QtGui.QFont()
+        font.setFamily("Century Gothic")
+        self.lnBuyPrice.setFont(font)
         self.lnBuyPrice.setStyleSheet("border-color: rgb(51, 135, 5);\n"
 "")
         self.lnBuyPrice.setFrame(False)
         self.lnBuyPrice.setObjectName("lnBuyPrice")
         self.lnBuyAmount = QtWidgets.QLineEdit(self.frame_2)
         self.lnBuyAmount.setGeometry(QtCore.QRect(120, 341, 113, 20))
+        font = QtGui.QFont()
+        font.setFamily("Century Gothic")
+        self.lnBuyAmount.setFont(font)
         self.lnBuyAmount.setStyleSheet("\n"
 "border-color: rgb(218, 218, 218);")
         self.lnBuyAmount.setFrame(False)
@@ -707,21 +745,33 @@ class Ui_MainWindow(object):
         self.lnBuyAmount.setObjectName("lnBuyAmount")
         self.lnBuyTotal = QtWidgets.QLineEdit(self.frame_2)
         self.lnBuyTotal.setGeometry(QtCore.QRect(120, 371, 113, 20))
+        font = QtGui.QFont()
+        font.setFamily("Century Gothic")
+        self.lnBuyTotal.setFont(font)
         self.lnBuyTotal.setStyleSheet("border-color: rgb(51, 135, 5);")
         self.lnBuyTotal.setFrame(False)
         self.lnBuyTotal.setObjectName("lnBuyTotal")
         self.lnSellPrice = QtWidgets.QLineEdit(self.frame_2)
         self.lnSellPrice.setGeometry(QtCore.QRect(440, 311, 113, 20))
+        font = QtGui.QFont()
+        font.setFamily("Century Gothic")
+        self.lnSellPrice.setFont(font)
         self.lnSellPrice.setStyleSheet("border-color: rgb(212, 57, 19);")
         self.lnSellPrice.setFrame(False)
         self.lnSellPrice.setObjectName("lnSellPrice")
         self.lnSellAmount = QtWidgets.QLineEdit(self.frame_2)
         self.lnSellAmount.setGeometry(QtCore.QRect(440, 341, 113, 20))
+        font = QtGui.QFont()
+        font.setFamily("Century Gothic")
+        self.lnSellAmount.setFont(font)
         self.lnSellAmount.setStyleSheet("border-color: rgb(212, 57, 19);")
         self.lnSellAmount.setFrame(False)
         self.lnSellAmount.setObjectName("lnSellAmount")
         self.lnSellTotal = QtWidgets.QLineEdit(self.frame_2)
         self.lnSellTotal.setGeometry(QtCore.QRect(440, 371, 113, 20))
+        font = QtGui.QFont()
+        font.setFamily("Century Gothic")
+        self.lnSellTotal.setFont(font)
         self.lnSellTotal.setStyleSheet("\n"
 "border-color: rgb(218, 218, 218);")
         self.lnSellTotal.setFrame(False)
@@ -752,7 +802,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setFamily("Century Gothic")
         self.btnBuyGetBTCTotal.setFont(font)
-        self.btnBuyGetBTCTotal.setStyleSheet("")
+        self.btnBuyGetBTCTotal.setStyleSheet("border: transparent;")
         self.btnBuyGetBTCTotal.setText("")
         icon5 = QtGui.QIcon()
         icon5.addPixmap(QtGui.QPixmap("../../Desktop/resource/ic_cached_black_24dp/ic_cached_black_24dp/web/ic_cached_black_24dp_1x.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -768,7 +818,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setFamily("Century Gothic")
         self.btnSellGetBTCPrice.setFont(font)
-        self.btnSellGetBTCPrice.setStyleSheet("")
+        self.btnSellGetBTCPrice.setStyleSheet("border: transparent;")
         self.btnSellGetBTCPrice.setText("")
         self.btnSellGetBTCPrice.setIcon(icon5)
         self.btnSellGetBTCPrice.setCheckable(False)
@@ -891,7 +941,15 @@ class Ui_MainWindow(object):
 "border-style: solid;\n"
 "border: 1px solid gray;\n"
 "border-radius: 3px;\n"
-"}")
+"}\n"
+"\n"
+"QPushButton{ background-color: white; }\n"
+"QPushButton:disabled{ color: rgb(234, 234, 234);  background-color: rgb(239, 239, 239); }\n"
+"QPushButton:pressed{ background-color: orange; }\n"
+"QPushButton:focus:pressed{background-color: rgb(235, 235, 235);}\n"
+"QPushButton:hover{ background-color: rgb(218, 218, 218);}\n"
+"QPushButton:checked{ background-color: pink; }\n"
+"")
         self.frame_3.setFrameShape(QtWidgets.QFrame.Box)
         self.frame_3.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.frame_3.setObjectName("frame_3")
@@ -918,10 +976,16 @@ class Ui_MainWindow(object):
         self.label_18.setObjectName("label_18")
         self.lnPublicKey = QtWidgets.QLineEdit(self.frame_3)
         self.lnPublicKey.setGeometry(QtCore.QRect(110, 68, 511, 20))
+        font = QtGui.QFont()
+        font.setFamily("Century Gothic")
+        self.lnPublicKey.setFont(font)
         self.lnPublicKey.setStyleSheet("border-color: rgb(218, 218, 218);")
         self.lnPublicKey.setObjectName("lnPublicKey")
         self.lnSecretKey = QtWidgets.QLineEdit(self.frame_3)
         self.lnSecretKey.setGeometry(QtCore.QRect(110, 98, 511, 20))
+        font = QtGui.QFont()
+        font.setFamily("Century Gothic")
+        self.lnSecretKey.setFont(font)
         self.lnSecretKey.setStyleSheet("border-color: rgb(218, 218, 218);")
         self.lnSecretKey.setObjectName("lnSecretKey")
         self.saveButton = QtWidgets.QPushButton(self.frame_3)
@@ -1472,7 +1536,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralWidget)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(0)
+        self.stackedWidget.setCurrentIndex(3)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -1483,7 +1547,7 @@ class Ui_MainWindow(object):
         self.btnOO.setText(_translate("MainWindow", "Open Orders"))
         self.btnConfiguration.setText(_translate("MainWindow", "Configuration"))
         self.btnRefresh.setText(_translate("MainWindow", "Refresh"))
-        self.label_26.setText(_translate("MainWindow", "Network Status"))
+        self.label_26.setText(_translate("MainWindow", "Poloniex Status"))
         self.lblPoloniexStatusResult.setText(_translate("MainWindow", "N/A"))
         self.lblLast.setText(_translate("MainWindow", "N/A"))
         self.label.setText(_translate("MainWindow", "Price (BTC)"))
