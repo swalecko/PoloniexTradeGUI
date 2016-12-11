@@ -430,12 +430,10 @@ class Thread(QThread):
 
                 if exeBuy is False:
                     self.popup("Buy order not placed \nPlease check your network connectivity and try again", QMessageBox.Warning)
-                elif exeBuy["error"] == "Total must be at least 0.0001.":
+                elif "error" in exeBuy and exeBuy["error"] == "Total must be at least 0.0001.":
                     self.popup("Buy order not placed \nTotal must be at least 0.0001", QMessageBox.Warning)
                 else:
-
-                    if exeBuy["orderNumber"] != '':
-
+                    if "orderNumber" in exeBuy and exeBuy["orderNumber"] != '':
                         logging.info("Buy Order placed: " + str(exeBuy["orderNumber"]))
                         self.popup("Buy order placed \n\n" + "Order Number: " + str(exeBuy["orderNumber"]), QMessageBox.Information)
                     else:
@@ -462,16 +460,13 @@ class Thread(QThread):
             if self.confirmPopup(text) == True:
             
                 exeSell = self.poloInstance.sell("BTC_XMR",fixSellreadBTCprice, fixSellreadXMRAmount)
-                QtCore.QCoreApplication.processEvents()
 
                 if exeSell is False:
                     self.popup("Sell order not placed \nPlease check your network connectivity and try again", QMessageBox.Warning)
-                elif exeSell["error"] == "Invalid amount parameter.":
+                elif "error" in exeSell and exeSell["error"] == "Invalid amount parameter.":
                     self.popup("Sell order not placed \nInvalid amount parameter", QMessageBox.Warning)
                 else:
-
-                    print (exeSell)
-                    if exeSell["orderNumber"] != '':
+                    if "orderNumber" in exeSell and exeSell["orderNumber"] != '':
                         logging.info("Sell Order placed: " + str(exeSell["orderNumber"]))
                         self.popup("Sell order placed \n\n" + "Order Number: " + str(exeSell["orderNumber"]) , QMessageBox.Information)
                     else:
@@ -558,13 +553,11 @@ class Thread(QThread):
     def clickMenuOO(self):
         self.ui.btnOO.clicked.connect(self.openOO)
 
-
     def openOO(self):
         self.ui.stackedWidget.setCurrentIndex(1)
 
     def clickMenuHistory(self):
         self.ui.btnHistory.clicked.connect(self.openHistory)
-
 
     def openHistory(self):
         self.ui.stackedWidget.setCurrentIndex(2)
@@ -572,13 +565,11 @@ class Thread(QThread):
     def clickMenuTrading(self):
         self.ui.btnTrading.clicked.connect(self.openTrading)
 
-
     def openTrading(self):
         self.ui.stackedWidget.setCurrentIndex(0)
     
     def clickMenuConfiguration(self):
         self.ui.btnConfiguration.clicked.connect(self.openConfiguration)
-
 
     def openConfiguration(self):
         self.ui.stackedWidget.setCurrentIndex(3)
@@ -590,5 +581,6 @@ class Thread(QThread):
 
     def clickMenuMini(self):
         self.ui.btnMini.clicked.connect(self.clickedMini)
+        
     def clickedMini(self):
         self.ui.showMinimized()

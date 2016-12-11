@@ -1422,7 +1422,7 @@ border-radius: 3px;
      <number>0</number>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>3</number>
     </property>
     <widget class="QWidget" name="stackTrading">
      <widget class="QFrame" name="frame_2">
@@ -2105,7 +2105,7 @@ border-color: rgb(218, 218, 218);</string>
       </widget>
       <widget class="QPushButton" name="btnBuyGetBTCTotal">
        <property name="enabled">
-        <bool>false</bool>
+        <bool>true</bool>
        </property>
        <property name="geometry">
         <rect>
@@ -2525,7 +2525,7 @@ QPushButton:checked{ background-color: pink; }
         </font>
        </property>
        <property name="text">
-        <string>Public key:</string>
+        <string>Public key</string>
        </property>
       </widget>
       <widget class="QLabel" name="label_18">
@@ -2544,7 +2544,7 @@ QPushButton:checked{ background-color: pink; }
         </font>
        </property>
        <property name="text">
-        <string>Secret key:</string>
+        <string>Secret key</string>
        </property>
       </widget>
       <widget class="QLineEdit" name="lnPublicKey">
