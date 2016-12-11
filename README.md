@@ -37,9 +37,9 @@ Trading app for Monero(XMR) at the Poloniex exchange using the Poloniex API.
 ##How to Start:
 
   **Windows**  
-  - Download PoloTrader_x.x.x_Win.zip from the latest release
-  - Unzip PoloTrader_x.x.x_Win.zip
-  - Execute PoloTrader.exe (Info: exe file is created with pyinstaller)
+  - Download MoneroTrader_x.x.x_Win.zip from the latest release
+  - Unzip MoneroTrader_x.x.x_Win.zip
+  - Execute MoneroTrader.exe (Info: exe file is created with pyinstaller)
   - 2 files (key.py, qt.log) will be created in the same directory 
 
 ## How to Use:
