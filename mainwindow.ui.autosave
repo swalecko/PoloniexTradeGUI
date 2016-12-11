@@ -2105,7 +2105,7 @@ border-color: rgb(218, 218, 218);</string>
       </widget>
       <widget class="QPushButton" name="btnBuyGetBTCTotal">
        <property name="enabled">
-        <bool>false</bool>
+        <bool>true</bool>
        </property>
        <property name="geometry">
         <rect>
