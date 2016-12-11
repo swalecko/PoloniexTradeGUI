@@ -28,7 +28,7 @@
   <property name="maximumSize">
    <size>
     <width>841</width>
-    <height>550</height>
+    <height>552</height>
    </size>
   </property>
   <property name="baseSize">
@@ -1422,7 +1422,7 @@ border-radius: 3px;
      <number>0</number>
     </property>
     <property name="currentIndex">
-     <number>3</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="stackTrading">
      <widget class="QFrame" name="frame_2">
@@ -2266,7 +2266,7 @@ border-color: rgb(218, 218, 218);</string>
      <widget class="QTableWidget" name="OpenOrdersWidgetXMR">
       <property name="geometry">
        <rect>
-        <x>-2</x>
+        <x>-1</x>
         <y>0</y>
         <width>673</width>
         <height>531</height>
@@ -4233,9 +4233,9 @@ background-color: rgb(120, 13, 13);
    <widget class="QPushButton" name="btnExit">
     <property name="geometry">
      <rect>
-      <x>818</x>
+      <x>813</x>
       <y>0</y>
-      <width>22</width>
+      <width>25</width>
       <height>20</height>
      </rect>
     </property>
@@ -4279,9 +4279,9 @@ background-color: rgb(193,210,230);
    <widget class="QPushButton" name="btnMini">
     <property name="geometry">
      <rect>
-      <x>797</x>
+      <x>788</x>
       <y>0</y>
-      <width>22</width>
+      <width>25</width>
       <height>20</height>
      </rect>
     </property>
@@ -4323,12 +4323,35 @@ background-color: rgb(193,210,230);
      <bool>true</bool>
     </property>
    </widget>
+   <widget class="QLabel" name="label_28">
+    <property name="geometry">
+     <rect>
+      <x>373</x>
+      <y>1</y>
+      <width>101</width>
+      <height>16</height>
+     </rect>
+    </property>
+    <property name="font">
+     <font>
+      <family>Century Gothic</family>
+      <pointsize>9</pointsize>
+     </font>
+    </property>
+    <property name="styleSheet">
+     <string notr="true">color: white;</string>
+    </property>
+    <property name="text">
+     <string>Monero Trading</string>
+    </property>
+   </widget>
    <zorder>label_8</zorder>
    <zorder>frame_4</zorder>
    <zorder>frame</zorder>
    <zorder>stackedWidget</zorder>
    <zorder>btnExit</zorder>
    <zorder>btnMini</zorder>
+   <zorder>label_28</zorder>
   </widget>
  </widget>
  <layoutdefault spacing="6" margin="11"/>
