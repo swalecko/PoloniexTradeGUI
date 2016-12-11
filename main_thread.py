@@ -374,7 +374,7 @@ class Thread(QThread):
             with open("key.py", "w") as keyfile:
                 keyfile.write("PUBLIC_KEY = '" + inputPublicKey + "' \nSECRET_KEY = '" + inputSecretKey + "'")
             logging.info("API Keys succesfully saved.")
-            self.popup("API Keys saved \nRestart the app to aktivate the API keys", QMessageBox.Information)
+            self.popup("API Keys saved \nRestart the app to activate the API keys", QMessageBox.Information)
         
     def calcSellBTCTotal(self, sellreadbtcprice, sellreadxmramount):
         self.sellreadbtcprice = sellreadbtcprice
