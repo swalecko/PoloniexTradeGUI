@@ -504,14 +504,14 @@ class Ui_MainWindow(object):
         self.line_2.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_2.setObjectName("line_2")
         self.stackedWidget = QtWidgets.QStackedWidget(self.centralWidget)
-        self.stackedWidget.setGeometry(QtCore.QRect(170, 20, 673, 531))
+        self.stackedWidget.setGeometry(QtCore.QRect(170, 20, 674, 531))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.stackedWidget.sizePolicy().hasHeightForWidth())
         self.stackedWidget.setSizePolicy(sizePolicy)
         self.stackedWidget.setMinimumSize(QtCore.QSize(671, 520))
-        self.stackedWidget.setMaximumSize(QtCore.QSize(673, 551))
+        self.stackedWidget.setMaximumSize(QtCore.QSize(674, 551))
         font = QtGui.QFont()
         font.setFamily("Century Gothic")
         self.stackedWidget.setFont(font)
@@ -550,7 +550,7 @@ class Ui_MainWindow(object):
 "border-radius: 3px;\n"
 "}\n"
 "\n"
-"QPushButton{ background-color: white; }\n"
+"QPushButton{ background-color: white; border-radius: 3px;border-style: solid; border: 1px solid gray; }\n"
 "QPushButton:disabled{ color: rgb(234, 234, 234); background-color: rgb(240, 240, 240); }\n"
 "\n"
 "QPushButton:pressed{ background-color: orange; }\n"
@@ -793,6 +793,7 @@ class Ui_MainWindow(object):
         font.setFamily("Century Gothic")
         font.setPointSize(9)
         self.buyButton.setFont(font)
+        self.buyButton.setStyleSheet("")
         self.buyButton.setAutoDefault(True)
         self.buyButton.setDefault(False)
         self.buyButton.setFlat(False)
@@ -813,7 +814,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setFamily("Century Gothic")
         self.btnBuyGetBTCTotal.setFont(font)
-        self.btnBuyGetBTCTotal.setStyleSheet("border: transparent;")
+        self.btnBuyGetBTCTotal.setStyleSheet("border: transparent; border-radius: 3px;")
         self.btnBuyGetBTCTotal.setText("")
         icon6 = QtGui.QIcon()
         icon6.addPixmap(QtGui.QPixmap(":/resource/ic_cached_black_24dp_1x.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
@@ -829,7 +830,7 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setFamily("Century Gothic")
         self.btnSellGetBTCPrice.setFont(font)
-        self.btnSellGetBTCPrice.setStyleSheet("border: transparent;")
+        self.btnSellGetBTCPrice.setStyleSheet("border: transparent; border-radius: 3px;")
         self.btnSellGetBTCPrice.setText("")
         self.btnSellGetBTCPrice.setIcon(icon6)
         self.btnSellGetBTCPrice.setCheckable(False)
@@ -868,14 +869,14 @@ class Ui_MainWindow(object):
         self.stackOO = QtWidgets.QWidget()
         self.stackOO.setObjectName("stackOO")
         self.OpenOrdersWidgetXMR = QtWidgets.QTableWidget(self.stackOO)
-        self.OpenOrdersWidgetXMR.setGeometry(QtCore.QRect(-1, 0, 673, 531))
+        self.OpenOrdersWidgetXMR.setGeometry(QtCore.QRect(-2, 0, 674, 531))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.OpenOrdersWidgetXMR.sizePolicy().hasHeightForWidth())
         self.OpenOrdersWidgetXMR.setSizePolicy(sizePolicy)
         self.OpenOrdersWidgetXMR.setMinimumSize(QtCore.QSize(673, 531))
-        self.OpenOrdersWidgetXMR.setMaximumSize(QtCore.QSize(673, 531))
+        self.OpenOrdersWidgetXMR.setMaximumSize(QtCore.QSize(674, 531))
         font = QtGui.QFont()
         font.setFamily("Century Gothic")
         self.OpenOrdersWidgetXMR.setFont(font)
@@ -905,14 +906,14 @@ class Ui_MainWindow(object):
         self.stackHistory = QtWidgets.QWidget()
         self.stackHistory.setObjectName("stackHistory")
         self.HistoryWidgetXMR = QtWidgets.QTableWidget(self.stackHistory)
-        self.HistoryWidgetXMR.setGeometry(QtCore.QRect(-1, 0, 673, 531))
+        self.HistoryWidgetXMR.setGeometry(QtCore.QRect(-2, 0, 674, 531))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.HistoryWidgetXMR.sizePolicy().hasHeightForWidth())
         self.HistoryWidgetXMR.setSizePolicy(sizePolicy)
         self.HistoryWidgetXMR.setMinimumSize(QtCore.QSize(673, 531))
-        self.HistoryWidgetXMR.setMaximumSize(QtCore.QSize(673, 531))
+        self.HistoryWidgetXMR.setMaximumSize(QtCore.QSize(674, 531))
         font = QtGui.QFont()
         font.setFamily("Century Gothic")
         self.HistoryWidgetXMR.setFont(font)
@@ -954,8 +955,9 @@ class Ui_MainWindow(object):
 "border-radius: 3px;\n"
 "}\n"
 "\n"
-"QPushButton{ background-color: white; }\n"
-"QPushButton:disabled{ color: rgb(234, 234, 234);  background-color: rgb(239, 239, 239); }\n"
+"QPushButton{ background-color: white; border-radius: 3px;border-style: solid; border: 1px solid gray; }\n"
+"QPushButton:disabled{ color: rgb(234, 234, 234); background-color: rgb(240, 240, 240); }\n"
+"\n"
 "QPushButton:pressed{ background-color: orange; }\n"
 "QPushButton:focus:pressed{background-color: rgb(235, 235, 235);}\n"
 "QPushButton:hover{ background-color: rgb(218, 218, 218);}\n"
@@ -1628,7 +1630,7 @@ class Ui_MainWindow(object):
         MainWindow.setCentralWidget(self.centralWidget)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(1)
+        self.stackedWidget.setCurrentIndex(3)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):

@@ -162,8 +162,8 @@ class Thread(QThread):
  
         msg.setText(text)
         msg.setStandardButtons(QMessageBox.Ok)
-        msg.setStyleSheet("QWidget {color: gray; padding-right: 10px;} QMessageBox {background-color: white; border-width: 1px; border-color:gray; border-style: solid; border-radius: 4;} QPushButton{color: gray; background-color: white; border-width: 1px;border-color: gray; border-style: solid;border-radius: 3;padding: 3px;font-size: 12px;padding-left: 5px;padding-right: 5px;} QPushButton:pressed {background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #2d2d30, stop: 0.1 #2b2b2b, stop: 0.5 #292929, stop: 0.9 #282828, stop: 1 #252530)} QPushButton:hover {border: 2px solid gray;}")
-
+        msg.setStyleSheet("QWidget {color: gray; padding-right: 10px;} QMessageBox {background-color: white; border-width: 1px; border-color:gray; border-style: solid; border-radius: 4;} QPushButton{color: gray; background-color: white; border-width: 1px;border-color: gray; border-style: solid;border-radius: 3;padding: 3px;font-size: 12px;padding-left: 5px;padding-right: 5px;} QPushButton:focus:pressed{background-color: rgb(235, 235, 235);} QPushButton:hover{ background-color: rgb(218, 218, 218);}")
+        #msg.setStyleSheet("QWidget {color: gray; padding-right: 10px;} QMessageBox {background-color: white; border-width: 1px; border-color:gray; border-style: solid; border-radius: 4;}QPushButton:pressed{ background-color: orange; } QPushButton{ background-color: white;} QPushButton:disabled{ color: rgb(234, 234, 234); background-color: rgb(240, 240, 240); }QPushButton:focus:pressed{background-color: rgb(235, 235, 235);}QPushButton:hover{ background-color: rgb(218, 218, 218);}QPushButton:checked{ background-color: pink; }")
 
 
 
@@ -178,8 +178,8 @@ class Thread(QThread):
         msg.setStandardButtons(QMessageBox.Ok | QMessageBox.Abort)
         btnConfirm = msg.button(QMessageBox.Ok)
         btnConfirm.setText("  Confirm  ")
-        #msg.setStyleSheet("QWidget {color: white;} QMessageBox {background-color: #333333; border-width: 1px; border-color:orange; border-style: solid; border-radius: 6;} QPushButton{color: orange; background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #565656, stop: 0.1 #525252, stop: 0.5 #4e4e4e, stop: 0.9 #4a4a4a, stop: 1 #464646); border-width: 1px;border-color: orange; border-style: solid;border-radius: 6;padding: 3px;font-size: 12px;padding-left: 5px;padding-right: 5px;} QPushButton:pressed {background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #2d2d30, stop: 0.1 #2b2b2b, stop: 0.5 #292929, stop: 0.9 #282828, stop: 1 #252530)} QPushButton:hover {border: 2px solid QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #ffa02f, stop: 1 #d7801a);}")
-        msg.setStyleSheet("QWidget {color: gray; padding-right: 10px;} QMessageBox {background-color: white; border-width: 1px; border-color:gray; border-style: solid; border-radius: 4;} QPushButton{color: gray; background-color: white; border-width: 1px;border-color: gray; border-style: solid;border-radius: 3;padding: 3px;font-size: 12px;padding-left: 5px;padding-right: 5px;} QPushButton:pressed {background-color: QLinearGradient( x1: 0, y1: 0, x2: 0, y2: 1, stop: 0 #2d2d30, stop: 0.1 #2b2b2b, stop: 0.5 #292929, stop: 0.9 #282828, stop: 1 #252530)} QPushButton:hover {border: 2px solid gray;}")
+        msg.setStyleSheet("QWidget {color: gray; padding-right: 10px;} QMessageBox {background-color: white; border-width: 1px; border-color:gray; border-style: solid; border-radius: 4;} QPushButton{color: gray; background-color: white; border-width: 1px;border-color: gray; border-style: solid;border-radius: 3;padding: 3px;font-size: 12px;padding-left: 5px;padding-right: 5px;} QPushButton:focus:pressed{background-color: rgb(235, 235, 235);} QPushButton:hover{ background-color: rgb(218, 218, 218);}")
+        #msg.setStyleSheet("QWidget {color: gray; padding-right: 10px;} QMessageBox {background-color: white; border-width: 1px; border-color:gray; border-style: solid; border-radius: 4;}QPushButton:pressed{ background-color: orange; } QPushButton{ background-color: white;} QPushButton:disabled{ color: rgb(234, 234, 234); background-color: rgb(240, 240, 240); }QPushButton:focus:pressed{background-color: rgb(235, 235, 235);}QPushButton:hover{ background-color: rgb(218, 218, 218);}QPushButton:checked{ background-color: pink; }")
         ret = msg.exec_()
 
         if ret == QMessageBox.Ok:
@@ -367,7 +367,7 @@ class Thread(QThread):
         inputSecretKey = self.ui.lnSecretKey.text().strip()
 
         if (inputPublicKey == "" or inputSecretKey == ""):
-            logging.warning("Warning: Could not save API keys. Invalid Input.")
+            logging.warning("Invalid keys \nAPI keys not saved")
             self.popup("Invalid keys \nAPI keys not saved", QMessageBox.Warning)
         
         else:
@@ -421,7 +421,7 @@ class Thread(QThread):
             fixBuyreadBTCprice = self.BuyreadBTCprice
             fixresultBuyXMRAmount = self.resultBuyXMRAmount
 
-            text = "Order details \n\nPrice: " + str(fixBuyreadBTCprice) + " BTC" + "\nAmount: " + str(fixresultBuyXMRAmount) + " XMR"
+            text = "Buy: Order details \n\nPrice: " + str(fixBuyreadBTCprice) + " BTC" + "\nAmount: " + str(fixresultBuyXMRAmount) + " XMR"
 
             if self.confirmPopup(text) == True:
 
@@ -440,7 +440,7 @@ class Thread(QThread):
                         logging.debug("Buy Order failed! " + str(e))
                         self.popup("Place buy order failed",QMessageBox.Critical)
             else:
-                self.popup("Order canceled", QMessageBox.Information)
+                self.popup("Buy Order aborted", QMessageBox.Information)
             
     def clickSell(self):
         self.ui.sellButton.clicked.connect(self.clickedSell)
@@ -455,7 +455,7 @@ class Thread(QThread):
             fixSellreadBTCprice = self.SellreadBTCprice
             fixSellreadXMRAmount = self.SellreadXMRAmount    
 
-            text = "Order details \n\nPrice: " + str(fixSellreadBTCprice) + " BTC" + "\nAmount: " + str(fixSellreadXMRAmount) + " XMR"
+            text = "Sell: Order details \n\nPrice: " + str(fixSellreadBTCprice) + " BTC" + "\nAmount: " + str(fixSellreadXMRAmount) + " XMR"
 
             if self.confirmPopup(text) == True:
             
@@ -473,14 +473,14 @@ class Thread(QThread):
                         logging.debug("Place sell Order failed")
                         self.popup("Place sell order failed",QMessageBox.Critical)
             else:
-                self.popup("Order canceled", QMessageBox.Information)
+                self.popup("Sell Order aborted", QMessageBox.Information)
 
     def cancelOrder(self):
         self.ui.OpenOrdersWidgetXMR.cellDoubleClicked.connect(self.double_clicked)
     def double_clicked(self):
         orderNumberXMR = self.ui.OpenOrdersWidgetXMR.currentItem().text()
         
-        text = "Order details \n\nOrder Number: " + str(orderNumberXMR)
+        text = "Cancel: Order details \n\nOrder Number: " + str(orderNumberXMR)
 
         if self.confirmPopup(text) == True:
 
@@ -499,7 +499,7 @@ class Thread(QThread):
                     logging.debug("Order could not be canceled")
                     self.popup("Order could not be canceled \nPlease try again",QMessageBox.Critical)
         else:
-            self.popup("Order cancel aborted", QMessageBox.Information)
+            self.popup("Cancel Order aborted", QMessageBox.Information)
 
     #def clickXmrChart(self):
     #    self.ui.buttonChart.clicked.connect(self.clickedXmrChart)
