@@ -49,14 +49,15 @@ class Ui_MainWindow(object):
         self.frame.setSizePolicy(sizePolicy)
         self.frame.setLayoutDirection(QtCore.Qt.LeftToRight)
         self.frame.setStyleSheet("QFrame{\n"
-"    background-color: rgb(76, 76, 76);\n"
+"    \n"
+"    background-color: rgb(61, 61, 61);\n"
 "}\n"
 "\n"
 "QToolButton {\n"
 "background-color: transparent;\n"
 "color: white;\n"
 "border: none;\n"
-" padding-left: 20px;\n"
+" padding-left: 15px;\n"
 "}\n"
 "\n"
 "\n"
@@ -431,13 +432,13 @@ class Ui_MainWindow(object):
         self.btnRefresh.setToolButtonStyle(QtCore.Qt.ToolButtonTextBesideIcon)
         self.btnRefresh.setObjectName("btnRefresh")
         self.label_25 = QtWidgets.QLabel(self.frame)
-        self.label_25.setGeometry(QtCore.QRect(24, 267, 31, 31))
+        self.label_25.setGeometry(QtCore.QRect(20, 267, 31, 31))
         self.label_25.setText("")
         self.label_25.setPixmap(QtGui.QPixmap(":/resource/ic_wifi_tethering_white_24dp_2x.png"))
         self.label_25.setScaledContents(True)
         self.label_25.setObjectName("label_25")
         self.label_26 = QtWidgets.QLabel(self.frame)
-        self.label_26.setGeometry(QtCore.QRect(60, 265, 91, 16))
+        self.label_26.setGeometry(QtCore.QRect(56, 265, 91, 16))
         font = QtGui.QFont()
         font.setFamily("Century Gothic")
         font.setPointSize(7)
@@ -449,7 +450,7 @@ class Ui_MainWindow(object):
 "")
         self.label_26.setObjectName("label_26")
         self.lblPoloniexStatusResult = QtWidgets.QLabel(self.frame)
-        self.lblPoloniexStatusResult.setGeometry(QtCore.QRect(60, 281, 101, 16))
+        self.lblPoloniexStatusResult.setGeometry(QtCore.QRect(56, 281, 101, 16))
         font = QtGui.QFont()
         font.setFamily("Century Gothic")
         font.setPointSize(9)
@@ -481,7 +482,8 @@ class Ui_MainWindow(object):
 "QProgressBar::chunk\n"
 "{\n"
 "\n"
-"    background-color: rgba(0, 255, 21, 100);\n"
+"\n"
+"    background-color: rgb(0, 244, 0);\n"
 "\n"
 "  }")
         self.GprogressBar.setProperty("value", 0)
@@ -503,6 +505,30 @@ class Ui_MainWindow(object):
         self.line_2.setFrameShape(QtWidgets.QFrame.HLine)
         self.line_2.setFrameShadow(QtWidgets.QFrame.Sunken)
         self.line_2.setObjectName("line_2")
+        self.lblcountOO = QtWidgets.QLabel(self.frame)
+        self.lblcountOO.setGeometry(QtCore.QRect(135, 57, 31, 16))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setBold(True)
+        font.setWeight(75)
+        self.lblcountOO.setFont(font)
+        self.lblcountOO.setStyleSheet("background-color: transparent;\n"
+"color: rgb(199, 199, 199);background-color: transparent;\n"
+"color: rgb(199, 199, 199);")
+        self.lblcountOO.setAlignment(QtCore.Qt.AlignCenter)
+        self.lblcountOO.setObjectName("lblcountOO")
+        self.lblcountHistory = QtWidgets.QLabel(self.frame)
+        self.lblcountHistory.setGeometry(QtCore.QRect(135, 101, 31, 16))
+        font = QtGui.QFont()
+        font.setFamily("Arial")
+        font.setBold(True)
+        font.setWeight(75)
+        self.lblcountHistory.setFont(font)
+        self.lblcountHistory.setStyleSheet("background-color: transparent;\n"
+"color: rgb(199, 199, 199);background-color: transparent;\n"
+"color: rgb(199, 199, 199);")
+        self.lblcountHistory.setAlignment(QtCore.Qt.AlignCenter)
+        self.lblcountHistory.setObjectName("lblcountHistory")
         self.stackedWidget = QtWidgets.QStackedWidget(self.centralWidget)
         self.stackedWidget.setGeometry(QtCore.QRect(170, 20, 674, 531))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
@@ -1644,6 +1670,8 @@ class Ui_MainWindow(object):
         self.label_26.setText(_translate("MainWindow", "Poloniex Status"))
         self.lblPoloniexStatusResult.setText(_translate("MainWindow", "N/A"))
         self.lblLast.setText(_translate("MainWindow", "N/A"))
+        self.lblcountOO.setText(_translate("MainWindow", "0"))
+        self.lblcountHistory.setText(_translate("MainWindow", "0"))
         self.label.setText(_translate("MainWindow", "Price (BTC)"))
         self.label_2.setText(_translate("MainWindow", "Price (USD)"))
         self.label_3.setText(_translate("MainWindow", "24h High"))

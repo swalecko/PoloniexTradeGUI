@@ -287,6 +287,7 @@ class Thread(QThread):
                     else:
                         historywidget.item(i, 1).setBackground(QtGui.QColor(0,139,0))
                         historywidget.item(i, 1).setForeground(QtGui.QColor(255,255,255))
+            self.ui.lblcountHistory.setText(str(counthistory))
             print ("History refreshed...")
     
     def calcMyAssets(self):
@@ -357,6 +358,7 @@ class Thread(QThread):
                     else:
                         openorderswidget.item(i, 1).setBackground(QtGui.QColor(0,139,0))
                         openorderswidget.item(i, 1).setForeground(QtGui.QColor(255,255,255))
+            self.ui.lblcountOO.setText(str(countopenorders))
             print ("Open Orders refreshed...")
 
     def clickSaveConfiguration(self):
