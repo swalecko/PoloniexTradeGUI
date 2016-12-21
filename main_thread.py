@@ -136,8 +136,8 @@ class Thread(QThread):
 
             self.BalanceBTC = self.retBalances['BTC']
 
-            self.ui.setLcdMonero(self.BalanceXMR)
-            self.ui.setLcdBitcoin(self.BalanceBTC)
+            self.ui.setAmountMonero(self.BalanceXMR)
+            self.ui.setAmountBitcoin(self.BalanceBTC)
 
             count = 0
             OOAmount = 0
@@ -149,10 +149,10 @@ class Thread(QThread):
                     count = count + OOAmount
      
                 CompleteAmount = format(count + float(self.BalanceXMR), '.8f')
-                self.ui.setLcdMoneroinclIO(str(CompleteAmount))
+                self.ui.setAmountMoneroinclIO(str(CompleteAmount))
 
             else:
-                self.ui.setLcdMoneroinclIO(format(float(0.00000000), '.8f')) 
+                self.ui.setAmountMoneroinclIO(format(float(0.00000000), '.8f')) 
             print ("Balances refreshed...")   
 
     def popup(self, text, art):
@@ -186,28 +186,10 @@ class Thread(QThread):
             return True
         elif ret == QMessageBox.Abort:
             return False
-
-
-    # def setBalanceInclIO(self, countopenorders, retopenorders, currency, currencyio):
-    #     count = 0
-    #     OOAmount = 0
-
-    #     if countopenorders != 0:
-    #         for i in range(countopenorders):
-    #       #      try:
-    #             OOAmount = float(retopenorders[i]["amount"])
-    #             count = count + OOAmount
-    #    #         except Exception as e:
-    #     #            logging.error("ERROR: Could not calculate the Open Orders amount")
-    #         CompleteAmount = format(count + float(currency), '.8f')
-    #         currencyio(str(CompleteAmount))
-
-    #     else:
-    #         currencyio(format(float(0.00000000), '.8f'))
-                           
+                          
     def download(self, progress):
         while self.completed < progress:
-            self.completed += 0.0001
+            self.completed += 1
             self.ui.GprogressBar.setValue(self.completed)
     def clickRefresh(self):
         self.ui.btnRefresh.clicked.connect(self.clickedRefresh)
@@ -251,8 +233,6 @@ class Thread(QThread):
         self.stateRefresh = 1
 
     def RefreshHistory(self):  
-     
-
         retHistoryXMR = self.poloInstance.returnTradeHistory("BTC_XMR")
                 
         if retHistoryXMR == False:
@@ -274,11 +254,11 @@ class Thread(QThread):
                 for i in range(counthistory):
 
                     QtCore.QCoreApplication.processEvents()
-                    historywidget.setItem(i,0, QTableWidgetItem(currency))
-                    historywidget.setItem(i,1, QTableWidgetItem(rethistory[i]["type"]))
-                    historywidget.setItem(i,2, QTableWidgetItem(rethistory[i]["rate"]))
-                    historywidget.setItem(i,3, QTableWidgetItem(rethistory[i]["amount"]))
-                    historywidget.setItem(i,4, QTableWidgetItem(rethistory[i]["date"]))
+                    self.ui.setHistory(i,0, QTableWidgetItem(currency))
+                    self.ui.setHistory(i,1, QTableWidgetItem(rethistory[i]["type"]))
+                    self.ui.setHistory(i,2, QTableWidgetItem(rethistory[i]["rate"]))
+                    self.ui.setHistory(i,3, QTableWidgetItem(rethistory[i]["amount"]))
+                    self.ui.setHistory(i,4, QTableWidgetItem(rethistory[i]["date"]))
 
 
                     if rethistory[i]["type"] == "sell":
@@ -287,7 +267,9 @@ class Thread(QThread):
                     else:
                         historywidget.item(i, 1).setBackground(QtGui.QColor(0,139,0))
                         historywidget.item(i, 1).setForeground(QtGui.QColor(255,255,255))
+
             self.ui.lblcountHistory.setText(str(counthistory))
+
             print ("History refreshed...")
     
     def calcMyAssets(self):
@@ -354,17 +336,19 @@ class Thread(QThread):
                     if retopenorders[i]["type"] == "sell":
                         openorderswidget.item(i, 1).setBackground(QtGui.QColor(176,10,49))
                         openorderswidget.item(i, 1).setForeground(QtGui.QColor(255,255,255))
-                       
+                        #openorderswidget.item(i, 1).setTextAlignment(QtCore.Qt.AlignVCenter | QtCore.Qt.AlignCenter)
+                                             
                     else:
                         openorderswidget.item(i, 1).setBackground(QtGui.QColor(0,139,0))
                         openorderswidget.item(i, 1).setForeground(QtGui.QColor(255,255,255))
+                        #openorderswidget.item(i, 1).setTextAlignment(QtCore.Qt.AlignVCenter | QtCore.Qt.AlignCenter)
+
             self.ui.lblcountOO.setText(str(countopenorders))
             print ("Open Orders refreshed...")
 
     def clickSaveConfiguration(self):
         self.ui.saveButton.clicked.connect(self.clickedSaveConfiguration)
     def clickedSaveConfiguration(self):
-
         inputPublicKey = self.ui.lnPublicKey.text().strip()
         inputSecretKey = self.ui.lnSecretKey.text().strip()
 
@@ -503,21 +487,16 @@ class Thread(QThread):
         else:
             self.popup("Cancel Order aborted", QMessageBox.Information)
 
-    #def clickXmrChart(self):
-    #    self.ui.buttonChart.clicked.connect(self.clickedXmrChart)
-    #def clickedXmrChart(self):
-    #    webbrowser.open('https://bitcoinwisdom.com/markets/poloniex/xmrbtc')
-
     def setXMRPriceInfo(self):
         lastXMR = self.lastXMR
         self.ui.setXMRPrice(lastXMR)
-        #self.sleep(0.2)
+
         highXMR = self.highXMR
         self.ui.setHigh(highXMR)
-        #self.sleep(0.2)
+
         lowXMR = self.lowXMR
         self.ui.setLow(lowXMR)
-        #self.sleep(0.2)
+
         changeXMR = self.changeXMR
         self.ui.setChange(str(round(float(changeXMR)*100,2)) + " %")
         return True
@@ -526,12 +505,10 @@ class Thread(QThread):
     def setUSDPriceInfo(self):
         lastUSDXMR = self.lastUSDXMR
         self.ui.setXMRUSDPrice(round (float(lastUSDXMR),2))
-        #self.sleep(0.2)
-        #self.sleep(0.2)
+
         lastUSDBTC = self.lastUSDBTC
         self.ui.setBTCUSDPrice(round (float(lastUSDBTC),2))
         return True
-
 
     def getPoloInfo(self):
         self.retTicker = self.poloInstance.returnTicker()

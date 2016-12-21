@@ -24,8 +24,9 @@ class Ui_MainWindow(object):
         icon = QtGui.QIcon()
         icon.addPixmap(QtGui.QPixmap("1.png.ico"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         MainWindow.setWindowIcon(icon)
+        MainWindow.setAutoFillBackground(False)
         MainWindow.setStyleSheet("")
-        MainWindow.setAnimated(True)
+        MainWindow.setAnimated(False)
         MainWindow.setTabShape(QtWidgets.QTabWidget.Rounded)
         self.centralWidget = QtWidgets.QWidget(MainWindow)
         self.centralWidget.setStyleSheet("/*border-right-color: rgb(144, 144, 144);\n"
@@ -790,7 +791,11 @@ class Ui_MainWindow(object):
         font = QtGui.QFont()
         font.setFamily("Century Gothic")
         self.lnSellPrice.setFont(font)
-        self.lnSellPrice.setStyleSheet("border-color: rgb(212, 57, 19);")
+        self.lnSellPrice.setStyleSheet("QLineEdit {\n"
+"border-color: rgb(212, 57, 19);\n"
+"}\n"
+"\n"
+"")
         self.lnSellPrice.setFrame(False)
         self.lnSellPrice.setObjectName("lnSellPrice")
         self.lnSellAmount = QtWidgets.QLineEdit(self.frame_2)
@@ -926,6 +931,7 @@ class Ui_MainWindow(object):
         self.OpenOrdersWidgetXMR.setHorizontalHeaderItem(3, item)
         item = QtWidgets.QTableWidgetItem()
         self.OpenOrdersWidgetXMR.setHorizontalHeaderItem(4, item)
+        self.OpenOrdersWidgetXMR.horizontalHeader().setDefaultSectionSize(130)
         self.OpenOrdersWidgetXMR.horizontalHeader().setStretchLastSection(True)
         self.OpenOrdersWidgetXMR.verticalHeader().setVisible(False)
         self.stackedWidget.addWidget(self.stackOO)
@@ -963,6 +969,7 @@ class Ui_MainWindow(object):
         self.HistoryWidgetXMR.setHorizontalHeaderItem(3, item)
         item = QtWidgets.QTableWidgetItem()
         self.HistoryWidgetXMR.setHorizontalHeaderItem(4, item)
+        self.HistoryWidgetXMR.horizontalHeader().setDefaultSectionSize(130)
         self.HistoryWidgetXMR.horizontalHeader().setStretchLastSection(True)
         self.HistoryWidgetXMR.verticalHeader().setVisible(False)
         self.stackedWidget.addWidget(self.stackHistory)
@@ -1584,13 +1591,24 @@ class Ui_MainWindow(object):
         self.label_8.setText("")
         self.label_8.setObjectName("label_8")
         self.btnExit = QtWidgets.QPushButton(self.centralWidget)
-        self.btnExit.setGeometry(QtCore.QRect(813, 0, 25, 20))
+        self.btnExit.setGeometry(QtCore.QRect(818, 0, 21, 21))
         sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
         sizePolicy.setHorizontalStretch(0)
         sizePolicy.setVerticalStretch(0)
         sizePolicy.setHeightForWidth(self.btnExit.sizePolicy().hasHeightForWidth())
         self.btnExit.setSizePolicy(sizePolicy)
         self.btnExit.setStyleSheet("QToolButton:checked, QToolButton:pressed {\n"
+"background-color: rgb(193,210,230);\n"
+"border: 1px solid rgb(60,127,177);\n"
+"}\n"
+"\n"
+"QToolButton:hover {\n"
+"background-color:rgb(180, 186, 197);\n"
+"}\n"
+"\n"
+"QToolButton:checked:hover {\n"
+"background-color: rgb(193,210,230);\n"
+"}QToolButton:checked, QToolButton:pressed {\n"
 "background-color: rgb(193,210,230);\n"
 "border: 1px solid rgb(60,127,177);\n"
 "}\n"
@@ -1610,34 +1628,6 @@ class Ui_MainWindow(object):
         self.btnExit.setAutoExclusive(True)
         self.btnExit.setFlat(True)
         self.btnExit.setObjectName("btnExit")
-        self.btnMini = QtWidgets.QPushButton(self.centralWidget)
-        self.btnMini.setGeometry(QtCore.QRect(788, 0, 25, 20))
-        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
-        sizePolicy.setHorizontalStretch(0)
-        sizePolicy.setVerticalStretch(0)
-        sizePolicy.setHeightForWidth(self.btnMini.sizePolicy().hasHeightForWidth())
-        self.btnMini.setSizePolicy(sizePolicy)
-        self.btnMini.setStyleSheet("QToolButton:checked, QToolButton:pressed {\n"
-"background-color: rgb(193,210,230);\n"
-"border: 1px solid rgb(60,127,177);\n"
-"}\n"
-"\n"
-"QToolButton:hover {\n"
-"\n"
-"    background-color: rgb(4, 4, 4);\n"
-"}\n"
-"\n"
-"QToolButton:checked:hover {\n"
-"background-color: rgb(193,210,230);\n"
-"}")
-        self.btnMini.setText("")
-        icon8 = QtGui.QIcon()
-        icon8.addPixmap(QtGui.QPixmap(":/resource/ic_call_to_action_white_24dp_1x.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
-        self.btnMini.setIcon(icon8)
-        self.btnMini.setCheckable(False)
-        self.btnMini.setAutoExclusive(True)
-        self.btnMini.setFlat(True)
-        self.btnMini.setObjectName("btnMini")
         self.label_28 = QtWidgets.QLabel(self.centralWidget)
         self.label_28.setGeometry(QtCore.QRect(373, 1, 101, 16))
         font = QtGui.QFont()
@@ -1646,17 +1636,65 @@ class Ui_MainWindow(object):
         self.label_28.setFont(font)
         self.label_28.setStyleSheet("color: white;")
         self.label_28.setObjectName("label_28")
+        self.btnMini = QtWidgets.QPushButton(self.centralWidget)
+        self.btnMini.setGeometry(QtCore.QRect(796, 0, 21, 21))
+        sizePolicy = QtWidgets.QSizePolicy(QtWidgets.QSizePolicy.Fixed, QtWidgets.QSizePolicy.Fixed)
+        sizePolicy.setHorizontalStretch(0)
+        sizePolicy.setVerticalStretch(0)
+        sizePolicy.setHeightForWidth(self.btnMini.sizePolicy().hasHeightForWidth())
+        self.btnMini.setSizePolicy(sizePolicy)
+        palette = QtGui.QPalette()
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Active, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(255, 255, 255))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Inactive, QtGui.QPalette.ButtonText, brush)
+        brush = QtGui.QBrush(QtGui.QColor(120, 120, 120))
+        brush.setStyle(QtCore.Qt.SolidPattern)
+        palette.setBrush(QtGui.QPalette.Disabled, QtGui.QPalette.ButtonText, brush)
+        self.btnMini.setPalette(palette)
+        self.btnMini.setAutoFillBackground(False)
+        self.btnMini.setStyleSheet("QToolButton:checked, QToolButton:pressed {\n"
+"background-color: rgb(193,210,230);\n"
+"border: 1px solid rgb(60,127,177);\n"
+"}\n"
+"\n"
+"QToolButton:hover {\n"
+"background-color:rgb(180, 186, 197);\n"
+"}\n"
+"\n"
+"QToolButton:checked:hover {\n"
+"background-color: rgb(193,210,230);\n"
+"}QToolButton:checked, QToolButton:pressed {\n"
+"background-color: rgb(193,210,230);\n"
+"border: 1px solid rgb(60,127,177);\n"
+"}\n"
+"\n"
+"QToolButton:hover {\n"
+"background-color:rgb(180, 186, 197);\n"
+"}\n"
+"\n"
+"QToolButton:checked:hover {\n"
+"background-color: rgb(193,210,230);\n"
+"}\n"
+"\n"
+"")
+        self.btnMini.setCheckable(False)
+        self.btnMini.setAutoExclusive(True)
+        self.btnMini.setFlat(True)
+        self.btnMini.setObjectName("btnMini")
         self.label_8.raise_()
         self.frame_4.raise_()
         self.frame.raise_()
         self.stackedWidget.raise_()
         self.btnExit.raise_()
-        self.btnMini.raise_()
         self.label_28.raise_()
+        self.btnMini.raise_()
         MainWindow.setCentralWidget(self.centralWidget)
 
         self.retranslateUi(MainWindow)
-        self.stackedWidget.setCurrentIndex(3)
+        self.stackedWidget.setCurrentIndex(0)
         QtCore.QMetaObject.connectSlotsByName(MainWindow)
 
     def retranslateUi(self, MainWindow):
@@ -1724,5 +1762,6 @@ class Ui_MainWindow(object):
         self.lnMoneroOO.setText(_translate("MainWindow", "N/A"))
         self.lnMonero.setText(_translate("MainWindow", "N/A"))
         self.label_28.setText(_translate("MainWindow", "Monero Trading"))
+        self.btnMini.setText(_translate("MainWindow", "__"))
 
 import res_rc
