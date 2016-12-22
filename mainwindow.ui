@@ -1160,6 +1160,9 @@ background-color: rgb(193,210,230);
        <pointsize>9</pointsize>
       </font>
      </property>
+     <property name="toolTip">
+      <string/>
+     </property>
      <property name="text">
       <string>Refresh</string>
      </property>
@@ -1172,6 +1175,9 @@ background-color: rgb(193,210,230);
        <width>32</width>
        <height>32</height>
       </size>
+     </property>
+     <property name="shortcut">
+      <string>Ctrl+R</string>
      </property>
      <property name="checkable">
       <bool>false</bool>
@@ -2056,6 +2062,9 @@ border-color: rgb(212, 57, 19);
 }
 
 </string>
+       </property>
+       <property name="inputMethodHints">
+        <set>Qt::ImhNone</set>
        </property>
        <property name="frame">
         <bool>false</bool>

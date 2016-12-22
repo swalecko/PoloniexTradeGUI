@@ -49,9 +49,7 @@ class Thread(QThread):
 
             else:
                 self.ui.setPoloniexStatus("Disconnected")
-                self.stateButtons(sell=False, buy=False, refresh=False)
-           
-            self.refreshXMRvalues(calc=True)
+                self.stateButtons(sell=False, buy=False, refresh=False)         
 
             self.sleep (2)
                        
@@ -78,10 +76,7 @@ class Thread(QThread):
             self.ui.sellButton.setEnabled(False)
             self.ui.buyButton.setEnabled(False)
 
-
-
-    def refreshXMRvalues(self, **kargs):
-        
+    def refreshSellTotal(self):
         self.SellreadBTCprice = self.ui.lnSellPrice.text()
         self.SellreadXMRAmount = self.ui.lnSellAmount.text()
                        
@@ -90,16 +85,13 @@ class Thread(QThread):
             try:
                 self.SellreadBTCprice = float(self.SellreadBTCprice)
                 self.SellreadXMRAmount = float(self.SellreadXMRAmount)
-                if kargs['calc'] == True:
-                    self.calcSellBTCTotal(self.SellreadBTCprice, self.SellreadXMRAmount)
-                else:
-                    pass
+
+                self.calcSellBTCTotal(self.SellreadBTCprice, self.SellreadXMRAmount)
             except ValueError:
                 self.ui.lnSellTotal.setText("0.0")
-
         else:
             pass
-        
+    def refreshBuyAmount(self):
         self.BuyreadBTCprice = self.ui.lnBuyPrice.text()
         self.BuyreadBTCTotal = self.ui.lnBuyTotal.text() 
 
@@ -109,15 +101,12 @@ class Thread(QThread):
             try:
                 self.BuyreadBTCprice = float(self.BuyreadBTCprice)        
                 self.BuyreadBTCTotal = float(self.BuyreadBTCTotal)
-                
-                if kargs['calc'] == True:
-                    self.calcBuyAmount(self.BuyreadBTCprice, self.BuyreadBTCTotal)
-                else:
-                    pass
+                self.calcBuyAmount(self.BuyreadBTCprice, self.BuyreadBTCTotal)
             except ValueError:
                 self.ui.lnBuyAmount.setText("0.0")
         else:
-            pass   
+            pass  
+
 
     def showBalances(self):
         
@@ -158,7 +147,14 @@ class Thread(QThread):
     def popup(self, text, art):
         msg = QMessageBox()
         msg.setWindowFlags(QtCore.Qt.FramelessWindowHint)
-        msg.setIcon(art)
+        #msg.setIcon(art)
+
+        if art == "success":
+            msg.setIconPixmap(QPixmap("C:\Projekte\PoloniexTradeGUI\/resource\checked.png"))
+        elif art == "failed":
+            msg.setIconPixmap(QPixmap("C:\Projekte\PoloniexTradeGUI\/resource\cancel.png"))
+        else:
+            msg.setIcon(art)
  
         msg.setText(text)
         msg.setStandardButtons(QMessageBox.Ok)
@@ -398,68 +394,79 @@ class Thread(QThread):
     def clickBuy(self):
         self.ui.buyButton.clicked.connect(self.clickedBuy)
     def clickedBuy(self):
-        if self.BuyreadBTCprice == "" or self.BuyreadBTCprice == 0.0 or self.resultBuyXMRAmount == "" or self.resultBuyXMRAmount == 0.0 or not isinstance(self.BuyreadBTCprice, (int,float)) or not isinstance(self.resultBuyXMRAmount, (int,float)):
-            self.popup("Invalid input", QMessageBox.Warning)
-        elif self.buyreadbtctotal > float(self.BalanceBTC):
-            self.popup("Invalid Amount \nPlease check your Balance", QMessageBox.Warning)
-        else:
-            self.refreshXMRvalues(calc=False)
-            fixBuyreadBTCprice = self.BuyreadBTCprice
-            fixresultBuyXMRAmount = self.resultBuyXMRAmount
+        try:
+            BuyreadBTCprice = float(self.ui.lnBuyPrice.text())
+            resultBuyXMRAmount = float(self.ui.lnBuyAmount.text())
+            buyreadbtctotal = float(self.ui.lnBuyTotal.text())
 
-            text = "Buy: Order details \n\nPrice: " + str(fixBuyreadBTCprice) + " BTC" + "\nAmount: " + str(fixresultBuyXMRAmount) + " XMR"
+            if (BuyreadBTCprice != 0 or BuyreadBTCprice != 0.0) and (buyreadbtctotal != 0 or buyreadbtctotal != 0.0):
 
-            if self.confirmPopup(text) == True:
-
-                exeBuy = self.poloInstance.buy("BTC_XMR",fixBuyreadBTCprice,fixresultBuyXMRAmount)
-                QtCore.QCoreApplication.processEvents()
-
-                if exeBuy is False:
-                    self.popup("Buy order not placed \nPlease check your network connectivity and try again", QMessageBox.Warning)
-                elif "error" in exeBuy and exeBuy["error"] == "Total must be at least 0.0001.":
-                    self.popup("Buy order not placed \nTotal must be at least 0.0001", QMessageBox.Warning)
+                if buyreadbtctotal > float(self.BalanceBTC):
+                    self.popup("Invalid Amount \nPlease check your Balance", QMessageBox.Warning)
                 else:
-                    if "orderNumber" in exeBuy and exeBuy["orderNumber"] != '':
-                        logging.info("Buy Order placed: " + str(exeBuy["orderNumber"]))
-                        self.popup("Buy order placed \n\n" + "Order Number: " + str(exeBuy["orderNumber"]), QMessageBox.Information)
+
+                    text = "Buy: Order details \n\nPrice: " + str(BuyreadBTCprice) + " BTC" + "\nAmount: " + str(resultBuyXMRAmount) + " XMR"
+
+                    if self.confirmPopup(text) == True:
+
+                        exeBuy = self.poloInstance.buy("BTC_XMR",BuyreadBTCprice,resultBuyXMRAmount)
+                        QtCore.QCoreApplication.processEvents()
+
+                        if exeBuy is False:
+                            self.popup("Buy order not placed \nPlease check your network connectivity and try again", "failed")
+                        elif "error" in exeBuy and exeBuy["error"] == "Total must be at least 0.0001.":
+                            self.popup("Buy order not placed \nTotal must be at least 0.0001", "failed")
+                        else:
+                            if "orderNumber" in exeBuy and exeBuy["orderNumber"] != '':
+                                logging.info("Buy Order placed: " + str(exeBuy["orderNumber"]))
+                                self.popup("Buy order placed \n\n" + "Order Number: " + str(exeBuy["orderNumber"]), "success")
+                            else:
+                                logging.debug("Buy Order failed! " + str(e))
+                                self.popup("Place buy order failed", "failed")
                     else:
-                        logging.debug("Buy Order failed! " + str(e))
-                        self.popup("Place buy order failed",QMessageBox.Critical)
+                        self.popup("Buy Order aborted", QMessageBox.Information)
             else:
-                self.popup("Buy Order aborted", QMessageBox.Information)
+                self.popup("Invalid input", QMessageBox.Warning)
+        except ValueError:
+            self.popup("Invalid input", QMessageBox.Warning)
             
     def clickSell(self):
         self.ui.sellButton.clicked.connect(self.clickedSell)
     def clickedSell(self):
+        try:
+            SellreadBTCprice = float(self.ui.lnSellPrice.text())
+            SellreadXMRAmount = float(self.ui.lnSellAmount.text())
 
-        if self.SellreadBTCprice == "" or self.SellreadBTCprice == 0.0 or self.SellreadXMRAmount == "" or self.SellreadXMRAmount == 0.0 or not isinstance(self.SellreadXMRAmount, (int,float)) or not isinstance(self.SellreadBTCprice, (int,float)):     
-            self.popup("Invalid input", QMessageBox.Warning)
-        elif self.SellreadXMRAmount > float(self.BalanceXMR):
-            self.popup("Invalid Amount \nPlease check your Balance", QMessageBox.Warning)
-        else:   
-            self.refreshXMRvalues(calc=False)
-            fixSellreadBTCprice = self.SellreadBTCprice
-            fixSellreadXMRAmount = self.SellreadXMRAmount    
+            if (SellreadBTCprice != 0 or SellreadBTCprice != 0.0) and (SellreadXMRAmount != 0 or SellreadXMRAmount != 0.0):
 
-            text = "Sell: Order details \n\nPrice: " + str(fixSellreadBTCprice) + " BTC" + "\nAmount: " + str(fixSellreadXMRAmount) + " XMR"
+                if SellreadXMRAmount > float(self.BalanceXMR):
+                    self.popup("Invalid Amount \nPlease check your Balance", QMessageBox.Warning)
+                else:     
 
-            if self.confirmPopup(text) == True:
-            
-                exeSell = self.poloInstance.sell("BTC_XMR",fixSellreadBTCprice, fixSellreadXMRAmount)
+                    text = "Sell: Order details \n\nPrice: " + str(SellreadBTCprice) + " BTC" + "\nAmount: " + str(SellreadXMRAmount) + " XMR"
 
-                if exeSell is False:
-                    self.popup("Sell order not placed \nPlease check your network connectivity and try again", QMessageBox.Warning)
-                elif "error" in exeSell and exeSell["error"] == "Invalid amount parameter.":
-                    self.popup("Sell order not placed \nInvalid amount parameter", QMessageBox.Warning)
-                else:
-                    if "orderNumber" in exeSell and exeSell["orderNumber"] != '':
-                        logging.info("Sell Order placed: " + str(exeSell["orderNumber"]))
-                        self.popup("Sell order placed \n\n" + "Order Number: " + str(exeSell["orderNumber"]) , QMessageBox.Information)
+                    if self.confirmPopup(text) == True:
+                    
+                        exeSell = self.poloInstance.sell("BTC_XMR",SellreadBTCprice, SellreadXMRAmount)
+
+                        if exeSell is False:
+                            self.popup("Sell order not placed \nPlease check your network connectivity and try again", "failed")
+                        elif "error" in exeSell and exeSell["error"] == "Invalid amount parameter.":
+                            self.popup("Sell order not placed \nInvalid amount parameter", "failed")
+                        else:
+                            if "orderNumber" in exeSell and exeSell["orderNumber"] != '':
+                                logging.info("Sell Order placed: " + str(exeSell["orderNumber"]))
+                                self.popup("Sell order placed \n\n" + "Order Number: " + str(exeSell["orderNumber"]) , "success")
+                            else:
+                                logging.debug("Place sell Order failed")
+                                self.popup("Place sell order failed", "failed")
                     else:
-                        logging.debug("Place sell Order failed")
-                        self.popup("Place sell order failed",QMessageBox.Critical)
+                        self.popup("Sell Order aborted", QMessageBox.Information)
             else:
-                self.popup("Sell Order aborted", QMessageBox.Information)
+                self.popup("Invalid input", QMessageBox.Warning)
+
+        except ValueError:
+            self.popup("Invalid input", QMessageBox.Warning)
 
     def cancelOrder(self):
         self.ui.OpenOrdersWidgetXMR.cellDoubleClicked.connect(self.double_clicked)
@@ -474,16 +481,16 @@ class Thread(QThread):
             QtCore.QCoreApplication.processEvents()
             
             if resultCancel is False:
-                self.popup("Order not canceled \nPlease check your network connectivity and try again", QMessageBox.Warning)
+                self.popup("Order not canceled \nPlease check your network connectivity and try again", "failed")
             else:
 
                 if resultCancel["success"] == 1:
                     logging.info("Order canceled succesfully: " + str(orderNumberXMR))
-                    self.popup("Order canceled \n\n" + "Order Number: " + str(orderNumberXMR),QMessageBox.Information)
+                    self.popup("Order canceled \n\n" + "Order Number: " + str(orderNumberXMR), "success")
                    
                 else:
                     logging.debug("Order could not be canceled")
-                    self.popup("Order could not be canceled \nPlease try again",QMessageBox.Critical)
+                    self.popup("Order could not be canceled \nPlease try again", "failed")
         else:
             self.popup("Cancel Order aborted", QMessageBox.Information)
 
@@ -563,3 +570,14 @@ class Thread(QThread):
         
     def clickedMini(self):
         self.ui.showMinimized()
+
+    def qlineSellPriceChanged(self):
+        self.ui.lnSellPrice.textChanged.connect(self.refreshSellTotal)
+    def qlineSellAmountChanged(self):
+        self.ui.lnSellAmount.textChanged.connect(self.refreshSellTotal)
+    def qlineBuyPriceChanged(self):
+        self.ui.lnBuyPrice.textChanged.connect(self.refreshBuyAmount)
+    def qlineBuyTotalChanged(self):
+        self.ui.lnBuyTotal.textChanged.connect(self.refreshBuyAmount)
+
+

@@ -190,8 +190,11 @@ def main():
     myThread.clickMenuExit()
     myThread.clickMenuMini()
     myThread.clickSaveConfiguration()
-    sys.exit(app.exec_())
-
+    myThread.qlineSellPriceChanged()
+    myThread.qlineSellAmountChanged()
+    myThread.qlineBuyPriceChanged()
+    myThread.qlineBuyTotalChanged()
+    app.exec_()
 if __name__ == "__main__":
     #tracer = trace.Trace()
     #tracer.run("main()")
