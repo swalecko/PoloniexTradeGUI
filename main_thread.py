@@ -134,8 +134,12 @@ class Thread(QThread):
             if self.countOpenOrdersXMR != 0:
                 for i in range(self.countOpenOrdersXMR):
 
-                    OOAmount = float(self.retOpenOrdersXMR[i]["amount"])
-                    count = count + OOAmount
+                    if self.retOpenOrdersXMR[i]["type"] == "buy":
+                        OOAmount = float(self.retOpenOrdersXMR[i]["amount"])
+                        count = count + OOAmount
+                    #else:
+                    #    OOAmount = float(self.retOpenOrdersXMR[i]["amount"])
+                    #    count = count - OOAmount
      
                 CompleteAmount = format(count + float(self.BalanceXMR), '.8f')
                 self.ui.setAmountMoneroinclIO(str(CompleteAmount))
@@ -573,10 +577,13 @@ class Thread(QThread):
 
     def qlineSellPriceChanged(self):
         self.ui.lnSellPrice.textChanged.connect(self.refreshSellTotal)
+    
     def qlineSellAmountChanged(self):
         self.ui.lnSellAmount.textChanged.connect(self.refreshSellTotal)
+    
     def qlineBuyPriceChanged(self):
         self.ui.lnBuyPrice.textChanged.connect(self.refreshBuyAmount)
+    
     def qlineBuyTotalChanged(self):
         self.ui.lnBuyTotal.textChanged.connect(self.refreshBuyAmount)
 

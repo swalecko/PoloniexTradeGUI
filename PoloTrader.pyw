@@ -138,11 +138,7 @@ class MyGui(QtWidgets.QMainWindow):
     def setPoloniexStatus(self, poloniexstatus):
         _translate = QtCore.QCoreApplication.translate
         self.lblPoloniexStatusResult.setText(_translate("MainWindow", str(poloniexstatus)))
-    
-    def setLog(self, log):
-       _translate = QtCore.QCoreApplication.translate
-       self.plainTextEdit.appendPlainText(log)
-    
+
     def setMyAssets(self, myassets):
        _translate = QtCore.QCoreApplication.translate
        self.lnMyAssets.setText(str(myassets))
@@ -161,6 +157,7 @@ class MyGui(QtWidgets.QMainWindow):
         try:
             self.HistoryWidgetXMR.setItem(row, col, QTableWidgetItem(typ))
             self.HistoryWidgetXMR.item(row,col).setTextAlignment(QtCore.Qt.AlignCenter)
+        
         except Exception as e:
             print (str(e))
 
