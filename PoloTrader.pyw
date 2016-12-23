@@ -22,13 +22,15 @@ importkey = SourceFileLoader("key", keypath).load_module()
 import main_thread
 import res_rc
 import logging
+from main import Ui_MainWindow
 import trace
  
-class MyGui(QtWidgets.QMainWindow):   
+class MyGui(QtWidgets.QMainWindow, Ui_MainWindow):   
     def __init__(self, parent=None):
-        super().__init__(parent)
-        self.ui = uic.loadUi("mainwindow.ui", self)
+        super(MyGui, self).__init__(parent)
+        #self.ui = uic.loadUi("mainwindow.ui", self)
 
+        self.setupUi(self)
         _translate = QtCore.QCoreApplication.translate      
         self.lnSellPrice.setText(_translate("MainWindow", str(0.0))) 
         self.lnSellAmount.setText(_translate("MainWindow", str(0.0)))

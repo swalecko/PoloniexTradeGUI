@@ -423,6 +423,10 @@ class Ui_MainWindow(object):
         font.setFamily("Century Gothic")
         font.setPointSize(9)
         self.btnRefresh.setFont(font)
+        self.btnRefresh.setToolTip("")
+        self.btnRefresh.setToolTipDuration(-1)
+        self.btnRefresh.setStatusTip("")
+        self.btnRefresh.setWhatsThis("")
         icon5 = QtGui.QIcon()
         icon5.addPixmap(QtGui.QPixmap(":/resource/ic_autorenew_white_24dp_2x.png"), QtGui.QIcon.Normal, QtGui.QIcon.Off)
         self.btnRefresh.setIcon(icon5)
@@ -763,6 +767,7 @@ class Ui_MainWindow(object):
         self.lnBuyPrice.setGeometry(QtCore.QRect(120, 311, 113, 20))
         font = QtGui.QFont()
         font.setFamily("Century Gothic")
+        font.setStyleStrategy(QtGui.QFont.PreferAntialias)
         self.lnBuyPrice.setFont(font)
         self.lnBuyPrice.setStyleSheet("border-color: rgb(51, 135, 5);\n"
 "")
@@ -776,6 +781,7 @@ class Ui_MainWindow(object):
         self.lnBuyAmount.setStyleSheet("\n"
 "border-color: rgb(218, 218, 218);")
         self.lnBuyAmount.setFrame(False)
+        self.lnBuyAmount.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.lnBuyAmount.setReadOnly(True)
         self.lnBuyAmount.setObjectName("lnBuyAmount")
         self.lnBuyTotal = QtWidgets.QLineEdit(self.frame_2)
@@ -796,6 +802,7 @@ class Ui_MainWindow(object):
 "}\n"
 "\n"
 "")
+        self.lnSellPrice.setInputMethodHints(QtCore.Qt.ImhNone)
         self.lnSellPrice.setFrame(False)
         self.lnSellPrice.setObjectName("lnSellPrice")
         self.lnSellAmount = QtWidgets.QLineEdit(self.frame_2)
@@ -1705,6 +1712,7 @@ class Ui_MainWindow(object):
         self.btnOO.setText(_translate("MainWindow", "Open Orders"))
         self.btnConfiguration.setText(_translate("MainWindow", "Configuration"))
         self.btnRefresh.setText(_translate("MainWindow", "Refresh"))
+        self.btnRefresh.setShortcut(_translate("MainWindow", "Ctrl+R"))
         self.label_26.setText(_translate("MainWindow", "Poloniex Status"))
         self.lblPoloniexStatusResult.setText(_translate("MainWindow", "N/A"))
         self.lblLast.setText(_translate("MainWindow", "N/A"))

@@ -4,7 +4,7 @@ block_cipher = None
 
 
 a = Analysis(['PoloTrader.pyw'],
-             pathex=['C:\\Users\\swalecko\\Documents\\PoloniexTradeGUI'],
+             pathex=['C:\\Projekte\\PoloniexTradeGUI'],
              binaries=None,
              datas=None,
              hiddenimports=[],
