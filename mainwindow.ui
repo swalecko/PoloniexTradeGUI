@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>841</width>
-    <height>550</height>
+    <height>552</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -41,8 +41,8 @@
    <string>MainWindow</string>
   </property>
   <property name="windowIcon">
-   <iconset>
-    <normaloff>1.png.ico</normaloff>1.png.ico</iconset>
+   <iconset resource="res.qrc">
+    <normaloff>:/resource/130px-MoneroLogo.png</normaloff>:/resource/130px-MoneroLogo.png</iconset>
   </property>
   <property name="autoFillBackground">
    <bool>false</bool>
@@ -1444,7 +1444,7 @@ color: rgb(199, 199, 199);</string>
       <x>170</x>
       <y>20</y>
       <width>674</width>
-      <height>531</height>
+      <height>532</height>
      </rect>
     </property>
     <property name="sizePolicy">
@@ -1498,7 +1498,7 @@ border-radius: 3px;
      <number>0</number>
     </property>
     <property name="currentIndex">
-     <number>0</number>
+     <number>1</number>
     </property>
     <widget class="QWidget" name="stackTrading">
      <widget class="QFrame" name="frame_2">
@@ -1507,7 +1507,7 @@ border-radius: 3px;
         <x>-1</x>
         <y>0</y>
         <width>673</width>
-        <height>531</height>
+        <height>533</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -2359,7 +2359,7 @@ border-color: rgb(218, 218, 218);</string>
         <x>-2</x>
         <y>0</y>
         <width>674</width>
-        <height>531</height>
+        <height>533</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -2371,7 +2371,7 @@ border-color: rgb(218, 218, 218);</string>
       <property name="minimumSize">
        <size>
         <width>673</width>
-        <height>531</height>
+        <height>533</height>
        </size>
       </property>
       <property name="maximumSize">
@@ -2452,7 +2452,7 @@ border-color: rgb(218, 218, 218);</string>
         <x>-2</x>
         <y>0</y>
         <width>674</width>
-        <height>531</height>
+        <height>533</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -2464,7 +2464,7 @@ border-color: rgb(218, 218, 218);</string>
       <property name="minimumSize">
        <size>
         <width>673</width>
-        <height>531</height>
+        <height>533</height>
        </size>
       </property>
       <property name="maximumSize">
@@ -2545,7 +2545,7 @@ border-color: rgb(218, 218, 218);</string>
         <x>-1</x>
         <y>0</y>
         <width>673</width>
-        <height>531</height>
+        <height>533</height>
        </rect>
       </property>
       <property name="minimumSize">
@@ -2557,7 +2557,7 @@ border-color: rgb(218, 218, 218);</string>
       <property name="maximumSize">
        <size>
         <width>673</width>
-        <height>531</height>
+        <height>533</height>
        </size>
       </property>
       <property name="autoFillBackground">

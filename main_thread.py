@@ -213,34 +213,32 @@ class Thread(QThread):
             if self.RefreshHistory() is False:
                 logging.critical("Refresh History failed")
                 self.popup("Refresh failed \nPlease check your network connectivity and try again",QMessageBox.Warning)
-                self.setProgressBarcs("red")
+                self.setProgressBars("red")
             else:
                 self.download(50)
         
                 if self.showBalances() is False:
                     logging.critical("Refresh Balances failed")
                     self.popup("Refresh failed \nPlease check your network connectivity and try again",QMessageBox.Warning)
-                    self.setProgressBarcs("red")
+                    self.setProgressBars("red")
                 else:
                     self.stateButtons(sell=True, buy=True, refresh=True)
                     self.download(75)
                     if self.calcMyAssets() is False:
                         logging.critical("Refresh Asset failed")
                         self.popup("Refresh failed \nPlease check your network connectivity and try again",QMessageBox.Warning)
-                        self.setProgressBarcs("red")
+                        self.setProgressBars("red")
                     else:
                         self.download(100)
                         self.ui.lblLast.setText(datetime.datetime.now().strftime('%Y-%m-%d %H:%M:%S'))
-                        self.setProgressBarcs("green")
+                        self.setProgressBars("green")
                         
 
         self.stateRefresh = 1
 
-    def setProgressBarcs(self, type):
+    def setProgressBars(self, type):
         if type == "green":
             self.ui.GprogressBar.setStyleSheet("QProgressBar::chunk {background-color: rgb(0, 244, 0);} QProgressBar{border: 1px solid transparent;text-align: center;color:rgba(0,0,0,100);background-color: rgb(76, 76, 76);}")
-        elif type == "orange":
-            self.ui.GprogressBar.setStyleSheet("QProgressBar::chunk {background-color: rgb(255, 170, 0);} QProgressBar{border: 1px solid transparent;text-align: center;color:rgba(0,0,0,100);background-color: rgb(76, 76, 76);}")
         else:
             self.ui.GprogressBar.setStyleSheet("QProgressBar::chunk {background-color: rgb(255, 0, 0);} QProgressBar{border: 1px solid transparent;text-align: center;color:rgba(0,0,0,100);background-color: rgb(76, 76, 76);}")
 
@@ -436,8 +434,9 @@ class Thread(QThread):
                         else:
                             if "orderNumber" in exeBuy and exeBuy["orderNumber"] != '':
                                 logging.info("Buy Order placed: " + str(exeBuy["orderNumber"]))
+                                
                                 self.popup("Buy order placed \n\n" + "Order Number: " + str(exeBuy["orderNumber"]), "success")
-                                self.setProgressBarcs("orange")
+                                self.clickedRefresh()
                             else:
                                 logging.debug("Buy Order failed! " + str(e))
                                 self.popup("Place buy order failed", "failed")
@@ -475,7 +474,7 @@ class Thread(QThread):
                             if "orderNumber" in exeSell and exeSell["orderNumber"] != '':
                                 logging.info("Sell Order placed: " + str(exeSell["orderNumber"]))
                                 self.popup("Sell order placed \n\n" + "Order Number: " + str(exeSell["orderNumber"]) , "success")
-                                self.setProgressBarcs("orange")
+                                self.clickedRefresh()
 
                             else:
                                 logging.debug("Place sell Order failed")
@@ -507,7 +506,7 @@ class Thread(QThread):
                 if resultCancel["success"] == 1:
                     logging.info("Order canceled succesfully: " + str(orderNumberXMR))
                     self.popup("Order canceled \n\n" + "Order Number: " + str(orderNumberXMR), "success")
-                    self.setProgressBarcs("orange")                
+                    self.clickedRefresh()              
                 else:
                     logging.debug("Order could not be canceled")
                     self.popup("Order could not be canceled \nPlease try again", "failed")

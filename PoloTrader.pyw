@@ -47,7 +47,7 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow):
         self.palettered.setColor(self.palettered.WindowText, QColor(216,32,32))
         self.setWindowFlags(QtCore.Qt.CustomizeWindowHint)
         self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
-        self.setWindowIcon(QtGui.QIcon('1.png.ico'))
+        #self.setWindowIcon(QtGui.QIcon(':/resource/1.png.ico'))
 
     def mousePressEvent(self, event):
         self.offset = event.pos()

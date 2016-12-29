@@ -25,4 +25,4 @@ exe = EXE(pyz,
           debug=False,
           strip=False,
           upx=True,
-          console=False , icon='1.png.ico')
+          console=False , icon='C:\\Projekte\\PoloniexTradeGUI\\resource\\1.png.ico')
