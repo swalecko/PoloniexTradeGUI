@@ -3,7 +3,7 @@
 
 ## Use at your own risk!
 
-## Warning: Poloniex API lags in case of high traffic or Hacker attacks. You will get an error message in case your placing or canceling order will not be fulfilled.
+## Warning: Poloniex API lags in case of high traffic or Hacker attacks. Trading is not reliable during that time.
             
 
  [![Documentation](https://codedocs.xyz/swalecko/PoloniexTradeGUI.svg)](https://codedocs.xyz/swalecko/PoloniexTradeGUI/)
