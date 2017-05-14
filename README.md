@@ -1,7 +1,10 @@
 # PoloniexTradeGUI
 (unofficial)
 
-##Use at your own risk!
+## Use at your own risk!
+
+## Warning: Poloniex API lags in case of high traffic or Hacker attacks. You will get an error message in case your placing or canceling order will not be fulfilled.
+            
 
  [![Documentation](https://codedocs.xyz/swalecko/PoloniexTradeGUI.svg)](https://codedocs.xyz/swalecko/PoloniexTradeGUI/)
  
@@ -11,7 +14,7 @@ XMR: 49wH4MLdp62BrG7pUuh7dJ51icq1T2edpNJpHt7R2qoJTpuR7oK81jWXxH5K6Rz1nZHneK24jj7
 
 Trading app for Monero(XMR) at the Poloniex exchange using the Poloniex API.
 
-##Current Features:
+**Current Features:**
   - Supported Currencies for trading: XMR
   - Live XMR Price
   - Live 24h High, 24h Low and 24h Change
@@ -28,13 +31,13 @@ Trading app for Monero(XMR) at the Poloniex exchange using the Poloniex API.
   - Configuration: Poloniex Public and Secret Key
   - Display Poloniex/Network connectivity
 
-##Pre-Information:
+**Pre-Information:**
   - Based on Qt 5.5.1
   - Using Qt Creator for the design
   - Using Pyqt for the python code
   - Python 3
   
-##How to Start:
+**How to Start:**
 
   **Windows**  
   - Download MoneroTrader_xxx_Win.zip from the latest release
@@ -42,7 +45,7 @@ Trading app for Monero(XMR) at the Poloniex exchange using the Poloniex API.
   - Execute MoneroTrader.exe (Info: exe file is created with pyinstaller)
   - 2 files (key.py, qt.log) will be created in the same directory 
 
-## How to Use:
+**How to Use:**
   - Insert your Poloniex API keys into Configuration tab and save them. You can check your keys in the key.py file
   	- Restart the program to activate the API keys
   	- Now you should see your Balances and you are able to trade
@@ -51,7 +54,7 @@ Trading app for Monero(XMR) at the Poloniex exchange using the Poloniex API.
   - Canceling Order with double click on the Order Number in the Open Orders view
 
 
-##Screenshots:
+**Screenshots:**
 
 Trading:
 ![Screenshot](https://raw.github.com/swalecko/PoloTradeGui/master/Dashboard_screenshot.JPG?raw=true "Trading Tab")
