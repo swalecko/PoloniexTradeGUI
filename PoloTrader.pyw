@@ -47,7 +47,6 @@ class MyGui(QtWidgets.QMainWindow, Ui_MainWindow):
         self.palettered.setColor(self.palettered.WindowText, QColor(216,32,32))
         self.setWindowFlags(QtCore.Qt.CustomizeWindowHint)
         self.setWindowFlags(QtCore.Qt.FramelessWindowHint)
-        #self.setWindowIcon(QtGui.QIcon(':/resource/1.png.ico'))
 
     def mousePressEvent(self, event):
         self.offset = event.pos()
@@ -193,6 +192,7 @@ def main():
     myThread.qlineSellAmountChanged()
     myThread.qlineBuyPriceChanged()
     myThread.qlineBuyTotalChanged()
+
     app.exec_()
 if __name__ == "__main__":
     #tracer = trace.Trace()

@@ -10,7 +10,7 @@
     <x>0</x>
     <y>0</y>
     <width>841</width>
-    <height>552</height>
+    <height>551</height>
    </rect>
   </property>
   <property name="sizePolicy">
@@ -1377,6 +1377,103 @@ QProgressBar::chunk
        <height>16</height>
       </rect>
      </property>
+     <property name="palette">
+      <palette>
+       <active>
+        <colorrole role="Button">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>61</red>
+           <green>61</green>
+           <blue>61</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Base">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>61</red>
+           <green>61</green>
+           <blue>61</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Window">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>61</red>
+           <green>61</green>
+           <blue>61</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </active>
+       <inactive>
+        <colorrole role="Button">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>61</red>
+           <green>61</green>
+           <blue>61</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Base">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>61</red>
+           <green>61</green>
+           <blue>61</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Window">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>61</red>
+           <green>61</green>
+           <blue>61</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </inactive>
+       <disabled>
+        <colorrole role="Button">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>61</red>
+           <green>61</green>
+           <blue>61</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Base">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>61</red>
+           <green>61</green>
+           <blue>61</blue>
+          </color>
+         </brush>
+        </colorrole>
+        <colorrole role="Window">
+         <brush brushstyle="SolidPattern">
+          <color alpha="255">
+           <red>61</red>
+           <green>61</green>
+           <blue>61</blue>
+          </color>
+         </brush>
+        </colorrole>
+       </disabled>
+      </palette>
+     </property>
+     <property name="styleSheet">
+      <string notr="true"/>
+     </property>
+     <property name="frameShadow">
+      <enum>QFrame::Sunken</enum>
+     </property>
      <property name="orientation">
       <enum>Qt::Horizontal</enum>
      </property>
@@ -1442,9 +1539,9 @@ color: rgb(199, 199, 199);</string>
     <property name="geometry">
      <rect>
       <x>170</x>
-      <y>20</y>
+      <y>25</y>
       <width>674</width>
-      <height>532</height>
+      <height>526</height>
      </rect>
     </property>
     <property name="sizePolicy">
@@ -1498,7 +1595,7 @@ border-radius: 3px;
      <number>0</number>
     </property>
     <property name="currentIndex">
-     <number>1</number>
+     <number>0</number>
     </property>
     <widget class="QWidget" name="stackTrading">
      <widget class="QFrame" name="frame_2">
@@ -1507,7 +1604,7 @@ border-radius: 3px;
         <x>-1</x>
         <y>0</y>
         <width>673</width>
-        <height>533</height>
+        <height>527</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -2350,6 +2447,41 @@ border-color: rgb(218, 218, 218);</string>
         <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
        </property>
       </widget>
+      <zorder>label</zorder>
+      <zorder>label_2</zorder>
+      <zorder>label_3</zorder>
+      <zorder>label_4</zorder>
+      <zorder>label_5</zorder>
+      <zorder>label_6</zorder>
+      <zorder>label_7</zorder>
+      <zorder>lnPriceXMR</zorder>
+      <zorder>lnPriceUSD</zorder>
+      <zorder>lnHigh</zorder>
+      <zorder>lnLow</zorder>
+      <zorder>lnChange</zorder>
+      <zorder>lnBTCPriceUSD</zorder>
+      <zorder>label_9</zorder>
+      <zorder>label_10</zorder>
+      <zorder>label_11</zorder>
+      <zorder>label_12</zorder>
+      <zorder>label_13</zorder>
+      <zorder>label_14</zorder>
+      <zorder>label_15</zorder>
+      <zorder>lnBuyPrice</zorder>
+      <zorder>lnBuyAmount</zorder>
+      <zorder>lnBuyTotal</zorder>
+      <zorder>lnSellPrice</zorder>
+      <zorder>lnSellAmount</zorder>
+      <zorder>lnSellTotal</zorder>
+      <zorder>buyButton</zorder>
+      <zorder>sellButton</zorder>
+      <zorder>btnBuyGetBTCTotal</zorder>
+      <zorder>btnSellGetBTCPrice</zorder>
+      <zorder>line</zorder>
+      <zorder>label_23</zorder>
+      <zorder>label_24</zorder>
+      <zorder>label_27</zorder>
+      <zorder>line_2</zorder>
      </widget>
     </widget>
     <widget class="QWidget" name="stackOO">
@@ -2359,7 +2491,7 @@ border-color: rgb(218, 218, 218);</string>
         <x>-2</x>
         <y>0</y>
         <width>674</width>
-        <height>533</height>
+        <height>527</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -2371,19 +2503,22 @@ border-color: rgb(218, 218, 218);</string>
       <property name="minimumSize">
        <size>
         <width>673</width>
-        <height>533</height>
+        <height>510</height>
        </size>
       </property>
       <property name="maximumSize">
        <size>
         <width>674</width>
-        <height>531</height>
+        <height>530</height>
        </size>
       </property>
       <property name="font">
        <font>
         <family>Century Gothic</family>
        </font>
+      </property>
+      <property name="styleSheet">
+       <string notr="true"/>
       </property>
       <property name="frameShape">
        <enum>QFrame::Box</enum>
@@ -2452,7 +2587,7 @@ border-color: rgb(218, 218, 218);</string>
         <x>-2</x>
         <y>0</y>
         <width>674</width>
-        <height>533</height>
+        <height>527</height>
        </rect>
       </property>
       <property name="sizePolicy">
@@ -2464,7 +2599,7 @@ border-color: rgb(218, 218, 218);</string>
       <property name="minimumSize">
        <size>
         <width>673</width>
-        <height>533</height>
+        <height>527</height>
        </size>
       </property>
       <property name="maximumSize">
@@ -2545,13 +2680,13 @@ border-color: rgb(218, 218, 218);</string>
         <x>-1</x>
         <y>0</y>
         <width>673</width>
-        <height>533</height>
+        <height>527</height>
        </rect>
       </property>
       <property name="minimumSize">
        <size>
         <width>671</width>
-        <height>531</height>
+        <height>527</height>
        </size>
       </property>
       <property name="maximumSize">
@@ -2710,9 +2845,9 @@ QPushButton:checked{ background-color: pink; }
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>20</y>
+      <y>25</y>
       <width>170</width>
-      <height>221</height>
+      <height>217</height>
      </rect>
     </property>
     <property name="autoFillBackground">
@@ -3307,7 +3442,7 @@ color: rgb(103, 103, 103);
      <property name="geometry">
       <rect>
        <x>22</x>
-       <y>168</y>
+       <y>160</y>
        <width>121</width>
        <height>16</height>
       </rect>
@@ -3498,7 +3633,7 @@ color: rgb(103, 103, 103);
      <property name="geometry">
       <rect>
        <x>19</x>
-       <y>184</y>
+       <y>176</y>
        <width>131</width>
        <height>20</height>
       </rect>
@@ -4307,9 +4442,9 @@ color: rgb(103, 103, 103);
     <property name="geometry">
      <rect>
       <x>0</x>
-      <y>0</y>
+      <y>-1</y>
       <width>841</width>
-      <height>20</height>
+      <height>26</height>
      </rect>
     </property>
     <property name="sizePolicy">
@@ -4331,7 +4466,7 @@ background-color: rgb(120, 13, 13);
     <property name="geometry">
      <rect>
       <x>818</x>
-      <y>0</y>
+      <y>2</y>
       <width>21</width>
       <height>21</height>
      </rect>
@@ -4388,7 +4523,7 @@ background-color: rgb(193,210,230);
     <property name="geometry">
      <rect>
       <x>373</x>
-      <y>1</y>
+      <y>4</y>
       <width>101</width>
       <height>16</height>
      </rect>
@@ -4410,7 +4545,7 @@ background-color: rgb(193,210,230);
     <property name="geometry">
      <rect>
       <x>796</x>
-      <y>0</y>
+      <y>1</y>
       <width>21</width>
       <height>21</height>
      </rect>

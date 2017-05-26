@@ -316,7 +316,6 @@ class Thread(QThread):
         
 
         self.retOpenOrdersXMR = self.poloInstance.returnOpenOrders("BTC_XMR")
-        print (self.retOpenOrdersXMR)
 
 
         if self.retOpenOrdersXMR == False:
@@ -467,7 +466,6 @@ class Thread(QThread):
                     if self.confirmPopup(text) == True:
                     
                         exeSell = self.poloInstance.sell("BTC_XMR",SellreadBTCprice, SellreadXMRAmount)
-                        print ("ExeSell: " + str(exeSell))
 
                         if exeSell is False:
                             self.popup("Sell order not placed \nPlease check your network connectivity and try again", "failed")
@@ -500,7 +498,6 @@ class Thread(QThread):
         if self.confirmPopup(text) == True:
 
             resultCancel = self.poloInstance.cancel("BTC_XMR", orderNumberXMR)
-            print ("resultCancel: " + str(resultCancel))
             QtCore.QCoreApplication.processEvents()
             
             if resultCancel is False:
