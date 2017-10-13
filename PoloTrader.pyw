@@ -24,6 +24,8 @@ import res_rc
 import logging
 from main import Ui_MainWindow
 import trace
+
+QApplication.setAttribute(Qt.AA_EnableHighDpiScaling, True)
  
 class MyGui(QtWidgets.QMainWindow, Ui_MainWindow):   
     def __init__(self, parent=None):
